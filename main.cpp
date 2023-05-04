@@ -1,9 +1,11 @@
 #include "stdafx.h"
+#include "Jogo.h"
+
 
 int main()
 {
 	
-	//Teste
+	Jogo jogo;
 
 	return 0;
 }
