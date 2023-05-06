@@ -1,8 +1,6 @@
-﻿  stdafx.cpp
-  Jogo.cpp
-  main.cpp
+﻿  main.cpp
   Gerando código
   Previous IPDB not found, fall back to full compilation.
-  All 3 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 9 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finalizada a geração de código
   TrabalhoTecProg.vcxproj -> C:\Users\Ricardo Affonso\source\repos\TrabalhoTecProg\Release\TrabalhoTecProg.exe

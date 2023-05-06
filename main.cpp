@@ -3,12 +3,8 @@
 
 
 int main()
-{
-<<<<<<< HEAD
-=======
-	
+{	
 	Jogo jogo;
 
->>>>>>> Ricardo
 	return 0;
 }
