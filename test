@@ -1,1 +1,39 @@
-//test
+//perguntar p monitor sobre colisão
+
+int main()
+{
+    Gerenciador_Grafico GG;
+
+    Gerenciador_Colisoes GC;
+    
+    ListaEntidades ListaObstaculos;
+
+    Ente::setGG(&GG);// todos têm acesso ao editor gráfico
+
+    GG.inicializar();// Inicializado a biblioteca gráfica
+    
+    Arvore_obstaculo* pa1 = NULL;
+    for(int i = 0; i < 3; i++)
+    {
+        
+        pa1 = newArvore();
+        ListaObstaculos.incluir(pa1);
+    }
+
+    Boitata_inimigo* b1 = NULL;
+    for(int i = 0; i < 3; i++)
+    {
+        b1 = newInimigo();
+        VectorInimigos.incluir(b1);
+    }
+
+    MulaSC_inimigo m1;
+    Jogador j1;
+    for(int i = 0; i < 1000; i++)
+    {
+        a1.executar();
+        b1.movimentar();
+        m2.movimentar();
+        j1.movimentar();// em função da tecla apertada    
+    }
+}
