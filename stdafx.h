@@ -1,6 +1,10 @@
 #include <ctime>
 #include <iostream>
+#include <conio.h>
+#include <math.h>
 #include <time.h>
+
+using namespace std;
 
 //SFML
 #include <SFML/Audio.hpp>
