@@ -16,6 +16,9 @@
     <Filter Include="Arquivos de Cabeçalho\Templates">
       <UniqueIdentifier>{e6f7be36-8e09-41cd-aae1-9ebf89fa7fec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Entes">
+      <UniqueIdentifier>{2b866481-d35b-4aa5-a3a7-512e50077785}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,20 +59,20 @@
     <ClInclude Include="Elemento.h">
       <Filter>Arquivos de Cabeçalho\Templates</Filter>
     </ClInclude>
-    <ClInclude Include="Ente.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="Lista_Entidades.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Personagem.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+    <ClInclude Include="Ente.h">
+      <Filter>Arquivos de Cabeçalho\Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
+      <Filter>Arquivos de Cabeçalho\Entes</Filter>
     </ClInclude>
     <ClInclude Include="Jogador.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Arquivos de Cabeçalho\Entes</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Arquivos de Cabeçalho\Entes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
