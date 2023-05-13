@@ -1,14 +1,17 @@
 #pragma once
 
+/* Código baseado no vídeo do Felipe Alvez Barboza, monitor de 2020*/
+
 #include "Elemento.h"
 #include <iostream>
 using namespace std;
 
-template <class Tipo> class Lista
+template<class Tipo> 
+class Lista
 {
 private:
-	Elemento<Tipo*> pInicio;
-	Elemento<Tipo*> pFinal;
+	Elemento<Tipo>* pInicio;
+	Elemento<Tipo>* pFinal;
 	int tam;
 
 public:
@@ -21,6 +24,7 @@ public:
 
 	void push(Tipo* pT);
 	void pop(Tipo* pT);
+
 };
 
 /*-------------------------------*/

@@ -3,7 +3,10 @@
 
 Jogo::Jogo() : window(sf::VideoMode(400,400), "Jogo")
 {
+	window.setFramerateLimit(60);
 
+	jogador1 = new Jogador();
+	jogador1->setWindow(&window);
 
 	executar();
 }
@@ -20,6 +23,8 @@ void Jogo::executar()
 		teclas_pressionadas();
 
 		window.clear();
+		jogador1->draw();
+		jogador1->move();
 		window.display();
 	}
 }
@@ -37,6 +42,5 @@ void Jogo::eventos()
 
 void Jogo::teclas_pressionadas()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D));
-		
+
 }
