@@ -591,6 +591,7 @@
     <ProjectGuid>{e4d2aefd-4d4d-4cb2-8905-9c96cbabd45a}</ProjectGuid>
     <RootNamespace>TrabalhoTecProg</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>AgeOfWarriors</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
