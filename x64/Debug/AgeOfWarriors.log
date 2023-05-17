@@ -1,0 +1,57 @@
+﻿  Ftp.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\ftp\Ftp.cpp': No such file or directory
+  Island.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\island\Island.cpp': No such file or directory
+  Joystick.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\joystick\Joystick.cpp': No such file or directory
+  OpenGL.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\opengl\OpenGL.cpp': No such file or directory
+  Pong.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\pong\Pong.cpp': No such file or directory
+  Shader.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\shader\Shader.cpp': No such file or directory
+  Sockets.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\sockets\Sockets.cpp': No such file or directory
+  TCP.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\sockets\TCP.cpp': No such file or directory
+  UDP.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\sockets\UDP.cpp': No such file or directory
+  SoundCapture.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\sound-capture\SoundCapture.cpp': No such file or directory
+  Sound.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\sound\Sound.cpp': No such file or directory
+  Client.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\voip\Client.cpp': No such file or directory
+  Server.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\voip\Server.cpp': No such file or directory
+  VoIP.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\voip\VoIP.cpp': No such file or directory
+  Win32.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\win32\Win32.cpp': No such file or directory
+  Window.cpp
+c1xx : fatal  error C1083: Não é possível abrir arquivo fonte: 'SFML-2.5.1\examples\window\Window.cpp': No such file or directory
+  Ente.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Ente.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Entidade.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Entidade\Entidade.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Jogador.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Entidade\Personagem\Jogador\Jogador.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Personagem.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Entidade\Personagem\Personagem.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Gerando Código...
+  Compilando...
+  Estado.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Estado\Estado.cpp(1,1): fatal  error C1010: fim de arquivo inesperado durante procura por cabeçalho pré-compilado. Você esqueceu de adicionar '#include "stdafx.h"' à sua fonte?
+  Jogo.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Estado\Jogo.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Nivel.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Estado\Nivel.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Colisao.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Gerenciador\Colisao.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  ListaEntidades.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\Lista\ListaEntidades.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  main.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\main.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  stdafx.cpp
+C:\Users\revox\source\repos\RicardoAffonso0607\Jogo\src\stdafx.cpp(1,10): fatal  error C1083: Não é possível abrir arquivo cabeçalho pré-compilado: 'x64\Debug\AgeOfWarriors.pch': No such file or directory
+  Gerando Código...
