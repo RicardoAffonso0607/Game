@@ -1,11 +1,11 @@
+#include <cmath>
+#include <cstdlib>
 #include <ctime>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <list>
 #include <vector>
-#include <conio.h>
-#include <math.h>
-#include <time.h>
 
 //SFML
 #include <SFML/Audio.hpp>
