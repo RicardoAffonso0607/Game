@@ -1,6 +1,8 @@
 #pragma once
 
-//namespace Math {
+#include <iostream>
+
+//namespace Calculadora{
 //
 //    template <typename TL>
 //    class Coord {

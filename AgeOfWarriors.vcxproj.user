@@ -14,12 +14,12 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x86\bin;
+    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x64\bin;
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x86\bin;
+    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x64\bin;
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>

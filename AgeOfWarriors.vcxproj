@@ -22,6 +22,8 @@
     <ClCompile Include="Game\src\Calculadora\Calculadora.cpp" />
     <ClCompile Include="Game\src\Ente.cpp" />
     <ClCompile Include="Game\src\Entidade\Entidade.cpp" />
+    <ClCompile Include="Game\src\Entidade\EntidadeFixa.cpp" />
+    <ClCompile Include="Game\src\Entidade\EntidadeMovel.cpp" />
     <ClCompile Include="Game\src\Entidade\Personagem\Jogador\Jogador.cpp" />
     <ClCompile Include="Game\src\Entidade\Personagem\Personagem.cpp" />
     <ClCompile Include="Game\src\Estado\Estado.cpp" />
@@ -30,13 +32,19 @@
     <ClCompile Include="Game\src\Gerenciador\Colisao.cpp" />
     <ClCompile Include="Game\src\Lista\ListaEntidades.cpp" />
     <ClCompile Include="Game\src\main.cpp" />
-    <ClCompile Include="Game\src\stdafx.cpp" />
+    <ClCompile Include="Game\src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\inc\Calculadora\Calculadora.h" />
     <ClInclude Include="Game\inc\Ente.h" />
     <ClInclude Include="Game\inc\Entidade\Entidade.h" />
-    <ClInclude Include="Game\inc\Entidade\EntidadeMovendo.h" />
+    <ClInclude Include="Game\inc\Entidade\EntidadeFixa.h" />
+    <ClInclude Include="Game\inc\Entidade\EntidadeMovel.h" />
     <ClInclude Include="Game\inc\Entidade\Personagem\Jogador\Jogador.h" />
     <ClInclude Include="Game\inc\Entidade\Personagem\Personagem.h" />
     <ClInclude Include="Game\inc\Estado\Estado.h" />
@@ -46,7 +54,7 @@
     <ClInclude Include="Game\inc\Lista\Elemento.h" />
     <ClInclude Include="Game\inc\Lista\Lista.h" />
     <ClInclude Include="Game\inc\Lista\ListaEntidades.h" />
-    <ClInclude Include="Game\inc\stdafx.h" />
+    <ClInclude Include="Game\inc\pch.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -135,6 +143,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +164,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -172,14 +182,15 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.5.1x86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.5.1x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\SFML-2.5.1x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\SFML-2.5.1x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -192,9 +203,10 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.5.1x86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.5.1x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -202,7 +214,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\SFML-2.5.1x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\SFML-2.5.1x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,3 +2,7 @@
 x64
 Debug
 Release
+*.filters
+*.user
+*.sln
+*.vcxproj
