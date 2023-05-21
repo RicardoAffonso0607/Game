@@ -3,27 +3,40 @@
 Trabalho da disciplina Técnicas de Programação
 
 Autores:
+
 Ricardo Affonso
+
 Lucas Yukio Fukuda Matsumoto
 
 —-----------------------------------------
+
 Configurações do projeto AgeOfWars.vcxproj no Visual Studio 2022:
+
 Selecionar
+
 Configuração: Debug
+
 Plataforma: Todas as Plataformas
+
 
 Propriedades de Configuração -> C/C++ -> Vinculador -> Entrada -> Dependências Adicionais -> sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)
 
 —-----------------------------------------
+
 Selecionar
+
 Configuração: Release
+
 Plataforma: Todas as Plataformas
 
 Propriedades de Configuração -> C/C++ -> Vinculador -> Entrada -> Dependências Adicionais -> sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib;%(AdditionalDependencies)
 
 —----------------------------------------
+
 Selecionar
+
 Configuração: Todas as Configurações
+
 Plataforma: Todas as Plataformas
 
 Propriedades de Configuração -> Geral -> Propriedades Gerais -> Visual Studio 2022 (v143)
