@@ -45,19 +45,41 @@ Propriedades de Configuração -> Geral -> Propriedades Gerais -> Padrão de Lin
 
 Propriedades de Configuração -> Geral -> Propriedades Gerais -> Padrão de Linguagem C -> Padrão ISO C17 (2018) (/std:c17)
 
-Propriedades de Configuração -> Depuração -> Ambiente -> PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x86\bin;$(LocalDebuggerEnvironment)
-
 Propriedades de Configuração -> Diretórios VC++ -> Diretórios de Inclusão -> $(SolutionDir)\Game\inc;$(IncludePath)
 
 Propriedades de Configuração -> Diretórios VC++ -> Diretórios de Origem -> $(SolutionDir)\Game\src;$(SourcePath)
+
+Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeçalho Pré-compilado -> Usar (/Yu)
+
+Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Arquivo de Cabeçalho Pré-compilado -> pch.h
+
+—----------------------------------------
+
+Selecionar
+
+Configuração: Todas as Configurações
+
+Plataforma: x86
+
+Propriedades de Configuração -> Depuração -> Ambiente -> PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x86\bin;$(LocalDebuggerEnvironment)
 
 Propriedades de Configuração -> C/C++ -> Geral -> Diretórios de Inclusão Adicionais -> $(SolutionDir)\SFML-2.5.1x86\include;%(AdditionalIncludeDirectories)
 
 Propriedades de Configuração -> C/C++ -> Vinculador -> Geral -> Diretórios de Biblioteca Adicionais -> $(SolutionDir)\SFML-2.5.1x86\lib;%(AdditionalLibraryDirectories)
 
-Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeçalho Pré-compilado -> Usar (/Yu)
+—----------------------------------------
 
-Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Arquivo de Cabeçalho Pré-compilado -> pch.h
+Selecionar
+
+Configuração: Todas as Configurações
+
+Plataforma: x64
+
+Propriedades de Configuração -> Depuração -> Ambiente -> PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x64\bin;$(LocalDebuggerEnvironment)
+
+Propriedades de Configuração -> C/C++ -> Geral -> Diretórios de Inclusão Adicionais -> $(SolutionDir)\SFML-2.5.1x64\include;%(AdditionalIncludeDirectories)
+
+Propriedades de Configuração -> C/C++ -> Vinculador -> Geral -> Diretórios de Biblioteca Adicionais -> $(SolutionDir)\SFML-2.5.1x64\lib;%(AdditionalLibraryDirectories)
 
 —-----------------------------------------------
 
