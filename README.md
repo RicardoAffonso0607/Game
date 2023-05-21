@@ -60,8 +60,13 @@ Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeç
 Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Arquivo de Cabeçalho Pré-compilado -> pch.h
 
 —-----------------------------------------------
+
 Botão direito no pch.cpp -> Propriedades
+
 Selecionar
+
 Configuração: Todas as Configurações
+
 Plataforma: Todas as Plataformas
--> Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeçalho Pré-compilado -> Criar (/Yc)
+
+Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeçalho Pré-compilado -> Criar (/Yc)
