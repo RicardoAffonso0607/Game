@@ -59,7 +59,7 @@ Selecionar
 
 Configuração: Todas as Configurações
 
-Plataforma: x86
+Plataforma: Win32
 
 Propriedades de Configuração -> Depuração -> Ambiente -> PATH=%PATH%;$(SolutionDir)\SFML-2.5.1x86\bin;$(LocalDebuggerEnvironment)
 
