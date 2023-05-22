@@ -5,8 +5,4 @@ Release
 *.filters
 *.user
 *.sln
-<<<<<<< HEAD
 *.vcxproj
-=======
-*.vcxproj
->>>>>>> 98b8ab91b907615c3f725542f87922dd1da9ebc6
