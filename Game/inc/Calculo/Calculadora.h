@@ -1,9 +1,14 @@
 #pragma once
 
-#include <iostream>
+namespace Calculo{
+	class Calculadora{
+	private:
 
-//namespace Calculadora{
-//
+	public:
+		Calculadora();
+		~Calculadora();
+
+	};
 //    template <typename TL>
 //    class Coord {
 //    public:
@@ -118,4 +123,4 @@
 //        return Coord<TL>(this->x / scalar, this->y / scalar);
 //    }
 //
-//}
+}
