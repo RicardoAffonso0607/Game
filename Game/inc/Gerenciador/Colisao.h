@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Entidade/Entidade.h"
 #include "Lista/ListaEntidades.h"
 

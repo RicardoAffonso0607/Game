@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
 Jogador::Jogador()

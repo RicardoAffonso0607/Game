@@ -30,7 +30,12 @@
     <ClCompile Include="Game\src\Gerenciador\Colisao.cpp" />
     <ClCompile Include="Game\src\Lista\ListaEntidades.cpp" />
     <ClCompile Include="Game\src\main.cpp" />
-    <ClCompile Include="Game\src\stdafx.cpp" />
+    <ClCompile Include="Game\src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\inc\Calculadora\Calculadora.h" />
@@ -46,7 +51,7 @@
     <ClInclude Include="Game\inc\Lista\Elemento.h" />
     <ClInclude Include="Game\inc\Lista\Lista.h" />
     <ClInclude Include="Game\inc\Lista\ListaEntidades.h" />
-    <ClInclude Include="Game\inc\stdafx.h" />
+    <ClInclude Include="Game\inc\pch.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -135,6 +140,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +161,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -175,6 +182,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.5.1x86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -195,6 +204,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.5.1x86\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "Estado/Jogo.h"
 
 Jogo::Jogo() : window(sf::VideoMode(400,400), "Jogo")

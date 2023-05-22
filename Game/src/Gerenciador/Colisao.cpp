@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "Gerenciador/Colisao.h"
 #include "Entidade/EntidadeMovendo.h"
 #include "Estado/Nivel.h"
