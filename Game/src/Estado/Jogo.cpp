@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Estado/Jogo.h"
 
-Jogo::Jogo() : window(sf::VideoMode(400,400), "Jogo")
+Jogo::Jogo() : window(sf::VideoMode(400,400), "Age of Warriors++")
 {
 	window.setFramerateLimit(60);
 

@@ -4,21 +4,14 @@
 #include "Entidade/Entidade.h"
 #include "Lista/ListaEntidades.h"
 
-//namespace Estado{
-//    class Nivel;
-//}
-//
-//namespace Gerenciador{
-//    class Colisao{
-//    private:
-//        Lista::ListaEntidades* entidadesMovendo;
-//        Lista::ListaObstaculos* entidadesEstaticas;
-//        Estado::Nivel* pnivel;
-//    public:
-//        Colisao(List::ListaEntidades* entidadesMovendo, List::ListaEntidades* entidadesEstaticas, Estado::Nivel* pnivel);
-//        ~Colisao();
-//        void colidir();
-//        void limpar();
-//    };
-//}
-
+namespace Gerenciador{
+    class Colisao{
+    protected:
+        //Entidades::EntidadeMovel *eMov;
+        //Entidades::EntidadeFixa *eFix;
+        void colidiu();
+    public:
+        Colisao(/*Entidades::EntidadeMovel *eMov, Entidades::EntidadeFixa *eFix*/);
+        ~Colisao();
+    };
+}
