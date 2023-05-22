@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "Entidade/Entidade.h"
+#include "../../inc/Entidade/Entidade.h"
 
-Entidade::Entidade() : x(0), y(0), body(sf::Vector2f(100.f, 100.f)), pWindow(NULL)
+Entidade::Entidade(int id) : pos(0.f, 0.f), body(sf::Vector2f(100.f, 100.f)), pWindow(NULL), Ente()
 {
-
+	this->id = id;
 }
 
 Entidade::~Entidade()

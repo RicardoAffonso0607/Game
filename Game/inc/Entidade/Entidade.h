@@ -1,17 +1,15 @@
 #pragma once
-
-#include "Ente.h"
+#include "../Ente.h"
 
 class Entidade : public Ente
 {
 protected:
-	int x;
-	int y; 
+	sf::Vector2f pos;
 	sf::RectangleShape body;
 	sf::RenderWindow* pWindow;
 
 public:
-	Entidade();
+	Entidade(int id);
 	~Entidade();
 
 	void setWindow(sf::RenderWindow* window) { pWindow = window; }
