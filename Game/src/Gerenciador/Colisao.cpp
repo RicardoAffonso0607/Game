@@ -1,17 +1,18 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "Gerenciador/Colisao.h"
-#include "Entidade/EntidadeMovendo.h"
+#include "Entidade/EntidadeMovel.h"
+#include "Entidade/EntidadeFixa.h"
 #include "Estado/Nivel.h"
 
 //namespace Gerenciador{
-//    Colisao::Colisao(Lista::ListaEntidades* entidadesMovendo, Lista::ListaEntidades* entidadesEstaticas, Estado::Nivel* pnivel):
-//        entidadeMovendo(entidadeMovendo),
-//        entidadeEstatica(entidadeEstatica),
+//    Colisao::Colisao(Lista::ListaEntidades* entidadesMoveis, Lista::ListaEntidades* entidadesFixas, Estado::Nivel* pnivel):
+//        entidadeMovel(entidadeMovel),
+//        entidadeFixa(entidadeFixa),
 //        pnivel(pnivel){}
 //
 //    Colisao::~Colisao(){
-//        entidadeEstatica = nullptr;
-//        entidadeMovendo = nullptr;
+//        entidadeFixa = nullptr;
+//        entidadeMovel = nullptr;
 //    }
 //
 //    void Colisao::colidir(){
@@ -20,10 +21,10 @@
 //        Calculadora::CoordF intersect;
 //        Calculadora::CoordF centerDistance;
 //        int i, j;
-//        for (i = 0; i < entidadeEstatica->getSize(); i++) {
-//            for (j = 0; j < movingEntities->getSize(); j++) {
-//                ent1 = (*staticEntities)[i];
-//                ent2 = (*movingEntities)[j];
+//        for (i = 0; i < entidadeFixa->getSize(); i++) {
+//            for (j = 0; j < entidadesMoveis->getSize(); j++) {
+//                ent1 = (*entidadesFixas)[i];
+//                ent2 = (*entidadesMoveis)[j];
 //
 //                centerDistance.x = ent2->getPosition().x - ent1->getPosition().x;
 //                centerDistance.y = ent2->getPosition().y - ent1->getPosition().y;
@@ -36,10 +37,10 @@
 //                }
 //            }
 //        }
-//        for (i = 0; i < movingEntities->getSize(); i++){
-//            for (j = i + 1; j < movingEntities->getSize(); j++) {
-//                ent1 = (*movingEntities)[i];
-//                ent2 = (*movingEntities)[j];
+//        for (i = 0; i < entidadesMoveis->getSize(); i++){
+//            for (j = i + 1; j < entidadesMoveis->getSize(); j++) {
+//                ent1 = (*entidadesMoveis)[i];
+//                ent2 = (*entidadesMoveis)[j];
 //
 //                centerDistance.x = ent2->getPosition().x - ent1->getPosition().x;
 //                centerDistance.y = ent2->getPosition().y - ent1->getPosition().y;
@@ -58,13 +59,13 @@
 //
 //    void Colisao::limpar(){
 //        Entidade::MovingEntity* pAux = nullptr;
-//        for (int i = 0; i < movingEntities->getSize(); i++) {
-//            pAux = static_cast<Entities::MovingEntity*>((*movingEntities)[i]);
+//        for (int i = 0; i < entidadesMoveis->getSize(); i++) {
+//            pAux = static_cast<Entities::MovingEntity*>((*entidadesMoveis)[i]);
 //            if (pAux != nullptr) {
 //                if (!pAux->isActive()) {
 //                    if (pAux->getId() != Entities::ID::coin)
 //                        plvl->coinBomb(pAux->getPosition());
-//                    movingEntities->deleteEntity(pAux);
+//                    entidadesMoveis->deleteEntity(pAux);
 //                    i--;
 //                    if (i < 0)
 //                        i = -1;
