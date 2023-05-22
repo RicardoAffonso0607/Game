@@ -19,7 +19,7 @@ namespace Gerenciador{
         //*eMov = nullptr;
     }
 
-    void Colisao::colidiu(ent1, ent2){
+    void Colisao::colidiu(/*ent1, ent2*/){
         //Calculo::Calculadora::CoordF intersect;
         //Calculo::Calculadora::CoordF centerDistance;
         //        centerDistance.x = ent2->getPosition().x - ent1->getPosition().x;
@@ -27,8 +27,8 @@ namespace Gerenciador{
         //        intersect.x = fabs(centerDistance.x) - (ent1->getSize().x / 2.0f + ent2->getSize().x / 2.0f);
         //        intersect.y = fabs(centerDistance.y) - (ent1->getSize().y / 2.0f + ent2->getSize().y / 2.0f);
         //        if (intersect.x < 0.0f && intersect.y < 0.0f){
-        //            ent2->collide(ent1, intersect);
-        //            ent1->collide(ent2, intersect);
+        //            ent2->colidiu(ent1, intersect);
+        //            ent1->colidiu(ent2, intersect);
         //        }
         //    }
         //}
