@@ -1,7 +1,7 @@
 #pragma once
 
 /* Código baseado no vídeo do Felipe Alvez Barboza, monitor de 2020*/
-#include "stdafx.h"
+#include "pch.h"
 #include "Lista/Elemento.h"
 
 using namespace std;
