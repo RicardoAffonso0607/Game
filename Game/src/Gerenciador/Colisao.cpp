@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Calculo/Calculadora.h"
 #include "Gerenciador/Colisao.h"
-#include "Entidade/EntidadeMovel.h"
-#include "Entidade/EntidadeFixa.h"
 
 namespace Gerenciador{
     Colisao::Colisao(/*Entidades::EntidadeFixa* eFix, Entidades::EntidadeMovel* eMov*/){
