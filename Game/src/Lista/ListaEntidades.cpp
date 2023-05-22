@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Lista\ListaEntidades.h"
+#include "../../inc/Lista/ListaEntidades.h"
 
 ListaEntidades::ListaEntidades()
 {

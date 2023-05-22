@@ -1,9 +1,9 @@
 #pragma once
 
 /* Código baseado no vídeo do Felipe Alvez Barboza, monitor de 2020*/
-#include "pch.h"
-#include "Lista/Elemento.h"
 
+#include "Elemento.h"
+#include <iostream>
 using namespace std;
 
 template<class Tipo> 
