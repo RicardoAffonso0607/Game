@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "../../Game/inc/Entidade/Personagem/Inimigos/EnemyRanged.h"
-#include "../../../../inc/Entidade/Personagem/Inimigos/Projectile.h"
+#include "Entidade/Personagem/Inimigos/EnemyRanged.h"
+#include "Entidade/Personagem/Inimigos/Projectile.h"
 
 EnemyRanged::EnemyRanged(sf::Vector2f pos, int id) : Enemies(pos,id)
 {

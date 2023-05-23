@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../../inc/Entidade/Obstaculos/Plataforma.h"
+#include "Entidade/Obstaculos/Plataforma.h"
 
 Plataforma::Plataforma(sf::Vector2f pos, int id) : Obstacles(pos, id)
 {

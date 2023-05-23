@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../Game/inc/Entidade/Personagem/Inimigos/Boss.h"
+#include "Entidade/Personagem/Inimigos/Boss.h"
 
 Boss::Boss(sf::Vector2f pos, int id) : Enemies(pos,id)
 {

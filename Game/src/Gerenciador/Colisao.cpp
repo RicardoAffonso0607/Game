@@ -2,7 +2,7 @@
 #include "Gerenciador/Colisao.h"
 
 namespace Gerenciador{
-    Colisao::Colisao(ListaEntidades list_ent){
+    Colisao::Colisao(ListaEntidades *list_ent){
         //int i, j;
         //for (i = 0; i < list_ent->getTamanho(); i++) {
         //    if(list_ent->getEntity(i)->isMovable())
@@ -32,7 +32,8 @@ namespace Gerenciador{
         //}
     }
 
-    void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f centerDistance, sf::Vector2f centerSum) {
+    /* ao andar e sobrepor outra entidade, volta à posição só encostado */
+    void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f centerDistance, sf::Vector2f centerSum){
         //if (ent1->isMovable() && !ent2->isMovable()) {
         //    if (ent1->getPosition().x <= ent2->getPosition().x){
         //        ent1->pos.x = ent2->x - centerSum.x;

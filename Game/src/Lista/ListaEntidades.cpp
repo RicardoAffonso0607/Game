@@ -1,10 +1,8 @@
 #include "pch.h"
-#include "../../inc/Lista/ListaEntidades.h"
+#include "Lista/ListaEntidades.h"
 
-ListaEntidades::ListaEntidades()
-{
+ListaEntidades::ListaEntidades(){
 }
 
-ListaEntidades::~ListaEntidades()
-{
+ListaEntidades::~ListaEntidades(){
 }

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../inc/Ente.h"
+#include "Ente.h"
 
 Ente::Ente()
 {

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../Game/inc/Entidade/Obstaculos/ObstacleDamage.h"
+#include "Entidade/Obstaculos/ObstacleDamage.h"
 
 ObstacleDamage::ObstacleDamage(sf::Vector2f pos, int id) : Obstacles(pos, id), damage(1)
 {

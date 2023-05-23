@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../../../inc/Entidade/Personagem/Jogador/Jogador.h"
+#include "Entidade/Personagem/Jogador/Jogador.h"
 
 Jogador::Jogador(sf::Vector2f pos, int id, int life) : Personagem(pos, id)
 {

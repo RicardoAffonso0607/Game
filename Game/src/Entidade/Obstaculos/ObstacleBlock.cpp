@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../../inc/Entidade/Obstaculos/ObstacleBlock.h"
+#include "Entidade/Obstaculos/ObstacleBlock.h"
 
 ObstacleBlock::ObstacleBlock(sf::Vector2f pos, int id) : Obstacles(pos, id)
 {

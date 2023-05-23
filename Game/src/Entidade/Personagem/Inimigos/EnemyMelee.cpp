@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../Game/inc/Entidade/Personagem/Inimigos/EnemyMelee.h"
+#include "Entidade/Personagem/Inimigos/EnemyMelee.h"
 
 EnemyMelee::EnemyMelee(sf::Vector2f pos, int id) : Enemies(pos, id)
 {

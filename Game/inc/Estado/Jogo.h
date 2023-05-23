@@ -1,17 +1,18 @@
 #pragma once
 
-#include "../Entidade/Personagem/Jogador/Jogador.h"
-#include "../Lista/ListaEntidades.h"
-#include "../Entidade/Personagem/Inimigos/EnemyMelee.h"
+#include "Entidade/Personagem/Jogador/Jogador.h"
+#include "Lista/ListaEntidades.h"
+#include "Entidade/Personagem/Inimigos/EnemyMelee.h"
+#include "Estado/Fase.h"
 
 class Jogo
 {
 private:
 	sf::RenderWindow window;
-	ListaEntidades list_ent;
+	ListaEntidades *listaEntidades;
 	Jogador* jogador1;
 	EnemyMelee* enemy1;
-
+	//Fase fase1;
 public:
 	Jogo();
 	~Jogo();

@@ -1,5 +1,6 @@
 #include "pch.h"
-#include "../../inc/Estado/Jogo.h"
+#include "Estado/Jogo.h"
+#include "Estado/Fase.h"
 
 Jogo::Jogo() : window(sf::VideoMode(1400,1000), "Jogo")
 {
@@ -11,8 +12,8 @@ Jogo::Jogo() : window(sf::VideoMode(1400,1000), "Jogo")
 	enemy1 = new EnemyMelee(sf::Vector2f(400.f, 10.f), 2);
 	enemy1->setWindow(&window);
 	enemy1->setPlayer(jogador1);
-
-
+	//fase1 = new Fase(jogador1);
+	//listaEntidades = fase1.getList();
 	executar();
 }
 

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Gerenciador/Salvamento.h"
+#include "Gerenciador/Grafico.h"
 
 namespace Gerenciador{
 	Grafico::Grafico(){
