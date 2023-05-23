@@ -4,6 +4,11 @@
 
 EnemyRanged::EnemyRanged(sf::Vector2f pos, int id) : Enemies(pos,id)
 {
+	this->movable = true;
+	this->attacker = true;
+	this->retarder = false;
+	this->damageable = true;
+
 	magic = NULL;
 	this->life = 50;
 	this->damage = 0;

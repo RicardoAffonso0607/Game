@@ -3,12 +3,18 @@
 
 Jogador::Jogador(sf::Vector2f pos, int id, int life) : Personagem(pos, id)
 {
+	this->movable = true;
+	this->attacker = true;
+	this->retarder = false;
+	this->damageable = true;
+
 	this->life = life;
 	this->damage = 0;
 
-
 	body.setFillColor(sf::Color::Blue);
 	body.setPosition(pos);
+	
+
 
 }
 

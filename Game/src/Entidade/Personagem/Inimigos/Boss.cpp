@@ -3,6 +3,11 @@
 
 Boss::Boss(sf::Vector2f pos, int id) : Enemies(pos,id)
 {
+	this->movable = true;
+	this->attacker = true;
+	this->retarder = false;
+	this->damageable = true;
+
 	this->life = 100;
 	this->damage = 10;
 

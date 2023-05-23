@@ -1,17 +1,17 @@
 #pragma once
 
-#include "pch.h"
 #include "Entidade/Entidade.h"
 #include "Lista/ListaEntidades.h"
 
 namespace Gerenciador{
     class Colisao{
     protected:
-        //Entidades::EntidadeMovel *eMov;
-        //Entidades::EntidadeFixa *eFix;
-        void colidiu();
+        void collide(Entidade *ent1, Entidade *ent2);
+        void ricochet(Entidade* ent1, Entidade* ent2);
+        void effects(Entidade* ent1, Entidade* ent2);
     public:
-        Colisao(/*Entidades::EntidadeMovel *eMov, Entidades::EntidadeFixa *eFix*/);
+        Colisao(ListaEntidades list_ent);
         ~Colisao();
     };
 }
+
