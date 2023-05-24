@@ -1,4 +1,4 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/86/GPL_v3_Blue_Badge.svg"/><img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white"/><img src="https://en.wikipedia.org/wiki/Simple_and_Fast_Multimedia_Library#/media/File:SFML2.svg" height="5" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/86/GPL_v3_Blue_Badge.svg"/>    <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white"/>    <img src="https://www.sfml-dev.org/images/logo.png" height="5" />
 
 # Jogo: Age of Warriors++
 
