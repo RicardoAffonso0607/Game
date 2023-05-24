@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Entidade/Entidade.h"
 #include "Lista/ListaEntidades.h"
 
 namespace Gerenciador{
@@ -9,8 +8,10 @@ namespace Gerenciador{
         void collide(Entidade *ent1, Entidade *ent2);
         void ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f centerDistance, sf::Vector2f centerSum);
         void effects(Entidade* ent1, Entidade* ent2);
+        void gravity(Entidade* ent1, Entidade* ent2);
     public:
-        Colisao(ListaEntidades *list_ent);
+        void collided(ListaEntidades* list_ent);
+        Colisao();
         ~Colisao();
     };
 }

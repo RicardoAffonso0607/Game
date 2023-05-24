@@ -24,14 +24,22 @@ Jogador::~Jogador()
 
 void Jogador::move()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) //Direita
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){ //Direita
 		body.move(sf::Vector2f(2.f, 0.f));
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) //Esquerda
+		this->changePosition(sf::Vector2f(2.f, 0.f));
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){ //Esquerda
 		body.move(sf::Vector2f(-2.f, 0.f));
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) //Cima
+		this->changePosition(sf::Vector2f(-2.f, 0.f));
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){ //Cima
 		body.move(sf::Vector2f(0.f, -2.f));
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) //Baixo
+		this->changePosition(sf::Vector2f(0.f, -2.f));
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){ //Baixo
 		body.move(sf::Vector2f(0.f, 2.f));
+		this->changePosition(sf::Vector2f(0.f, 2.f));
+	}
 
 }
 

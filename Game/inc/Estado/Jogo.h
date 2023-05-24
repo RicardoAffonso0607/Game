@@ -4,15 +4,19 @@
 #include "Lista/ListaEntidades.h"
 #include "Entidade/Personagem/Inimigos/EnemyMelee.h"
 #include "Estado/Fase.h"
+#include "Gerenciador/Colisao.h"
 
 class Jogo
 {
 private:
 	sf::RenderWindow window;
-	ListaEntidades *listaEntidades;
 	Jogador* jogador1;
 	EnemyMelee* enemy1;
-	//Fase fase1;
+
+protected:
+	ListaEntidades* list_ent;
+	Gerenciador::Colisao* colisor;
+
 public:
 	Jogo();
 	~Jogo();
