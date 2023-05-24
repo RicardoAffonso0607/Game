@@ -3,7 +3,7 @@
 
 Jogo::Jogo() : window(sf::VideoMode(1400, 1000), "Jogo")
 {
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(30);
 	
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;
