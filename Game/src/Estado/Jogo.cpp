@@ -3,7 +3,7 @@
 
 Jogo::Jogo() : window(sf::VideoMode(1400, 1000), "Jogo")
 {
-	window.setFramerateLimit(30);
+	window.setFramerateLimit(60);
 	
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;
@@ -11,11 +11,14 @@ Jogo::Jogo() : window(sf::VideoMode(1400, 1000), "Jogo")
 	jogador1->setWindow(&window);
 	list_ent->push(jogador1);
 
-	enemy1 = new EnemyMelee(sf::Vector2f(400.f, 400.f), 2);
+	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 200.f), 2);
 	enemy1->setWindow(&window);
 	enemy1->setPlayer(jogador1);
 	list_ent->push(enemy1);
 
+	platform1 = new Plataforma(sf::Vector2f(150.f, 300.f), 10);
+	platform1->setWindow(&window);
+	list_ent->push(platform1);
 
 	executar();
 }
@@ -32,6 +35,7 @@ void Jogo::executar()
 		teclas_pressionadas();
 
 		window.clear();
+		platform1->draw();
 		jogador1->draw();
 		enemy1->draw();
 		jogador1->move();

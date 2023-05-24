@@ -3,6 +3,7 @@
 #include "Entidade/Personagem/Jogador/Jogador.h"
 #include "Lista/ListaEntidades.h"
 #include "Entidade/Personagem/Inimigos/EnemyMelee.h"
+#include "Entidade/Obstaculos/Plataforma.h"
 #include "Estado/Fase.h"
 #include "Gerenciador/Colisao.h"
 
@@ -12,6 +13,7 @@ private:
 	sf::RenderWindow window;
 	Jogador* jogador1;
 	EnemyMelee* enemy1;
+	Plataforma* platform1;
 
 protected:
 	ListaEntidades* list_ent;
