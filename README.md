@@ -1,3 +1,6 @@
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/86/GPL_v3_Blue_Badge.svg"/>
+<img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white"/>
+
 # Jogo: Age of Warriors++
 
 Trabalho da disciplina Técnicas de Programação.
