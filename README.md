@@ -11,7 +11,7 @@ Trabalho da disciplina Técnicas de Programação.
 
 —-----------------------------------------
 
-## Configurações do projeto AgeOfWarriors.vcxproj no Visual Studio 2022:
+## Configurações do projeto AgeOfWarriors.vcxproj no Visual Studio 2022
 
 Selecionar
 
