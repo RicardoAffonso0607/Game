@@ -20,9 +20,9 @@ public:
 
 	void draw() {pWindow->draw(body); }
 
-	sf::Vector2f getPosition() { return pos; }
+	sf::Vector2f getPosition() { return body.getPosition(); }
 	sf::Vector2f getEntSize() { return body.getSize(); }
-	void changePosition(sf::Vector2f dif_pos) { pos += dif_pos; }
+	void changePosition(sf::Vector2f dif_pos) { body.move(dif_pos); }
 	bool isMovable() { return movable; }
 	bool isAttacker() { return attacker; }
 	bool isRetarder() { return retarder; }

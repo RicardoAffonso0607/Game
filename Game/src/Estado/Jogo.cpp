@@ -11,7 +11,7 @@ Jogo::Jogo() : window(sf::VideoMode(1400, 1000), "Jogo")
 	jogador1->setWindow(&window);
 	list_ent->push(jogador1);
 
-	enemy1 = new EnemyMelee(sf::Vector2f(400.f, 10.f), 2);
+	enemy1 = new EnemyMelee(sf::Vector2f(400.f, 400.f), 2);
 	enemy1->setWindow(&window);
 	enemy1->setPlayer(jogador1);
 	list_ent->push(enemy1);
