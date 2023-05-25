@@ -6,7 +6,7 @@ Plataforma::Plataforma(sf::Vector2f pos, int id) : Obstacles(pos, id) {
 	this->attacker = false;
 	this->retarder = false;
 	this->damageable = false;
-	body.setSize(sf::Vector2f(600.0f, 10.0f));
+	body.setSize(sf::Vector2f(600.0f, 20.0f));
 	body.setFillColor(sf::Color::Yellow);
 	body.setPosition(pos);
 }
