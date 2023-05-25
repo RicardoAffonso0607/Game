@@ -9,8 +9,6 @@ Trabalho da disciplina Técnicas de Programação.
 * Ricardo Affonso
 * Lucas Yukio Fukuda Matsumoto
 
-------------------
-
 ## Configurações do projeto AgeOfWarriors.vcxproj no Visual Studio 2022
 
 Selecionar
@@ -87,3 +85,5 @@ Selecionar
 * Plataforma: Todas as Plataformas
 
 Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeçalho Pré-compilado -> Criar (/Yc)
+
+------------------
