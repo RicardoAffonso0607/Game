@@ -12,7 +12,8 @@ namespace Gerenciador{
         for (i = 0; i < list_ent->getSize(); i++) {
             if (list_ent->getEntity(i)->isMovable())
                 for (j = 0; j < list_ent->getSize(); j++)
-                    collide(list_ent->getEntity(i), list_ent->getEntity(j));
+                    if(list_ent->getEntity(i) != list_ent->getEntity(j))
+                        collide(list_ent->getEntity(i), list_ent->getEntity(j));
         }
     }
 
@@ -27,7 +28,7 @@ namespace Gerenciador{
         centerSum.x = 0.5f*(ent2->getEntSize().x + ent1->getEntSize().x);
         centerSum.y = 0.5f*(ent2->getEntSize().y + ent1->getEntSize().y);
         sobre = centerSum - centerDistance;
-        if(sobre.x>0 && sobre.y>0 && centerDistance.x && centerDistance.y){// colidiu
+        if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
             effects(ent1, ent2);// aplica dano e lentidão
             ricochet(ent1, ent2, sobre);// volta a posição sem sobreposição
         }
