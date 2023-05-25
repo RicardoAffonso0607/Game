@@ -1,20 +1,22 @@
 #pragma once
 
-#include "Entidade/Entidade.h"
+#include "../Entidade.h"
 
 class Personagem : public Entidade
 {
 protected:
-	int vida;
+	int damage;
+	int life;
 	int vel_x;
 	int vel_y;
 	int vel_max_x;
 	int vel_max_y;
 
 public:
-	Personagem();
+	Personagem(sf::Vector2f pos, int id);
 	~Personagem();
 
 	virtual void move() = 0;
+	virtual void attack() = 0;
 };
 

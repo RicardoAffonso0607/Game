@@ -1,8 +1,7 @@
 #pragma once
 
-#include "Lista/Lista.h"
-#include "Lista/Elemento.h"
-#include "Entidade/Entidade.h"
+#include "Lista.h"
+#include "../Entidade/Entidade.h"
 
 class ListaEntidades
 {
@@ -12,5 +11,13 @@ private:
 public:
 	ListaEntidades();
 	~ListaEntidades();
+
+	int getSize() { Lista.getTamanho(); }
+	Entidade* getEntity(int pos) { Lista.getItem(pos); }
+	void push(Entidade* pE) { Lista.push(pE); }
+	void pop(Entidade* pE) { Lista.pop(pE); }
+
+	void moveAll();
+	void drawAll();
 };
 
