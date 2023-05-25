@@ -29,7 +29,7 @@ void Jogador::move()
 
 }
 
-void Jogador::atack()
+void Jogador::attack()
 {
 
 }

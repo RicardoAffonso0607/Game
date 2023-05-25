@@ -11,7 +11,7 @@ public:
 	~Jogador();
 
 	void move();
-	void atack();
+	void attack();
 
 	sf::Vector2f getPos() { return pos; }
 };

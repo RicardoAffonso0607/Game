@@ -11,5 +11,5 @@ public:
 	~EnemyMelee();
 
 	void move();
-	void atack();
+	void attack();
 };

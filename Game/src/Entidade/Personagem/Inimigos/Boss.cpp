@@ -18,6 +18,6 @@ void Boss::move()
 {
 }
 
-void Boss::atack()
+void Boss::attack()
 {
 }

@@ -20,7 +20,7 @@ void EnemyRanged::move()
 {
 }
 
-void EnemyRanged::atack()
+void EnemyRanged::attack()
 {
 	magic = new Projectile(sf::Vector2f(pos.x, pos.y), 10);
 	magic->setCaster(this);

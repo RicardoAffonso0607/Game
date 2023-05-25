@@ -12,7 +12,7 @@ public:
 	~Enemies();
 
 	virtual void move() = 0;
-	virtual void atack() = 0;
+	virtual void attack() = 0;
 
 	void setPlayer(Jogador* pPla);
 	Jogador* getPlayer() { return pPlayer; }

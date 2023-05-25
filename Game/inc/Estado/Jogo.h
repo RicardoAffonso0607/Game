@@ -16,6 +16,7 @@ public:
 	Jogo();
 	~Jogo();
 
+	void inicializa();
 	void executar();
 
 	void setJogador(Jogador* pJg) { jogador1 = pJg; }
@@ -23,5 +24,6 @@ public:
 
 	void eventos();
 	void teclas_pressionadas();
+
 };
 

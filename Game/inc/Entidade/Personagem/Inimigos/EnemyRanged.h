@@ -12,6 +12,6 @@ public:
 	~EnemyRanged();
 
 	void move();
-	void atack();
+	void attack();
 };
 

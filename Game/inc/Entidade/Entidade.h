@@ -16,5 +16,7 @@ public:
 	sf::RenderWindow* getWindow() { return pWindow; }
 
 	void draw() {pWindow->draw(body); }
+	virtual void move() = 0;
+	virtual void attack() = 0;
 };
 

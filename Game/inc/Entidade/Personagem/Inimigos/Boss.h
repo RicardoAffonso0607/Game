@@ -11,6 +11,6 @@ public:
 	~Boss();
 
 	void move();
-	void atack();
+	void attack();
 };
 
