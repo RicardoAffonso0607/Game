@@ -9,7 +9,7 @@ Trabalho da disciplina Técnicas de Programação.
 * Ricardo Affonso
 * Lucas Yukio Fukuda Matsumoto
 
-—-----------------------------------------
+------------------
 
 ## Configurações do projeto AgeOfWarriors.vcxproj no Visual Studio 2022
 
@@ -21,7 +21,7 @@ Selecionar
 
 Propriedades de Configuração -> C/C++ -> Vinculador -> Entrada -> Dependências Adicionais -> sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)
 
-—-----------------------------------------
+------------------
 
 Selecionar
 
@@ -30,7 +30,7 @@ Selecionar
 
 Propriedades de Configuração -> C/C++ -> Vinculador -> Entrada -> Dependências Adicionais -> sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib;%(AdditionalDependencies)
 
-—----------------------------------------
+------------------
 
 Selecionar
 
@@ -51,7 +51,7 @@ Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Cabeç
 
 Propriedades de Configuração -> C/C++ -> Cabeçalhos Pré-compilados -> Arquivo de Cabeçalho Pré-compilado -> pch.h
 
-—----------------------------------------
+------------------
 
 Selecionar
 
@@ -64,7 +64,7 @@ Propriedades de Configuração -> C/C++ -> Geral -> Diretórios de Inclusão Adi
 
 Propriedades de Configuração -> Vinculador -> Geral -> Diretórios de Biblioteca Adicionais -> $(SolutionDir)\SFML-2.5.1x86\lib;%(AdditionalLibraryDirectories)
 
-—----------------------------------------
+------------------
 
 Selecionar
 
@@ -77,7 +77,7 @@ Propriedades de Configuração -> C/C++ -> Geral -> Diretórios de Inclusão Adi
 
 Propriedades de Configuração -> Vinculador -> Geral -> Diretórios de Biblioteca Adicionais -> $(SolutionDir)\SFML-2.5.1x64\lib;%(AdditionalLibraryDirectories)
 
-—-----------------------------------------------
+------------------
 
 Botão direito no pch.cpp -> Propriedades
 
