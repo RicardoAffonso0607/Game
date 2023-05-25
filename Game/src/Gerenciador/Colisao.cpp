@@ -11,7 +11,7 @@ namespace Gerenciador{
         int i, j;
         for (i = 0; i < list_ent->getSize(); i++) {
             if (list_ent->getEntity(i)->isMovable())
-                for (j = 0; j < list_ent->getSize(); j++)
+                for (j = i; j < list_ent->getSize(); j++)
                     if(list_ent->getEntity(i) != list_ent->getEntity(j))
                         collide(list_ent->getEntity(i), list_ent->getEntity(j));
         }
@@ -119,8 +119,9 @@ namespace Gerenciador{
                     ent2->changePosition(sf::Vector2f(0.0f, -0.5f*sobre.y));
                 }
                 else{//direita cantos superior e inferior
+                    printf("entrou\n");
                     ent1->changePosition(sf::Vector2f(0.5f*sobre.x, 0.0f));
-                    ent1->changePosition(sf::Vector2f(-0.5f*sobre.x, 0.0f));
+                    ent2->changePosition(sf::Vector2f(-0.5f*sobre.x, 0.0f));
                 }
             }
             else if (e1.ur.x > e2.ul.x && e1.ul.x < e2.ul.x){
