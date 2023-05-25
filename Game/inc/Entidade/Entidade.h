@@ -11,6 +11,7 @@ protected:
 	bool attacker;
 	bool retarder;
 	bool damageable;
+	bool jumped = false;
 public:
 	Entidade(int id);
 	~Entidade();
@@ -27,5 +28,7 @@ public:
 	bool isAttacker() { return attacker; }
 	bool isRetarder() { return retarder; }
 	bool isDamageable() { return damageable; }
+	bool isJumped() { return jumped; }
+	void endJump() { jumped = false; }
 };
 

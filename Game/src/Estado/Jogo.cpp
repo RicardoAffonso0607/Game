@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "Estado/Jogo.h"
 
-Jogo::Jogo() : window(sf::VideoMode(1400, 1000), "Jogo")
+Jogo::Jogo() : window(sf::VideoMode(sf::VideoMode::getDesktopMode().width-100, sf::VideoMode::getDesktopMode().height-200), "Age of Warriors++")
 {
 	window.setFramerateLimit(60);
+	window.setPosition(sf::Vector2i(50, 50));
 	
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;

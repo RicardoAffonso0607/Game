@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 6.f
+#define GRAVITY 5.5f
+#define H_PULO 200.f
+#define DY_PULO 10.f
 
 namespace Gerenciador{
     Colisao::Colisao(){}
@@ -30,11 +32,11 @@ namespace Gerenciador{
         centerSum.x = .5f*(ent2->getEntSize().x + ent1->getEntSize().x);
         centerSum.y = .5f*(ent2->getEntSize().y + ent1->getEntSize().y);
         sobre = centerSum - centerDistance;
-        //if(ent1->isJumped())
-        //    jump(ent1);//aplica pulo
-        //if(ent2->isJumped())
-        //    jump(ent2);
-        if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
+        if(ent1->isJumped() && centerDistance.y<H_PULO)
+            jump(ent1);//aplica pulo
+        if(ent2->isJumped() && centerDistance.y<H_PULO)
+            jump(ent2);
+        else if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
             gravity(ent1, ent2);//aplica gravidade
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
             effects(ent1, ent2);//aplica dano e lentidão
@@ -190,7 +192,9 @@ namespace Gerenciador{
     }
 
     /* Pulo */
-    void Colisao::jump(Entidade* ent){}
+    void Colisao::jump(Entidade* ent){
+        ent->changePosition(sf::Vector2f(0.f, -DY_PULO));
+    }
 
     /* Funcionamento de um projétil */
     void Colisao::trajectory(Entidade* ent){
