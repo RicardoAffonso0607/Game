@@ -7,7 +7,7 @@ Jogo::Jogo() : window(sf::VideoMode(1400, 1000), "Jogo")
 	
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;
-	jogador1 = new Jogador(sf::Vector2f(0.f, 0.f), 1, 100);
+	jogador1 = new Jogador(sf::Vector2f(300.f, 100.f), 1, 100);
 	jogador1->setWindow(&window);
 	list_ent->push(jogador1);
 

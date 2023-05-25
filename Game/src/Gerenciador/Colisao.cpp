@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 980.f
+#define GRAVITY 9.8f
 
 namespace Gerenciador{
     Colisao::Colisao(){}
@@ -30,11 +30,16 @@ namespace Gerenciador{
         centerSum.x = .5f*(ent2->getEntSize().x + ent1->getEntSize().x);
         centerSum.y = .5f*(ent2->getEntSize().y + ent1->getEntSize().y);
         sobre = centerSum - centerDistance;
+        //if(ent1->isJumped())
+        //    jump(ent1);//aplica pulo
+        //if(ent2->isJumped())
+        //    jump(ent2);
+        if(centerDistance.y > centerSum.y || centerDistance.x >= centerSum.x)
+            gravity(ent1, ent2);//aplica gravidade
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
-            effects(ent1, ent2);// aplica dano e lentidão
-            ricochet(ent1, ent2, sobre);// volta a posição sem sobreposição
+            effects(ent1, ent2);//aplica dano e lentidão
+            ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
         }
-        gravity(ent1, ent2);
     }
 
     /* Vértices do retângulo */
@@ -44,10 +49,10 @@ namespace Gerenciador{
 
     /* Encontra os vértices do retângulo */
     void Colisao::vertexMath(vertex *rect, Entidade *ent){
-        rect->ul = ent->getPosition();// up left
-        rect->ur = rect->ul + sf::Vector2f(ent->getEntSize().x, 0.f);// up right
-        rect->bl = rect->ul + sf::Vector2f(0.f,ent->getEntSize().y);// bottom left
-        rect->br = rect->bl + sf::Vector2f(ent->getEntSize().x, 0.f);// bottom right
+        rect->ul = ent->getPosition();//up left
+        rect->ur = rect->ul + sf::Vector2f(ent->getEntSize().x, 0.f);//up right
+        rect->bl = rect->ul + sf::Vector2f(0.f,ent->getEntSize().y);//bottom left
+        rect->br = rect->bl + sf::Vector2f(ent->getEntSize().x, 0.f);//bottom right
     }
 
     /* Ao andar e sobrepor um fixo, volta à posição só encostado, e se for um móvel, empurra */
@@ -178,16 +183,18 @@ namespace Gerenciador{
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent1, Entidade* ent2){
-       //if(centerDistance.y > centerSum.y)
-           //if(ent1->getPosition().y > ent2->getPosition.y)
-               //ent1->changePosition(sf::Vector2f(0.0f, GRAVITY));
+        printf("entrou %d %d\n", ent1->getId(), ent2->getId());
+        if (ent1->getPosition().y < ent2->getPosition().y && ent1->isMovable())
+            ent1->changePosition(sf::Vector2f(0.f, GRAVITY));
+        else if(ent2->isMovable())
+            ent2->changePosition(sf::Vector2f(0.f, GRAVITY));
     }
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){}
 
     /* Funcionamento de um projétil */
-    void Colisao::trajectory(Entidade* ent) {
+    void Colisao::trajectory(Entidade* ent){
 
     }
 }

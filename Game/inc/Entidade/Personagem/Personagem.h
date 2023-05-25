@@ -11,6 +11,7 @@ protected:
 	int vel_y;
 	int vel_max_x;
 	int vel_max_y;
+	bool jumped = false;
 
 public:
 	Personagem(sf::Vector2f pos, int id);
@@ -18,5 +19,6 @@ public:
 
 	virtual void move() = 0;
 	virtual void atack() = 0;
+	bool isJumped() { return jumped; }
 };
 

@@ -8,5 +8,6 @@ protected:
 public:
 	Ente();
 	~Ente();
+	int getId() { return id; }
 };
 
