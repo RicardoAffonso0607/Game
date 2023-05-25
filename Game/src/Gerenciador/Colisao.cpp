@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 9.8f
+#define GRAVITY 6.f
 
 namespace Gerenciador{
     Colisao::Colisao(){}
@@ -34,7 +34,7 @@ namespace Gerenciador{
         //    jump(ent1);//aplica pulo
         //if(ent2->isJumped())
         //    jump(ent2);
-        if(centerDistance.y > centerSum.y || centerDistance.x >= centerSum.x)
+        if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
             gravity(ent1, ent2);//aplica gravidade
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
             effects(ent1, ent2);//aplica dano e lentidão
@@ -183,10 +183,9 @@ namespace Gerenciador{
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent1, Entidade* ent2){
-        printf("entrou %d %d\n", ent1->getId(), ent2->getId());
-        if (ent1->getPosition().y < ent2->getPosition().y && ent1->isMovable())
+        if (ent1->isMovable())
             ent1->changePosition(sf::Vector2f(0.f, GRAVITY));
-        else if(ent2->isMovable())
+        else
             ent2->changePosition(sf::Vector2f(0.f, GRAVITY));
     }
 
