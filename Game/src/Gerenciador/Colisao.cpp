@@ -25,10 +25,8 @@ namespace Gerenciador{
         sf::Vector2f cg1, cg2, centerDistance, centerSum, sobre;
         cg1 = ent1->getPosition() + .5f*ent1->getEntSize();
         cg2 = ent2->getPosition() + .5f*ent2->getEntSize();
-        centerDistance.x = fabs(cg2.x - cg1.x);
-        centerDistance.y = fabs(cg2.y - cg1.y);
-        centerSum.x = .5f*(ent2->getEntSize().x + ent1->getEntSize().x);
-        centerSum.y = .5f*(ent2->getEntSize().y + ent1->getEntSize().y);
+        centerDistance = sf::Vector2f(fabs(cg2.x - cg1.x), fabs(cg2.y - cg1.y));
+        centerSum = .5f*(ent2->getEntSize() + ent1->getEntSize());
         sobre = centerSum - centerDistance;
         //if(ent1->isJumped() && centerDistance.y<H_PULO)
            // jump(ent1);//aplica pulo
