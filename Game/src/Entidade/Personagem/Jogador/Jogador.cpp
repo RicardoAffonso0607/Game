@@ -34,8 +34,6 @@ void Jogador::move()
 		body.move(sf::Vector2f(0.f, 2.f));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		this->jumped = true;
-	else
-		this->jumped = false;
 }
 
 void Jogador::atack()

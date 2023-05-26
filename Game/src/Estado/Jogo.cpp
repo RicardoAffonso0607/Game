@@ -12,14 +12,18 @@ Jogo::Jogo() : window(sf::VideoMode(sf::VideoMode::getDesktopMode().width-100, s
 	jogador1->setWindow(&window);
 	list_ent->push(jogador1);
 
-	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 200.f), 2);
+	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 300.f), 2);
 	enemy1->setWindow(&window);
 	enemy1->setPlayer(jogador1);
 	list_ent->push(enemy1);
 
-	platform1 = new Plataforma(sf::Vector2f(150.f, 300.f), 10);
+	platform1 = new Plataforma(sf::Vector2f(150.f, 400.f), 10);
 	platform1->setWindow(&window);
 	list_ent->push(platform1);
+
+	platform2 = new Plataforma(sf::Vector2f(400.f, 200.f), 20);
+	platform2->setWindow(&window);
+	list_ent->push(platform2);
 
 	executar();
 }
@@ -37,11 +41,12 @@ void Jogo::executar()
 
 		window.clear();
 		platform1->draw();
+		platform2->draw();
 		jogador1->draw();
 		enemy1->draw();
 		jogador1->move();
 		enemy1->move();
-		colisor->collided(list_ent);
+		colisor->executar(list_ent);
 		window.display();
 	}
 }

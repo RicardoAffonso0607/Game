@@ -12,9 +12,9 @@ namespace Gerenciador{
         void trajectory(Entidade* ent);
         struct vertex;
         void vertexMath(vertex *rect, Entidade* ent);
-    public:
-        void collided(ListaEntidades* list_ent);
         void jump(Entidade* ent);
+    public:
+        void executar(ListaEntidades* list_ent);
         Colisao();
         ~Colisao();
     };

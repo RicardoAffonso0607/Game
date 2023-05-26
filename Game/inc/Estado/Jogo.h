@@ -14,6 +14,7 @@ private:
 	Jogador* jogador1;
 	EnemyMelee* enemy1;
 	Plataforma* platform1;
+	Plataforma* platform2;
 
 protected:
 	ListaEntidades* list_ent;

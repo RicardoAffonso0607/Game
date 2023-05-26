@@ -29,6 +29,6 @@ public:
 	bool isRetarder() { return retarder; }
 	bool isDamageable() { return damageable; }
 	bool isJumped() { return jumped; }
-	void endJump() { jumped = false; }
+	void setJumped() { jumped = !jumped; }
 };
 

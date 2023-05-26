@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 5.5f
-#define H_PULO 200.f
+#define GRAVITY 5.f
+#define H_PULO 100.f
 #define DY_PULO 20.f
 
 namespace Gerenciador{
@@ -11,14 +11,12 @@ namespace Gerenciador{
     Colisao::~Colisao(){}
 
     /* Verifica se a colisão entre as entidades é possível */
-    void Colisao::collided(ListaEntidades* list_ent){
+    void Colisao::executar(ListaEntidades* list_ent){
         int i, j;
-        for (i = 0; i < list_ent->getSize(); i++) {
+        for (i=0; i<list_ent->getSize(); i++)
             if (list_ent->getEntity(i)->isMovable())
-                for (j = i; j < list_ent->getSize(); j++)
-                    if(list_ent->getEntity(i) != list_ent->getEntity(j))
-                        collide(list_ent->getEntity(i), list_ent->getEntity(j));
-        }
+                for (j=i+1; j<list_ent->getSize(); j++)
+                    collide(list_ent->getEntity(i), list_ent->getEntity(j));
     }
 
     /* A colisão ocorre quando entre centros a distância x é menor que soma das
@@ -32,12 +30,12 @@ namespace Gerenciador{
         centerSum.x = .5f*(ent2->getEntSize().x + ent1->getEntSize().x);
         centerSum.y = .5f*(ent2->getEntSize().y + ent1->getEntSize().y);
         sobre = centerSum - centerDistance;
-        if(ent1->isJumped() && centerDistance.y<H_PULO)
-            jump(ent1);//aplica pulo
-        if(ent2->isJumped() && centerDistance.y<H_PULO)
-            jump(ent2);
-        if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
-            gravity(ent1, ent2);//aplica gravidade
+        //if(ent1->isJumped() && centerDistance.y<H_PULO)
+           // jump(ent1);//aplica pulo
+        //if(ent2->isJumped() && centerDistance.y<H_PULO)
+          //  jump(ent2);
+       // if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
+           // gravity(ent1, ent2);//aplica gravidade
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
             effects(ent1, ent2);//aplica dano e lentidão
             ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
