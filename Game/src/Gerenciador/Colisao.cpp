@@ -152,7 +152,7 @@ namespace Gerenciador{
                 ent2->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
             }
             else{//baixo entre vértices
-                ent1->changePosition(sf::Vector2f(0.f, 0.f*sobre.y));
+                ent1->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
                 ent2->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
             }
         }
