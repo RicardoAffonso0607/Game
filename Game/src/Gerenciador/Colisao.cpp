@@ -3,7 +3,7 @@
 
 #define GRAVITY 5.5f
 #define H_PULO 200.f
-#define DY_PULO 10.f
+#define DY_PULO 20.f
 
 namespace Gerenciador{
     Colisao::Colisao(){}
@@ -36,7 +36,7 @@ namespace Gerenciador{
             jump(ent1);//aplica pulo
         if(ent2->isJumped() && centerDistance.y<H_PULO)
             jump(ent2);
-        else if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
+        if((centerDistance.y>centerSum.y || centerDistance.x>=centerSum.x) && ent1->getPosition().y<1500 && ent2->getPosition().y<1500)
             gravity(ent1, ent2);//aplica gravidade
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
             effects(ent1, ent2);//aplica dano e lentidão
@@ -160,7 +160,6 @@ namespace Gerenciador{
                 ent2->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
             }
         }
-
     }
 
     /* Efeitos causados pela colisão */
