@@ -5,7 +5,7 @@
 namespace Gerenciador{
     class Colisao{
     protected:
-        bool colidiu = false;
+        int colidiu = 0;
         void collide(Entidade *ent1, Entidade *ent2);
         void ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre);
         void effects(Entidade* ent1, Entidade* ent2);
