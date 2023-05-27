@@ -3,11 +3,12 @@
 #include "../Entidade/Personagem/Jogador/Jogador.h"
 #include "../Lista/ListaEntidades.h"
 #include "../Entidade/Personagem/Inimigos/EnemyMelee.h"
+#include "../Gerenciador/Grafico.h"
 
 class Jogo
 {
 private:
-	sf::RenderWindow window;
+	Gerenciador::Grafico* ger_grafico;
 	ListaEntidades list_ent;
 	Jogador* jogador1;
 	EnemyMelee* enemy1;

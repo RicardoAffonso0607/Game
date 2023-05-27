@@ -7,7 +7,7 @@ namespace Entidades{
     protected:
 
     public:
-        EntidadeFixa();
+        EntidadeFixa(int id);
         ~EntidadeFixa();
 
     };

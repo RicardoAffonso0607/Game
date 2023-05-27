@@ -2,7 +2,7 @@
 #include "Entidade/EntidadeFixa.h"
 
 namespace Entidades{
-	EntidadeFixa::EntidadeFixa()
+	EntidadeFixa::EntidadeFixa(int id) : Entidade(id)
 	{
 
 	}

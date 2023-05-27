@@ -2,7 +2,7 @@
 #include "Entidade/EntidadeMovel.h"
 
 namespace Entidades{
-	EntidadeMovel::EntidadeMovel()
+	EntidadeMovel::EntidadeMovel(int id) : Entidade(id)
 	{
 
 	}

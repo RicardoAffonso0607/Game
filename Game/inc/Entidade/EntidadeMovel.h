@@ -7,7 +7,7 @@ namespace Entidades{
 	protected:
 
 	public:
-		EntidadeMovel();
+		EntidadeMovel(int id);
 		~EntidadeMovel();
 	};
 }
