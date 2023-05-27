@@ -28,7 +28,7 @@ namespace Gerenciador{
         centerDistance = sf::Vector2f(fabs(cg2.x - cg1.x), fabs(cg2.y - cg1.y));
         centerSum = .5f*(ent2->getEntSize() + ent1->getEntSize());
         sobre = centerSum - centerDistance;
-        if(centerDistance.y<H_PULO && !colidiu){
+        if(centerDistance.y<H_PULO && !colidiu){//so libera pulo se encostado na face inferior
             if(ent1->isJumped())
                 jump(ent1);//aplica pulo
             if(ent2->isJumped())
@@ -57,7 +57,7 @@ namespace Gerenciador{
 
     /* Ao andar e sobrepor um fixo, volta à posição só encostado, e se for um móvel, empurra */
     void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre) {
-        colidiu = true;
+        colidiu++;
         vertex e1, e2;
         vertexMath(&e1, ent1);
         vertexMath(&e2, ent2);
