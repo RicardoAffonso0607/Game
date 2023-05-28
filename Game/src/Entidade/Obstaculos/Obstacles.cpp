@@ -9,3 +9,11 @@ Obstacles::Obstacles(sf::Vector2f pos, int id) : Entidade(id)
 Obstacles::~Obstacles()
 {
 }
+
+void Obstacles::move()
+{
+}
+
+void Obstacles::attack()
+{
+}

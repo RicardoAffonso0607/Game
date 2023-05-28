@@ -2,7 +2,6 @@
 
 /* Código baseado no vídeo do Felipe Alvez Barboza, monitor de 2020*/
 #include "pch.h"
-#include "Lista/Elemento.h"
 
 using namespace std;
 
@@ -10,6 +9,25 @@ template<class Tipo>
 class Lista
 {
 private:
+
+	template <class Tipo> class Elemento
+	{
+	private:
+		Elemento<Tipo>* pProx;
+		Tipo* dados;
+
+	public:
+		Elemento() { pProx = NULL; dados = NULL; }
+		~Elemento() {}
+
+		void setProx(Elemento<Tipo>* pP) { pProx = pP; }
+		void setDados(Tipo* dd) { dados = dd; }
+
+		Elemento<Tipo>* getProx() { if (pProx) return pProx; else return NULL; }
+		Tipo* getDados() { if (dados) return dados; else return NULL; }
+	};
+
+
 	Elemento<Tipo>* pInicio;
 	Elemento<Tipo>* pFinal;
 	int tam;
@@ -19,8 +37,9 @@ public:
 	~Lista();
 
 	int getTamanho() { return tam; }
-
 	Tipo* getItem(int posicao);
+
+	Tipo* operator[](int n);
 
 	void push(Tipo* pT);
 	void pop(Tipo* pT);
@@ -45,7 +64,7 @@ inline Lista<Tipo>::~Lista()
 template<class Tipo>
 inline Tipo* Lista<Tipo>::getItem(int posicao)
 {
-	Elemento<Tipo> *temp = pInicio;
+	Elemento<Tipo>* temp = pInicio;
 
 	//Testar se a lista esta vazia
 	if (temp == nullptr)
@@ -72,6 +91,21 @@ inline Tipo* Lista<Tipo>::getItem(int posicao)
 }
 
 template<class Tipo>
+inline Tipo* Lista<Tipo>::operator[](int n)
+{
+	Elemento<Tipo>* temp = pInicio;
+
+	if (n < 0 || n > tam)
+		cout << "Segmentation Fault" << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		temp = temp->getProx();
+	}
+	return temp->getDados();
+}
+
+template<class Tipo>
 inline void Lista<Tipo>::push(Tipo* pT)
 {
 
@@ -80,7 +114,7 @@ inline void Lista<Tipo>::push(Tipo* pT)
 		pInicio = new Elemento<Tipo>();
 		if (pT)
 		{
-			pInicio->setDado(pT);
+			pInicio->setDados(pT);
 			tam++;
 		}
 		else
@@ -90,10 +124,10 @@ inline void Lista<Tipo>::push(Tipo* pT)
 	}
 	else //Lista não vazia
 	{
-		Elemento<Tipo> *temp = new Elemento<Tipo>();
+		Elemento<Tipo>* temp = new Elemento<Tipo>();
 		if (pT)
 		{
-			temp->setDado(pT);
+			temp->setDados(pT);
 			tam++;
 		}
 		else
@@ -143,3 +177,4 @@ inline void Lista<Tipo>::pop(Tipo* pT)
 	else
 		cout << "Ponteiro Nulo" << endl;
 }
+

@@ -26,6 +26,6 @@ void EnemyMelee::move()
 	}
 }
 
-void EnemyMelee::atack()
+void EnemyMelee::attack()
 {
 }

@@ -1,12 +1,33 @@
 #include "pch.h"
 #include "Gerenciador/Grafico.h"
 
-namespace Gerenciador{
-	Grafico::Grafico(){
+Gerenciador::Grafico* Gerenciador::Grafico::pGraf(NULL);
 
+Gerenciador::Grafico::Grafico() : window(new sf::RenderWindow(sf::VideoMode(sf::VideoMode::getDesktopMode().width - 100, sf::VideoMode::getDesktopMode().height - 200), "Age of Warriors++"))
+{
+	window->setFramerateLimit(60);
+	window->setPosition(sf::Vector2i(50, 50));
+
+	if (!window)
+	{
+		std::cout << "Ponteiro para janela nulo" << std::endl;
+		exit(1);
 	}
+}
 
-	Grafico::~Grafico(){
-
+Gerenciador::Grafico::~Grafico()
+{
+	if (window)
+	{
+		delete(window);
 	}
+	window = NULL;
+}
+
+Gerenciador::Grafico* Gerenciador::Grafico::getGrafico()
+{
+	if (pGraf == NULL)
+		return new Gerenciador::Grafico();
+
+	return pGraf;
 }

@@ -1,31 +1,49 @@
 #include "pch.h"
 #include "Estado/Jogo.h"
 
-Jogo::Jogo() : window(sf::VideoMode(sf::VideoMode::getDesktopMode().width-100, sf::VideoMode::getDesktopMode().height-200), "Age of Warriors++")
+Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico())
 {
-	window.setFramerateLimit(60);
-	window.setPosition(sf::Vector2i(50, 50));
-	
+	if (ger_grafico == NULL)
+	{
+		cout << "Gerenciador gráfico nulo" << endl;
+		exit(1);
+	}
+
+
+	inicializa();
+	executar();
+}
+
+
+void Jogo::inicializa()
+{
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;
-	jogador1 = new Jogador(sf::Vector2f(300.f, 100.f), 1, 100);
-	jogador1->setWindow(&window);
-	list_ent->push(jogador1);
 
-	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 300.f), 2);
-	enemy1->setWindow(&window);
+	//Cria os jogadores
+	jogador1 = new Jogador(sf::Vector2f(300.f, 150.f), 1, 1);
+	jogador1->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (jogador1));
+
+	//Cria os inimigos
+	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 300.f), 10);
+	enemy1->setGerGraf(ger_grafico);
 	enemy1->setPlayer(jogador1);
-	list_ent->push(enemy1);
+	list_ent->push(static_cast<Entidade*> (enemy1));
 
-	platform1 = new Plataforma(sf::Vector2f(150.f, 400.f), 10);
-	platform1->setWindow(&window);
-	list_ent->push(platform1);
+	//Cria os obstáculos
+	obstacle1 = new ObstacleBlock(sf::Vector2f(500.f, 100.f), 100);
+	obstacle1->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (obstacle1));
 
-	platform2 = new Plataforma(sf::Vector2f(400.f, 200.f), 20);
-	platform2->setWindow(&window);
-	list_ent->push(platform2);
+	//Cria as plataformas
+	platform1 = new Plataforma(sf::Vector2f(150.f, 400.f), 1000);
+	platform1->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (platform1));
 
-	executar();
+	platform2 = new Plataforma(sf::Vector2f(400.f, 200.f), 2000);
+	platform2->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (platform2));
 }
 
 Jogo::~Jogo()
@@ -34,20 +52,16 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
-	while (window.isOpen())
+	while (ger_grafico->verificaJanelaAberta())
 	{
 		eventos();
 		teclas_pressionadas();
 
-		window.clear();
-		platform1->draw();
-		platform2->draw();
-		jogador1->draw();
-		enemy1->draw();
-		jogador1->move();
-		enemy1->move();
+		ger_grafico->limpaJanela();
+		list_ent->moveAll();
+		list_ent->drawAll();
 		colisor->executar(list_ent);
-		window.display();
+		ger_grafico->mostraElementos();
 	}
 }
 
@@ -55,10 +69,10 @@ void Jogo::eventos()
 {
 	sf::Event event;
 
-	while (window.pollEvent(event))
+	while (ger_grafico->getWindow()->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
-			window.close();
+			ger_grafico->fecharJanela();
 	}
 }
 

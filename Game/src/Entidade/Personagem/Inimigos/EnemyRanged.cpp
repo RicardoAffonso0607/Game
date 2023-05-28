@@ -13,7 +13,7 @@ EnemyRanged::EnemyRanged(sf::Vector2f pos, int id) : Enemies(pos,id)
 	this->life = 50;
 	this->damage = 0;
 
-	body.setFillColor(sf::Color::Red);
+	body.setFillColor(sf::Color::Magenta);
 	body.setPosition(pos);
 }
 
@@ -25,7 +25,7 @@ void EnemyRanged::move()
 {
 }
 
-void EnemyRanged::atack()
+void EnemyRanged::attack()
 {
 	magic = new Projectile(sf::Vector2f(pos.x, pos.y), 10);
 	magic->setCaster(this);

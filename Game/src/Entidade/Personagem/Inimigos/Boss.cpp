@@ -11,7 +11,7 @@ Boss::Boss(sf::Vector2f pos, int id) : Enemies(pos,id)
 	this->life = 100;
 	this->damage = 10;
 
-	body.setFillColor(sf::Color::Red);
+	body.setFillColor(sf::Color::White);
 	body.setPosition(pos);
 }
 
@@ -23,6 +23,6 @@ void Boss::move()
 {
 }
 
-void Boss::atack()
+void Boss::attack()
 {
 }

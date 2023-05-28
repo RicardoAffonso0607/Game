@@ -1,11 +1,26 @@
 #pragma once
 
-namespace Gerenciador{
-	class Grafico{
-	protected:
+/* Código inspirado no vídeo do monitor Giovane Limas Salvi 2022.2 */
 
-	public:
+namespace Gerenciador
+{
+	class Grafico
+	{
+	private:
+		static Grafico* pGraf;
+		sf::RenderWindow* window;
+
 		Grafico();
+	public:
 		~Grafico();
+		static Grafico* getGrafico();
+		sf::RenderWindow* getWindow() { return window; }
+		void limpaJanela() { window->clear(); }
+		void desenhaElemento(sf::RectangleShape body) { window->draw(body); }
+		void mostraElementos() { window->display(); }
+		void fecharJanela() { window->close(); }
+		const bool verificaJanelaAberta() { return (window->isOpen()) ? true : false; }
 	};
+
 }
+

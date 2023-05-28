@@ -33,10 +33,11 @@ void Jogador::move()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
 		body.move(sf::Vector2f(0.f, 2.f));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		this->jumped = true;
+		if(this->jump_unlocked)
+			this->jumped = true;
 }
 
-void Jogador::atack()
+void Jogador::attack()
 {
 
 }

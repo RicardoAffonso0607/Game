@@ -8,7 +8,8 @@ ObstacleBlock::ObstacleBlock(sf::Vector2f pos, int id) : Obstacles(pos, id)
 	this->retarder = false;
 	this->damageable = false;
 
-
+	body.setFillColor(sf::Color::Green);
+	body.setPosition(pos);
 }
 
 ObstacleBlock::~ObstacleBlock()

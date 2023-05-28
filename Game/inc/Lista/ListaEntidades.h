@@ -1,26 +1,24 @@
 #pragma once
 
 #include "Lista.h"
-#include "Lista/Elemento.h"
-#include "Entidade/Entidade.h"
+#include "../Entidade/Entidade.h"
 
-using namespace std;
-
-class ListaEntidades{
+class ListaEntidades
+{
 private:
 	Lista<Entidade> Lista;
-
-	/* lista da biblioteca */
-	//list<Entidade*> list_ent;
 
 public:
 	ListaEntidades();
 	~ListaEntidades();
-	
+
 	int getSize() { return Lista.getTamanho(); }
 	Entidade* getEntity(int pos) { return Lista.getItem(pos); }
 	void push(Entidade* pE) { Lista.push(pE); }
 	void pop(Entidade* pE) { Lista.pop(pE); }
+
+	void moveAll();
+	void drawAll();
 
 	/* lista da biblioteca */
 	//list<Entidade*>::iterator *i;
