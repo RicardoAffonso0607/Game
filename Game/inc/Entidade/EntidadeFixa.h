@@ -7,7 +7,7 @@ namespace Entidades{
     protected:
 
     public:
-        EntidadeFixa(int id);
+        EntidadeFixa(int id, sf::Vector2f pos);
         ~EntidadeFixa();
 
     };

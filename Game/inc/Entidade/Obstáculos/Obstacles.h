@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Entidade.h"
+#include "../EntidadeFixa.h"
 
-class Obstacles : public Entidade
+class Obstacles : public Entidades::EntidadeFixa
 {
 protected:
 

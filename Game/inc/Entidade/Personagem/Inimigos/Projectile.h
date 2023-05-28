@@ -1,8 +1,8 @@
 #pragma once
-#include "../../Entidade.h"
+#include "../../EntidadeMovel.h"
 #include "EnemyRanged.h"
 
-class Projectile : public Entidade
+class Projectile : public Entidades::EntidadeMovel
 {
 private:
 	EnemyRanged* caster;

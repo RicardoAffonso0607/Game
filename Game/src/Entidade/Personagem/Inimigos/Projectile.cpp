@@ -1,9 +1,8 @@
 #include "pch.h"
 #include "../../Game/inc/Entidade/Personagem/Inimigos/Projectile.h"
 
-Projectile::Projectile(sf::Vector2f pos, int id) : Entidade(id), damage(20)
+Projectile::Projectile(sf::Vector2f pos, int id) : EntidadeMovel(id, pos), damage(20)
 {
-	this->pos = pos;
 	caster = NULL;
 }
 
