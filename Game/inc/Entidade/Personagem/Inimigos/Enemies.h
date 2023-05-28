@@ -6,7 +6,7 @@
 class Enemies : public Personagem
 {
 protected:
-	Jogador* pPlayer;
+	static Jogador* pPlayer;
 public:
 	Enemies(sf::Vector2f pos, int id);
 	~Enemies();
@@ -14,7 +14,7 @@ public:
 	virtual void move() = 0;
 	virtual void attack() = 0;
 
-	void setPlayer(Jogador* pPla);
+	static void setPlayer(Jogador* pPla);
 	Jogador* getPlayer() { return pPlayer; }
 };
 

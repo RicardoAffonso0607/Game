@@ -4,6 +4,8 @@
 
 //Jogador* Enemies::pPlayer(NULL);
 
+Jogador* Enemies::pPlayer(NULL);
+
 Enemies::Enemies(sf::Vector2f pos, int id) : Personagem(pos, id)
 {
 	pPlayer = NULL;

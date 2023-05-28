@@ -12,10 +12,21 @@ public:
 	ListaEntidades();
 	~ListaEntidades();
 
+<<<<<<< HEAD
 	int getSize() { return Lista.getTamanho(); }
 	Entidade* getEntity(int pos) { return Lista.getItem(pos); }
 	void push(Entidade* pE) { Lista.push(pE); }
 	void pop(Entidade* pE) { Lista.pop(pE); }
+=======
+	int getSize() { Lista.getTamanho(); }
+	Entidade* getEntity(int pos) { Lista.getItem(pos); }
+	void push(Entidade* pE) { Lista.push(pE); }
+	void pop(Entidade* pE) { Lista.pop(pE); }
+
+	void moveAll();
+	void drawAll();
+};
+>>>>>>> main
 
 	void moveAll();
 	void drawAll();

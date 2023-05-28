@@ -15,5 +15,11 @@ protected:
 public:
 	Personagem(sf::Vector2f pos, int id);
 	~Personagem();
+<<<<<<< HEAD
+=======
+
+	virtual void move() = 0;
+	virtual void attack() = 0;
+>>>>>>> main
 };
 
