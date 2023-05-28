@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../../inc/Entidade/Obstáculos/Obstacles.h"
+#include "Entidade/Obstaculos/Obstacles.h"
 
 Obstacles::Obstacles(sf::Vector2f pos, int id) : Entidade(id)
 {
@@ -7,5 +7,13 @@ Obstacles::Obstacles(sf::Vector2f pos, int id) : Entidade(id)
 }
 
 Obstacles::~Obstacles()
+{
+}
+
+void Obstacles::move()
+{
+}
+
+void Obstacles::attack()
 {
 }

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Personagem.h"
-#include "../Jogador/Jogador.h"
+#include "Entidade/Personagem/Personagem.h"
+#include "Entidade/Personagem/Jogador/Jogador.h"
 
 class Enemies : public Personagem
 {

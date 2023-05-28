@@ -64,7 +64,11 @@ inline Lista<Tipo>::~Lista()
 template<class Tipo>
 inline Tipo* Lista<Tipo>::getItem(int posicao)
 {
+<<<<<<< HEAD
+	Elemento<Tipo>* temp = pInicio;
+=======
 	Elemento<Tipo> *temp = pInicio;
+>>>>>>> main
 
 	//Testar se a lista esta vazia
 	if (temp == nullptr)
@@ -124,7 +128,11 @@ inline void Lista<Tipo>::push(Tipo* pT)
 	}
 	else //Lista não vazia
 	{
+<<<<<<< HEAD
+		Elemento<Tipo>* temp = new Elemento<Tipo>();
+=======
 		Elemento<Tipo> *temp = new Elemento<Tipo>();
+>>>>>>> main
 		if (pT)
 		{
 			temp->setDados(pT);

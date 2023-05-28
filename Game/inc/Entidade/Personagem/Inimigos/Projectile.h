@@ -1,6 +1,6 @@
 #pragma once
-#include "../../Entidade.h"
-#include "EnemyRanged.h"
+#include "Entidade/Entidade.h"
+#include "Entidade/Personagem/Inimigos/EnemyRanged.h"
 
 class Projectile : public Entidade
 {
