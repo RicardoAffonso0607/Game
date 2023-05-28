@@ -50,20 +50,6 @@ Jogo::~Jogo()
 {
 }
 
-void Jogo::inicializa()
-{
-
-	//Cria os jogadores
-	jogador1 = new Jogador(sf::Vector2f(10.f, 10.f), 1, 100);
-	jogador1->setGerGraf(ger_grafico);
-	list_ent.push(static_cast<Entidade*> (jogador1));
-
-	//Cria os inimigos
-	enemy1 = new EnemyMelee(sf::Vector2f(400.f, 10.f), 2);
-	enemy1->setPlayer(jogador1);
-	list_ent.push(static_cast<Entidade*> (enemy1));
-}
-
 void Jogo::executar()
 {
 	while (ger_grafico->verificaJanelaAberta())
@@ -72,16 +58,10 @@ void Jogo::executar()
 		teclas_pressionadas();
 
 		ger_grafico->limpaJanela();
-<<<<<<< HEAD
 		list_ent->moveAll();
 		list_ent->drawAll();
 		colisor->executar(list_ent);
 		ger_grafico->mostraElementos();
-=======
-		list_ent.moveAll();
-		list_ent.drawAll();
-		ger_grafico->mostraElemntos();
->>>>>>> main
 	}
 }
 
