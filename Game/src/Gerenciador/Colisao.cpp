@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 10.f
+#define GRAVITY 2.f
 #define H_PULO 100.f
 #define DY_PULO 40.f
 #define WINDOW_HEIGHT 1500
@@ -47,13 +47,14 @@ namespace Gerenciador{
             colidiu = 0;
         }
 
-        if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {// colidiu
+        /* se colidiu */
+        if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {
             effects(ent1, ent2);//aplica dano e lentidão
             ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
         }
-        else if (ent1->getPosition().y < WINDOW_HEIGHT && ent2->getPosition().y < WINDOW_HEIGHT && (ent1->isMovable()&&!ent2->isMovable() || !ent1->isMovable() && ent2->isMovable()) && (centerDistance.y > centerSum.y + GRAVITY || centerDistance.x >= centerSum.x)) {
-            //gravity(ent1);//aplica gravidade
-            //gravity(ent2);
+        else{//aplica gravidade
+            gravity(ent1);
+            gravity(ent2);
         }
     }
     
@@ -210,7 +211,7 @@ namespace Gerenciador{
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
-        if(ent->isMovable() /* && !colidiu_superior*/)
+        if(ent->isMovable())
             ent->changePosition(sf::Vector2f(0.f, GRAVITY));
     }
 

@@ -78,5 +78,6 @@ void Jogo::eventos()
 
 void Jogo::teclas_pressionadas()
 {
-
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		ger_grafico->fecharJanela();
 }
