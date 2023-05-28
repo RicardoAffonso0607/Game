@@ -16,3 +16,11 @@ Projectile::~Projectile()
 {
 	caster = NULL;
 }
+
+void Projectile::move()
+{
+}
+
+void Projectile::attack()
+{
+}

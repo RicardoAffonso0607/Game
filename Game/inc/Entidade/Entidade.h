@@ -1,11 +1,7 @@
 #pragma once
-<<<<<<< HEAD
+
 #include "Ente.h"
 #include "Gerenciador/Grafico.h"
-=======
-#include "../Ente.h"
-#include "../Gerenciador/Grafico.h"
->>>>>>> main
 
 class Entidade : public Ente
 {
@@ -13,7 +9,6 @@ protected:
 	sf::Vector2f pos;
 	sf::RectangleShape body;
 	static Gerenciador::Grafico* pGerGraf;
-<<<<<<< HEAD
 
 	bool movable;
 	bool attacker;
@@ -21,8 +16,6 @@ protected:
 	bool damageable;
 	bool jumped = false;
 	bool jump_unlocked = true;
-=======
->>>>>>> main
 
 public:
 	Entidade(int id);
@@ -31,7 +24,6 @@ public:
 	static void setGerGraf(Gerenciador::Grafico* pauxGerGraf) { pGerGraf = pauxGerGraf; }
 	void draw() { pGerGraf->desenhaElemento(body); }
 
-<<<<<<< HEAD
 	virtual void move() = 0;
 	virtual void attack() = 0;
 
@@ -46,12 +38,5 @@ public:
 	void offJumped() { jumped = false; }
 	void blockJumped() { jump_unlocked = false; }
 	void allowJumped() { jump_unlocked = true; }
-=======
-	static void setGerGraf(Gerenciador::Grafico* pauxGerGraf) {pGerGraf = pauxGerGraf; }
-
-	void draw() {pGerGraf->desenhaElemento(body); }
-	virtual void move() = 0;
-	virtual void attack() = 0;
->>>>>>> main
 };
 
