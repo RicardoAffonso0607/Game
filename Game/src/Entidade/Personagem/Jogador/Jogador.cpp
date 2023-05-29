@@ -40,9 +40,17 @@ void Jogador::move()
 
 void Jogador::attack()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Mouse::Left) && !this->attack_delay) {
-		this->attacker = true;
-		this->attack_delay = 100;
+	if (!this->attack_delay) {
+		if (sf::Keyboard::isKeyPressed(sf::Mouse::Left)) {
+			this->attacker = true;
+			this->damage = 10;
+			this->attack_delay = 100;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+			this->attacker = true;
+			this->damage = 20;
+			this->attack_delay = 200;
+		}
 	}
 	else
 		this->attacker = false;
