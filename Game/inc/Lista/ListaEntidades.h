@@ -17,6 +17,7 @@ public:
 	void push(Entidade* pE) { Lista.push(pE); }
 	void pop(Entidade* pE) { Lista.pop(pE); }
 
+	void attackAll();
 	void moveAll();
 	void drawAll();
 

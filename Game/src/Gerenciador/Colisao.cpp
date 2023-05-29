@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 2.f
+#define GRAVITY 10.f
 #define H_PULO 100.f
-#define DY_PULO 40.f
+#define DY_PULO 10.f
 #define WINDOW_HEIGHT 1500
 
 namespace Gerenciador{
@@ -29,32 +29,28 @@ namespace Gerenciador{
         centerDistance = sf::Vector2f(fabs(cg2.x - cg1.x), fabs(cg2.y - cg1.y));
         centerSum = .5f * (ent2->getEntSize() + ent1->getEntSize());
         sobre = centerSum - centerDistance;
-        if(centerDistance.y==centerSum.y && centerDistance.y<H_PULO){//so libera pulo se encostado na face inferior
+        if(centerDistance.y <= centerSum.y) {
             if(ent1->isJumped())
                 jump(ent1);//aplica pulo
             if(ent2->isJumped())
                 jump(ent2);
-            if (centerDistance.y >= 0.4f*H_PULO || colidiu == 1) {
-                ent1->offJumped();
-                ent2->offJumped();
-                ent1->blockJumped();
-                ent2->blockJumped();
-            }
         }
-        if (colidiu == 2) {
-            ent1->allowJumped();
-            ent2->allowJumped();
-            colidiu = 0;
-        }
-
         /* se colidiu */
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {
             effects(ent1, ent2);//aplica dano e lentidão
             ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
         }
         else{//aplica gravidade
-            gravity(ent1);
-            gravity(ent2);
+            if(ent1->getPosition().y + ent1->getEntSize().y <= ent2->getPosition().y - GRAVITY||
+               ((ent1->getPosition().x >= ent2->getPosition().x + ent2->getEntSize().x ||
+               ent1->getPosition().x - ent1->getEntSize().x <= ent2->getPosition().x) &&
+               ent1->getPosition().y + ent1->getEntSize().y == ent2->getPosition().y))
+                gravity(ent1);
+            else if (ent2->getPosition().y + ent2->getEntSize().y <= ent1->getPosition().y - GRAVITY ||
+                     ((ent2->getPosition().x >= ent1->getPosition().x + ent1->getEntSize().x ||
+                       ent2->getPosition().x - ent2->getEntSize().x <= ent1->getPosition().x) &&
+                      ent2->getPosition().y + ent2->getEntSize().y == ent1->getPosition().y))
+                gravity(ent2);
         }
     }
     
@@ -73,7 +69,7 @@ namespace Gerenciador{
 
     /* Ao andar e sobrepor um fixo, volta à posição só encostado, e se for um móvel, empurra */
     void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre) {
-        colidiu++;
+        colidiu = true;
         vertex e1, e2;
         vertexMath(&e1, ent1);
         vertexMath(&e2, ent2);
@@ -81,10 +77,8 @@ namespace Gerenciador{
             if (e1.ul.x < e2.ur.x && e1.ur.x > e2.ur.x) {
                 if (e1.ul.y <= e2.ur.y && e1.bl.y >= e2.br.y)//direita entre vértices
                     ent1->changePosition(sf::Vector2f(sobre.x, 0.f));
-                else if (sobre.x >= sobre.y && e1.ul.y < e2.ur.y) {//cima canto direito
+                else if (sobre.x >= sobre.y && e1.ul.y < e2.ur.y)//cima canto direito
                     ent1->changePosition(sf::Vector2f(0.f, -sobre.y));
-                    //colidiu_superior = true;
-                }
                 else if (sobre.x >= sobre.y && e1.bl.y > e2.br.y)//baixo canto direito
                     ent1->changePosition(sf::Vector2f(0.f, sobre.y));
                 else//direita cantos superior e inferior
@@ -93,14 +87,10 @@ namespace Gerenciador{
             else if (e1.ur.x > e2.ul.x && e1.ul.x < e2.ul.x) {
                 if (e1.ur.y <= e2.ul.y && e1.br.y >= e2.bl.y)//esquerda entre vértices
                     ent1->changePosition(sf::Vector2f(-sobre.x, 0.f));
-                else if (sobre.x >= sobre.y && e1.ur.y < e2.ul.y) {//cima canto esquerdo
+                else if (sobre.x >= sobre.y && e1.ur.y < e2.ul.y)//cima canto esquerdo
                     ent1->changePosition(sf::Vector2f(0.f, -sobre.y));
-                    //colidiu_superior = true;
-                }
-                else if (sobre.x >= sobre.y && e1.br.y > e2.bl.y){//baixo canto esquerdo
-                    //colidiu_superior = true;
+                else if (sobre.x >= sobre.y && e1.br.y > e2.bl.y)//baixo canto esquerdo
                     ent1->changePosition(sf::Vector2f(0.f, sobre.y));
-                }
                 else//esquerda cantos superior e inferior
                     ent1->changePosition(sf::Vector2f(-sobre.x, 0.f));
             }
@@ -113,10 +103,8 @@ namespace Gerenciador{
             if (e1.ul.x < e2.ur.x && e1.ur.x > e2.ur.x) {
                 if (e1.ul.y <= e2.ur.y && e1.bl.y >= e2.br.y)//direita entre vértices
                     ent2->changePosition(sf::Vector2f(sobre.x, 0.f));
-                else if (sobre.x >= sobre.y && e1.ul.y < e2.ur.y) {//cima canto direito
+                else if (sobre.x >= sobre.y && e1.ul.y < e2.ur.y)//cima canto direito
                     ent2->changePosition(sf::Vector2f(0.f, -sobre.y));
-                    //colidiu_superior = true;
-                }
                 else if (sobre.x >= sobre.y && e1.bl.y > e2.br.y)//baixo canto direito
                     ent2->changePosition(sf::Vector2f(0.f, sobre.y));
                 else//direita cantos superior e inferior
@@ -125,10 +113,8 @@ namespace Gerenciador{
             else if (e1.ur.x > e2.ul.x && e1.ul.x < e2.ul.x) {
                 if (e1.ur.y <= e2.ul.y && e1.br.y >= e2.bl.y)//esquerda entre vértices
                     ent2->changePosition(sf::Vector2f(-sobre.x, 0.f));
-                else if (sobre.x >= sobre.y && e1.ur.y < e2.ul.y) {//cima canto esquerdo
+                else if (sobre.x >= sobre.y && e1.ur.y < e2.ul.y)//cima canto esquerdo
                     ent2->changePosition(sf::Vector2f(0.f, -sobre.y));
-                    //colidiu_superior = true;
-                }
                 else if (sobre.x >= sobre.y && e1.br.y > e2.bl.y)//baixo canto esquerdo
                     ent2->changePosition(sf::Vector2f(0.f, sobre.y));
                 else//esquerda cantos superior e inferior
@@ -136,7 +122,6 @@ namespace Gerenciador{
             }
             else if (e1.bl.y > e2.ul.y && e1.ul.y < e2.ul.y && e1.bl.x >= e2.ul.x && e1.br.x <= e2.ur.x){//cima entre vértices
                 ent2->changePosition(sf::Vector2f(0.f, -sobre.y));
-                //colidiu_superior = true;
             }
             else//baixo entre vértices
                 ent2->changePosition(sf::Vector2f(0.f, sobre.y));
@@ -192,33 +177,45 @@ namespace Gerenciador{
     /* Efeitos causados pela colisão */
     void Colisao::effects(Entidade* ent1, Entidade* ent2){
         if(ent1->isDamageable() && ent2->isAttacker()){
-            
+            ent1->subtractLife(ent2->getDamage);
         }
-
         if(ent1->isAttacker() && ent2->isDamageable()){
-            
+            ent2->subtractLife(ent1->getDamage);
         }
-
-        if(ent1->isMovable() && ent2->isRetarder()){
-            
-        }
-
-        if(ent1->isRetarder() && ent2->isMovable()){
-            
+        if (!retardou) {
+            if (ent1->isMovable() && ent2->isRetarder()) {
+                ent1->subtractVelocity(ent2->getRetarder);
+                ent1->elapsedRetarder();
+            }
+            if (ent1->isRetarder() && ent2->isMovable()) {
+                ent2->subtractVelocity(ent1->getRetarder);
+                ent2->elapsedRetarder();
+            }
+            if (ent1->getElapsedRetarder() > 100)
+                ent1->resetRetarder();
+            if (ent2->getElapsedRetarder() > 100)
+                ent2->resetRetarder();
         }
 
     }
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
-        if(ent->isMovable())
+        if (ent->isMovable()) {
             ent->changePosition(sf::Vector2f(0.f, GRAVITY));
+        }
     }
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){
-        ent->blockJumped();
-        ent->changePosition(sf::Vector2f(0.f, -DY_PULO));
+        if (!ent->jumped_height)
+            colidiu = false;
+        if (ent->jumped_height < H_PULO && !colidiu) {
+            ent->changePosition(sf::Vector2f(0.f, -DY_PULO));
+            ent->jumped_height += DY_PULO;
+        }
+        else
+            ent->jumped_height = 0;
     }
 
     /* Funcionamento de um projétil */

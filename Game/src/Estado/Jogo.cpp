@@ -26,7 +26,7 @@ void Jogo::inicializa()
 	list_ent->push(static_cast<Entidade*> (jogador1));
 
 	//Cria os inimigos
-	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 300.f), 10);
+	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 270.f), 10);
 	enemy1->setGerGraf(ger_grafico);
 	enemy1->setPlayer(jogador1);
 	list_ent->push(static_cast<Entidade*> (enemy1));

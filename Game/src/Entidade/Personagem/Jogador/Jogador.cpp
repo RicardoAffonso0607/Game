@@ -4,7 +4,7 @@
 Jogador::Jogador(sf::Vector2f pos, int id, int life) : Personagem(pos, id)
 {
 	this->movable = true;
-	this->attacker = true;
+	this->attacker = false;
 	this->retarder = false;
 	this->damageable = true;
 
@@ -24,6 +24,8 @@ Jogador::~Jogador()
 
 void Jogador::move()
 {
+	if(attack_delay)
+		this->attack_delay--;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))//Direita
 		body.move(sf::Vector2f(2.f, 0.f));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))//Esquerda
@@ -33,12 +35,15 @@ void Jogador::move()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
 		body.move(sf::Vector2f(0.f, 2.f));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		if(this->jump_unlocked)
-			this->jumped = true;
+		this->jumped = true;
 }
 
 void Jogador::attack()
 {
-
+	if (sf::Keyboard::isKeyPressed(sf::Mouse::Left) && !this->attack_delay) {
+		this->attacker = true;
+		this->attack_delay = 100;
+	}
+	else
+		this->attacker = false;
 }
-

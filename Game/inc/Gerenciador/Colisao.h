@@ -16,6 +16,7 @@ namespace Gerenciador{
         void jump(Entidade* ent);
         void gravity(Entidade* ent);
         bool allowJump = true;
+
     public:
         void executar(ListaEntidades* list_ent);
         Colisao();
