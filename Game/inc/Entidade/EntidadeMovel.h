@@ -7,10 +7,12 @@ namespace Entidades{
 	protected:
 		int vel_x;
 		int vel_y;
-		int vel_max_x;
-		int vel_max_y;
+	
 	public:
 		EntidadeMovel(int id, sf::Vector2f pos);
 		~EntidadeMovel();
+
+		virtual void move() = 0;
+		virtual void attack() = 0;
 	};
 }
