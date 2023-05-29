@@ -10,6 +10,7 @@ Jogador::Jogador(sf::Vector2f pos, int id, int life) : Personagem(pos, id)
 
 	this->life = life;
 	this->damage = 0;
+	this->retard = 5;
 
 	body.setFillColor(sf::Color::Blue);
 	body.setPosition(pos);

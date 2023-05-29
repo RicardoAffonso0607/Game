@@ -38,7 +38,11 @@ public:
 	bool isRetarder() { return retarder; }
 	bool isDamageable() { return damageable; }
 	bool isJumped() { return jumped; }
-	float getJumpedHeight() { return jumped_height; }
 	float jumped_height = 0.f;
+	virtual void subtractLife();
+	virtual void subtractVelocity();
+	virtual void elapsedRetarder();
+	virtual void resetRetarder();
+	virtual int getRetarder();
 };
 

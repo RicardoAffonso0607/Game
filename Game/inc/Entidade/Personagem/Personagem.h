@@ -6,6 +6,7 @@ class Personagem : public Entidade
 {
 protected:
 	int damage;
+	int retard;
 	int life;
 	int vel_x;
 	int vel_y;
@@ -15,9 +16,7 @@ protected:
 public:
 	Personagem(sf::Vector2f pos, int id);
 	~Personagem();
-	void subtractLife(int* damage) { life -= damage; }
-	void subtractVelocity(int* retard) { vel_x -= retard; }
-	void elapsedRetarder(){}
-	void resetRetarder(){}
+	void subtractLife(int damaged) { life -= damaged; }
+	void subtractVelocity(int retarded) { vel_x -= retarded; }
+	int getRetarder() { return retard; }
 };
-

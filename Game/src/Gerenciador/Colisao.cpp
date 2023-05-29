@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
 
-#define GRAVITY 10.f
+#define GRAVITY 2.f
 #define H_PULO 100.f
 #define DY_PULO 10.f
 #define WINDOW_HEIGHT 1500
@@ -29,12 +29,6 @@ namespace Gerenciador{
         centerDistance = sf::Vector2f(fabs(cg2.x - cg1.x), fabs(cg2.y - cg1.y));
         centerSum = .5f * (ent2->getEntSize() + ent1->getEntSize());
         sobre = centerSum - centerDistance;
-        if(centerDistance.y <= centerSum.y) {
-            if(ent1->isJumped())
-                jump(ent1);//aplica pulo
-            if(ent2->isJumped())
-                jump(ent2);
-        }
         /* se colidiu */
         if((sobre.x>0 && sobre.y>0)||(sobre.x>0 && !centerDistance.y)||(sobre.y>0 && !centerDistance.x)) {
             effects(ent1, ent2);//aplica dano e lentidão
@@ -52,6 +46,14 @@ namespace Gerenciador{
                       ent2->getPosition().y + ent2->getEntSize().y == ent1->getPosition().y))
                 gravity(ent2);
         }
+        if (centerDistance.y <= centerSum.y) {
+            if (ent1->isJumped())
+                jump(ent1);//aplica pulo
+            if (ent2->isJumped())
+                jump(ent2);
+        }
+        if (colidiu)
+            colidiu = !colidiu;
     }
     
     /* Vértices do retângulo */
@@ -177,26 +179,28 @@ namespace Gerenciador{
     /* Efeitos causados pela colisão */
     void Colisao::effects(Entidade* ent1, Entidade* ent2){
         if (colidiu) {
-            if (ent1->isDamageable() && ent2->isAttacker()) {
-                ent1->subtractLife(ent2->getDamage);
+            if (ent1->isDamageable() && ent2->isAttacker())
+                ent1->subtractLife(ent2->getDamage());
+            if (ent1->isAttacker() && ent2->isDamageable())
+                ent2->subtractLife(ent1->getDamage());
+            if (ent1->isMovable() && !ent1->isRetarded() && ent2->isRetarder()) {
+                ent1->subtractVelocity(ent2->getRetarder());
+                ent1->setRetarded();
             }
-            if (ent1->isAttacker() && ent2->isDamageable()) {
-                ent2->subtractLife(ent1->getDamage);
+            if (ent1->isRetarder() && !ent2->isRetarded() && ent2->isMovable()) {
+                ent2->subtractVelocity(ent1->getRetarder());
+                ent2->setRetarded();
             }
-            if (!retardou) {
-                if (ent1->isMovable() && ent2->isRetarder()) {
-                    ent1->subtractVelocity(ent2->getRetarder);
-                    ent1->elapsedRetarder();
-                }
-                if (ent1->isRetarder() && ent2->isMovable()) {
-                    ent2->subtractVelocity(ent1->getRetarder);
-                    ent2->elapsedRetarder();
-                }
-                if (ent1->getElapsedRetarder() > 100)
-                    ent1->resetRetarder();
-                if (ent2->getElapsedRetarder() > 100)
-                    ent2->resetRetarder();
-            }
+            if(ent1->isMovable()&&!ent2->isRetarder())
+                ent1->unsetRetarded();
+            if (ent1->isRetarder() && !ent2->isMovable())
+                ent2->unsetRetarded();
+        }
+        else {
+            if (ent1->isRetarder())
+                ent1->unsetRetarded();
+            if (ent2->isRetarder())
+                ent2->unsetRetarded();
         }
     }
 
@@ -221,6 +225,7 @@ namespace Gerenciador{
 
     /* Funcionamento de um projétil */
     void Colisao::trajectory(Entidade* ent){
-
+        if(ent->isProjectile())
+            if(ent->pCaster->isFacingLeft())
     }
 }
