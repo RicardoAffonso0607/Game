@@ -52,8 +52,8 @@ namespace Gerenciador{
             ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
         }
         else if (ent1->getPosition().y < WINDOW_HEIGHT && ent2->getPosition().y < WINDOW_HEIGHT && (ent1->isMovable()&&!ent2->isMovable() || !ent1->isMovable() && ent2->isMovable()) && (centerDistance.y > centerSum.y + GRAVITY || centerDistance.x >= centerSum.x)) {
-            //gravity(ent1);//aplica gravidade
-            //gravity(ent2);
+            gravity(ent1);//aplica gravidade
+            gravity(ent2);
         }
     }
     

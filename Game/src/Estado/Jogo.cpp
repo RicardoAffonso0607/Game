@@ -1,15 +1,8 @@
 #include "pch.h"
 #include "Estado/Jogo.h"
 
-Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico())
+Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->getEventos())
 {
-	if (ger_grafico == NULL)
-	{
-		cout << "Gerenciador gráfico nulo" << endl;
-		exit(1);
-	}
-
-
 	inicializa();
 	executar();
 }
@@ -17,6 +10,19 @@ Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico())
 
 void Jogo::inicializa()
 {
+
+	if (ger_grafico == NULL)
+	{
+		cout << "Gerenciador gráfico nulo" << endl;
+		exit(1);
+	}
+
+	if (ger_eventos == NULL)
+	{
+		cout << "Gerenciador de eventos nulo" << endl;
+		exit(1);
+	}
+
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;
 
@@ -24,6 +30,7 @@ void Jogo::inicializa()
 	jogador1 = new Jogador(sf::Vector2f(300.f, 150.f), 1, 1);
 	jogador1->setGerGraf(ger_grafico);
 	list_ent->push(static_cast<Entidade*> (jogador1));
+	ger_eventos->setJogador(jogador1);
 
 	//Cria os inimigos
 	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 300.f), 10);
@@ -54,9 +61,7 @@ void Jogo::executar()
 {
 	while (ger_grafico->verificaJanelaAberta())
 	{
-		eventos();
-		teclas_pressionadas();
-
+		ger_eventos->executar();
 		ger_grafico->limpaJanela();
 		list_ent->moveAll();
 		list_ent->drawAll();
@@ -65,18 +70,3 @@ void Jogo::executar()
 	}
 }
 
-void Jogo::eventos()
-{
-	sf::Event event;
-
-	while (ger_grafico->getWindow()->pollEvent(event))
-	{
-		if (event.type == sf::Event::Closed)
-			ger_grafico->fecharJanela();
-	}
-}
-
-void Jogo::teclas_pressionadas()
-{
-
-}

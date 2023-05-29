@@ -8,11 +8,13 @@
 #include "Estado/Fase.h"
 #include "Gerenciador/Colisao.h"
 #include "Gerenciador/Grafico.h"
+#include "Gerenciador/Eventos.h"
 
 class Jogo
 {
 private:
 	Gerenciador::Grafico* ger_grafico;
+	Gerenciador::Eventos* ger_eventos;
 	Gerenciador::Colisao* colisor;
 	ListaEntidades* list_ent;
 	Jogador* jogador1;
@@ -30,9 +32,6 @@ public:
 
 	void setJogador(Jogador* pJg) { jogador1 = pJg; }
 	Jogador* getJogador() { return jogador1; }
-
-	void eventos();
-	void teclas_pressionadas();
 
 };
 
