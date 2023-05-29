@@ -176,27 +176,28 @@ namespace Gerenciador{
 
     /* Efeitos causados pela colisão */
     void Colisao::effects(Entidade* ent1, Entidade* ent2){
-        if(ent1->isDamageable() && ent2->isAttacker()){
-            ent1->subtractLife(ent2->getDamage);
-        }
-        if(ent1->isAttacker() && ent2->isDamageable()){
-            ent2->subtractLife(ent1->getDamage);
-        }
-        if (!retardou) {
-            if (ent1->isMovable() && ent2->isRetarder()) {
-                ent1->subtractVelocity(ent2->getRetarder);
-                ent1->elapsedRetarder();
+        if (colidiu) {
+            if (ent1->isDamageable() && ent2->isAttacker()) {
+                ent1->subtractLife(ent2->getDamage);
             }
-            if (ent1->isRetarder() && ent2->isMovable()) {
-                ent2->subtractVelocity(ent1->getRetarder);
-                ent2->elapsedRetarder();
+            if (ent1->isAttacker() && ent2->isDamageable()) {
+                ent2->subtractLife(ent1->getDamage);
             }
-            if (ent1->getElapsedRetarder() > 100)
-                ent1->resetRetarder();
-            if (ent2->getElapsedRetarder() > 100)
-                ent2->resetRetarder();
+            if (!retardou) {
+                if (ent1->isMovable() && ent2->isRetarder()) {
+                    ent1->subtractVelocity(ent2->getRetarder);
+                    ent1->elapsedRetarder();
+                }
+                if (ent1->isRetarder() && ent2->isMovable()) {
+                    ent2->subtractVelocity(ent1->getRetarder);
+                    ent2->elapsedRetarder();
+                }
+                if (ent1->getElapsedRetarder() > 100)
+                    ent1->resetRetarder();
+                if (ent2->getElapsedRetarder() > 100)
+                    ent2->resetRetarder();
+            }
         }
-
     }
 
     /* Aceleração da gravidade */
