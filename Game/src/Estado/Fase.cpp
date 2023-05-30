@@ -2,11 +2,21 @@
 #include "Estado/Fase.h"
 
 namespace Estado {
-	Fase::Fase() {
-
+	Fase::Fase() : ger_grafico(ger_grafico->getGrafico())
+	{
+		
 	}
 
 	Fase::~Fase() {
 
+	}
+	void Fase::executar()
+	{
+	}
+	void Fase::criarInimigos()
+	{
+	}
+	void Fase::criarObstaculos()
+	{
 	}
 }
