@@ -12,6 +12,7 @@ Entidade::Entidade(int id) : pos(0.f, 0.f), body(sf::Vector2f(100.f, 100.f)), En
 	this->retarder = false;
 	this->attacker = false;
 	this->damageable = false;
+	this->projected = false;
 }
 
 Entidade::~Entidade()

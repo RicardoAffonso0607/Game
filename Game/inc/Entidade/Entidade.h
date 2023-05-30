@@ -14,8 +14,10 @@ protected:
 	bool attacker;
 	bool retarder;
 	bool damageable;
-	bool jumped = false;
-	bool colidiu = false;
+	bool facingLeft;
+	bool projected = false;
+
+
 	unsigned int attack_delay;
 	unsigned int retarder_delay;
 	unsigned int retarder_timer;
@@ -38,11 +40,14 @@ public:
 	bool isRetarder() { return retarder; }
 	bool isDamageable() { return damageable; }
 	bool isJumped() { return jumped; }
+	bool isFacingLeft() { return facingLeft; }
+	bool isProjectile() { return projected; }
 	float jumped_height = 0.f;
-	virtual void subtractLife();
-	virtual void subtractVelocity();
-	virtual void elapsedRetarder();
-	virtual void resetRetarder();
-	virtual int getRetarder();
+	bool colidiu = false;
+	bool jumped = false;
+	//virtual void subtractLife() = 0;
+	//virtual void subtractVelocity() = 0;
+	//virtual int getRetarder() = 0;
+	//virtual int getDamage() = 0;
 };
 

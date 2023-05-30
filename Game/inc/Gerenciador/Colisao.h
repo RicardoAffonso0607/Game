@@ -5,6 +5,8 @@
 namespace Gerenciador{
     class Colisao{
     protected:
+        ListaEntidades* list_ent;
+        Grafico* ger_graf;
         int colidiu = 0;
         void collide(Entidade *ent1, Entidade *ent2);
         void ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre);
@@ -18,8 +20,8 @@ namespace Gerenciador{
         bool allowJump = true;
 
     public:
-        void executar(ListaEntidades* list_ent);
-        Colisao();
+        void executar();
+        Colisao(ListaEntidades* list, Grafico* graf);
         ~Colisao();
     };
 }

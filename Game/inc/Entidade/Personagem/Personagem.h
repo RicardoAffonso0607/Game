@@ -19,4 +19,5 @@ public:
 	void subtractLife(int damaged) { life -= damaged; }
 	void subtractVelocity(int retarded) { vel_x -= retarded; }
 	int getRetarder() { return retard; }
+	int getDamage() { return damage; }
 };

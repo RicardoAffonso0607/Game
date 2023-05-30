@@ -15,6 +15,7 @@ namespace Gerenciador
 		~Grafico();
 		static Grafico* getGrafico();
 		sf::RenderWindow* getWindow() { return window; }
+		int getWindowHeight() { return window->getSize().y; }
 		void limpaJanela() { window->clear(); }
 		void desenhaElemento(sf::RectangleShape body) { window->draw(body); }
 		void mostraElementos() { window->display(); }

@@ -1,18 +1,27 @@
 #include "pch.h"
 #include "Gerenciador/Colisao.h"
+#include "Gerenciador/Grafico.h"
 
-#define GRAVITY 2.f
-#define H_PULO 100.f
-#define DY_PULO 10.f
-#define WINDOW_HEIGHT 1500
+#define GRAVITY .98f
+#define HMAX_PULO 100.f
+#define DY_PULO 2.f
+#define DX_PROJECTILE 10.f
 
 namespace Gerenciador{
-    Colisao::Colisao(){}
+    Colisao::Colisao(ListaEntidades* list, Grafico* graf)
+    {
+       list_ent = list;
+       ger_graf = graf;
+    }
 
-    Colisao::~Colisao(){}
+    Colisao::~Colisao()
+    {
+        list_ent = nullptr;
+        ger_graf = nullptr;
+    }
 
     /* Verifica se a colisão entre as entidades é possível */
-    void Colisao::executar(ListaEntidades* list_ent){
+    void Colisao::executar(){
         int i, j;
         for (i=0; i<list_ent->getSize(); i++)
             if (list_ent->getEntity(i)->isMovable())
@@ -35,25 +44,14 @@ namespace Gerenciador{
             ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
         }
         else{//aplica gravidade
-            if(ent1->getPosition().y + ent1->getEntSize().y <= ent2->getPosition().y - GRAVITY||
-               ((ent1->getPosition().x >= ent2->getPosition().x + ent2->getEntSize().x ||
-               ent1->getPosition().x - ent1->getEntSize().x <= ent2->getPosition().x) &&
-               ent1->getPosition().y + ent1->getEntSize().y == ent2->getPosition().y))
-                gravity(ent1);
-            else if (ent2->getPosition().y + ent2->getEntSize().y <= ent1->getPosition().y - GRAVITY ||
-                     ((ent2->getPosition().x >= ent1->getPosition().x + ent1->getEntSize().x ||
-                       ent2->getPosition().x - ent2->getEntSize().x <= ent1->getPosition().x) &&
-                      ent2->getPosition().y + ent2->getEntSize().y == ent1->getPosition().y))
-                gravity(ent2);
+            gravity(ent1);
+            gravity(ent2);
         }
-        if (centerDistance.y <= centerSum.y) {
-            if (ent1->isJumped())
-                jump(ent1);//aplica pulo
-            if (ent2->isJumped())
-                jump(ent2);
-        }
-        if (colidiu)
-            colidiu = !colidiu;
+        //if (centerDistance.y <= centerSum.y) {//aplica pulo
+            jump(ent1);
+            jump(ent2);
+        //}
+        colidiu = false;
     }
     
     /* Vértices do retângulo */
@@ -71,7 +69,8 @@ namespace Gerenciador{
 
     /* Ao andar e sobrepor um fixo, volta à posição só encostado, e se for um móvel, empurra */
     void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre) {
-        colidiu = true;
+        ent1->colidiu = true;
+        ent2->colidiu = true;
         vertex e1, e2;
         vertexMath(&e1, ent1);
         vertexMath(&e2, ent2);
@@ -178,54 +177,59 @@ namespace Gerenciador{
 
     /* Efeitos causados pela colisão */
     void Colisao::effects(Entidade* ent1, Entidade* ent2){
-        if (colidiu) {
-            if (ent1->isDamageable() && ent2->isAttacker())
-                ent1->subtractLife(ent2->getDamage());
-            if (ent1->isAttacker() && ent2->isDamageable())
-                ent2->subtractLife(ent1->getDamage());
-            if (ent1->isMovable() && !ent1->isRetarded() && ent2->isRetarder()) {
-                ent1->subtractVelocity(ent2->getRetarder());
-                ent1->setRetarded();
-            }
-            if (ent1->isRetarder() && !ent2->isRetarded() && ent2->isMovable()) {
-                ent2->subtractVelocity(ent1->getRetarder());
-                ent2->setRetarded();
-            }
-            if(ent1->isMovable()&&!ent2->isRetarder())
-                ent1->unsetRetarded();
-            if (ent1->isRetarder() && !ent2->isMovable())
-                ent2->unsetRetarded();
-        }
-        else {
-            if (ent1->isRetarder())
-                ent1->unsetRetarded();
-            if (ent2->isRetarder())
-                ent2->unsetRetarded();
-        }
+        //if (colidiu) {
+        //    if (ent1->isDamageable() && ent2->isAttacker())
+        //        ent1->subtractLife(ent2->getDamage());
+        //    if (ent1->isAttacker() && ent2->isDamageable())
+        //        ent2->subtractLife(ent1->getDamage());
+        //    if (ent1->isMovable() && !ent1->isRetarded() && ent2->isRetarder()) {
+        //        ent1->subtractVelocity(ent2->getRetarder());
+        //        ent1->setRetarded();
+        //    }
+        //    if (ent1->isRetarder() && !ent2->isRetarded() && ent2->isMovable()) {
+        //        ent2->subtractVelocity(ent1->getRetarder());
+        //        ent2->setRetarded();
+        //    }
+        //    if(ent1->isMovable()&&!ent2->isRetarder())
+        //        ent1->unsetRetarded();
+        //    if (ent1->isRetarder() && !ent2->isMovable())
+        //        ent2->unsetRetarded();
+        //}
+        //else {
+        //    if (ent1->isRetarder())
+        //        ent1->unsetRetarded();
+        //    if (ent2->isRetarder())
+        //        ent2->unsetRetarded();
+        //}
     }
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
-        if (ent->isMovable()) {
+        if (ent->isMovable() && ent->getPosition().y < 1.5f*ger_graf->getWindowHeight()) {
             ent->changePosition(sf::Vector2f(0.f, GRAVITY));
         }
     }
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){
-        if (!ent->jumped_height)
-            colidiu = false;
-        if (ent->jumped_height < H_PULO && !colidiu) {
+        if (ent->isJumped() && /*!ent->colidiu && */ ent->jumped_height<HMAX_PULO) {
             ent->changePosition(sf::Vector2f(0.f, -DY_PULO));
             ent->jumped_height += DY_PULO;
+            //ent->
         }
-        else
-            ent->jumped_height = 0;
+        if (ent->jumped_height >= HMAX_PULO) {
+            ent->jumped = false;
+           // if (ent->jumped_height == -1.f)
+                //ent->colidiu = false;
+            //if(ent->colidiu)
+                ent->jumped_height = 0.f;
+        }
     }
 
     /* Funcionamento de um projétil */
     void Colisao::trajectory(Entidade* ent){
-        if(ent->isProjectile())
-            if(ent->pCaster->isFacingLeft())
+        //if (ent->isProjectile())
+        //    if (ent->pCaster->isFacingLeft())
+        //        ent->changePosition(sf::Vector2f(-DX_PROJECTILE, 0.f));
     }
 }

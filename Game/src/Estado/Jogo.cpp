@@ -18,7 +18,7 @@ Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico())
 void Jogo::inicializa()
 {
 	list_ent = new ListaEntidades;
-	colisor = new Gerenciador::Colisao;
+	colisor = new Gerenciador::Colisao(list_ent, ger_grafico);
 
 	//Cria os jogadores
 	jogador1 = new Jogador(sf::Vector2f(300.f, 150.f), 1, 1);
@@ -26,7 +26,7 @@ void Jogo::inicializa()
 	list_ent->push(static_cast<Entidade*> (jogador1));
 
 	//Cria os inimigos
-	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 270.f), 10);
+	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 100.f), 10);
 	enemy1->setGerGraf(ger_grafico);
 	enemy1->setPlayer(jogador1);
 	list_ent->push(static_cast<Entidade*> (enemy1));
@@ -60,7 +60,7 @@ void Jogo::executar()
 		ger_grafico->limpaJanela();
 		list_ent->moveAll();
 		list_ent->drawAll();
-		colisor->executar(list_ent);
+		colisor->executar();
 		ger_grafico->mostraElementos();
 	}
 }
