@@ -44,6 +44,9 @@ public:
 	bool isProjectile() { return projected; }
 	float jumped_height = 0.f;
 	bool colidiu = false;
+	bool colidiu_baixo = false;
+	bool colidiu_cima = false;
+	bool allow_jump = true;
 	bool jumped = false;
 	//virtual void subtractLife() = 0;
 	//virtual void subtractVelocity() = 0;

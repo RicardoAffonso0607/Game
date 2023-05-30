@@ -5,6 +5,7 @@
 namespace Gerenciador{
     class Colisao{
     protected:
+        bool aux = false;
         ListaEntidades* list_ent;
         Grafico* ger_graf;
         int colidiu = 0;
