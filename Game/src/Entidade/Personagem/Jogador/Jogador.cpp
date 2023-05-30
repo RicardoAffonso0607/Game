@@ -37,7 +37,7 @@ void Jogador::move()
 		body.move(sf::Vector2f(0.f, -this->vel_y));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
 		body.move(sf::Vector2f(0.f, this->vel_y));
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && this->allow_jump)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) /* && !this->flying*/)
 		this->jumped = true;
 }
 

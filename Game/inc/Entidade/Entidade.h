@@ -16,7 +16,7 @@ protected:
 	bool damageable;
 	bool facingLeft;
 	bool projected = false;
-
+	
 
 	unsigned int attack_delay;
 	unsigned int retarder_delay;
@@ -48,6 +48,8 @@ public:
 	bool colidiu_cima = false;
 	bool allow_jump = true;
 	bool jumped = false;
+	bool flying = true;
+	float mass = 1.f;
 	//virtual void subtractLife() = 0;
 	//virtual void subtractVelocity() = 0;
 	//virtual int getRetarder() = 0;
