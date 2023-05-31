@@ -3,18 +3,21 @@
 
 Estado::Deserto::Deserto()
 {
+	list->clear();
 	criarObstaculos();
 	criarJogador();
 	criarInimigos();
+	colisor = new Gerenciador::Colisao(list, ger_grafico);
 }
 
 Estado::Deserto::~Deserto()
 {
+	list->clear();
 }
 
 void Estado::Deserto::executar()
 {
-	colisor->executar(list);
+	colisor->executar();
 	move();
 	draw();
 }

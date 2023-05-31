@@ -5,7 +5,7 @@ namespace Estado {
 
 	Gerenciador::Grafico* Fase::ger_grafico(ger_grafico->getGrafico());
 	Gerenciador::Eventos* Fase::ger_eventos(ger_eventos->getEventos());
-	Gerenciador::Colisao* Fase::colisor(new Gerenciador::Colisao);
+	Gerenciador::Colisao* Fase::colisor(NULL);
 
 	Fase::Fase() : list(new ListaEntidades())
 	{

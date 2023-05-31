@@ -4,9 +4,10 @@
 Estado::Floresta::Floresta() : j1(NULL)
 {
 	list->clear();
-	criarObstaculos();
 	criarJogador();
 	criarInimigos();
+	criarObstaculos();
+	colisor = new Gerenciador::Colisao(list, ger_grafico);
 }
 
 Estado::Floresta::~Floresta()
@@ -16,7 +17,7 @@ Estado::Floresta::~Floresta()
 
 void Estado::Floresta::executar()
 {
-	colisor->executar(list);
+	colisor->executar();
 	move();
 	draw();
 }
@@ -45,7 +46,7 @@ void Estado::Floresta::criarObstaculos()
 
 	for (int i = 0; i < 4; i++)
 	{
-		plat = new Plataforma(sf::Vector2f((i * 630.f), 400.f), 9);
+		plat = new Plataforma(sf::Vector2f((i * 630.f), 600.f), 9);
 		plat->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(plat));
 	}

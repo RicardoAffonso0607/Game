@@ -11,9 +11,14 @@ protected:
 	bool attacker;
 	bool retarder;
 	bool damageable;
-	bool jumped = false;
-	bool jump_unlocked = true;
+	bool facingLeft;
+	bool projected = false;
 
+
+	unsigned int attack_delay;
+	unsigned int retarder_delay;
+	unsigned int retarder_timer;
+	
 public:
 	Entidade(int id);
 	~Entidade();
@@ -29,8 +34,19 @@ public:
 	bool isRetarder() { return retarder; }
 	bool isDamageable() { return damageable; }
 	bool isJumped() { return jumped; }
-	void offJumped() { jumped = false; }
-	void blockJumped() { jump_unlocked = false; }
-	void allowJumped() { jump_unlocked = true; }
+	bool isFacingLeft() { return facingLeft; }
+	bool isProjectile() { return projected; }
+	float jumped_height = 0.f;
+	bool colidiu = false;
+	bool colidiu_baixo = false;
+	bool colidiu_cima = false;
+	bool allow_jump = true;
+	bool jumped = false;
+	bool flying = true;
+	float mass = 1.f;
+	//virtual void subtractLife() = 0;
+	//virtual void subtractVelocity() = 0;
+	//virtual int getRetarder() = 0;
+	//virtual int getDamage() = 0;
 };
 
