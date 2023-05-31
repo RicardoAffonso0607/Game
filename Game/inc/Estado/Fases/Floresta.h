@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Fase.h"
+#include "Estado/Fases/Fase.h"
 
 namespace Estado
 {
@@ -16,8 +16,6 @@ namespace Estado
 		void criarJogador();
 		void criarInimigos();
 		void criarObstaculos();
-		
 	};
-
 }
 

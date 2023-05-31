@@ -7,7 +7,7 @@ class Jogador : public Personagem
 private:
 
 public:
-	Jogador(sf::Vector2f pos, int id, int life);
+	Jogador(sf::Vector2f pos, int id, float life);
 	~Jogador();
 
 	void move();

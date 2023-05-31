@@ -19,6 +19,16 @@ void ListaEntidades::moveAll()
 	}
 }
 
+void ListaEntidades::attackAll()
+{
+	int i;
+	for (i = 0; i < Lista.getTamanho(); i++)
+	{
+		if (Lista.getItem(i)->isAttacker())
+			Lista.getItem(i)->attack();
+	}
+}
+
 void ListaEntidades::drawAll()
 {
 	int i;

@@ -19,7 +19,7 @@ namespace Estado {
 	protected:
 		ListaEntidades* list;
 		static Gerenciador::Grafico* ger_grafico;
-		static Gerenciador::Colisao* colisor;
+		/*static*/ Gerenciador::Colisao* colisor;
 		static Gerenciador::Eventos* ger_eventos;
 
 	public:
