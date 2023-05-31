@@ -227,7 +227,7 @@ namespace Gerenciador{
     void Colisao::jump(Entidade* ent){
         //printf("ativou\n");
         if (!ent->colidiu_cima && ent->jumped_height < HMAX_PULO) {
-            printf("entrou\n");
+            //printf("entrou\n");
             ent->changePosition(sf::Vector2f(0.f, -2*ent->mass*GRAVITY));
             ent->jumped_height += ent->mass*GRAVITY;
             ent->allow_jump = false;
