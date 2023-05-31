@@ -11,6 +11,7 @@ Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->
 void Jogo::inicializa()
 {
 	fase1 = new Estado::Floresta;
+	fase2 = new Estado::Deserto;
 
 	if (ger_grafico == NULL)
 	{
@@ -35,7 +36,10 @@ void Jogo::executar()
 	{
 		ger_eventos->executar();
 		ger_grafico->limpaJanela();
-		fase1->executar();
+
+		//fase1->executar();
+		fase2->executar();
+
 		ger_grafico->mostraElementos();
 	}
 }
