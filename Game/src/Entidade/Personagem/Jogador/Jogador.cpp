@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
-Jogador::Jogador(sf::Vector2f pos, int id, int life) : Personagem(pos, id)
+Jogador::Jogador(sf::Vector2f pos, int id, float life) : Personagem(pos, id)
 {
 	this->movable = true;
 	this->attacker = false;

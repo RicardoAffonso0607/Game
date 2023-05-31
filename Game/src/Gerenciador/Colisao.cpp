@@ -246,4 +246,12 @@ namespace Gerenciador{
         //    if (ent->pCaster->isFacingLeft())
         //        ent->changePosition(sf::Vector2f(-DX_PROJECTILE, 0.f));
     }
+
+    //Colisao* Colisao::getColisao()
+    //{
+    //    if (pColisao == NULL)
+    //        pColisao = new Gerenciador::Colisao();
+
+    //    return pColisao;
+    //}
 }

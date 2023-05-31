@@ -5,19 +5,21 @@
 class Personagem : public Entidade
 {
 protected:
-	int damage;
-	int retard;
-	int life;
-	int vel_x;
-	int vel_y;
+	float damage;
+	float retard;
+	float life;
+	float vel_x;
+	float vel_y;
+	float vel_max_x = 10.f;
+	float vel_max_y = 10.f;
 
 public:
 	Personagem(sf::Vector2f pos, int id);
 	~Personagem();
 	void subtractLife(int damaged) { life -= damaged; }
 	void subtractVelocity(int retarded) { vel_x -= retarded; }
-	int getRetarder() { return retard; }
-	int getDamage() { return damage; }
+	float getRetarder() { return retard; }
+	float getDamage() { return damage; }
 	virtual void move() = 0;
 	virtual void attack() = 0;
 };

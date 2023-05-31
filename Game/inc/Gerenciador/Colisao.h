@@ -23,6 +23,7 @@ namespace Gerenciador{
         void executar();
         Colisao(ListaEntidades* list, Grafico* graf);
         ~Colisao();
+        //Colisao* getColisao();
     };
 }
 
