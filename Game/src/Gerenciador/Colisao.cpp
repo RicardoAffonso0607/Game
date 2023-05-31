@@ -5,16 +5,16 @@
 constexpr auto GRAVITY=9.8f, HMAX_PULO=150.f, DX_PROJECTILE=10.f;
 
 namespace Gerenciador{
-    Colisao::Colisao(ListaEntidades* list, Grafico* graf)
+    Colisao::Colisao(ListaEntidades* list_ent, Grafico* ger_graf)
     {
-       list_ent = list;
-       ger_graf = graf;
+       this->list_ent = list_ent;
+       this->ger_graf = ger_graf;
     }
 
     Colisao::~Colisao()
     {
-        list_ent = nullptr;
-        ger_graf = nullptr;
+        this->list_ent = nullptr;
+        this->ger_graf = nullptr;
     }
 
     /* Verifica se a colisão entre as entidades é possível */
