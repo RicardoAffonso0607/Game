@@ -43,6 +43,7 @@ public:
 
 	void push(Tipo* pT);
 	void pop(Tipo* pT);
+	void clear();
 
 };
 
@@ -177,5 +178,21 @@ inline void Lista<Tipo>::pop(Tipo* pT)
 	}
 	else
 		cout << "Ponteiro Nulo" << endl;
+}
+
+template<class Tipo>
+inline void Lista<Tipo>::clear()
+{
+	Elemento<Tipo>* temp = pInicio;
+
+	if (pInicio) // Se a lista não estiver vazia
+	{
+		while (temp != pFinal)
+		{
+			delete(temp->getDados());
+			temp = temp->getProx();
+		}
+			delete(temp);
+	}
 }
 
