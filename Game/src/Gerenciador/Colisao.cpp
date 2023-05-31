@@ -30,7 +30,7 @@ namespace Gerenciador{
                 for (j = 0; j < list_ent->getSize(); j++)
                     if (j != i)
                         collide(ent, list_ent->getEntity(j));
-                printf("flying=%d jumped=%d\n", ent->flying ? 1 : 0,ent->isJumped()?1:0);
+                //printf("flying=%d jumped=%d\n", ent->flying ? 1 : 0,ent->isJumped()?1:0);
                 if (ent->flying) {
                     gravity(ent);
                     ent->allow_jump = false;
@@ -184,8 +184,9 @@ namespace Gerenciador{
                 ent2->colidiu_baixo = true;
             }
         }
-        if(ent1->getId() == 1)
-            printf("ent1=%d %d %d ent2=%d %d %d\n", (ent1->isMovable()) ? 1 : 0, (ent1->colidiu_cima) ? 1 : 0, (ent1->colidiu_baixo) ? 1 : 0, (ent2->isMovable()) ? 1 : 0, (ent2->colidiu_cima) ? 1 : 0, (ent2->colidiu_baixo) ? 1 : 0);
+        if (ent1->getId() == 1) {
+            //printf("ent1=%d %d %d ent2=%d %d %d\n", (ent1->isMovable()) ? 1 : 0, (ent1->colidiu_cima) ? 1 : 0, (ent1->colidiu_baixo) ? 1 : 0, (ent2->isMovable()) ? 1 : 0, (ent2->colidiu_cima) ? 1 : 0, (ent2->colidiu_baixo) ? 1 : 0);
+        }
     }
 
     /* Efeitos causados pela colisão */
@@ -224,7 +225,7 @@ namespace Gerenciador{
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){
-        printf("ativou\n");
+        //printf("ativou\n");
         if (!ent->colidiu_cima && ent->jumped_height < HMAX_PULO) {
             printf("entrou\n");
             ent->changePosition(sf::Vector2f(0.f, -2*ent->mass*GRAVITY));
@@ -232,7 +233,7 @@ namespace Gerenciador{
             ent->allow_jump = false;
         }
         else if (ent->colidiu_baixo) {
-            printf("entrou2\n");
+            //printf("entrou2\n");
             ent->jumped = false;
             ent->allow_jump = true;
             ent->jumped_height = 0.f;
