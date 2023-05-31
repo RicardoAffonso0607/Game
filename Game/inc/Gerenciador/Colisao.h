@@ -4,8 +4,8 @@
 
 namespace Gerenciador{
     class Colisao{
-    protected:
-        bool aux = false;
+    private:
+
         ListaEntidades* list_ent;
         Grafico* ger_graf;
         int colidiu = 0;
@@ -18,7 +18,6 @@ namespace Gerenciador{
         void vertexMath(vertex *rect, Entidade* ent);
         void jump(Entidade* ent);
         void gravity(Entidade* ent);
-        bool allowJump = true;
 
     public:
         void executar();
