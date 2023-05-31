@@ -1,8 +1,8 @@
 #pragma once
-#include "../../EntidadeMovel.h"
-#include "EnemyRanged.h"
+#include "Entidade/Entidade.h"
+#include "Entidade/Personagem/Inimigos/EnemyRanged.h"
 
-class Projectile : public Entidades::EntidadeMovel
+class Projectile : public Entidade
 {
 private:
 	EnemyRanged* caster;
@@ -14,7 +14,7 @@ public:
 	void setCaster(EnemyRanged* pCaster) { caster = pCaster; }
 	EnemyRanged* getCaster() { return caster; }
 
-	void move() {}
-	void attack() {}
+	void move();
+	void attack();
 };
 

@@ -1,11 +1,9 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
 #include <iostream>
 #include <list>
+#include <locale>
 #include <vector>
 
 //SFML

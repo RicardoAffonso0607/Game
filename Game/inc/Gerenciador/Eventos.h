@@ -3,7 +3,7 @@
 /* Código inspirado no vídeo do monitor Giovane Limas Salvi 2022.2 */
 
 #include "Grafico.h"
-#include "../Entidade/Personagem/Jogador/Jogador.h"
+#include "Entidade/Personagem/Jogador/Jogador.h"
 
 namespace Gerenciador
 {
@@ -27,4 +27,3 @@ namespace Gerenciador
 	};
 
 }
-

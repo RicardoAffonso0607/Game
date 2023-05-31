@@ -43,6 +43,7 @@ public:
 
 	void push(Tipo* pT);
 	void pop(Tipo* pT);
+	void clear();
 
 };
 
@@ -64,7 +65,7 @@ inline Lista<Tipo>::~Lista()
 template<class Tipo>
 inline Tipo* Lista<Tipo>::getItem(int posicao)
 {
-	Elemento<Tipo> *temp = pInicio;
+	Elemento<Tipo>* temp = pInicio;
 
 	//Testar se a lista esta vazia
 	if (temp == nullptr)
@@ -93,7 +94,7 @@ inline Tipo* Lista<Tipo>::getItem(int posicao)
 template<class Tipo>
 inline Tipo* Lista<Tipo>::operator[](int n)
 {
-	Elemento<Tipo>* temp = pInicio;
+	Elemento<Tipo> *temp = pInicio;
 
 	if (n < 0 || n > tam)
 		cout << "Segmentation Fault" << endl;
@@ -125,6 +126,7 @@ inline void Lista<Tipo>::push(Tipo* pT)
 	else //Lista não vazia
 	{
 		Elemento<Tipo> *temp = new Elemento<Tipo>();
+
 		if (pT)
 		{
 			temp->setDados(pT);
@@ -176,5 +178,21 @@ inline void Lista<Tipo>::pop(Tipo* pT)
 	}
 	else
 		cout << "Ponteiro Nulo" << endl;
+}
+
+template<class Tipo>
+inline void Lista<Tipo>::clear()
+{
+	Elemento<Tipo>* temp = pInicio;
+
+	if (pInicio) // Se a lista não estiver vazia
+	{
+		while (temp != pFinal)
+		{
+			delete(temp->getDados());
+			temp = temp->getProx();
+		}
+			delete(temp);
+	}
 }
 

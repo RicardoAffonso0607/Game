@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../../inc/Lista/ListaEntidades.h"
+#include "Lista/ListaEntidades.h"
 
 ListaEntidades::ListaEntidades()
 {
@@ -14,7 +14,8 @@ void ListaEntidades::moveAll()
 	int i;
 	for (i = 0; i < Lista.getTamanho(); i++)
 	{
-		Lista[i]->move();
+		if(Lista.getItem(i)->isMovable())
+			Lista.getItem(i)->move();
 	}
 }
 
@@ -23,7 +24,6 @@ void ListaEntidades::drawAll()
 	int i;
 	for (i = 0; i < Lista.getTamanho(); i++)
 	{
-		Lista[i]->draw();
+		Lista.getItem(i)->draw();
 	}
 }
-

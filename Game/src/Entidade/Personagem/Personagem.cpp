@@ -1,8 +1,10 @@
 #include "pch.h"
-#include "../../../inc/Entidade/Personagem/Personagem.h"
+#include "Entidade/Personagem/Personagem.h"
 
-Personagem::Personagem(sf::Vector2f pos, int id) : EntidadeMovel(id, pos), life(100), damage(5)
+Personagem::Personagem(sf::Vector2f pos, int id) : Entidade(id), life(100), vel_x(0), vel_y(0), damage(5)
 {
+	//Testar os valores da velocidade e dano
+	this->pos = pos;
 }
 
 Personagem::~Personagem()

@@ -1,12 +1,14 @@
 #pragma once
 
-#include "../EntidadeMovel.h"
+#include "Entidade/Entidade.h"
 
-class Personagem : public Entidades::EntidadeMovel
+class Personagem : public Entidade
 {
 protected:
 	int damage;
 	int life;
+	int vel_x;
+	int vel_y;
 
 public:
 	Personagem(sf::Vector2f pos, int id);

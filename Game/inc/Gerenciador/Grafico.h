@@ -2,7 +2,7 @@
 
 /* Código inspirado no vídeo do monitor Giovane Limas Salvi 2022.2 */
 
-namespace Gerenciador 
+namespace Gerenciador
 {
 	class Grafico
 	{
@@ -17,7 +17,7 @@ namespace Gerenciador
 		sf::RenderWindow* getWindow() { return window; }
 		void limpaJanela() { window->clear(); }
 		void desenhaElemento(sf::RectangleShape body) { window->draw(body); }
-		void mostraElemntos() { window->display(); }
+		void mostraElementos() { window->display(); }
 		void fecharJanela() { window->close(); }
 		const bool verificaJanelaAberta() { return (window->isOpen()) ? true : false; }
 	};

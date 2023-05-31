@@ -1,5 +1,8 @@
 #include "pch.h"
-#include "../../Game/inc/Entidade/Personagem/Inimigos/Enemies.h"
+#include "Entidade/Personagem/Inimigos/Enemies.h"
+#include "Entidade/Personagem/Jogador/Jogador.h"
+
+//Jogador* Enemies::pPlayer(NULL);
 
 Jogador* Enemies::pPlayer(NULL);
 

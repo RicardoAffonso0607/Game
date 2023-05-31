@@ -40,24 +40,20 @@ void Gerenciador::Eventos::verificaTeclaPressionada(sf::Keyboard::Key tecla)
 {
 	if (tecla == sf::Keyboard::A)
 	{
-		pJogador->alteraDirecaoX(false);
-		pJogador->podeMoverX(true);
+	
 	}
 	else if (tecla == sf::Keyboard::D)
 	{
-		pJogador->alteraDirecaoX(true);
-		pJogador->podeMoverX(true);
+		
 	}
 
 	if (tecla == sf::Keyboard::W)
 	{
-		pJogador->alteraDirecaoY(true);
-		pJogador->podeMoverY(true);
+		
 	}
 	else if (tecla == sf::Keyboard::S)
 	{
-		pJogador->alteraDirecaoY(false);
-		pJogador->podeMoverY(true);
+		
 	}
 
 	if (tecla == sf::Keyboard::Escape)

@@ -1,20 +1,16 @@
 #include "pch.h"
-#include "../../inc/Estado/Jogo.h"
+#include "Estado/Jogo.h"
 
-Jogo::Jogo() 
+Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->getEventos())
 {
 	inicializa();
 	executar();
 }
 
-Jogo::~Jogo()
-{
-}
 
 void Jogo::inicializa()
 {
-	ger_grafico = ger_grafico->getGrafico();
-	ger_eventos = ger_eventos->getEventos();
+	fase1 = new Estado::Floresta;
 
 	if (ger_grafico == NULL)
 	{
@@ -28,16 +24,41 @@ void Jogo::inicializa()
 		exit(1);
 	}
 
+/*
+
+	list_ent = new ListaEntidades;
+	colisor = new Gerenciador::Colisao;
+
 	//Cria os jogadores
-	jogador1 = new Jogador(sf::Vector2f(10.f, 10.f), 1, 100);
+	jogador1 = new Jogador(sf::Vector2f(300.f, 150.f), 1, 1);
 	jogador1->setGerGraf(ger_grafico);
-	list_ent.push(static_cast<Entidade*> (jogador1));
+	list_ent->push(static_cast<Entidade*> (jogador1));
 	ger_eventos->setJogador(jogador1);
 
 	//Cria os inimigos
-	enemy1 = new EnemyMelee(sf::Vector2f(400.f, 10.f), 2);
+	enemy1 = new EnemyMelee(sf::Vector2f(200.f, 300.f), 10);
+	enemy1->setGerGraf(ger_grafico);
 	enemy1->setPlayer(jogador1);
-	list_ent.push(static_cast<Entidade*> (enemy1));
+	list_ent->push(static_cast<Entidade*> (enemy1));
+
+	//Cria os obstáculos
+	obstacle1 = new ObstacleBlock(sf::Vector2f(500.f, 100.f), 100);
+	obstacle1->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (obstacle1));
+
+	//Cria as plataformas
+	platform1 = new Plataforma(sf::Vector2f(150.f, 400.f), 1000);
+	platform1->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (platform1));
+
+	platform2 = new Plataforma(sf::Vector2f(400.f, 200.f), 2000);
+	platform2->setGerGraf(ger_grafico);
+	list_ent->push(static_cast<Entidade*> (platform2));
+	*/
+}
+
+Jogo::~Jogo()
+{
 }
 
 void Jogo::executar()
@@ -46,8 +67,11 @@ void Jogo::executar()
 	{
 		ger_eventos->executar();
 		ger_grafico->limpaJanela();
-		list_ent.moveAll();
-		list_ent.drawAll();
-		ger_grafico->mostraElemntos();
+		//list_ent->moveAll();
+		//list_ent->drawAll();
+		//colisor->executar(list_ent);
+		fase1->executar();
+		ger_grafico->mostraElementos();
 	}
 }
+

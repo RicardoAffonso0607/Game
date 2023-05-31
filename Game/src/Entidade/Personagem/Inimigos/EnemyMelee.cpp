@@ -1,8 +1,13 @@
 #include "pch.h"
-#include "../../Game/inc/Entidade/Personagem/Inimigos/EnemyMelee.h"
+#include "Entidade/Personagem/Inimigos/EnemyMelee.h"
 
 EnemyMelee::EnemyMelee(sf::Vector2f pos, int id) : Enemies(pos, id)
 {
+	this->movable = true;
+	this->attacker = true;
+	this->retarder = false;
+	this->damageable = true;
+
 	this->life = 20;
 
 	body.setFillColor(sf::Color::Red);
