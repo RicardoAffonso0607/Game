@@ -10,6 +10,7 @@ Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->
 
 void Jogo::inicializa()
 {
+	fase1 = new Estado::Floresta;
 
 	if (ger_grafico == NULL)
 	{
@@ -22,6 +23,8 @@ void Jogo::inicializa()
 		cout << "Gerenciador de eventos nulo" << endl;
 		exit(1);
 	}
+
+/*
 
 	list_ent = new ListaEntidades;
 	colisor = new Gerenciador::Colisao;
@@ -51,6 +54,7 @@ void Jogo::inicializa()
 	platform2 = new Plataforma(sf::Vector2f(400.f, 200.f), 2000);
 	platform2->setGerGraf(ger_grafico);
 	list_ent->push(static_cast<Entidade*> (platform2));
+	*/
 }
 
 Jogo::~Jogo()
@@ -63,9 +67,10 @@ void Jogo::executar()
 	{
 		ger_eventos->executar();
 		ger_grafico->limpaJanela();
-		list_ent->moveAll();
-		list_ent->drawAll();
-		colisor->executar(list_ent);
+		//list_ent->moveAll();
+		//list_ent->drawAll();
+		//colisor->executar(list_ent);
+		fase1->executar();
 		ger_grafico->mostraElementos();
 	}
 }

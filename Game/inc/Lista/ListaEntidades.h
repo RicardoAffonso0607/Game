@@ -16,6 +16,7 @@ public:
 	Entidade* getEntity(int pos) { return Lista.getItem(pos); }
 	void push(Entidade* pE) { Lista.push(pE); }
 	void pop(Entidade* pE) { Lista.pop(pE); }
+	void clear() { Lista.clear(); }
 
 	void moveAll();
 	void drawAll();
