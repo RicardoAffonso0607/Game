@@ -1,10 +1,14 @@
 #include "pch.h"
 #include "Entidade/Personagem/Inimigo/Disparador/Merlin.h"
 
-Merlin::Merlin(sf::Vector2f pos, int id) : Disparador(pos, id) {
+namespace Inimigo {
+	namespace Disparador {
+		Merlin::Merlin(sf::Vector2f pos, int id) : Disparador(pos, id) {
 
-}
+		}
 
-Merlin::~Merlin() {
+		Merlin::~Merlin() {
 
+		}
+	}
 }

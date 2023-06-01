@@ -2,12 +2,16 @@
 
 #include "Entidade/Obstaculo/Obstaculo.h"
 
-class Danoso : public Obstaculo
-{
-private:
-	int damage;
+namespace Obstaculo {
+	namespace Danoso {
+		class Danoso : public Obstaculo
+		{
+		private:
+			int damage;
 
-public:
-	Danoso(sf::Vector2f pos, int id);
-	~Danoso();
-};
+		public:
+			Danoso(sf::Vector2f pos, int id);
+			~Danoso();
+		};
+	}
+}

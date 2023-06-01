@@ -2,11 +2,15 @@
 
 #include "Entidade/Obstaculo/Obstaculo.h"
 
-class Inerte : public Obstaculo
-{
-private:
+namespace Obstaculo {
+	namespace Inerte {
+		class Inerte : public Obstaculo
+		{
+		private:
 
-public:
-	Inerte(sf::Vector2f pos, int id);
-	~Inerte();
-};
+		public:
+			Inerte(sf::Vector2f pos, int id);
+			~Inerte();
+		};
+	}
+}

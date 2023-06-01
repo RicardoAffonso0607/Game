@@ -1,10 +1,14 @@
 #include "pch.h"
 #include "Entidade/Personagem/Inimigo/CorpoACorpo/Medjai.h"
 
-Medjai::Medjai(sf::Vector2f pos, int id) : CorpoACorpo(pos, id) {
+namespace Inimigo {
+	namespace CorpoACorpo {
+		Medjai::Medjai(sf::Vector2f pos, int id) : CorpoACorpo(pos, id) {
 
-}
+		}
 
-Medjai::~Medjai() {
+		Medjai::~Medjai() {
 
+		}
+	}
 }

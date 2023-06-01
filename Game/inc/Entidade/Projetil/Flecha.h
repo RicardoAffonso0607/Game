@@ -2,12 +2,13 @@
 
 #include "Entidade/Projetil/Projetil.h"
 
-class Flecha : public Projetil
-{
-private:
+namespace Projetil {
+	class Flecha : public Projetil
+	{
+	private:
 
-public:
-	Flecha(sf::Vector2f pos, int id);
-	~Flecha();
-};
-
+	public:
+		Flecha(sf::Vector2f pos, int id);
+		~Flecha();
+	};
+}

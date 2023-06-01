@@ -2,12 +2,13 @@
 
 #include "Entidade/Projetil/Projetil.h"
 
-class EsferaDeFogo : public Projetil
-{
-private:
+namespace Projetil {
+	class EsferaDeFogo : public Projetil
+	{
+	private:
 
-public:
-	EsferaDeFogo(sf::Vector2f pos, int id);
-	~EsferaDeFogo();
-};
-
+	public:
+		EsferaDeFogo(sf::Vector2f pos, int id);
+		~EsferaDeFogo();
+	};
+}

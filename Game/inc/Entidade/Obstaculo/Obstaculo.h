@@ -2,14 +2,16 @@
 
 #include "Entidade/Entidade.h"
 
-class Obstaculo : public Entidade
-{
-protected:
+namespace Obstaculo {
+	class Obstaculo : public Entidade
+	{
+	protected:
 
-public:
-	Obstaculo(sf::Vector2f pos, int id);
-	~Obstaculo();
+	public:
+		Obstaculo(sf::Vector2f pos, int id);
+		~Obstaculo();
 
-	void move();
-	void attack();
-};
+		void move();
+		void attack();
+	};
+}

@@ -2,11 +2,15 @@
 
 #include "Entidade/Personagem/Inimigo/Chefao/Chefao.h"
 
-class Nidogue : public Chefao
-{
-private:
+namespace Inimigo {
+	namespace Chefao {
+		class Nidogue : public Chefao
+		{
+		private:
 
-public:
-	Nidogue(sf::Vector2f pos, int id);
-	~Nidogue();
-};
+		public:
+			Nidogue(sf::Vector2f pos, int id);
+			~Nidogue();
+		};
+	}
+}

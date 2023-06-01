@@ -2,14 +2,18 @@
 
 #include "Entidade/Personagem/Inimigo/Inimigo.h"
 
-class Chefao : public Inimigo
-{
-private:
+namespace Inimigo {
+	namespace Chefao {
+		class Chefao : public Inimigo
+		{
+		private:
 
-public:
-	Chefao(sf::Vector2f pos, int id);
-	~Chefao();
+		public:
+			Chefao(sf::Vector2f pos, int id);
+			~Chefao();
 
-	void move();
-	void attack();
-};
+			void move();
+			void attack();
+		};
+	}
+}

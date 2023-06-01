@@ -2,11 +2,15 @@
 
 #include "Entidade/Personagem/Inimigo/Disparador/Disparador.h"
 
-class Horus : public Disparador
-{
-private:
+namespace Inimigo {
+	namespace Disparador {
+		class Horus : public Disparador
+		{
+		private:
 
-public:
-	Horus(sf::Vector2f pos, int id);
-	~Horus();
-};
+		public:
+			Horus(sf::Vector2f pos, int id);
+			~Horus();
+		};
+	}
+}

@@ -12,15 +12,15 @@ namespace Gerenciador
 	private:
 		
 		static Eventos* pEventos;
-		Grafico* pGrafico;
-		Jogador* pJogador;
+		Gerenciador::Grafico* pGrafico;
+		Jogador::Jogador* pJogador;
 
 		Eventos();
 	public:
 		~Eventos();
 
-		static Eventos* getEventos();
-		void setJogador(Jogador* pJogador) { this->pJogador = pJogador; }
+		static Gerenciador::Eventos* getEventos();
+		void setJogador(Jogador::Jogador* pJogador) { this->pJogador = pJogador; }
 
 		void executar();
 		void verificaTeclaPressionada(sf::Keyboard::Key tecla);

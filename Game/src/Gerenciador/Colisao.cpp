@@ -212,7 +212,7 @@ namespace Gerenciador{
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
-        if(ent->getPosition().y < 1.5f*ger_graf->getWindowHeight())
+        if(ent->getPosition().y < 1.5f*ger_graf->getWindowSize().y)
             ent->changePosition(sf::Vector2f(0.f, ent->getMass()*GRAVITY));
     }
 

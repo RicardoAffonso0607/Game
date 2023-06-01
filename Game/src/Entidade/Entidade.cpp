@@ -16,6 +16,9 @@ Entidade::Entidade(int id) : Ente()
 	attacker = false;
 	damageable = false;
 	projected = false;
+	attack_delay = NULL;
+	retarder_delay = NULL;
+	retarder_timer = NULL;
 }
 
 Entidade::~Entidade()
