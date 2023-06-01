@@ -13,19 +13,15 @@ protected:
 	bool damageable;
 	bool facingLeft;
 	bool projected = false;
-	
+
 
 	unsigned int attack_delay;
 	unsigned int retarder_delay;
 	unsigned int retarder_timer;
-
+	
 public:
 	Entidade(int id);
 	~Entidade();
-
-	static void setGerGraf(Gerenciador::Grafico* pauxGerGraf) { pGerGraf = pauxGerGraf; }
-	void draw() { pGerGraf->desenhaElemento(body); }
-
 
 	virtual void move() = 0;
 	virtual void attack() = 0;
