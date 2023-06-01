@@ -3,11 +3,11 @@
 
 Projetil::Projetil(sf::Vector2f pos, int id) : Entidade(id), damage(20)
 {
-	this->movable = true;
-	this->attacker = true;
-	this->retarder = false;
-	this->damageable = false;
-	this->projected = true;
+	movable = true;
+	attacker = true;
+	retarder = false;
+	damageable = false;
+	projected = true;
 
 	this->pos = pos;
 	caster = nullptr;

@@ -3,12 +3,10 @@
 
 Danoso::Danoso(sf::Vector2f pos, int id) : Obstaculo(pos, id), damage(1)
 {
-	this->movable = false;
-	this->attacker = true;
-	this->retarder = false;
-	this->damageable = false;
-
-
+	movable = false;
+	attacker = true;
+	retarder = false;
+	damageable = false;
 }
 
 Danoso::~Danoso()

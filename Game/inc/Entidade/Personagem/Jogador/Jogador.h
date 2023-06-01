@@ -12,4 +12,5 @@ public:
 	void move();
 	void attack();
 	sf::Vector2f getPos() { return pos; }
+	sf::Texture textura;
 };

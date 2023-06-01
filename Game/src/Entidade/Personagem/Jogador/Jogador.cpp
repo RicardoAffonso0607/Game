@@ -3,15 +3,19 @@
 
 Jogador::Jogador(sf::Vector2f pos, int id, float life) : Personagem(pos, id)
 {
-	this->movable = true;
-	this->attacker = true;
-	this->retarder = false;
-	this->damageable = true;
-	this->life = life;
-	this->damage = 0;
-	this->retard = 5;
-	this->vel = this->vel_max;
-	body.setFillColor(sf::Color::Blue);
+	movable = true;
+	attacker = true;
+	retarder = false;
+	damageable = true;
+	life = life;
+	damage = 0;
+	retard = 5;
+	vel = vel_max;
+	//body.setFillColor(sf::Color::Blue);
+
+	
+	textura.loadFromFile("Game/assets/teste.png");
+	body.setTexture(&textura);
 	body.setPosition(pos);
 }
 

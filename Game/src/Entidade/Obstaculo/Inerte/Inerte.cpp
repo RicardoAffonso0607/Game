@@ -3,10 +3,10 @@
 
 Inerte::Inerte(sf::Vector2f pos, int id) : Obstaculo(pos, id)
 {
-	this->movable = false;
-	this->attacker = false;
-	this->retarder = false;
-	this->damageable = false;
+	movable = false;
+	attacker = false;
+	retarder = false;
+	damageable = false;
 
 	body.setFillColor(sf::Color::Green);
 	body.setPosition(pos);
