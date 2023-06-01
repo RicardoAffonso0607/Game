@@ -4,10 +4,9 @@
 Jogador::Jogador(sf::Vector2f pos, int id, float life) : Personagem(pos, id)
 {
 	this->movable = true;
-	this->attacker = false;
+	this->attacker = true;
 	this->retarder = false;
 	this->damageable = true;
-
 	this->life = life;
 	this->damage = 0;
 	this->retard = 5;
@@ -25,7 +24,7 @@ void Jogador::move()
 {
 	if (attack_delay)
 		this->attack_delay--;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){//Direita
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {//Direita
 		body.move(sf::Vector2f(this->vel_x, 0.f));
 		this->facingLeft = false;
 	}
@@ -33,10 +32,10 @@ void Jogador::move()
 		body.move(sf::Vector2f(-this->vel_x, 0.f));
 		this->facingLeft = true;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
-		body.move(sf::Vector2f(0.f, -this->vel_y));
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
-		body.move(sf::Vector2f(0.f, this->vel_y));
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
+		//body.move(sf::Vector2f(0.f, -this->vel_y));
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
+		//body.move(sf::Vector2f(0.f, this->vel_y));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) /* && !this->flying*/)
 		this->jumped = true;
 }

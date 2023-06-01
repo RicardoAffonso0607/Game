@@ -16,6 +16,8 @@ namespace Estado
 		void criarJogador();
 		void criarInimigos();
 		void criarObstaculos();
+		
 	};
+
 }
 

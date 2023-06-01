@@ -3,6 +3,7 @@
 
 Estado::Deserto::Deserto()
 {
+	list->clear();
 	criarObstaculos();
 	criarJogador();
 	criarInimigos();
@@ -11,6 +12,7 @@ Estado::Deserto::Deserto()
 
 Estado::Deserto::~Deserto()
 {
+	list->clear();
 }
 
 void Estado::Deserto::executar()

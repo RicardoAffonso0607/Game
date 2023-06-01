@@ -16,8 +16,8 @@ protected:
 public:
 	Personagem(sf::Vector2f pos, int id);
 	~Personagem();
-	void subtractLife(int damaged) { life -= damaged; }
-	void subtractVelocity(int retarded) { vel_x -= retarded; }
+	void subtractLife(float damaged) { life -= damaged; }
+	void subtractVelocity(float retarded) { vel_x -= retarded; }
 	float getRetarder() { return retard; }
 	float getDamage() { return damage; }
 	virtual void move() = 0;

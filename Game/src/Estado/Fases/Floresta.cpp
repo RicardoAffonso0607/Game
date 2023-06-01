@@ -4,9 +4,9 @@
 Estado::Floresta::Floresta() : j1(NULL)
 {
 	list->clear();
-	criarObstaculos();
 	criarJogador();
 	criarInimigos();
+	criarObstaculos();
 	colisor = new Gerenciador::Colisao(list, ger_grafico);
 }
 
@@ -32,9 +32,9 @@ void Estado::Floresta::criarJogador()
 
 void Estado::Floresta::criarInimigos()
 {
-	EnemyMelee* enemy_melee1 = NULL;
-	EnemyRanged* enemy_ranged1 = NULL;
-	Boss* boss1 = NULL;
+	EnemyMelee* enemy_melee1 = nullptr;
+	EnemyRanged* enemy_ranged1 = nullptr;
+	Boss* boss1 = nullptr;
 
 	enemy_melee1 = new EnemyMelee(sf::Vector2f(560.f, 0.f), 10);
 	enemy_melee1->setGerGraf(ger_grafico);
@@ -54,8 +54,8 @@ void Estado::Floresta::criarInimigos()
 
 void Estado::Floresta::criarObstaculos()
 {
-	Plataforma *plat = NULL, *platform1=NULL, * platform2 = NULL, * platform3 = NULL, * platform4 = NULL;
-	ObstacleBlock* obstacle1 = NULL;
+	Plataforma *plat = nullptr, *platform1= nullptr, * platform2 = nullptr, * platform3 = nullptr, * platform4 = nullptr;
+	ObstacleBlock* obstacle1 = nullptr;
 
 	/*for (int i = 0; i < 4; i++)
 	{

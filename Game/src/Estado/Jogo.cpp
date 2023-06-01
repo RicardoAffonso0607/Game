@@ -37,8 +37,8 @@ void Jogo::executar()
 		ger_eventos->executar();
 		ger_grafico->limpaJanela();
 
-		//fase1->executar();
-		fase2->executar();
+		fase1->executar();
+		//fase2->executar();
 
 		ger_grafico->mostraElementos();
 	}
