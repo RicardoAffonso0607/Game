@@ -1,21 +1,21 @@
 #include "pch.h"
 #include "../../inc/Gerenciador/Eventos.h"
 
-Gerenciador::Eventos* Gerenciador::Eventos::pEventos(NULL);
+Gerenciador::Eventos* Gerenciador::Eventos::pEventos(nullptr);
 
-Gerenciador::Eventos::Eventos() : pGrafico(pGrafico->getGrafico()), pJogador(NULL)
+Gerenciador::Eventos::Eventos() : pGrafico(pGrafico->getGrafico()), pJogador(nullptr)
 {
 }
 
 Gerenciador::Eventos::~Eventos()
 {
-	pGrafico = NULL;
-	pJogador = NULL;
+	pGrafico = nullptr;
+	pJogador = nullptr;
 }
 
 Gerenciador::Eventos* Gerenciador::Eventos::getEventos()
 {
-	if (pEventos == NULL)
+	if (pEventos == nullptr)
 		pEventos = new Gerenciador::Eventos();
 
 	return pEventos;

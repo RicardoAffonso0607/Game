@@ -2,7 +2,9 @@
 x64
 Debug
 Release
+*.aps
 *.filters
-*.user
+*.rc
 *.sln
+*.user
 *.vcxproj
