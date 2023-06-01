@@ -28,7 +28,7 @@ namespace Fase {
 		j1 = new Jogador(sf::Vector2f(300.f, 300.f), 1, 50);
 		ger_eventos->setJogador(j1);
 		j1->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*>(j1));
+		list->push(dynamic_cast<Jogador*>(j1));
 	}
 
 	void Deserto::criarInimigos()
