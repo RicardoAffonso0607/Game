@@ -28,7 +28,7 @@ namespace Fase {
 		j1 = new Jogador(sf::Vector2f(300.f, 10.f), 1, 50);
 		ger_eventos->setJogador(j1);
 		j1->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*>(j1));
+		list->push(static_cast<Entidade*> (j1));
 	}
 
 	void Floresta::criarInimigos()
@@ -58,12 +58,12 @@ namespace Fase {
 		Plataforma* plat = nullptr, * plataforma1 = nullptr, * plataforma2 = nullptr, * plataforma3 = nullptr, * plataforma4 = nullptr;
 		Inerte* inerte1 = nullptr;
 
-		/*for (int i = 0; i < 4; i++)
-		{
-			plat = new Plataforma(sf::Vector2f((i * 630.f), 400.f), 9);
-			plat->setGerGraf(ger_grafico);
-			list->push(static_cast<Entidade*>(plat));
-		}*/
+		//for (int i = 0; i < 4; i++)
+		//{
+		//	plat = new Plataforma(sf::Vector2f((i * 630.f), 400.f), 9);
+		//	plat->setGerGraf(ger_grafico);
+		//	list->push(static_cast<Entidade*>(plat));
+		//}
 
 		inerte1 = new Inerte(sf::Vector2f(500.f, 200.f), 100);
 		inerte1->setGerGraf(ger_grafico);
