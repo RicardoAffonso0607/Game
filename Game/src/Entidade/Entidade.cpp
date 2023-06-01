@@ -2,14 +2,23 @@
 #include "Entidade/Entidade.h"
 #include "Gerenciador/Grafico.h"
 
-Entidade::Entidade(int id) : pos(0.f, 0.f), Ente()
+Entidade::Entidade(int id) : Ente()
 {
-	this->id = id;
+	id = id;
 
-	this->movable = false;
-	this->retarder = false;
-	this->attacker = false;
-	this->damageable = false;
+	vel_max = sf::Vector2f(10.f, 10.f);
+	size_max = sf::Vector2f(200.f, 200.f);
+
+
+
+	movable = false;
+	retarder = false;
+	attacker = false;
+	damageable = false;
+	projected = false;
+	attack_delay = NULL;
+	retarder_delay = NULL;
+	retarder_timer = NULL;
 }
 
 Entidade::~Entidade()

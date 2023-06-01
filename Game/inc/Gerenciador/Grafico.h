@@ -15,11 +15,15 @@ namespace Gerenciador
 		~Grafico();
 		static Grafico* getGrafico();
 		sf::RenderWindow* getWindow() { return window; }
+		sf::Vector2u getWindowSize() { return window->getSize(); }
 		void limpaJanela() { window->clear(); }
 		void desenhaElemento(sf::RectangleShape body) { window->draw(body); }
+		void desenhaSprite(sf::Sprite sprite) { window->draw(sprite); }
 		void mostraElementos() { window->display(); }
 		void fecharJanela() { window->close(); }
 		const bool verificaJanelaAberta() { return (window->isOpen()) ? true : false; }
+		sf::Texture textura2;
+		sf::Sprite background;
 	};
 
 }

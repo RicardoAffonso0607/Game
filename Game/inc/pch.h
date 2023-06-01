@@ -1,10 +1,5 @@
-#include <cmath>
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
-#include <list>
 #include <locale>
-#include <vector>
 
 //SFML
 #include <SFML/Audio.hpp>

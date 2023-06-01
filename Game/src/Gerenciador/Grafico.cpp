@@ -2,7 +2,7 @@
 
 #include "Gerenciador/Grafico.h"
 
-Gerenciador::Grafico* Gerenciador::Grafico::pGraf(NULL);
+Gerenciador::Grafico* Gerenciador::Grafico::pGraf(nullptr);
 
 Gerenciador::Grafico::Grafico() : window(new sf::RenderWindow(sf::VideoMode(sf::VideoMode::getDesktopMode().width - 100, sf::VideoMode::getDesktopMode().height - 200), "Age of Warriors++"))
 {
@@ -22,12 +22,12 @@ Gerenciador::Grafico::~Grafico()
 	{
 		delete(window);
 	}
-	window = NULL;
+	window = nullptr;
 }
 
 Gerenciador::Grafico* Gerenciador::Grafico::getGrafico()
 {
-	if (pGraf == NULL)
+	if (pGraf == nullptr)
 		pGraf = new Gerenciador::Grafico();
 
 	return pGraf;
