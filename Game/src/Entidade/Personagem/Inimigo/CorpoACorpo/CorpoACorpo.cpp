@@ -3,10 +3,10 @@
 
 CorpoACorpo::CorpoACorpo(sf::Vector2f pos, int id) : Inimigo(pos, id)
 {
-	this->movable = true;
-	this->attacker = true;
-	this->retarder = false;
-	this->damageable = true;
+	movable = true;
+	attacker = true;
+	retarder = false;
+	damageable = true;
 
 	this->life = 20;
 

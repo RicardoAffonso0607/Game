@@ -12,12 +12,12 @@
 		sf::Vector2f vel_max = sf::Vector2f(10.f, 10.f);
 		sf::Vector2f size_max = sf::Vector2f(200.f, 200.f);
 
-		bool movable = false;
-		bool attacker = false;
-		bool retarder = false;
-		bool damageable = false;
-		bool facingLeft = false;
-		bool projected = false;
+		bool movable;
+		bool attacker;
+		bool retarder;
+		bool damageable;
+		bool facingLeft;
+		bool projected;
 
 		unsigned int attack_delay;
 		unsigned int retarder_delay;

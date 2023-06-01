@@ -3,11 +3,10 @@
 
 Retardante::Retardante(sf::Vector2f pos, int id) : Obstaculo(pos, id), slowness(3)
 {
-	this->movable = false;
-	this->attacker = false;
-	this->retarder = true;
-	this->damageable = false;
-
+	movable = false;
+	attacker = false;
+	retarder = true;
+	damageable = false;
 }
 
 Retardante::~Retardante()
