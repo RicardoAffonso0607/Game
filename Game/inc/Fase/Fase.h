@@ -21,6 +21,8 @@ namespace Fase {
 		static Gerenciador::Grafico* ger_grafico;
 		/*static*/ Gerenciador::Colisao* colisor;
 		static Gerenciador::Eventos* ger_eventos;
+		sf::Texture background_texture;
+		sf::RectangleShape background;
 
 	public:
 		Fase();

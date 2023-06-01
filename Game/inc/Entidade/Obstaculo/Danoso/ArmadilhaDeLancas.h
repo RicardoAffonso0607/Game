@@ -2,11 +2,15 @@
 
 #include "Entidade/Obstaculo/Danoso/Danoso.h"
 
-class ArmadilhaDeLancas : public Danoso
-{
-private:
+namespace Obstaculo {
+	namespace Danoso {
+		class ArmadilhaDeLancas : public Danoso
+		{
+		private:
 
-public:
-	ArmadilhaDeLancas(sf::Vector2f pos, int id);
-	~ArmadilhaDeLancas();
-};
+		public:
+			ArmadilhaDeLancas(sf::Vector2f pos, int id);
+			~ArmadilhaDeLancas();
+		};
+	}
+}

@@ -2,14 +2,18 @@
 
 #include "Entidade/Personagem/Inimigo/Inimigo.h"
 
-class CorpoACorpo : public Inimigo
-{
-private:
-	
-public:
-	CorpoACorpo(sf::Vector2f pos, int id);
-	~CorpoACorpo();
+namespace Inimigo {
+	namespace CorpoACorpo {
+		class CorpoACorpo : public Inimigo
+		{
+		private:
 
-	void move();
-	void attack();
-};
+		public:
+			CorpoACorpo(sf::Vector2f pos, int id);
+			~CorpoACorpo();
+
+			void move();
+			void attack();
+		};
+	}
+}

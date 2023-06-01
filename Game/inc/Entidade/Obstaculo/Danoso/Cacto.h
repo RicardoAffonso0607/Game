@@ -2,11 +2,15 @@
 
 #include "Entidade/Obstaculo/Danoso/Danoso.h"
 
-class Cacto : public Danoso
-{
-private:
+namespace Obstaculo {
+	namespace Danoso {
+		class Cacto : public Danoso
+		{
+		private:
 
-public:
-	Cacto(sf::Vector2f pos, int id);
-	~Cacto();
-};
+		public:
+			Cacto(sf::Vector2f pos, int id);
+			~Cacto();
+		};
+	}
+}

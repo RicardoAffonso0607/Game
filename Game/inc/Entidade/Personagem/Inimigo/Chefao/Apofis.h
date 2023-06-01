@@ -2,11 +2,15 @@
 
 #include "Entidade/Personagem/Inimigo/Chefao/Chefao.h"
 
-class Apofis : public Chefao
-{
-private:
+namespace Inimigo {
+	namespace Chefao {
+		class Apofis : public Chefao
+		{
+		private:
 
-public:
-	Apofis(sf::Vector2f pos, int id);
-	~Apofis();
-};
+		public:
+			Apofis(sf::Vector2f pos, int id);
+			~Apofis();
+		};
+	}
+}

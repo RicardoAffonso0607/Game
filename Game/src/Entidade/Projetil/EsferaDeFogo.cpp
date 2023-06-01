@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "Entidade/Projetil/EsferaDeFogo.h"
 
-EsferaDeFogo::EsferaDeFogo(sf::Vector2f pos, int id) : Projetil(pos, id) {
+namespace Projetil {
+	EsferaDeFogo::EsferaDeFogo(sf::Vector2f pos, int id) : Projetil(pos, id) {
 
-}
+	}
 
-EsferaDeFogo::~EsferaDeFogo() {
+	EsferaDeFogo::~EsferaDeFogo() {
 
+	}
 }
