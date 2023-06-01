@@ -7,5 +7,6 @@ class ArmadilhaDeLancas : public Danoso
 private:
 
 public:
-
+	ArmadilhaDeLancas(sf::Vector2f pos, int id);
+	~ArmadilhaDeLancas();
 };

@@ -7,5 +7,6 @@ class Spartacus : public CorpoACorpo
 private:
 
 public:
-
+	Spartacus(sf::Vector2f pos, int id);
+	~Spartacus();
 };
