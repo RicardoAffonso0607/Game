@@ -7,5 +7,6 @@ class Lama : public Retardante
 private:
 
 public:
-
+	Lama(sf::Vector2f pos, int id);
+	~Lama();
 };

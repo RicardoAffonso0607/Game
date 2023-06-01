@@ -7,5 +7,6 @@ class Horus : public Disparador
 private:
 
 public:
-
+	Horus(sf::Vector2f pos, int id);
+	~Horus();
 };

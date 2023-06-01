@@ -7,5 +7,6 @@ class Nidogue : public Chefao
 private:
 
 public:
-
+	Nidogue(sf::Vector2f pos, int id);
+	~Nidogue();
 };

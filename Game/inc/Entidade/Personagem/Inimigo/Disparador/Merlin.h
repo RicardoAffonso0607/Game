@@ -7,5 +7,6 @@ class Merlin : public Disparador
 private:
 
 public:
-
+	Merlin(sf::Vector2f pos, int id);
+	~Merlin();
 };
