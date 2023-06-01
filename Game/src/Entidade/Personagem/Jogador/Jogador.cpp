@@ -18,6 +18,7 @@ Jogador::Jogador(sf::Vector2f pos, int id, float life) : Personagem(pos, id)
 
 Jogador::~Jogador()
 {
+
 }
 
 void Jogador::move()

@@ -35,7 +35,7 @@ public:
 	bool isDamageable() { return damageable; }
 	bool isJumped() { return jumped; }
 	bool isFacingLeft() { return facingLeft; }
-	bool isProjectile() { return projected; }
+	bool isProjetil() { return projected; }
 	float jumped_height = 0.f;
 	bool colidiu = false;
 	bool colidiu_baixo = false;

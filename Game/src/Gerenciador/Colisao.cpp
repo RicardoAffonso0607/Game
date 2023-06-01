@@ -242,14 +242,14 @@ namespace Gerenciador{
 
     /* Funcionamento de um projétil */
     void Colisao::trajectory(Entidade* ent){
-        //if (ent->isProjectile())
+        //if (ent->isProjetil())
         //    if (ent->pCaster->isFacingLeft())
         //        ent->changePosition(sf::Vector2f(-DX_PROJECTILE, 0.f));
     }
 
     //Colisao* Colisao::getColisao()
     //{
-    //    if (pColisao == NULL)
+    //    if (pColisao == nullptr)
     //        pColisao = new Gerenciador::Colisao();
 
     //    return pColisao;
