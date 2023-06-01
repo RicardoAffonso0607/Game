@@ -17,14 +17,14 @@ private:
 		Tipo* dados;
 
 	public:
-		Elemento() { pProx = NULL; dados = NULL; }
+		Elemento() { pProx = nullptr; dados = nullptr; }
 		~Elemento() {}
 
 		void setProx(Elemento<Tipo>* pP) { pProx = pP; }
 		void setDados(Tipo* dd) { dados = dd; }
 
-		Elemento<Tipo>* getProx() { if (pProx) return pProx; else return NULL; }
-		Tipo* getDados() { if (dados) return dados; else return NULL; }
+		Elemento<Tipo>* getProx() { if (pProx) return pProx; else return nullptr; }
+		Tipo* getDados() { if (dados) return dados; else return nullptr; }
 	};
 
 
