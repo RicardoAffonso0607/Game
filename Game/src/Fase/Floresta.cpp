@@ -29,7 +29,7 @@ namespace Fase {
 
 	void Floresta::criarJogador()
 	{
-		j1 = new Jogador::Jogador(sf::Vector2f(300.f, 10.f), 1, 50);
+		j1 = new Jogador::Lutadora(sf::Vector2f(300.f, 10.f), 1, 50);
 		ger_eventos->setJogador(j1);
 		j1->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*> (j1));

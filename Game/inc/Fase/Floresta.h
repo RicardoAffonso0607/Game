@@ -7,7 +7,7 @@ namespace Fase
 	class Floresta : public Fase
 	{
 	private:
-		Jogador::Jogador* j1;
+		Jogador::Lutadora* j1;
 	public:
 		Floresta();
 		~Floresta();

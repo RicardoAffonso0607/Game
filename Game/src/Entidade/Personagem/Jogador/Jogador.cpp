@@ -14,10 +14,6 @@ namespace Jogador {
 		vel = vel_max;
 		//body.setFillColor(sf::Color::Blue);
 
-
-		textura.loadFromFile("Game/assets/teste.png");
-		body.setTexture(&textura);
-		body.setPosition(pos);
 	}
 
 	Jogador::~Jogador()
