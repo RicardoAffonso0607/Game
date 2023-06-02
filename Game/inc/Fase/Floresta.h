@@ -2,12 +2,12 @@
 
 #include "Fase/Fase.h"
 
-namespace Fase
+namespace Fases
 {
 	class Floresta : public Fase
 	{
 	private:
-		Jogador::Lutadora* j1;
+
 	public:
 		Floresta();
 		~Floresta();

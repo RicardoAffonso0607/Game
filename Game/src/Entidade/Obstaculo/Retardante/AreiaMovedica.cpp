@@ -1,13 +1,15 @@
 #include "pch.h"
 #include "Entidade/Obstaculo/Retardante/AreiaMovedica.h"
 
-namespace Obstaculo {
-	namespace Retardante {
-		AreiaMovedica::AreiaMovedica(sf::Vector2f pos, int id) : Retardante(pos, id) {
-
+namespace Obstaculos {
+	namespace Retardantes {
+		AreiaMovedica::AreiaMovedica(sf::Vector2f pos, int id)
+		{
+			body.setPosition(pos);
 		}
 
-		AreiaMovedica::~AreiaMovedica() {
+		AreiaMovedica::~AreiaMovedica()
+		{
 
 		}
 	}

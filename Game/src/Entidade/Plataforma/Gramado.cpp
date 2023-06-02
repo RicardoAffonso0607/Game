@@ -1,12 +1,14 @@
 #include "pch.h"
 #include "Entidade/Plataforma/Gramado.h"
 
-namespace Plataforma {
-	Gramado::Gramado(sf::Vector2f pos, int id) : Plataforma(pos, id) {
-
+namespace Plataformas {
+	Gramado::Gramado(sf::Vector2f pos, int id)
+	{
+		body.setPosition(pos);
 	}
 
-	Gramado::~Gramado() {
+	Gramado::~Gramado()
+	{
 
 	}
 }

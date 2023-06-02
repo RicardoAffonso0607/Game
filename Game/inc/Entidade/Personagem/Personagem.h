@@ -8,6 +8,6 @@ protected:
 
 
 public:
-	Personagem(sf::Vector2f pos, int id);
-	~Personagem();
+	Personagem();
+	virtual ~Personagem();
 };

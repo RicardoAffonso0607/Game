@@ -2,8 +2,8 @@
 
 #include "Entidade/Obstaculo/Danoso/Danoso.h"
 
-namespace Obstaculo {
-	namespace Danoso {
+namespace Obstaculos {
+	namespace Danosos {
 		class Cacto : public Danoso
 		{
 		private:

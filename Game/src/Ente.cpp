@@ -1,13 +1,15 @@
 #include "pch.h"
 #include "Ente.h"
 
-Gerenciador::Grafico* Ente::pGerGraf(nullptr);
-
-Ente::Ente() : body(sf::Vector2f(100.f, 100.f))
+Ente::Ente() : id(NULL), pGerGraf(nullptr)
 {
-	id = NULL;
+}
+
+Ente::Ente(unsigned int id) : id(id), pGerGraf(nullptr)
+{
 }
 
 Ente::~Ente()
 {
+	pGerGraf = nullptr;
 }

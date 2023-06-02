@@ -2,23 +2,34 @@
 #include "Entidade/Entidade.h"
 #include "Gerenciador/Grafico.h"
 
-Entidade::Entidade(int id) : Ente()
+Entidade::Entidade()
 {
-	id = id;
+	//sf::Vector2f pos;
+	//sf::Vector2f size;
+	//sf::Vector2f vel;
+	//sf::Vector2f vel_max;
+	//sf::Vector2f size_max;
 
-	vel_max = sf::Vector2f(10.f, 10.f);
-	size_max = sf::Vector2f(200.f, 200.f);
+	//sf::String player_nickname;
 
+	//sf::Time game_clock;
 
+	//bool movable;
+	//bool attacker;
+	//bool retarder;
+	//bool damageable;
+	//bool facingLeft;
+	//bool projected;
 
-	movable = false;
-	retarder = false;
-	attacker = false;
-	damageable = false;
-	projected = false;
-	attack_delay = NULL;
-	retarder_delay = NULL;
-	retarder_timer = NULL;
+	//unsigned int attack_delay;
+	//unsigned int retarder_delay;
+	//unsigned int retarder_timer;
+
+	//float pontuacao;
+	//float damage;
+	//float retard;
+	//float life;
+	//float mass;
 }
 
 Entidade::~Entidade()

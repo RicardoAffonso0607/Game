@@ -2,8 +2,6 @@
 #include "Gerenciador/Colisao.h"
 #include "Gerenciador/Grafico.h"
 
-constexpr auto GRAVITY=9.8f, HMAX_PULO=150.f, DX_PROJECTILE=10.f;
-
 namespace Gerenciador{
     Colisao::Colisao(ListaEntidades* list_ent, Grafico* ger_graf)
     {
@@ -218,9 +216,9 @@ namespace Gerenciador{
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){
-        if (!ent->colidiu_cima && ent->jumped_height < HMAX_PULO) {
-            ent->changePosition(sf::Vector2f(0.f, -2*ent->getMass()*GRAVITY));
-            ent->jumped_height += ent->getMass()*GRAVITY;
+        if (!ent->colidiu_cima && ent->jumped_height < ent->getJumpStrength() && ent->getVel().y > ent->getMass()*GRAVITY) {
+            ent->changePosition(sf::Vector2f(0.f, -ent->getVel().y);
+            ent->jumped_height += ent->getVel().y;
             ent->allow_jump = false;
         }
         else if (ent->colidiu_baixo) {
@@ -237,12 +235,4 @@ namespace Gerenciador{
         //    if (ent->pCaster->getFacingLeft())
         //        ent->changePosition(sf::Vector2f(-DX_PROJECTILE, 0.f));
     }
-
-    //Colisao* Colisao::getColisao()
-    //{
-    //    if (pColisao == nullptr)
-    //        pColisao = new Gerenciador::Colisao();
-
-    //    return pColisao;
-    //}
 }

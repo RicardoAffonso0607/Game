@@ -2,8 +2,8 @@
 
 #include "Entidade/Obstaculo/Inerte/Inerte.h"
 
-namespace Obstaculo {
-	namespace Inerte {
+namespace Obstaculos {
+	namespace Inertes {
 		class ArbustoSeco : public Inerte
 		{
 		private:

@@ -10,8 +10,8 @@ class Jogo
 private:
 	Gerenciador::Grafico* ger_grafico;
 	Gerenciador::Eventos* ger_eventos;
-	Fase::Floresta* fase1;
-	Fase::Deserto* fase2;
+	Fases::Floresta* fase1;
+	Fases::Deserto* fase2;
 public:
 	Jogo();
 	~Jogo();

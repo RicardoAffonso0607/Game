@@ -2,7 +2,7 @@
 
 #include "Entidade/Plataforma/Plataforma.h"
 
-namespace Plataforma {
+namespace Plataformas {
 	class Gramado : public Plataforma
 	{
 	private:

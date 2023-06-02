@@ -1,5 +1,4 @@
 #include "pch.h"
-
 #include "Gerenciador/Grafico.h"
 
 Gerenciador::Grafico* Gerenciador::Grafico::pGraf(nullptr);

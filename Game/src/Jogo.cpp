@@ -10,8 +10,8 @@ Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->
 
 void Jogo::inicializa()
 {
-	fase1 = new Fase::Floresta;
-	fase2 = new Fase::Deserto;
+	fase1 = new Fases::Floresta;
+	fase2 = new Fases::Deserto;
 
 	if (ger_grafico == nullptr)
 	{

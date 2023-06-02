@@ -2,19 +2,17 @@
 
 #include "Entidade/Personagem/Inimigo/Inimigo.h"
 
-namespace Inimigo {
-	namespace Disparador {
-		class Disparador : public Inimigo
-		{
-		private:
-			//Projetil* magic;
+namespace Inimigos {
+	class Disparador : public Inimigo
+	{
+	private:
+		//Projetil* magic;
 
-		public:
-			Disparador(sf::Vector2f pos, int id);
-			~Disparador();
+	public:
+		Disparador();
+		virtual ~Disparador();
 
-			void move();
-			void attack();
-		};
-	}
+		void move();
+		void attack();
+	};
 }

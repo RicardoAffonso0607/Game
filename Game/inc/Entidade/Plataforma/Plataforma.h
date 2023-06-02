@@ -2,16 +2,14 @@
 
 #include "Entidade/Entidade.h"
 
-namespace Plataforma {
-	class Plataforma : public Entidade
-	{
-	private:
+class Plataforma : public Entidade
+{
+private:
 
-	public:
-		Plataforma(sf::Vector2f pos, int id);
-		~Plataforma();
+public:
+	Plataforma();
+	virtual ~Plataforma();
 
-		void move();
-		void attack();
-	};
-}
+	void move();
+	void attack();
+};

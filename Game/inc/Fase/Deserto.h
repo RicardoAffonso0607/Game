@@ -2,12 +2,11 @@
 
 #include "Fase/Fase.h"
 
-namespace Fase
-{
+namespace Fases {
 	class Deserto : public Fase
 	{
 	private:
-		Jogador::Jogador* j1;
+		Entidade* j1;
 	public:
 		Deserto();
 		~Deserto();
@@ -17,6 +16,4 @@ namespace Fase
 		void criarInimigos();
 		void criarObstaculos();
 	};
-
 }
-

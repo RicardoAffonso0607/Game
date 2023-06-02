@@ -1,32 +1,30 @@
 #include "pch.h"
 #include "Entidade/Personagem/Inimigo/Chefao/Chefao.h"
 
-namespace Inimigo {
-	namespace Chefao {
-		Chefao::Chefao(sf::Vector2f pos, int id) : Inimigo(pos, id)
-		{
-			movable = true;
-			attacker = true;
-			retarder = false;
-			damageable = true;
+namespace Inimigos {
+	Chefao::Chefao()
+	{
+		movable = true;
+		attacker = true;
+		retarder = false;
+		damageable = true;
 
-			this->life = 100;
-			this->damage = 10;
+		this->life = 100;
+		this->damage = 10;
 
-			body.setFillColor(sf::Color::White);
-			body.setPosition(pos);
-		}
+		body.setFillColor(sf::Color::White);
+		body.setPosition(pos);
+	}
 
-		Chefao::~Chefao()
-		{
-		}
+	Chefao::~Chefao()
+	{
+	}
 
-		void Chefao::move()
-		{
-		}
+	void Chefao::move()
+	{
+	}
 
-		void Chefao::attack()
-		{
-		}
+	void Chefao::attack()
+	{
 	}
 }

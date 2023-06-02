@@ -2,8 +2,8 @@
 
 #include "Entidade/Personagem/Inimigo/Chefao/Chefao.h"
 
-namespace Inimigo {
-	namespace Chefao {
+namespace Inimigos {
+	namespace Chefoes {
 		class Apofis : public Chefao
 		{
 		private:

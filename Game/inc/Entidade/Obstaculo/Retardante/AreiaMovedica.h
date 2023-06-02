@@ -2,8 +2,8 @@
 
 #include "Entidade/Obstaculo/Retardante/Retardante.h"
 
-namespace Obstaculo {
-	namespace Retardante {
+namespace Obstaculos {
+	namespace Retardantes {
 		class AreiaMovedica : public Retardante
 		{
 		private:

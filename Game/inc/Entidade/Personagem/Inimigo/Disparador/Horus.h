@@ -2,8 +2,8 @@
 
 #include "Entidade/Personagem/Inimigo/Disparador/Disparador.h"
 
-namespace Inimigo {
-	namespace Disparador {
+namespace Inimigos {
+	namespace Disparadores {
 		class Horus : public Disparador
 		{
 		private:

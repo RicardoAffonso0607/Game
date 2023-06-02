@@ -1,63 +1,69 @@
 #include "pch.h"
-#include "../../inc/Gerenciador/Eventos.h"
+#include "Gerenciador/Eventos.h"
 
-Gerenciador::Eventos* Gerenciador::Eventos::pEventos(nullptr);
+namespace Gerenciador {
+	Eventos* Eventos::pEventos(nullptr);
 
-Gerenciador::Eventos::Eventos() : pGrafico(pGrafico->getGrafico()), pJogador(nullptr)
-{
-}
-
-Gerenciador::Eventos::~Eventos()
-{
-	pGrafico = nullptr;
-	pJogador = nullptr;
-}
-
-Gerenciador::Eventos* Gerenciador::Eventos::getEventos()
-{
-	if (pEventos == nullptr)
-		pEventos = new Gerenciador::Eventos();
-
-	return pEventos;
-
-}
-
-void Gerenciador::Eventos::executar()
-{
-	sf::Event evento;
-
-	while (pGrafico->getWindow()->pollEvent(evento))
+	Eventos::Eventos() : pGrafico(pGrafico->getGrafico()), pJogador(nullptr)
 	{
-		if (evento.type == sf::Event::KeyPressed)
-			verificaTeclaPressionada(evento.key.code);
-		else if (evento.type == sf::Event::Closed)
+	}
+
+	Eventos::~Eventos()
+	{
+		pGrafico = nullptr;
+		pJogador = nullptr;
+	}
+
+	Eventos* Eventos::getEventos()
+	{
+		if (pEventos == nullptr)
+			pEventos = new Eventos();
+
+		return pEventos;
+
+	}
+
+	void Eventos::executar()
+	{
+		sf::Event evento;
+
+		while (pGrafico->getWindow()->pollEvent(evento))
+		{
+			if (evento.type == sf::Event::KeyPressed)
+				verificaTeclaPressionada(evento.key.code);
+			if (evento.type == sf::Event::MouseButtonPressed)
+				verificaMouseClicado();
+			if (evento.type == sf::Event::Closed)
+				pGrafico->fecharJanela();
+
+		}
+	}
+
+	void Eventos::verificaTeclaPressionada(sf::Keyboard::Key tecla)
+	{
+		if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::Left)
+		{
+			pJogador->changePosition(sf::Vector2f(-pJogador->getVel().x, 0.f));
+		}
+		if (tecla == sf::Keyboard::D || tecla == sf::Keyboard::Right)
+		{
+			pJogador->changePosition(sf::Vector2f(pJogador->getVel().x, 0.f));
+		}
+
+		if (tecla == sf::Keyboard::Backslash)
+		{
+			pJogador->setAttacker(1);
+		}
+
+		if (tecla == sf::Keyboard::Escape)
+		{
 			pGrafico->fecharJanela();
-
-	}
-}
-
-void Gerenciador::Eventos::verificaTeclaPressionada(sf::Keyboard::Key tecla)
-{
-	if (tecla == sf::Keyboard::A)
-	{
-	
-	}
-	else if (tecla == sf::Keyboard::D)
-	{
-		
+		}
 	}
 
-	if (tecla == sf::Keyboard::W)
+	void Eventos::verificaMouseClicado()
 	{
-		
-	}
-	else if (tecla == sf::Keyboard::S)
-	{
-		
-	}
-
-	if (tecla == sf::Keyboard::Escape)
-	{
-		pGrafico->fecharJanela();
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			pJogador->setAttacker(2);
 	}
 }

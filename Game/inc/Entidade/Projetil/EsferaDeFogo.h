@@ -2,10 +2,11 @@
 
 #include "Entidade/Projetil/Projetil.h"
 
-namespace Projetil {
+namespace Projeteis {
 	class EsferaDeFogo : public Projetil
 	{
 	private:
+		const int damage;
 
 	public:
 		EsferaDeFogo(sf::Vector2f pos, int id);

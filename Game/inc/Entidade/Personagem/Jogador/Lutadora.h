@@ -2,7 +2,7 @@
 
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
-namespace Jogador {
+namespace Jogadores {
 	class Lutadora : public Jogador
 	{
 	private:

@@ -2,8 +2,8 @@
 
 #include "Entidade/Personagem/Inimigo/CorpoACorpo/CorpoACorpo.h"
 
-namespace Inimigo {
-	namespace CorpoACorpo {
+namespace Inimigos {
+	namespace CorpoACorpos {
 		class Spartacus : public CorpoACorpo
 		{
 		private:

@@ -3,21 +3,19 @@
 #include "Entidade/Entidade.h"
 #include "Entidade/Personagem/Inimigo/Disparador/Disparador.h"
 
-namespace Projetil {
-	class Projetil : public Entidade
-	{
-	private:
-		Inimigo::Disparador::Disparador* caster;
-		float damage;
+class Projetil : public Entidade
+{
+private:
+	Inimigos::Disparador* caster;
+	float damage;
 
-	public:
-		Projetil(sf::Vector2f pos, int id);
-		~Projetil();
+public:
+	Projetil();
+	virtual ~Projetil();
 
-		void setCaster(Inimigo::Disparador::Disparador* pCaster) { caster = pCaster; }
-		Inimigo::Disparador::Disparador* getCaster() { return caster; }
+	void setCaster(Inimigos::Disparador* pCaster) { caster = pCaster; }
+	Inimigos::Disparador* getCaster() { return caster; }
 
-		void move();
-		void attack();
-	};
-}
+	void move();
+	void attack();
+};

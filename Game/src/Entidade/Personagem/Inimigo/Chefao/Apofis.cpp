@@ -1,10 +1,11 @@
 #include "pch.h"
 #include "Entidade/Personagem/Inimigo/Chefao/Apofis.h"
 
-namespace Inimigo {
-	namespace Chefao {
-		Apofis::Apofis(sf::Vector2f pos, int id) : Chefao(pos, id) {
-
+namespace Inimigos {
+	namespace Chefoes {
+		Apofis::Apofis(sf::Vector2f pos, int id)
+		{
+			body.setPosition(pos);
 		}
 
 		Apofis::~Apofis() {
