@@ -14,6 +14,6 @@ namespace Projeteis {
 		EsferaDeFogo(sf::Vector2f pos, int id);
 		~EsferaDeFogo();
 		
-		void getDamage() const;
+		int getDamage() const;
 	};
 }
