@@ -4,7 +4,11 @@
 namespace Gerenciador {
 	Eventos* Eventos::pEventos(nullptr);
 
-	Eventos::Eventos() : pGrafico(pGrafico->getGrafico()), pJogador(nullptr)
+	Eventos::Eventos() :
+		pGrafico(pGrafico->getGrafico()),
+		pJogador(nullptr),
+		atq_longo = 1,
+		atq_curto = 2
 	{
 	}
 
@@ -50,10 +54,11 @@ namespace Gerenciador {
 			pJogador->changePosition(sf::Vector2f(pJogador->getVel().x, 0.f));
 		}
 
+		if (tecla == sf::Keyboard::Space)
+			pJogador->jumped = true;//pulou
+
 		if (tecla == sf::Keyboard::Backslash)
-		{
-			pJogador->setAttacker(1);
-		}
+			pJogador->setAttacker(pJogador->getGunType(), ATQ_LONGO);//ataque tipo 1
 
 		if (tecla == sf::Keyboard::Escape)
 		{
@@ -64,6 +69,6 @@ namespace Gerenciador {
 	void Eventos::verificaMouseClicado()
 	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			pJogador->setAttacker(2);
+			pJogador->setAttacker(pJogador->getGunType(), ATQ_CURTO);//ataque tipo 2
 	}
 }

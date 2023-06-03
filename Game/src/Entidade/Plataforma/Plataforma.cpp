@@ -1,22 +1,15 @@
 #include "pch.h"
 #include "Entidade/Plataforma/Plataforma.h"
 
-Plataforma::Plataforma()
+Plataforma::Plataforma() :
+	movable(false),
+	retarder(false),
+	damageable(false),
+	attacker(false),
+	projected(false)
 {
-	body.setSize(sf::Vector2f(600.0f, 20.0f));
-	body.setFillColor(sf::Color::Yellow);
-
 }
 
 Plataforma::~Plataforma()
-{
-
-}
-
-void Plataforma::move()
-{
-}
-
-void Plataforma::attack()
 {
 }

@@ -2,12 +2,10 @@
 #include "Entidade/Personagem/Inimigo/Inimigo.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
-Jogador* Inimigo::pPlayer(nullptr);
-
-Inimigo::Inimigo()
+Inimigo::Inimigo() :
+	pPlayer(nullptr),
+	attacker(true)
 {
-	pPlayer = nullptr;
-	this->life = 0;
 }
 
 Inimigo::~Inimigo()
@@ -16,6 +14,5 @@ Inimigo::~Inimigo()
 
 void Inimigo::setPlayer(Jogador* pPla)
 {
-	if (pPla)
-		pPlayer = pPla;
+	pPlayer = pPla;
 }

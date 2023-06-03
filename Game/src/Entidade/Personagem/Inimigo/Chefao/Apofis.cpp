@@ -3,13 +3,16 @@
 
 namespace Inimigos {
 	namespace Chefoes {
-		Apofis::Apofis(sf::Vector2f pos, int id)
+		Apofis::Apofis(sf::Vector2f pos, int id) :
+			life(100),
+			size(sf::Vector2f(400.f, 280.f))
 		{
+			body.setSize(size);
 			body.setPosition(pos);
 		}
 
-		Apofis::~Apofis() {
-
+		Apofis::~Apofis()
+		{
 		}
 	}
 }

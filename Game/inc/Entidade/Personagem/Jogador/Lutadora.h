@@ -8,7 +8,7 @@ namespace Jogadores {
 	private:
 
 	public:
-		Lutadora(sf::Vector2f pos, int id, float life);
+		Lutadora(sf::Vector2f pos, float pl_life, int id);
 		~Lutadora();
 	};
 }

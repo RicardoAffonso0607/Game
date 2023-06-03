@@ -22,8 +22,6 @@ namespace Gerenciador
 		void mostraElementos() { window->display(); }
 		void fecharJanela() { window->close(); }
 		const bool verificaJanelaAberta() { return (window->isOpen()) ? true : false; }
-		sf::Texture textura2;
-		sf::Sprite background;
 	};
 
 }

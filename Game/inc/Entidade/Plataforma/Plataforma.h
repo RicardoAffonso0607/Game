@@ -9,7 +9,4 @@ private:
 public:
 	Plataforma();
 	virtual ~Plataforma();
-
-	void move();
-	void attack();
 };

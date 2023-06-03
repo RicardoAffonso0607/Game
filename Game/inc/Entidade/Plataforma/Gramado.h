@@ -8,7 +8,7 @@ namespace Plataformas {
 	private:
 
 	public:
-		Gramado(sf::Vector2f pos, int id);
+		Gramado(sf::Vector2f plat_pos, sf::Vector2f plat_size, int id);
 		~Gramado();
 	};
 }

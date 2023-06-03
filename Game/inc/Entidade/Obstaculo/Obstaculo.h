@@ -9,7 +9,4 @@ protected:
 public:
 	Obstaculo();
 	virtual ~Obstaculo();
-
-	void move();
-	void attack();
 };

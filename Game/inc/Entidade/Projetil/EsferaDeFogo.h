@@ -6,7 +6,7 @@ namespace Projeteis {
 	class EsferaDeFogo : public Projetil
 	{
 	private:
-		const int damage;
+		const sf::Vector2f size;
 
 	public:
 		EsferaDeFogo(sf::Vector2f pos, int id);

@@ -1,22 +1,17 @@
 #include "pch.h"
 #include "Entidade/Projetil/Projetil.h"
 
-Projetil::Projetil()
+Projetil::Projetil(int dmg) :
+	damage(dmg),
+	pInimigo(nullptr),
+	pArma(nullptr),
+	attacker(true),
+	movable(true),
+	damageable(false),
+	ghost(true)
 {
-	const bool movable;
-
-	caster = nullptr;
 }
 
 Projetil::~Projetil()
-{
-	caster = nullptr;
-}
-
-void Projetil::move()
-{
-}
-
-void Projetil::attack()
 {
 }

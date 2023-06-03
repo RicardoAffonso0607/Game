@@ -1,21 +1,27 @@
 #pragma once
 
 #include "Entidade/Entidade.h"
-#include "Entidade/Personagem/Inimigo/Disparador/Disparador.h"
+#include "Entidade/Personagem/Inimigo/Inimigo.h"
+#include "Entidade/Personagem/Arma/Arma.h"
 
 class Projetil : public Entidade
 {
 private:
-	Inimigos::Disparador* caster;
+	Inimigo* pCaster;
+
+	Arma* pArma;
+
+	static const bool attacker;
+	static const bool movable;
+	static const bool damageable;
+	static const bool ghost;
+
 	float damage;
 
 public:
-	Projetil();
+	Projetil(float dmg);
 	virtual ~Projetil();
 
-	void setCaster(Inimigos::Disparador* pCaster) { caster = pCaster; }
-	Inimigos::Disparador* getCaster() { return caster; }
-
-	void move();
-	void attack();
+	void setCaster(Inimigo* caster) { pCaster = caster; }
+	void getDamage() const;
 };

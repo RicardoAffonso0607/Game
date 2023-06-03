@@ -3,16 +3,14 @@
 #include "Gerenciador/Grafico.h"
 
 namespace Gerenciador{
-    Colisao::Colisao(ListaEntidades* list_ent, Grafico* ger_graf)
+    Colisao::Colisao(ListaEntidades* lista, Grafico* graf):
+        list_ent(lista),
+        ger_graf(graf)
     {
-       this->list_ent = list_ent;
-       this->ger_graf = ger_graf;
     }
 
     Colisao::~Colisao()
     {
-        this->list_ent = nullptr;
-        this->ger_graf = nullptr;
     }
 
     /* Verifica se a colisão entre as entidades é possível */
@@ -20,13 +18,13 @@ namespace Gerenciador{
         Entidade* ent;
         int i, j;//ent1=móvel ent2=fixo ou móvel
         for (i = 0; i < list_ent->getSize(); i++) {
-            ent = list_ent->getEntity(i);
+            ent = dynamic_cast<Entidade*>(list_ent->getEntity(i));
             ent->flying = true;
             ent->allow_jump = true;
             if (ent->getMovable()) {
                 for (j = 0; j < list_ent->getSize(); j++)
                     if (j != i)
-                        collide(ent, list_ent->getEntity(j));
+                        collide(ent, dynamic_cast<Entidade*>(list_ent->getEntity(j)));
                 if (ent->flying) {
                     gravity(ent);
                     ent->allow_jump = false;

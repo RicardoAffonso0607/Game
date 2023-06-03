@@ -14,8 +14,8 @@ namespace Gerenciador
 		static Eventos* pEventos;
 		Grafico* pGrafico;
 		Entidade* pJogador;
-
 		Eventos();
+
 	public:
 		~Eventos();
 
@@ -26,5 +26,4 @@ namespace Gerenciador
 		void verificaTeclaPressionada(sf::Keyboard::Key tecla);
 		void verificaMouseClicado();
 	};
-
 }

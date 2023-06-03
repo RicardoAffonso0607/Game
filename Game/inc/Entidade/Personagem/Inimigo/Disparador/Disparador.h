@@ -1,18 +1,16 @@
 #pragma once
 
 #include "Entidade/Personagem/Inimigo/Inimigo.h"
+#include "Entidade/Projetil/Projetil.h"
 
 namespace Inimigos {
 	class Disparador : public Inimigo
 	{
 	private:
-		//Projetil* magic;
+		Projetil* pProjetil;
 
 	public:
 		Disparador();
 		virtual ~Disparador();
-
-		void move();
-		void attack();
 	};
 }

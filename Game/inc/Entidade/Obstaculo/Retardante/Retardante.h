@@ -6,7 +6,7 @@ namespace Obstaculos {
 	class Retardante : public Obstaculo
 	{
 	private:
-		int slowness;
+		float retard;
 
 	public:
 		Retardante();

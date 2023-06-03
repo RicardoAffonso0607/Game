@@ -2,8 +2,13 @@
 #include "Entidade/Personagem/Jogador/Ninja.h"
 
 namespace Jogadores {
-	Ninja::Ninja(sf::Vector2f pos, int id, float life)
+	Ninja::Ninja(sf::Vector2f pos, float pl_life, int id) :
+		size(sf::Vector2f(110.f, 180.f)),
+		vel(sf::Vector2f(10.f, 13.f)),
+		life(pl_life),
+		mass(.9f)
 	{
+		body.setSize(size);
 		body.setPosition(pos);
 	}
 

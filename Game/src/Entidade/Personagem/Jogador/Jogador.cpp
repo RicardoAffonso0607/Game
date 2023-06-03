@@ -1,59 +1,45 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
-Jogador::Jogador()
+Jogador::Jogador() :
+	attacker(false),
+	pontuacao(NULL),
+	damage(NULL)
+	pArma(nullptr)
 {
-	movable = true;
-	attacker = true;
-	retarder = false;
-	damageable = true;
-	life = life;
-	damage = 0;
-	retard = 5;
-	vel = vel_max;
-	//body.setFillColor(sf::Color::Blue);
-
 }
 
 Jogador::~Jogador()
 {
-
 }
 
-void Jogador::move()
+void Jogador::setAttacker(int gun_type, int attack_type)
 {
-	if (attack_delay)
-		this->attack_delay--;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {//Direita
-		body.move(sf::Vector2f(this->vel.x, 0.f));
-		this->facingLeft = false;
+	if (!attack_delay) {
+		if (attack_type == ATQ_LONGO) {
+			attacker = true;
+			attack_delay = gun->getDelay();
+			attack_instant = clock.getElapsedTime();
+		}
+		else if (attack_type == ATQ_CURTO) {
+			attacker = true;
+			attack_delay = 2*gun->getDelay();
+			attack_instant = clock.getElapsedTime();
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {//Esquerda
-		body.move(sf::Vector2f(-this->vel.x, 0.f));
-		this->facingLeft = true;
-	}
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
-		//body.move(sf::Vector2f(0.f, -this->vel.y));
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
-		//body.move(sf::Vector2f(0.f, this->vel.y));
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		this->jumped = true;
 }
 
-void Jogador::attack()
+float Jogador::getJumpStrength()
 {
-	if (!this->attack_delay) {
-		if (sf::Mouse::Left) {
-			this->attacker = true;
-			this->damage = 10;
-			this->attack_delay = 100;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backslash)) {
-			this->attacker = true;
-			this->damage = 20;
-			this->attack_delay = 200;
-		}
-	}
-	else
-		this->attacker = false;
+	return jump_strength;
+}
+
+bool Jogador::getJumped()
+{ 
+	return jumped;
+}
+
+void setGun(Arma* pArma) {
+	delete pArma;
+	pArma = gun_load;
 }

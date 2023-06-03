@@ -8,8 +8,12 @@ namespace Projeteis {
 	private:
 		const int damage;
 
+		const sf::Vector2f size;
+
 	public:
 		EsferaDeGelo(sf::Vector2f pos, int id);
 		~EsferaDeGelo();
+
+		void getDamage() const;
 	};
 }

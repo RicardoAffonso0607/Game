@@ -8,7 +8,7 @@ namespace Jogadores {
 	private:
 
 	public:
-		Ninja(sf::Vector2f pos, int id, float life);
+		Ninja(sf::Vector2f pos, float pl_life, int id);
 		~Ninja();
 	};
 }
