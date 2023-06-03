@@ -12,6 +12,6 @@ namespace Plataformas {
 		Areal(sf::Vector2f pos, sf::Vector2f size, int id);
 		~Areal();
 
-		int getId() const override;
+		unsigned int getId() const override;
 	};
 }

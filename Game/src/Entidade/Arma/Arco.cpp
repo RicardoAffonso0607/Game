@@ -19,7 +19,7 @@ namespace Armas {
 		return damage;
 	}
 
-	int Cacto::getId() const
+	unsigned int Cacto::getId() const
 	{
 		return id;
 	}

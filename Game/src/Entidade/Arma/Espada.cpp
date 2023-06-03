@@ -19,7 +19,7 @@ namespace Armas {
 		return damage;
 	}
 
-	int Espada::getId() const
+	unsigned int Espada::getId() const
 	{
 		return id;
 	}

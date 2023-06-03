@@ -20,7 +20,7 @@ namespace Obstaculos {
 			return slowness;
 		}
 
-		int AreiaMovedica::getId() const
+		unsigned int AreiaMovedica::getId() const
 		{
 			return id;
 		}

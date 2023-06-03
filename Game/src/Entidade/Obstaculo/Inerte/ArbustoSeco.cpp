@@ -14,7 +14,7 @@ namespace Obstaculos {
 		{
 		}
 
-		int ArbustoSeco::getId() const
+		unsigned int ArbustoSeco::getId() const
 		{
 			return id;
 		}

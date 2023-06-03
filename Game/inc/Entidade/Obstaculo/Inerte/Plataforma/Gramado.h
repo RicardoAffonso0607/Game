@@ -12,6 +12,6 @@ namespace Plataformas {
 		Gramado(sf::Vector2f plat_pos, sf::Vector2f plat_size);
 		~Gramado();
 
-		int getId() const override;
+		unsigned int getId() const override;
 	};
 }

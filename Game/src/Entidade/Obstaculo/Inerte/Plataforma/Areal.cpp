@@ -13,7 +13,7 @@ namespace Plataformas {
 	{
 	}
 
-	int Areal::getId() const
+	unsigned int Areal::getId() const
 	{
 		return id;
 	}

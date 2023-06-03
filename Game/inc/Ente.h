@@ -9,8 +9,6 @@
 class Ente
 {
 protected:
-	unsigned int id;
-	
 	static Gerenciador::Grafico* pGerGraf;
 
 public:
@@ -18,7 +16,7 @@ public:
 	Ente(int id);
 	virtual ~Ente();
 
-	unsigned int getId() { return id; }
+	virtual unsigned int getId() const = 0;
 
 	static void setGerGraf(Gerenciador::Grafico* pauxGerGraf) { pGerGraf = pauxGerGraf; }
 };

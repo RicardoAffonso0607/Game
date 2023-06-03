@@ -17,7 +17,7 @@ namespace Obstaculos {
 
 			float getSlowness() const override;
 
-			int getId() const override;
+			unsigned int getId() const override;
 		};
 	}
 }

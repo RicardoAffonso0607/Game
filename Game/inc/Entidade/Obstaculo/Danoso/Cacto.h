@@ -16,7 +16,8 @@ namespace Obstaculos {
 			~Cacto();
 
 			int getDamage() const override;
-			int getId() const override;
+
+			unsigned int getId() const override;
 		};
 	}
 }

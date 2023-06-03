@@ -13,7 +13,7 @@ namespace Obstaculos {
 			ArbustoFlorido(sf::Vector2f pos);
 			~ArbustoFlorido();
 
-			int getId() const override;
+			unsigned int getId() const override;
 		};
 	}
 }

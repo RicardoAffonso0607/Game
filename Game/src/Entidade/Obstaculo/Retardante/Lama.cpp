@@ -20,7 +20,7 @@ namespace Obstaculos {
 			return slowness;
 		}
 
-		int Lama::getId() const
+		unsigned int Lama::getId() const
 		{
 			return id;
 		}

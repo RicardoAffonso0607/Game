@@ -20,7 +20,7 @@ namespace Obstaculos {
 			return damage;
 		}
 
-		int ArmadilhaDeLancas::getId() const
+		unsigned int ArmadilhaDeLancas::getId() const
 		{
 			return id;
 		}

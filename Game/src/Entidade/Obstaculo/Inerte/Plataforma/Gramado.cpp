@@ -13,7 +13,7 @@ namespace Plataformas {
 	{
 	}
 
-	int Gramado::getId() const
+	unsigned int Gramado::getId() const
 	{
 		return id;
 	}

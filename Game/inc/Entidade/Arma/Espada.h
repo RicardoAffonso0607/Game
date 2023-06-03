@@ -17,7 +17,8 @@ namespace Armas {
 		~Espada();
 
 		int getDamage() const override;
-		int getId() const override;
+
+		unsigned int getId() const override;
 
 		sf::Time getDelay() const override;
 	};

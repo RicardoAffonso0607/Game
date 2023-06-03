@@ -19,7 +19,7 @@ namespace Armas {
 		return damage;
 	}
 
-	int Faca::getId() const
+	unsigned int Faca::getId() const
 	{
 		return id;
 	}
