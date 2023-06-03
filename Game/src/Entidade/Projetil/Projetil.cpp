@@ -1,8 +1,7 @@
 #include "pch.h"
 #include "Entidade/Projetil/Projetil.h"
 
-Projetil::Projetil(int dmg) :
-	damage(dmg),
+Projetil::Projetil() :
 	pInimigo(nullptr),
 	pArma(nullptr),
 	attacker(true),
