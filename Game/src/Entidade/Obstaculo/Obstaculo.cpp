@@ -4,8 +4,7 @@
 Obstaculo::Obstaculo() :
 	damageable(false),
 	ghost(false),
-	movable(false),
-	mass(100.f)
+	movable(false)
 {
 }
 
@@ -23,12 +22,7 @@ bool Obstaculo::getGhost() const
 	return ghost
 }
 
-bool Obstaculo::getMovable()
+bool Obstaculo::getMovable() const
 {
 	return movable;
-}
-
-float Obstaculo::getMass()
-{
-	return mass;
 }

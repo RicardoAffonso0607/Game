@@ -3,7 +3,8 @@
 
 namespace Obstaculos {
 	namespace Retardantes {
-		Lama::Lama(sf::Vector2f pos, sf::Vector2f size, int id)
+		Lama::Lama(sf::Vector2f pos, sf::Vector2f size) :
+			id(32),
 			slowness(.7f)
 		{
 			body.setPosition(pos);
@@ -17,6 +18,11 @@ namespace Obstaculos {
 		Lama::float getSlowness() const
 		{
 			return slowness;
+		}
+
+		int Lama::getId() const
+		{
+			return id;
 		}
 	}
 }

@@ -9,11 +9,15 @@ namespace Obstaculos {
 		private:
 			const float slowness;
 
+			static const int id;
+
 		public:
-			AreiaMovedica(sf::Vector2f pos, sf::Vector2f size, int id);
+			AreiaMovedica(sf::Vector2f pos, sf::Vector2f size);
 			~AreiaMovedica();
 
 			float getSlowness() const override;
+
+			int getId() const override;
 		};
 	}
 }

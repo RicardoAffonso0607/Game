@@ -7,10 +7,13 @@ namespace Obstaculos {
 		class ArbustoFlorido : public Inerte
 		{
 		private:
+			static const int id;
 
 		public:
-			ArbustoFlorido(sf::Vector2f pos, int id);
+			ArbustoFlorido(sf::Vector2f pos);
 			~ArbustoFlorido();
+
+			int getId() const override;
 		};
 	}
 }

@@ -8,6 +8,8 @@ namespace Armas {
 	private:
 		const int damage;
 
+		static const int id;
+
 		const sf::Time delay;
 
 	public:
@@ -15,6 +17,7 @@ namespace Armas {
 		~Arco();
 
 		int getDamage() const override;
+		int getId() const override;
 
 		sf::Time getDelay() const override;
 	};

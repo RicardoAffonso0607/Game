@@ -8,8 +8,7 @@ protected:
 	static const bool damageable;
 	static const bool ghost;
 	static const bool movable;
-
-	static const float mass;
+	static const bool projected;
 
 public:
 	Obstaculo();
@@ -18,6 +17,4 @@ public:
 	bool getDamageable() const override;
 	bool getGhost() const override;
 	bool getMovable() const override;
-
-	float getMass() const override;
 };

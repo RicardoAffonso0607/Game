@@ -3,8 +3,9 @@
 
 namespace Obstaculos {
 	namespace Danosos {
-		ArmadilhaDeLancas::ArmadilhaDeLancas(sf::Vector2f pos, int id) :
+		ArmadilhaDeLancas::ArmadilhaDeLancas(sf::Vector2f pos) :
 			damage(2),
+			id(11),
 			size(Vector2f(100.f,100.f))
 		{
 			body.setPosition(pos);
@@ -17,6 +18,11 @@ namespace Obstaculos {
 		int ArmadilhaDeLancas::getDamage() const
 		{
 			return damage;
+		}
+
+		int ArmadilhaDeLancas::getId() const
+		{
+			return id;
 		}
 	}
 }

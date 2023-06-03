@@ -8,12 +8,15 @@ namespace Obstaculos {
 		{
 		private:
 			const int damage;
+			
+			static const int id;
 
 		public:
-			Cacto(sf::Vector2f pos, int id);
+			Cacto(sf::Vector2f pos);
 			~Cacto();
 
 			int getDamage() const override;
+			int getId() const override;
 		};
 	}
 }

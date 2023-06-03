@@ -9,11 +9,15 @@ namespace Obstaculos {
 		private:
 			const float slowness;
 
+			static const int id;
+
 		public:
-			Lama(sf::Vector2f pos, sf::Vector2f size, int id);
+			Lama(sf::Vector2f pos, sf::Vector2f size);
 			~Lama();
 
 			float getSlowness() const override;
+
+			int getId() const override;
 		};
 	}
 }
