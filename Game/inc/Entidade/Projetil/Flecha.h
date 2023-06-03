@@ -12,5 +12,7 @@ namespace Projeteis {
 	public:
 		Flecha(sf::Vector2f pos, int id);
 		~Flecha();
+		
+		void getDamage() const;
 	};
 }
