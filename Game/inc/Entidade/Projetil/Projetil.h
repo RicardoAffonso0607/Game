@@ -15,11 +15,9 @@ private:
 	static const bool movable;
 	static const bool damageable;
 	static const bool ghost;
-
-	float damage;
-
+	
 public:
-	Projetil(float dmg);
+	Projetil();
 	virtual ~Projetil();
 
 	void setCaster(Inimigo* caster) { pCaster = caster; }
