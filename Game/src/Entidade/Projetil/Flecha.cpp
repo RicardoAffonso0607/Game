@@ -13,4 +13,9 @@ namespace Projeteis {
 	Flecha::~Flecha()
 	{
 	}
+	
+	int Flecha::getDamage()
+	{
+		return damage;
+	}
 }
