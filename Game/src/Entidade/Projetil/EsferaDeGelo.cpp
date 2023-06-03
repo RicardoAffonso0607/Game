@@ -13,4 +13,9 @@ namespace Projeteis {
 	EsferaDeGelo::~EsferaDeGelo()
 	{
 	}
+	
+	int EsferaDeGelo::getDamage()
+	{
+		return damage;
+	}
 }
