@@ -14,8 +14,8 @@ private:
 	static const int atq_longo;
 	static const int atq_curto;
 
-	const bool movable;
-	const bool damageable;
+	static const bool movable;
+	static const bool damageable;
 
 	bool attacker;
 	bool allow_jump = true;
