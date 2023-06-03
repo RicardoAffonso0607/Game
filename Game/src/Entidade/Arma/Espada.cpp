@@ -2,11 +2,24 @@
 #include "Entidade/Arma/Espada.h"
 
 namespace Armas {
-	Espadaa::Espada()
+	Espada::Espada() :
+		damage(5),
+		delay(sf::milliseconds(500))
 	{
+		body.setSize(sf::Vector2f(20.f, 3.f));
 	}
 
 	Espada::~Espada()
 	{
+	}
+
+	int Espada::getDamage() const
+	{
+		return damage;
+	}
+
+	sf::Time Espada::getDelay() const
+	{
+		return delay;
 	}
 }

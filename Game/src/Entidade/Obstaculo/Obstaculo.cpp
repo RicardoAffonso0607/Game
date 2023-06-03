@@ -2,10 +2,10 @@
 #include "Entidade/Obstaculo/Obstaculo.h"
 
 Obstaculo::Obstaculo() :
-	mass(100.f),
-	movable(false),
+	damageable(false),
 	ghost(false),
-	damageable(false)
+	movable(false),
+	mass(100.f)
 {
 }
 
@@ -13,9 +13,9 @@ Obstaculo::~Obstaculo()
 {
 }
 
-bool Obstaculo::getMovable()
+bool Obstaculo::getDamageable() const
 {
-	return movable;
+	return damageable;
 }
 
 bool Obstaculo::getGhost() const
@@ -23,9 +23,9 @@ bool Obstaculo::getGhost() const
 	return ghost
 }
 
-bool Obstaculo::getDamageable() const
+bool Obstaculo::getMovable()
 {
-	return damageable;
+	return movable;
 }
 
 float Obstaculo::getMass()

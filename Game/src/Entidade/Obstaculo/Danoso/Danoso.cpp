@@ -3,8 +3,8 @@
 
 namespace Obstaculos {
 	Danoso::Danoso() :
-		retardant(false),
-		attacker(true)
+		attacker(true),
+		retardant(false)
 	{
 	}
 
@@ -12,13 +12,13 @@ namespace Obstaculos {
 	{
 	}
 
-	bool Retardante::getRetardant() const
-	{
-		return retardant;
-	}
-
 	bool Retardante::getAttacker() const
 	{
 		return attacker;
+	}
+
+	bool Retardante::getRetardant() const
+	{
+		return retardant;
 	}
 }

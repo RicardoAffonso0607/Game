@@ -2,11 +2,20 @@
 
 #include "Entidade/Arma/Arma.h"
 
-class Faca : public Arma
-{
-private:
+namespace Armas {
+	class Faca : public Arma
+	{
+	private:
+		const int damage;
 
-public:
-	Faca();
-	~Faca();
-};
+		const sf::Time delay;
+
+	public:
+		Faca();
+		~Faca();
+
+		int getDamage() const override;
+
+		sf::Time getDelay() const override;
+	};
+}
