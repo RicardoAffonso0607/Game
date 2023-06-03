@@ -6,7 +6,7 @@ namespace Projeteis {
 	class Flecha : public Projetil
 	{
 	private:
-		const sf::Vector2f size;
+		static const sf::Vector2f size;
 
 	public:
 		Flecha(sf::Vector2f pos, int id);
