@@ -2,16 +2,23 @@
 #include "Entidade/Obstaculo/Danoso/Danoso.h"
 
 namespace Obstaculos {
-	Danoso::Danoso()
+	Danoso::Danoso() :
+		retardant(false),
+		attacker(true)
 	{
-		movable = false;
-		attacker = true;
-		retarder = false;
-		damageable = false;
 	}
 
 	Danoso::~Danoso()
 	{
+	}
 
+	bool Retardante::getRetardant() const
+	{
+		return retardant;
+	}
+
+	bool Retardante::getAttacker() const
+	{
+		return attacker;
 	}
 }

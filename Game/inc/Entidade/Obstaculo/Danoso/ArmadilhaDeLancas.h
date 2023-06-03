@@ -7,10 +7,13 @@ namespace Obstaculos {
 		class ArmadilhaDeLancas : public Danoso
 		{
 		private:
+			const int damage;
 
 		public:
 			ArmadilhaDeLancas(sf::Vector2f pos, int id);
 			~ArmadilhaDeLancas();
+
+			int getDamage() const override;
 		};
 	}
 }

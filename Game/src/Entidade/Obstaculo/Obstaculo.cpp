@@ -1,19 +1,34 @@
 #include "pch.h"
 #include "Entidade/Obstaculo/Obstaculo.h"
 
-Obstaculo::Obstaculo()
+Obstaculo::Obstaculo() :
+	mass(100.f),
+	movable(false),
+	ghost(false),
+	damageable(false)
 {
-
 }
 
 Obstaculo::~Obstaculo()
 {
 }
 
-void Obstaculo::move()
+bool Obstaculo::getMovable()
 {
+	return movable;
 }
 
-void Obstaculo::attack()
+bool Obstaculo::getGhost() const
 {
+	return ghost
+}
+
+bool Obstaculo::getDamageable() const
+{
+	return damageable;
+}
+
+float Obstaculo::getMass()
+{
+	return mass;
 }

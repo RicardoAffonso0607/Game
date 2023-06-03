@@ -2,7 +2,7 @@
 
 #include "Entidade/Entidade.h"
 #include "Entidade/Personagem/Inimigo/Inimigo.h"
-#include "Entidade/Personagem/Arma/Arma.h"
+#include "Entidade/Arma/Arma.h"
 
 class Projetil : public Entidade
 {

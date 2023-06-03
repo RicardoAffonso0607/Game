@@ -36,7 +36,7 @@ public:
 
 	virtual bool getMovable() = 0;
 	virtual bool getAttacker() = 0;
-	virtual bool getRetarder() = 0;
+	virtual bool getRetardant() = 0;
 	virtual bool getDamageable() = 0;
 	virtual bool getJumped() = 0;
 	virtual bool getFacingLeft() = 0;
@@ -44,7 +44,7 @@ public:
 
 	virtual int getDamage() = 0;
 
-	virtual float getRetard() = 0;
+	virtual float getSlowness() = 0;
 	virtual float getMass() = 0;
 	virtual float getJumpStrength() = 0;
 };

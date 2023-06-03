@@ -185,23 +185,23 @@ namespace Gerenciador{
         //        ent1->subtractLife(ent2->getDamage());
         //    if (ent1->getAttacker() && ent2->getDamageable())
         //        ent2->subtractLife(ent1->getDamage());
-        //    if (ent1->getMovable() && !ent1->getRetarded() && ent2->getRetarder()) {
-        //        ent1->subtractVelocity(ent2->getRetarder());
+        //    if (ent1->getMovable() && !ent1->getRetarded() && ent2->getRetardant()) {
+        //        ent1->subtractVelocity(ent2->getRetardant());
         //        ent1->setRetarded();
         //    }
-        //    if (ent1->getRetarder() && !ent2->getRetarded() && ent2->getMovable()) {
-        //        ent2->subtractVelocity(ent1->getRetarder());
+        //    if (ent1->getRetardant() && !ent2->getRetarded() && ent2->getMovable()) {
+        //        ent2->subtractVelocity(ent1->getRetardant());
         //        ent2->setRetarded();
         //    }
-        //    if(ent1->getMovable()&&!ent2->getRetarder())
+        //    if(ent1->getMovable()&&!ent2->getRetardant())
         //        ent1->unsetRetarded();
-        //    if (ent1->getRetarder() && !ent2->getMovable())
+        //    if (ent1->getRetardant() && !ent2->getMovable())
         //        ent2->unsetRetarded();
         //}
         //else {
-        //    if (ent1->getRetarder())
+        //    if (ent1->getRetardant())
         //        ent1->unsetRetarded();
-        //    if (ent2->getRetarder())
+        //    if (ent2->getRetardant())
         //        ent2->unsetRetarded();
         //}
     }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Entidade/Jogador/Personagem.h"
+#include "Entidade/Personagem/Personagem.h"
 #include "Entidade/Arma/Arma.h"
 
 inline constexpr int ATQ_LONGO = 1;

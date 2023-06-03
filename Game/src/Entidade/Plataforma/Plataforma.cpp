@@ -3,7 +3,7 @@
 
 Plataforma::Plataforma() :
 	movable(false),
-	retarder(false),
+	retardant(false),
 	damageable(false),
 	attacker(false),
 	projected(false)

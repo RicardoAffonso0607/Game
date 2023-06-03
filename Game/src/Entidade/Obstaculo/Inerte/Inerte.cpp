@@ -2,19 +2,23 @@
 #include "Entidade/Obstaculo/Inerte/Inerte.h"
 
 namespace Obstaculos {
-	Inerte::Inerte()
+	Inerte::Inerte() :
+		retardant(false),
+		attacker(false)
 	{
-		movable = false;
-		attacker = false;
-		retarder = false;
-		damageable = false;
-
-		body.setFillColor(sf::Color::Green);
-		body.setPosition(pos);
 	}
 
 	Inerte::~Inerte()
 	{
+	}
 
+	bool Retardante::getRetardant() const
+	{
+		return retardant;
+	}
+
+	bool Retardante::getAttacker() const
+	{
+		return attacker;
 	}
 }

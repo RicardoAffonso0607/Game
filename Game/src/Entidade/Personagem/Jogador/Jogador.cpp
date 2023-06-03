@@ -4,8 +4,9 @@
 Jogador::Jogador() :
 	attacker(false),
 	pontuacao(NULL),
-	damage(NULL)
-	pArma(nullptr)
+	damage(NULL),
+	pArma(nullptr),
+	player_nickname(sf::String::String())
 {
 }
 

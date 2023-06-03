@@ -7,10 +7,13 @@ namespace Obstaculos {
 		class Lama : public Retardante
 		{
 		private:
+			const float slowness;
 
 		public:
-			Lama(sf::Vector2f pos, int id);
+			Lama(sf::Vector2f pos, sf::Vector2f size, int id);
 			~Lama();
+
+			float getSlowness() const override;
 		};
 	}
 }

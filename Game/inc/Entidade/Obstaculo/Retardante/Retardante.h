@@ -5,11 +5,15 @@
 namespace Obstaculos {
 	class Retardante : public Obstaculo
 	{
-	private:
-		float retard;
+	protected:
+		static const bool retardant;
+		static const bool attacker;
 
 	public:
 		Retardante();
 		virtual ~Retardante();
+
+		bool getRetardant() const override;
+		bool getAttacker() const override;
 	};
 }

@@ -48,11 +48,11 @@ public:
 
 	bool getMovable() override;
 	bool getAttacker() override;
-	bool getRetarder() override;
+	bool getRetardant() override;
 	bool getDamageable() override;
 	bool getFacingLeft() override;
 	bool getProjetil() override;
 
-	float getDamage() override;
+	int getDamage() override;
 	float getMass() override;
 };

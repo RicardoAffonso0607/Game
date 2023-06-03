@@ -2,16 +2,23 @@
 #include "Entidade/Obstaculo/Retardante/Retardante.h"
 
 namespace Obstaculos {
-	Retardante::Retardante()
+	Retardante::Retardante() :
+		retardant(true),
+		attacker(false)
 	{
-		movable = false;
-		attacker = false;
-		retarder = true;
-		damageable = false;
 	}
 
 	Retardante::~Retardante()
 	{
+	}
 
+	bool Retardante::getRetardant() const
+	{
+		return retardant;
+	}
+
+	bool Retardante::getAttacker() const
+	{
+		return attacker;
 	}
 }

@@ -4,7 +4,7 @@
 Personagem::Personagem() :
 	attack_timer(sf::Time::Zero),
 	movable(true),
-	retarder(false),
+	retardant(false),
 	damageable(true),
 	projected(false),
 	colidiu_baixo(false),
@@ -71,9 +71,9 @@ bool Personagem::getAttacker()
 	return attacker; 
 }
 
-bool Personagem::getRetarder()
+bool Personagem::getRetardant()
 { 
-	return retarder; 
+	return retardant; 
 }
 
 bool Personagem::getDamageable()
