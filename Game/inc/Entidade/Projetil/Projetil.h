@@ -20,5 +20,6 @@ public:
 	Projetil();
 	virtual ~Projetil();
 
-	void setCaster(Inimigo* caster) { pCaster = caster; }
+	void setCaster(Inimigo* caster);
+	void setArma(Arma* gun);
 };
