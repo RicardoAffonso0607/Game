@@ -13,6 +13,6 @@ namespace Projeteis {
 		Flecha(sf::Vector2f pos, int id);
 		~Flecha();
 		
-		void getDamage() const;
+		int getDamage() const;
 	};
 }
