@@ -14,3 +14,13 @@ Projetil::Projetil() :
 Projetil::~Projetil()
 {
 }
+
+void Projetil::setCaster(Inimigo* caster)
+{
+	pCaster = caster;
+}
+
+void Projetil::setArma(Arma* gun)
+{ 
+	pArma = gun;
+}
