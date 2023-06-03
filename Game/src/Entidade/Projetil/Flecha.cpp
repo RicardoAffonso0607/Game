@@ -4,9 +4,10 @@
 namespace Projeteis {
 	Flecha::Flecha(sf::Vector2f pos, int id) :
 		damage(10),
-		size(sf::Vector2f(30.f, 10.f))
+		id(83),
+		pGun(nullptr)
 	{
-		body.setSize(size);
+		body.setSize(sf::Vector2f(30.f, 10.f));
 		body.setPosition(pos);
 	}
 
@@ -17,5 +18,15 @@ namespace Projeteis {
 	int Flecha::getDamage()
 	{
 		return damage;
+	}
+
+	Arma* Flecha::getGun()
+	{
+		return pGun;
+	}
+
+	void Flecha::setGun(Armas* gun)
+	{
+		pGun = gun;
 	}
 }

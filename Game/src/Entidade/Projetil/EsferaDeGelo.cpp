@@ -4,9 +4,10 @@
 namespace Projeteis {
 	EsferaDeGelo::EsferaDeGelo(sf::Vector2f pos, int id) :
 		damage(7),
-		size(sf::Vector2f(20.f, 20.f))
+		id(82),
+		pCaster(nullptr)
 	{
-		body.setSize(size);
+		body.setSize(sf::Vector2f(20.f, 20.f));
 		body.setPosition(pos);
 	}
 
@@ -17,5 +18,15 @@ namespace Projeteis {
 	int EsferaDeGelo::getDamage()
 	{
 		return damage;
+	}
+
+	Inimigos::Disparador* EsferaDeGelo::getCaster()
+	{
+		return pCaster;
+	}
+
+	void EsferaDeGelo::setCaster(Inimigos::Disparador* caster)
+	{
+		pCaster = caster;
 	}
 }

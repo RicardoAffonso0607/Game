@@ -7,10 +7,13 @@ namespace Inimigos {
 		class Horus : public Disparador
 		{
 		private:
+			static const unsigned int id;
 
 		public:
-			Horus(sf::Vector2f pos, int id);
+			Horus(sf::Vector2f pos);
 			~Horus();
+
+			unsigned int getId() const override;
 		};
 	}
 }

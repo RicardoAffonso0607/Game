@@ -3,7 +3,8 @@
 
 namespace Inimigos {
 	namespace Disparadores {
-		Horus::Horus(sf::Vector2f pos, int id) :
+		Horus::Horus(sf::Vector2f pos) :
+			id(71),
 			life(100),
 			size(sf::Vector2f(100.f, 180.f))
 		{

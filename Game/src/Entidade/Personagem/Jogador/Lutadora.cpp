@@ -2,7 +2,8 @@
 #include "Entidade/Personagem/Jogador/Lutadora.h"
 
 namespace Jogadores {
-	Lutadora::Lutadora(sf::Vector2f pos, float pl_life, int id) :
+	Lutadora::Lutadora(sf::Vector2f pos, float pl_life) :
+		id(2),
 		size(sf::Vector2f(100.f, 140.f)),
 		vel(sf::Vector2f(12.f, 15.f)),
 		life(pl_life)
@@ -16,6 +17,5 @@ namespace Jogadores {
 
 	Lutadora::~Lutadora()
 	{
-
 	}
 }

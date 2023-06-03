@@ -7,10 +7,13 @@ namespace Inimigos {
 		class Nidogue : public Chefao
 		{
 		private:
+			static const unsigned int id;
 
 		public:
-			Nidogue(sf::Vector2f pos, int id);
+			Nidogue(sf::Vector2f pos);
 			~Nidogue();
+
+			unsigned int getId() const override;
 		};
 	}
 }

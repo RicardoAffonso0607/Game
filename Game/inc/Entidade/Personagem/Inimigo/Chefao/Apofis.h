@@ -7,10 +7,13 @@ namespace Inimigos {
 		class Apofis : public Chefao
 		{
 		private:
+			static const unsigned int id;
 
 		public:
-			Apofis(sf::Vector2f pos, int id);
+			Apofis(sf::Vector2f pos);
 			~Apofis();
+
+			unsigned int getId() const override;
 		};
 	}
 }

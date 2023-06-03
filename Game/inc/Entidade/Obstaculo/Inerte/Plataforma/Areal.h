@@ -2,16 +2,20 @@
 
 #include "Entidade/Obstaculo/Inerte/Plataforma/Plataforma.h"
 
-namespace Plataformas {
-	class Areal : public Plataforma
-	{
-	private:
-		static const int id;
+namespace Obstaculos {
+	namespace Inertes {
+		namespace Plataformas {
+			class Areal : public Plataforma
+			{
+			private:
+				static const int id;
 
-	public:
-		Areal(sf::Vector2f pos, sf::Vector2f size, int id);
-		~Areal();
+			public:
+				Areal(sf::Vector2f pos, sf::Vector2f size, int id);
+				~Areal();
 
-		unsigned int getId() const override;
-	};
+				unsigned int getId() const override;
+			};
+		}
+	}
 }

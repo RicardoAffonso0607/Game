@@ -18,35 +18,35 @@ Entidade::draw() {
 	pGerGraf->desenhaElemento(body);
 }
 
-sf::Vector2f Entidade::getPosition() = 0;
-sf::Vector2f Entidade::getEntSize() = 0;
-sf::Vector2f Entidade::getVel() = 0;
-sf::Vector2f Entidade::getVelMax() = 0;
+sf::Vector2f Entidade::getPosition() {}
+sf::Vector2f Entidade::getEntSize() {}
+sf::Vector2f Entidade::getVel() {}
+sf::Vector2f Entidade::getVelMax() {}
 
-void Entidade::move() = 0;
-void Entidade::attack() = 0;
-void Entidade::gunType() = 0;
-void Entidade::setPlayer() = 0;
-void Entidade::changePosition() = 0;
-void Entidade::subtractLife() = 0;
-void Entidade::subtractVelocity() = 0;
-void Entidade::setAttacker() = 0;
-void Entidade::getGun() = 0;
-void Entidade::events() = 0;
-void Entidade::setAtacou() = 0;
-void Entidade::setPlayer() = 0;
-void Entidade::setCaster() = 0;
+void Entidade::move() {}
+void Entidade::attack() {}
+void Entidade::gunType() {}
+void Entidade::setPlayer() {}
+void Entidade::changePosition() {}
+void Entidade::subtractLife() {}
+void Entidade::subtractVelocity() {}
+void Entidade::setAttacker() {}
+void Entidade::getGun() {}
+void Entidade::events() {}
+void Entidade::setAtacou() {}
+void Entidade::setPlayer() {}
+void Entidade::setCaster() {}
 
-bool Entidade::getMovable() = 0;
-bool Entidade::getAttacker() = 0;
-bool Entidade::getRetardant() = 0;
-bool Entidade::getDamageable() = 0;
-bool Entidade::getJumped() = 0;
-bool Entidade::getFacingLeft() = 0;
-bool Entidade::getProjetil() = 0;
+bool Entidade::getMovable() {}
+bool Entidade::getAttacker() {}
+bool Entidade::getRetardant() {}
+bool Entidade::getDamageable() {}
+bool Entidade::getJumped() {}
+bool Entidade::getFacingLeft() {}
+bool Entidade::getProjetil() {}
 
-int Entidade::getDamage() = 0;
+int Entidade::getDamage() {}
 
-float Entidade::getSlowness();
-float Entidade::getMass() = 0;
-float Entidade::getJumpStrength() = 0;
+float Entidade::getSlowness() {}
+float Entidade::getMass() {}
+float Entidade::getJumpStrength() {}

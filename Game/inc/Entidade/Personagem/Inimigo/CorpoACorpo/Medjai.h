@@ -7,10 +7,13 @@ namespace Inimigos {
 		class Medjai : public CorpoACorpo
 		{
 		private:
+			static const unsigned int id;
 
 		public:
-			Medjai(sf::Vector2f pos, int id);
+			Medjai(sf::Vector2f pos);
 			~Medjai();
+
+			unsigned int getId() const override;
 		};
 	}
 }

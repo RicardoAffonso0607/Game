@@ -2,11 +2,15 @@
 
 #include "Entidade/Obstaculo/Obstaculo.h"
 
-class Plataforma : public Inerte
-{
-protected:
+namespace Obstaculos {
+	namespace Inertes {
+		class Plataforma : public Inerte
+		{
+		protected:
 
-public:
-	Plataforma();
-	virtual ~Plataforma();
-};
+		public:
+			Plataforma();
+			virtual ~Plataforma();
+		};
+	}
+}
