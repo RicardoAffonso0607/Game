@@ -13,5 +13,7 @@ namespace Projeteis {
 	public:
 		EsferaDeFogo(sf::Vector2f pos, int id);
 		~EsferaDeFogo();
+		
+		void getDamage() const;
 	};
 }
