@@ -21,5 +21,4 @@ public:
 	virtual ~Projetil();
 
 	void setCaster(Inimigo* caster) { pCaster = caster; }
-	void getDamage() const;
 };
