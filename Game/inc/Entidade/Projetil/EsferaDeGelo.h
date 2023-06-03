@@ -6,9 +6,9 @@ namespace Projeteis {
 	class EsferaDeGelo : public Projetil
 	{
 	private:
-		const int damage;
+		static const int damage;
 
-		const sf::Vector2f size;
+		static const sf::Vector2f size;
 
 	public:
 		EsferaDeGelo(sf::Vector2f pos, int id);
