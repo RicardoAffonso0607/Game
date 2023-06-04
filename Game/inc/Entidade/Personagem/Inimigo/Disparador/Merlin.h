@@ -7,15 +7,19 @@ namespace Inimigos {
 		class Merlin : public Disparador
 		{
 		private:
-			static const int life = 80;
+			static const unsigned int id;
 
-			static const unsigned int id = 72;
+			static const float mass;
+
+			static const sf::Vector2f vel_max;
 
 		public:
 			Merlin(sf::Vector2f pos);
 			~Merlin();
 
 			unsigned int getId() const override;
+
+			float getMass() const override;
 		};
 	}
 }

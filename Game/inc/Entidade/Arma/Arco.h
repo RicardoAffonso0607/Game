@@ -10,10 +10,10 @@ namespace Armas {
 
 		static const int id = 91;
 
-		//static sf::Time delay = sf::milliseconds(400);
+		const sf::Time delay = sf::milliseconds(400);
 
 	public:
-		Arco();
+		Arco(sf::Vector2f pos, Personagem* pPer);
 		~Arco();
 
 		int getDamage() const /*override*/;

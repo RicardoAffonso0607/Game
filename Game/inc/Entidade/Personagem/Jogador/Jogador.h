@@ -8,6 +8,8 @@ class Jogador : public Personagem
 protected:
 	sf::String player_nickname = sf::String::String();
 
+	static const bool retardable;
+
 	bool attacker = false;
 	bool allow_jump = true;
 	bool jumped = false;
@@ -26,4 +28,6 @@ public:
 	void setAttacker(int i) /*override*/;
 	void events() /*override*/;
 	void setGun(Arma* pArma) /*override*/;
+
+	bool getRetardable() const override;
 };

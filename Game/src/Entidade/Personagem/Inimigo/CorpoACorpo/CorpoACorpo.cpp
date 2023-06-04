@@ -2,7 +2,7 @@
 #include "Entidade/Personagem/Inimigo/CorpoACorpo/CorpoACorpo.h"
 
 namespace Inimigos {
-	const bool CorpoACorpo::attacker = true;
+	const bool CorpoACorpo::retardable = true;
 
 	CorpoACorpo::CorpoACorpo()
 	{
@@ -33,8 +33,8 @@ namespace Inimigos {
 	{
 	}
 
-	bool CorpoACorpo::getAttacker() const
+	bool CorpoACorpo::getRetardable() const
 	{
-		return attacker;
+		return retardable;
 	}
 }

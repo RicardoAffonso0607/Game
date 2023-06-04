@@ -8,15 +8,19 @@ namespace Inimigos {
 		class Spartacus : public CorpoACorpo
 		{
 		private:
-			static const int life;
-
 			static const unsigned int id;
+
+			static const float mass;
+
+			static const sf::Vector2f vel_max;
 
 		public:
 			Spartacus(sf::Vector2f pos);
 			~Spartacus();
 
 			unsigned int getId() const override;
+
+			float getMass() const override;
 		};
 	}
 }

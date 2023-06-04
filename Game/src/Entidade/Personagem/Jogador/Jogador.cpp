@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
+const bool Jogador::retardable = true;
+
 Jogador::Jogador()
 {
 }
@@ -33,6 +35,11 @@ Jogador::~Jogador()
 bool Jogador::getJumped()
 { 
 	return jumped;
+}
+
+bool Jogador::getRetardable() const
+{
+	return retardable;
 }
 
 void setGun(Arma* gun_load) {

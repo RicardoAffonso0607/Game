@@ -7,15 +7,19 @@ namespace Inimigos {
 		class Apofis : public Chefao
 		{
 		private:
-			static const int life = 100;
+			static const unsigned int id;
 
-			static const unsigned int id = 51;
+			static const float mass;
+
+			static const sf::Vector2f vel_max;
 
 		public:
 			Apofis(sf::Vector2f pos);
 			~Apofis();
 
 			unsigned int getId() const override;
+
+			float getMass() const override;
 		};
 	}
 }

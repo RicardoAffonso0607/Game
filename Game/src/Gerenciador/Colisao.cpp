@@ -19,7 +19,6 @@ namespace Gerenciador{
         int i, j;//ent1=móvel ent2=fixo ou móvel
         for (i = 0; i < list_ent->getSize(); i++) {
             ent = list_ent->getEntity(i);
-            
             ent->flying = true;
             ent->allow_jump = true;
             if (ent->getMovable()) {
@@ -183,30 +182,18 @@ namespace Gerenciador{
 
     /* Efeitos causados pela colisão */
     void Colisao::effects(Entidade* ent1, Entidade* ent2){
-        //if (colidiu) {
-        //    if (ent1->getDamageable() && ent2->getAttacker())
-        //        ent1->subtractLife(ent2->getDamage());
-        //    if (ent1->getAttacker() && ent2->getDamageable())
-        //        ent2->subtractLife(ent1->getDamage());
-        //    if (ent1->getMovable() && !ent1->getRetarded() && ent2->getRetardant()) {
-        //        ent1->subtractVelocity(ent2->getRetardant());
-        //        ent1->setRetarded();
-        //    }
-        //    if (ent1->getRetardant() && !ent2->getRetarded() && ent2->getMovable()) {
-        //        ent2->subtractVelocity(ent1->getRetardant());
-        //        ent2->setRetarded();
-        //    }
-        //    if(ent1->getMovable()&&!ent2->getRetardant())
-        //        ent1->unsetRetarded();
-        //    if (ent1->getRetardant() && !ent2->getMovable())
-        //        ent2->unsetRetarded();
-        //}
-        //else {
-        //    if (ent1->getRetardant())
-        //        ent1->unsetRetarded();
-        //    if (ent2->getRetardant())
-        //        ent2->unsetRetarded();
-        //}
+        if (ent1->getDamageable() && ent2->getAttacker()) {
+            ent1->applyDamage(ent2->getDamage());
+            ent2->setAtacou();
+        }
+        if (ent1->getAttacker() && ent2->getDamageable()) {
+            ent2->applyDamage(ent1->getDamage());
+            ent1->setAtacou();
+        }
+        if (ent1->getMovable() && ent2->getRetardant())
+            ent1->applySlowness(ent2->getSlowness());
+        if (ent1->getRetardant() && ent2->getMovable())
+            ent2->applySlowness(ent1->getSlowness());
     }
 
     /* Aceleração da gravidade */
@@ -223,17 +210,9 @@ namespace Gerenciador{
             ent->allow_jump = false;
         }
         else if (ent->colidiu_baixo) {
-            //printf("entrou2\n");
             ent->jumped = false;
             ent->allow_jump = true;
             ent->jumped_height = 0.f;
         }
-    }
-
-    /* Funcionamento de um projétil */
-    void Colisao::trajectory(Entidade* ent){
-        //if (ent->getProjetil())
-        //    if (ent->pCaster->getFacingLeft())
-        //        ent->changePosition(sf::Vector2f(-DX_PROJECTILE, 0.f));
     }
 }

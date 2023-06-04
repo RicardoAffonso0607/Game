@@ -7,15 +7,19 @@ namespace Inimigos {
 		class Nidogue : public Chefao
 		{
 		private:
-			static const int life = 200;
+			static const unsigned int id;
 
-			static const unsigned int id = 52;
+			static const float mass;
+
+			static const sf::Vector2f vel_max;
 
 		public:
 			Nidogue(sf::Vector2f pos);
 			~Nidogue();
 
 			unsigned int getId() const override;
+
+			float getMass() const override;
 		};
 	}
 }

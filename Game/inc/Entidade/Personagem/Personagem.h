@@ -22,6 +22,7 @@ protected:
 	static const bool retardant;
 	static const bool ghost;
 	
+	bool jumped;
 	bool facing_left;
 	bool attacker;
 	bool atacou;
@@ -36,6 +37,7 @@ public:
 	bool getDamageable() const override;
 	bool getFacingLeft() const override;
 	bool getGhost() const override;
+	bool getJumped() const override;
 
 	sf::Vector2f getVel() const override;
 
@@ -46,8 +48,6 @@ public:
 	void unsetFacingLeft() override;
 
 	int getLife() const override;
-
-
 
 	float jumped_height = NULL;
 	bool colidiu_baixo = false;

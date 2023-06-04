@@ -10,6 +10,7 @@ Personagem::Personagem() :
 	atacou(false),
 	attacker(false),
 	facing_left(false),
+	jumped(false),
 	vel(sf::Vector2f(NULL, NULL)),
 	attack_instant(sf::Time::Zero),
 	life(NULL)
@@ -85,6 +86,11 @@ void Personagem::setFacingLeft()
 void Personagem::unsetFacingLeft()
 {
 	facing_left = false;
+}
+
+bool Personagem::getJumped() const
+{
+	return jumped;
 }
 
 //void Personagem::getGunType()

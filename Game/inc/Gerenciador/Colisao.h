@@ -16,7 +16,6 @@ namespace Gerenciador{
         void ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre);
         void effects(Entidade* ent1, Entidade* ent2);
         void gravity(Entidade* ent1, Entidade* ent2);
-        void trajectory(Entidade* ent);
         void vertexMath(vertex *rect, Entidade* ent);
         void jump(Entidade* ent);
         void gravity(Entidade* ent);
@@ -24,6 +23,7 @@ namespace Gerenciador{
     public:
         Colisao(ListaEntidades* list, Grafico* graf);
         ~Colisao();
+
         void executar();
     };
 }

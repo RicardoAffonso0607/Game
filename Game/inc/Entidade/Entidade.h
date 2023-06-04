@@ -32,6 +32,7 @@ public:
 	virtual bool getDamageable() const = 0;
 	virtual bool getGhost() const = 0;
 
+	virtual bool getRetardable() const;
 	virtual bool getJumped() const;
 	virtual bool getFacingLeft() const;
 

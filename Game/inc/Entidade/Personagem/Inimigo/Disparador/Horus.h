@@ -7,15 +7,19 @@ namespace Inimigos {
 		class Horus : public Disparador
 		{
 		private:
-			static const int life = 100;
+			static const unsigned int id;
 
-			static const unsigned int id = 71;
+			static const float mass;
+
+			static const sf::Vector2f vel_max;
 
 		public:
 			Horus(sf::Vector2f pos);
 			~Horus();
 
 			unsigned int getId() const override;
+
+			float getMass() const override;
 		};
 	}
 }

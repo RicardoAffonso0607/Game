@@ -9,16 +9,16 @@ namespace Inimigos {
 	protected:
 		Arma* pArma = nullptr;
 
-		static const bool attacker;
+		static const bool retardable;
 
 	public:
 		CorpoACorpo();
 		virtual ~CorpoACorpo();
 
-		void move();
+		void move() override;
 
-		void attack();
+		void attack() override;
 
-		bool getAttacker() const override;
+		bool getRetardable() const override;
 	};
 }

@@ -3,12 +3,16 @@
 
 namespace Inimigos {
 	namespace CorpoACorpos {
-		const int Medjai::life = 20;
+		const float Medjai::mass = .5f;
 
 		const unsigned int Medjai::id = 61;
 
+		const sf::Vector2f Medjai::vel_max = sf::Vector2f(20.f, 15.f);
+
 		Medjai::Medjai(sf::Vector2f pos)
 		{
+			life = 20;
+			vel = vel_max;
 			body.setSize(sf::Vector2f(80.f, 150.f));
 			body.setPosition(pos);
 			pArma = new Armas::Faca(pos, this);
@@ -22,6 +26,11 @@ namespace Inimigos {
 		unsigned int Medjai::getId() const
 		{
 			return id;
+		}
+
+		float Medjai::getMass() const
+		{
+			return mass;
 		}
 	}
 }

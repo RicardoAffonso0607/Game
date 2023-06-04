@@ -185,6 +185,16 @@ void Entidade::unsetFacingLeft()
 	}
 }
 
+bool Entidade::getRetardable() const
+{
+	string erro = "Perguntou se uma entidade imóvel é retardável.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}
