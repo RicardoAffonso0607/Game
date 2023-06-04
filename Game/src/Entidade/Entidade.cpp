@@ -125,7 +125,7 @@ bool Entidade::getFacingLeft() const
 	}
 }
 
-void Entidade::applyDamage(int damage)
+void Entidade::applyDamage(int ent_damage)
 {
 	string erro = "Tentou aplicar dano em entidade não danificável.";
 	try { throw std::runtime_error(erro); }
@@ -135,7 +135,7 @@ void Entidade::applyDamage(int damage)
 	}
 }
 
-void Entidade::applySlowness(float slowness)
+void Entidade::applySlowness(float ent_slowness)
 {
 	string erro = "Tentou retardar entidade que não é afetada pela lentidão.";
 	try { throw std::runtime_error(erro); }
@@ -145,11 +145,29 @@ void Entidade::applySlowness(float slowness)
 	}
 }
 
+void Entidade::setAtacou()
+{
+	string erro = "Tentou atacar com entidade não atacante.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+int Entidade::getLife() const
+{
+	string erro = "Solicitou vida de entidade não danificável.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
 
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}
 //void Entidade::events() {}
-//void Entidade::setAtacou() {}
 //void Entidade::setCaster() {}
 //void Entidade::setPlayer() {}

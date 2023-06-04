@@ -3,6 +3,10 @@
 
 namespace Obstaculos {
 	namespace Danosos {
+		const int Cacto::damage = 1;
+
+		const int Cacto::id = 10;
+
 		Cacto::Cacto(sf::Vector2f pos)
 		{
 			body.setSize(sf::Vector2f(50.f, 100.f));

@@ -12,15 +12,9 @@ namespace Jogadores {
 
 		static const sf::Vector2f vel_max;
 
-		int life;
-
-		sf::Vector2f vel;
-
 	public:
 		Ninja(sf::Vector2f pos, int pl_life);
 		~Ninja();
-
-		sf::Vector2f getVel() const override;
 
 		unsigned int getId() const override;
 

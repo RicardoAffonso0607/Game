@@ -8,10 +8,10 @@ namespace Jogadores {
 
 	const sf::Vector2f Lutadora::vel_max = sf::Vector2f(12.f, 15.f);
 
-	Lutadora::Lutadora(sf::Vector2f pos, int pl_life) :
-		life(pl_life),
-		vel(vel_max)
+	Lutadora::Lutadora(sf::Vector2f pos, int pl_life)
 	{
+		life = pl_life;
+		vel = vel_max;
 		textura.loadFromFile(string(IMG) + "teste.png");
 		body.setTexture(&textura);
 		body.setSize(sf::Vector2f(100.f, 140.f));
@@ -20,11 +20,6 @@ namespace Jogadores {
 
 	Lutadora::~Lutadora()
 	{
-	}
-
-	sf::Vector2f Lutadora::getVel() const
-	{
-		return vel;
 	}
 
 	unsigned int Lutadora::getId() const

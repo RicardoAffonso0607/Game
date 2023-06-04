@@ -2,6 +2,9 @@
 #include "Entidade/Obstaculo/Retardante/Retardante.h"
 
 namespace Obstaculos {
+	const bool Retardante::attacker = false;
+	const bool Retardante::retardant = true;
+
 	Retardante::Retardante()
 	{
 	}

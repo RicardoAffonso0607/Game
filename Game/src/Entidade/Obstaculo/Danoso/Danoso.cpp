@@ -2,6 +2,9 @@
 #include "Entidade/Obstaculo/Danoso/Danoso.h"
 
 namespace Obstaculos {
+	const bool Danoso::attacker = true;
+	const bool Danoso::retardant = false;
+
 	Danoso::Danoso()
 	{
 	}

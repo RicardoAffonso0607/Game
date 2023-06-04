@@ -6,54 +6,56 @@ class Personagem : public Entidade
 {
 protected:
 
-
-	int damage = 0;
-	sf::Vector2f vel_max;
 	sf::Vector2f vel;
 
-	sf::Time attack_delay = sf::Time::Zero;
-	sf::Time attack_timer = sf::Time::Zero;
-	sf::Time attack_instant = sf::Time::Zero;
+	sf::Time attack_instant;
+	sf::Time attack_delay;
+	sf::Time retarder_delay;
+	sf::Time retarder_timer;
 
 	sf::Clock clock;
 
-	static const bool movable = true;
-	static const bool damageable = true;
-	//static const bool projected = false;
-	static const bool retardant = false;
+	int life;
 
-	bool facing_left = false;
-	bool atacou = false;
-	bool attacker = false;
+	static const bool movable;
+	static const bool damageable;
+	static const bool retardant;
+	static const bool ghost;
+	
+	bool facing_left;
+	bool attacker;
+	bool atacou;
 
 public:
 	Personagem();
 	virtual ~Personagem();
 
-	float jumped_height = NULL;
-
-	bool colidiu_baixo = false;
-	bool colidiu_cima = false;
-	bool flying = false;
-
-	sf::Vector2f getPosition() /*override*/;
-	sf::Vector2f getEntSize() /*override*/;
-	sf::Vector2f getVel() /*override*/;
-	sf::Vector2f getVelMax() /*override*/;
-
-	void changePosition(sf::Vector2f dif_pos) /*override*/;
-	void subtractLife(float damaged) /*override*/;
-	void subtractVelocity(float retarded) /*override*/;
-	void events() /*override*/;
-	void setAtacou() /*override*/;
-
 	bool getMovable() const override;
 	bool getAttacker() const override;
 	bool getRetardant() const override;
 	bool getDamageable() const override;
-	//bool getFacingLeft() const override;
-	//bool getProjetil() const override;
+	bool getFacingLeft() const override;
+	bool getGhost() const override;
 
-	int getDamage() /*override*/;
-	float getMass() /*override*/;
+	sf::Vector2f getVel() const override;
+
+	void applyDamage(int ent_damage) override;
+	void applySlowness(float ent_slowness) override;
+	void setAtacou() override;
+
+	int getLife() const override;
+
+
+
+	float jumped_height = NULL;
+	bool colidiu_baixo = false;
+	bool colidiu_cima = false;
+	bool flying = false;
+
+
+	
+
+
+
+	//void events() /*override*/;
 };

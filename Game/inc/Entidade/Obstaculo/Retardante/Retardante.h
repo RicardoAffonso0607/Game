@@ -6,14 +6,14 @@ namespace Obstaculos {
 	class Retardante : public Obstaculo
 	{
 	protected:
-		static const bool attacker = false;
-		static const bool retardant = true;
+		static const bool attacker;
+		static const bool retardant;
 
 	public:
 		Retardante();
 		virtual ~Retardante();
 
-		bool getAttacker() const /*override*/;
-		bool getRetardant() const /*override*/;
+		bool getAttacker() const override;
+		bool getRetardant() const override;
 	};
 }

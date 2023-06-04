@@ -3,6 +3,10 @@
 
 namespace Obstaculos {
 	namespace Danosos {
+		const int ArmadilhaDeLancas::damage = 2;
+
+		const int ArmadilhaDeLancas::id = 11;
+
 		ArmadilhaDeLancas::ArmadilhaDeLancas(sf::Vector2f pos)
 		{
 			body.setSize(sf::Vector2f(100.f, 100.f));

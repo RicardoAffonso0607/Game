@@ -20,10 +20,6 @@ protected:
 	bool facingLeft;
 	bool projected;
 
-	unsigned int attack_delay;
-	unsigned int retarder_delay;
-	unsigned int retarder_timer;
-
 	float mass = 1.f;
 	float life = 0;
 
@@ -40,6 +36,7 @@ public:
 	virtual bool getAttacker() const = 0;
 	virtual bool getRetardant() const = 0;
 	virtual bool getDamageable() const = 0;
+	virtual bool getGhost() const = 0;
 
 	virtual bool getJumped() const;
 	virtual bool getFacingLeft() const;
@@ -49,6 +46,7 @@ public:
 	virtual float getJumpStrength() const;
 
 	virtual int getDamage() const;
+	virtual int getLife() const;
 
 	virtual sf::Vector2f getVel() const;
 
@@ -57,8 +55,9 @@ public:
 
 	virtual void move();
 	virtual void attack();
-	virtual void applyDamage(int damage);
-	virtual void applySlowness(float slowness);
+	virtual void applyDamage(int ent_damage);
+	virtual void applySlowness(float ent_slowness);
+	virtual void setAtacou();
 
 
 
