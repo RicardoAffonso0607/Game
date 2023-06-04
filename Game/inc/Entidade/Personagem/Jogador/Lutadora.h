@@ -6,7 +6,6 @@ namespace Jogadores {
 	class Lutadora : public Jogador
 	{
 	private:
-
 		static const unsigned int id;
 
 		static const float mass;
@@ -16,8 +15,6 @@ namespace Jogadores {
 		int life;
 
 		sf::Vector2f vel;
-
-		sf::Texture textura;
 
 	public:
 		Lutadora(sf::Vector2f pos, int pl_life);

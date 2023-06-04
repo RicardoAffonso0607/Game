@@ -5,6 +5,8 @@
 class Personagem : public Entidade
 {
 protected:
+
+
 	int damage = 0;
 	sf::Vector2f vel_max;
 	sf::Vector2f vel;

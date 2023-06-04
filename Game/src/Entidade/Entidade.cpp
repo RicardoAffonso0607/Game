@@ -37,61 +37,112 @@ sf::Vector2f Entidade::getEntSize() const
 
 sf::Vector2f Entidade::getVel() const
 {
-	throw std::runtime_error("Solicitou velocidade de entidade fixa.");
+	string erro = "Solicitou velocidade de entidade fixa.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 void Entidade::move()
 {
-	throw std::runtime_error("Tentou mover entidade fixa.");
+	string erro = "Tentou mover entidade fixa.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 void Entidade::attack()
 {
-	throw std::runtime_error("Tentou fazer entidade não atacante atacar.");
+	string erro = "Tentou fazer entidade não atacante atacar.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 float Entidade::getMass() const
 {
-	string errou = "Solicitou massa de entidade que não é afetada pela gravidade.";
-	cerr << errou << endl;
-	//throw std::runtime_error(errou);
-	return 1.f;
+	string erro = "Solicitou massa de entidade que não é afetada pela gravidade.";
+	try { throw std::runtime_error(erro); }
+	catch (...) { 
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 int Entidade::getDamage() const
 {
-	throw std::runtime_error("Solicitou dano de entidade não atacante.");
+	string erro = "Solicitou dano de entidade não atacante.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 float Entidade::getSlowness() const
 {
-	throw std::runtime_error("Solicitou lentidão de entidade não retardante.");
+	string erro = "Solicitou lentidão de entidade não retardante.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 float Entidade::getJumpStrength() const
 {
-	throw std::runtime_error("Solicitou força do pulo de entidade que não pula.");
+	string erro = "Solicitou força do pulo de entidade que não pula.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 bool Entidade::getJumped() const
 {
-	//throw std::runtime_error("Solicitou estado do pulo de entidade que não pula.");
-	return false;
+	string erro = "Solicitou estado do pulo de entidade que não pula.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 bool Entidade::getFacingLeft() const
 {
-	throw std::runtime_error("Solicitou direção da mira de entidade imóvel.");
+	string erro = "Solicitou direção da mira de entidade imóvel.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 void Entidade::applyDamage(int damage)
 {
-	throw std::runtime_error("Tentou aplicar dano em entidade não danificável.");
+	string erro = "Tentou aplicar dano em entidade não danificável.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 void Entidade::applySlowness(float slowness)
 {
-	throw std::runtime_error("Tentou retardar entidade que não é afetada pela lentidão.");
+	string erro = "Tentou retardar entidade que não é afetada pela lentidão.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
 }
 
 
