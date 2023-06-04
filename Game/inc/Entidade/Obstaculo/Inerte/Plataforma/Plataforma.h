@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Entidade/Obstaculo/Obstaculo.h"
+#include "Entidade/Obstaculo/Inerte/Inerte.h"
 
 namespace Obstaculos {
 	namespace Inertes {

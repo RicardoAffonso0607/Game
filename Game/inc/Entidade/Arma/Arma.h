@@ -5,22 +5,22 @@
 class Arma : public Entidade
 {
 protected:
-	bool attacker;
+	bool attacker = false;
 	
-	static const bool damageable;
-	static const bool ghost;
-	static const bool movable;
-	static const bool retardant;
+	static const bool damageable = false;
+	static const bool ghost = false;
+	static const bool movable = true;
+	static const bool retardant = false;
 
 public:
 	Arma();
 	virtual ~Arma();
 
-	bool getAttacker() override;
-	bool setAttacker() override;
+	bool getAttacker() /*override*/;
+	void setAttacker() /*override*/;
 
-	bool getDamageable() const override;
-	bool getGhost() const override;
-	bool getMovable() const override;
-	bool getRetardant() const override;
+	bool getDamageable() const /*override*/;
+	bool getGhost() const /*override*/;
+	bool getMovable() const /*override*/;
+	bool getRetardant() const /*override*/;
 };

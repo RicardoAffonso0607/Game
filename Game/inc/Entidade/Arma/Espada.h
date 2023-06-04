@@ -6,20 +6,20 @@ namespace Armas {
 	class Espada : public Arma
 	{
 	private:
-		const int damage;
+		const int damage = 5;
 
-		static const int id;
+		static const int id = 93;
 
-		const sf::Time delay;
+		const sf::Time delay = sf::milliseconds(500);
 
 	public:
 		Espada();
 		~Espada();
 
-		int getDamage() const override;
+		int getDamage() const /*override*/;
 
 		unsigned int getId() const override;
 
-		sf::Time getDelay() const override;
+		sf::Time getDelay() const /*override*/;
 	};
 }

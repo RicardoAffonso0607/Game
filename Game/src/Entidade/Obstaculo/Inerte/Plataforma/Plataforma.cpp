@@ -3,7 +3,7 @@
 
 namespace Obstaculos {
 	namespace Inertes {
-		Plataforma::Plataforma() :
+		Plataforma::Plataforma()
 		{
 		}
 

@@ -1,17 +1,7 @@
 #include "pch.h"
 #include "Entidade/Personagem/Personagem.h"
 
-Personagem::Personagem() :
-	attack_timer(sf::Time::Zero),
-	movable(true),
-	retardant(false),
-	damageable(true),
-	projected(false),
-	colidiu_baixo(false),
-	colidiu_cima(false),
-	flying(false),
-	atacou(false),
-	facing_left(false)
+Personagem::Personagem()
 {
 	sf::Clock clock_ini;
 	clock = clock_ini;
@@ -21,10 +11,10 @@ Personagem::~Personagem()
 {
 }
 
-void Personagem::getGunType()
-{
-	return gun_type;
-}
+//void Personagem::getGunType()
+//{
+//	return gun_type;
+//}
 
 sf::Vector2f Personagem::getPosition()
 {
@@ -61,37 +51,37 @@ void Personagem::subtractVelocity(float retarded)
 	vel.x -= retarded; 
 }
 
-bool Personagem::getMovable()
+bool Personagem::getMovable() const
 { 
-	return movable; 
+	return movable;
 }
 
-bool Personagem::getAttacker()
+bool Personagem::getAttacker() const
 { 
 	return attacker; 
 }
 
-bool Personagem::getRetardant()
+bool Personagem::getRetardant() const
 { 
 	return retardant; 
 }
 
-bool Personagem::getDamageable()
+bool Personagem::getDamageable() const
 { 
 	return damageable; 
 }
 
-bool Personagem::getFacingLeft()
-{ 
-	return facingLeft; 
-}
+//bool Personagem::getFacingLeft()
+//{ 
+//	return facingLeft; 
+//}
 
-bool Personagem::getProjetil()
-{ 
-	return projected; 
-}
+//bool Personagem::getProjetil()
+//{ 
+//	return projected; 
+//}
 
-float Personagem::getDamage()
+int Personagem::getDamage()
 { 
 	return damage; 
 }
@@ -101,7 +91,7 @@ float Personagem::getMass()
 	return mass; 
 }
 
-float Personagem::setAtacou()
+void Personagem::setAtacou()
 {
 	atacou = true;
 }

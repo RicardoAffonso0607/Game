@@ -3,10 +3,9 @@
 
 namespace Obstaculos {
 	namespace Inertes {
-		ArbustoFlorido::ArbustoFlorido(sf::Vector2f pos) :
-			id(22),
-			size(Vector2f(100.f,100.f))
+		ArbustoFlorido::ArbustoFlorido(sf::Vector2f pos)
 		{
+			body.setSize(sf::Vector2f(100.f, 100.f));
 			body.setPosition(pos);
 		}
 

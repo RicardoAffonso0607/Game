@@ -7,7 +7,9 @@ namespace Inimigos {
 		class Merlin : public Disparador
 		{
 		private:
-			static const unsigned int id;
+			static const int life = 80;
+
+			static const unsigned int id = 72;
 
 		public:
 			Merlin(sf::Vector2f pos);

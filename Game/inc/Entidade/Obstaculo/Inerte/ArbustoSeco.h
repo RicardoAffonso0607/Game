@@ -7,7 +7,7 @@ namespace Obstaculos {
 		class ArbustoSeco : public Inerte
 		{
 		private:
-			static const int id;
+			static const int id = 21;
 
 		public:
 			ArbustoSeco(sf::Vector2f pos);

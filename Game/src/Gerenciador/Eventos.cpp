@@ -6,9 +6,7 @@ namespace Gerenciador {
 
 	Eventos::Eventos() :
 		pGrafico(pGrafico->getGrafico()),
-		pJogador(nullptr),
-		atq_longo = 1,
-		atq_curto = 2
+		pJogador(nullptr)
 	{
 	}
 
@@ -47,18 +45,18 @@ namespace Gerenciador {
 	{
 		if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::Left)
 		{
-			pJogador->changePosition(sf::Vector2f(-pJogador->getVel().x, 0.f));
+			//pJogador->changePosition(sf::Vector2f(-pJogador->getVel().x, 0.f));
 		}
 		if (tecla == sf::Keyboard::D || tecla == sf::Keyboard::Right)
 		{
-			pJogador->changePosition(sf::Vector2f(pJogador->getVel().x, 0.f));
+			//pJogador->changePosition(sf::Vector2f(pJogador->getVel().x, 0.f));
 		}
 
 		if (tecla == sf::Keyboard::Space)
 			pJogador->jumped = true;//pulou
 
-		if (tecla == sf::Keyboard::Backslash)
-			pJogador->setAttacker(pJogador->getGunType(), ATQ_LONGO);//ataque tipo 1
+		//if (tecla == sf::Keyboard::Backslash)
+			//pJogador->setAttacker(pJogador->getGunType(), ATQ_LONGO);//ataque tipo 1
 
 		if (tecla == sf::Keyboard::Escape)
 		{
@@ -68,7 +66,7 @@ namespace Gerenciador {
 
 	void Eventos::verificaMouseClicado()
 	{
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			pJogador->setAttacker(pJogador->getGunType(), ATQ_CURTO);//ataque tipo 2
+		//if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			//pJogador->setAttacker(pJogador->getGunType(), ATQ_CURTO);//ataque tipo 2
 	}
 }

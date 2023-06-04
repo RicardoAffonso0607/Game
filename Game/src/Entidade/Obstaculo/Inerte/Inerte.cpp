@@ -2,9 +2,7 @@
 #include "Entidade/Obstaculo/Inerte/Inerte.h"
 
 namespace Obstaculos {
-	Inerte::Inerte() :
-		attacker(false),
-		retardant(false)
+	Inerte::Inerte()
 	{
 	}
 
@@ -12,12 +10,12 @@ namespace Obstaculos {
 	{
 	}
 
-	bool Retardante::getAttacker() const
+	bool Inerte::getAttacker() const
 	{
 		return attacker;
 	}
 
-	bool Retardante::getRetardant() const
+	bool Inerte::getRetardant() const
 	{
 		return retardant;
 	}

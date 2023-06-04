@@ -18,13 +18,16 @@ namespace Gerenciador{
         Entidade* ent;
         int i, j;//ent1=móvel ent2=fixo ou móvel
         for (i = 0; i < list_ent->getSize(); i++) {
-            ent = dynamic_cast<Entidade*>(list_ent->getEntity(i));
+            ent = list_ent->getEntity(i);
+            
             ent->flying = true;
             ent->allow_jump = true;
             if (ent->getMovable()) {
                 for (j = 0; j < list_ent->getSize(); j++)
-                    if (j != i)
-                        collide(ent, dynamic_cast<Entidade*>(list_ent->getEntity(j)));
+                    if (j != i) {
+                        collide(ent, list_ent->getEntity(j));
+                        printf("%u %u\n", ent->getId(), list_ent->getEntity(j)->getId());
+                    }
                 if (ent->flying) {
                     gravity(ent);
                     ent->allow_jump = false;
@@ -209,13 +212,13 @@ namespace Gerenciador{
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
         if(ent->getPosition().y < 1.5f*ger_graf->getWindowSize().y)
-            ent->changePosition(sf::Vector2f(0.f, ent->getMass()*GRAVITY));
+            ent->changePosition(sf::Vector2f(0.f, ent->getMass()*ACEL_GRAV));
     }
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){
-        if (!ent->colidiu_cima && ent->jumped_height < ent->getJumpStrength() && ent->getVel().y > ent->getMass()*GRAVITY) {
-            ent->changePosition(sf::Vector2f(0.f, -ent->getVel().y);
+        if (!ent->colidiu_cima && ent->jumped_height < ent->getJumpStrength() && ent->getVel().y > ent->getMass()*ACEL_GRAV) {
+            ent->changePosition(sf::Vector2f(0.f, -ent->getVel().y));
             ent->jumped_height += ent->getVel().y;
             ent->allow_jump = false;
         }

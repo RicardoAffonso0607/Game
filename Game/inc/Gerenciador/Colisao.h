@@ -2,13 +2,14 @@
 
 #include "Lista/ListaEntidades.h"
 
+inline static constexpr float ACEL_GRAV = 9.8f;
+
 namespace Gerenciador{
     class Colisao{
     private:
         ListaEntidades* list_ent;
         Grafico* ger_graf;
 
-        static const float gravity = 9.8f;
         struct vertex;
 
         void collide(Entidade *ent1, Entidade *ent2);

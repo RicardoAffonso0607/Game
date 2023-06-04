@@ -8,10 +8,10 @@ namespace Obstaculos {
 			class Gramado : public Plataforma
 			{
 			private:
-				static const int id;
+				static const int id = 42;
 
 			public:
-				Gramado(sf::Vector2f plat_pos, sf::Vector2f plat_size);
+				Gramado(sf::Vector2f pos, sf::Vector2f size);
 				~Gramado();
 
 				unsigned int getId() const override;

@@ -3,9 +3,7 @@
 
 namespace Obstaculos {
 	namespace Retardantes {
-		AreiaMovedica::AreiaMovedica(sf::Vector2f pos, sf::Vector2f size) :
-			id(31),
-			slowness(.5f)
+		AreiaMovedica::AreiaMovedica(sf::Vector2f pos, sf::Vector2f size)
 		{
 			body.setPosition(pos);
 			body.setSize(size);
@@ -15,7 +13,7 @@ namespace Obstaculos {
 		{
 		}
 
-		AreiaMovedica::float getSlowness() const
+		float AreiaMovedica::getSlowness() const
 		{
 			return slowness;
 		}

@@ -7,7 +7,9 @@ namespace Inimigos {
 		class Apofis : public Chefao
 		{
 		private:
-			static const unsigned int id;
+			static const int life = 100;
+
+			static const unsigned int id = 51;
 
 		public:
 			Apofis(sf::Vector2f pos);

@@ -2,20 +2,38 @@
 #include "Entidade/Personagem/Jogador/Lutadora.h"
 
 namespace Jogadores {
-	Lutadora::Lutadora(sf::Vector2f pos, float pl_life) :
-		id(2),
-		size(sf::Vector2f(100.f, 140.f)),
-		vel(sf::Vector2f(12.f, 15.f)),
-		life(pl_life)
-		mass(.6f)
+	const unsigned int Lutadora::id = 2;
+
+	const float Lutadora::mass = .6f;
+
+	const sf::Vector2f Lutadora::vel_max = sf::Vector2f(12.f, 15.f);
+
+	Lutadora::Lutadora(sf::Vector2f pos, int pl_life) :
+		life(pl_life),
+		vel(vel_max)
 	{
-		textura.loadFromFile(IMG + "teste.png");
+		textura.loadFromFile(string(IMG) + "teste.png");
 		body.setTexture(&textura);
-		body.setSize(size);
+		body.setSize(sf::Vector2f(100.f, 140.f));
 		body.setPosition(pos);
 	}
 
 	Lutadora::~Lutadora()
 	{
+	}
+
+	sf::Vector2f Lutadora::getVel() const
+	{
+		return vel;
+	}
+
+	unsigned int Lutadora::getId() const
+	{
+		return id;
+	}
+
+	float Lutadora::getMass() const
+	{
+		return mass;
 	}
 }

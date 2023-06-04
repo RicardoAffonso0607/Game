@@ -2,10 +2,7 @@
 #include "Entidade/Arma/Faca.h"
 
 namespace Armas {
-	Faca::Faca() :
-		damage(2),
-		id(92),
-		delay(sf::milliseconds(400))
+	Faca::Faca()
 	{
 		body.setSize(sf::Vector2f(10.f, 3.f));
 	}

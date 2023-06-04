@@ -6,8 +6,8 @@
 namespace Inimigos {
 	class CorpoACorpo : public Inimigo
 	{
-	private:
-		Arma* pArma;
+	protected:
+		Arma* pArma = nullptr;
 
 	public:
 		CorpoACorpo();

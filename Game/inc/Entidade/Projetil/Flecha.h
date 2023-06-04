@@ -7,11 +7,11 @@ namespace Projeteis {
 	class Flecha : public Projetil
 	{
 	private:
-		Arma* pGun;
+		Arma* pGun = nullptr;
 
-		static const int damage;
+		static const int damage = 10;
 
-		static const unsigned int id;
+		static const unsigned int id = 83;
 
 	public:
 		Flecha(sf::Vector2f pos);
@@ -21,6 +21,6 @@ namespace Projeteis {
 
 		int getDamage() const;
 
-		void setCaster(Armas::Arco* gun);
+		void setGun(Arma* gun);
 	};
 }

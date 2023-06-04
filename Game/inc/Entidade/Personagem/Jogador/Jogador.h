@@ -3,36 +3,27 @@
 #include "Entidade/Personagem/Personagem.h"
 #include "Entidade/Arma/Arma.h"
 
-inline constexpr int ATQ_LONGO = 1;
-inline constexpr int ATQ_CURTO = 2;
-
 class Jogador : public Personagem
 {
-private:
-	sf::String player_nickname;
+protected:
+	sf::String player_nickname = sf::String::String();
 
-	static const int atq_longo;
-	static const int atq_curto;
-
-	static const bool movable;
-	static const bool damageable;
-
-	bool attacker;
+	bool attacker = false;
 	bool allow_jump = true;
 	bool jumped = false;
 
-	float pontuacao;
-	float jump_strength;
+	float pontuacao = NULL;
+	float jump_strength = NULL;
 
-	Arma* pArma;
+	Arma* pArma = nullptr;
 
 public:
 	Jogador();
 	virtual ~Jogador();
 
-	bool getJumped() override;
+	bool getJumped() /*override*/;
 
-	void setAttacker(int i) override;
-	void events() override;
-	void setGun(Arma* pArma) override;
+	void setAttacker(int i) /*override*/;
+	void events() /*override*/;
+	void setGun(Arma* pArma) /*override*/;
 };

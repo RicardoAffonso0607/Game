@@ -7,15 +7,15 @@ namespace Obstaculos {
 		class Cacto : public Danoso
 		{
 		private:
-			const int damage;
+			const int damage = 1;
 			
-			static const int id;
+			static const int id = 10;
 
 		public:
 			Cacto(sf::Vector2f pos);
 			~Cacto();
 
-			int getDamage() const override;
+			int getDamage() const /*override*/;
 
 			unsigned int getId() const override;
 		};

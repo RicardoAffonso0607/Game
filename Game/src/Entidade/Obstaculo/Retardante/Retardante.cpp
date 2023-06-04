@@ -2,9 +2,7 @@
 #include "Entidade/Obstaculo/Retardante/Retardante.h"
 
 namespace Obstaculos {
-	Retardante::Retardante() :
-		attacker(false)
-		retardant(true)
+	Retardante::Retardante()
 	{
 	}
 

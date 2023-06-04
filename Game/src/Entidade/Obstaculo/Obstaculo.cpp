@@ -1,10 +1,7 @@
 #include "pch.h"
 #include "Entidade/Obstaculo/Obstaculo.h"
 
-Obstaculo::Obstaculo() :
-	damageable(false),
-	ghost(false),
-	movable(false)
+Obstaculo::Obstaculo()
 {
 }
 
@@ -19,7 +16,7 @@ bool Obstaculo::getDamageable() const
 
 bool Obstaculo::getGhost() const
 {
-	return ghost
+	return ghost;
 }
 
 bool Obstaculo::getMovable() const

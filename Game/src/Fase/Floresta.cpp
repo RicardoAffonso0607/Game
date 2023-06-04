@@ -2,14 +2,14 @@
 #include "Fase/Floresta.h"
 
 namespace Fases {
-	Floresta::Floresta() : j1(nullptr)
+	Floresta::Floresta()
 	{
 		list->clear();
 		criarJogador();
 		criarInimigos();
 		criarObstaculos();
 		colisor = new Gerenciador::Colisao(list, ger_grafico);
-		background_texture.loadFromFile("Game/assets/img/teste2.jpg");
+		background_texture.loadFromFile(string(IMG) + "teste2.jpg");
 		background.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
 	}
@@ -29,64 +29,64 @@ namespace Fases {
 
 	void Floresta::criarJogador()
 	{
-		j1 = new Jogadores::Lutadora(sf::Vector2f(300.f, 10.f), 1, 50);
+		j1 = new Jogadores::Lutadora(sf::Vector2f(300.f, 10.f), 50);
 		ger_eventos->setJogador(j1);
 		j1->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (j1));
+		list->push(j1);
 	}
 
 	void Floresta::criarInimigos()
 	{
-		Entidade* corpo_a_corpo = nullptr;
-		Entidade* disparador = nullptr;
-		Entidade* chefao = nullptr;
+		Inimigos::CorpoACorpo* corpo_a_corpo = nullptr;
+		Inimigos::Disparador* disparador = nullptr;
+		Inimigos::Chefao* chefao = nullptr;
 
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(560.f, 0.f), 10);
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(560.f, 0.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		//corpo_a_corpo->setPlayer(j1);
-		list->push(static_cast<Entidade*> (corpo_a_corpo));
+		list->push(corpo_a_corpo);
 
-		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f), 10);
+		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f));
 		chefao->setGerGraf(ger_grafico);
 		//chefao->setPlayer(j1);
-		list->push(static_cast<Entidade*> (chefao));
+		list->push(chefao);
 
-		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(70.f, 90.f), 10);
+		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(70.f, 90.f));
 		disparador->setGerGraf(ger_grafico);
 		//disparador->setPlayer(j1);
-		list->push(static_cast<Entidade*> (disparador));
+		list->push(disparador);
 	}
 
 	void Floresta::criarObstaculos()
 	{
-		Entidade* plat = nullptr;
-		Entidade* inerte = nullptr;
+		Obstaculos::Inertes::Plataforma* plat = nullptr;
+		Obstaculos::Inerte* inerte = nullptr;
 
 		//for (int i = 0; i < 4; i++)
 		//{
-		//	plat = new Plataformas::Gramado(sf::Vector2f((i * 630.f), 400.f), 9);
+		//	plat = new Plataformas::Gramado(sf::Vector2f((i * 630.f), 400.f));
 		//	plat->setGerGraf(ger_grafico);
 		//	list->push(static_cast<Entidade*>(plat));
 		//}
 
-		inerte = new Obstaculos::Inertes::ArbustoFlorido(sf::Vector2f(500.f, 200.f), 100);
+		inerte = new Obstaculos::Inertes::ArbustoFlorido(sf::Vector2f(500.f, 200.f));
 		inerte->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (inerte));
+		list->push(inerte);
 
-		plat = new Plataformas::Gramado(sf::Vector2f(450.f, 500.f), 1000);
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(450.f, 500.f), sf::Vector2f(600.f, 20.f));
 		plat->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plat));
+		list->push(plat);
 
-		plat = new Plataformas::Gramado(sf::Vector2f(800.f, 300.f), 2000);
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(800.f, 300.f), sf::Vector2f(600.f, 20.f));
 		plat->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plat));
+		list->push(plat);
 
-		plat = new Plataformas::Gramado(sf::Vector2f(0.f, 300.f), 3000);
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(0.f, 300.f), sf::Vector2f(600.f, 20.f));
 		plat->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plat));
+		list->push(plat);
 
-		plat = new Plataformas::Gramado(sf::Vector2f(770.f, 500.f), 3000);
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(770.f, 500.f), sf::Vector2f(600.f, 20.f));
 		plat->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plat));
+		list->push(plat);
 	}
 }

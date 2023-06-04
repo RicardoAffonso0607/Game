@@ -6,12 +6,27 @@ namespace Jogadores {
 	class Lutadora : public Jogador
 	{
 	private:
+
 		static const unsigned int id;
 
+		static const float mass;
+
+		static const sf::Vector2f vel_max;
+
+		int life;
+
+		sf::Vector2f vel;
+
+		sf::Texture textura;
+
 	public:
-		Lutadora(sf::Vector2f pos, float pl_life);
+		Lutadora(sf::Vector2f pos, int pl_life);
 		~Lutadora();
 
+		sf::Vector2f getVel() const override;
+
 		unsigned int getId() const override;
+
+		float getMass() const override;
 	};
 }

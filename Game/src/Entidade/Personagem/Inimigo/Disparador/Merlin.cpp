@@ -3,17 +3,19 @@
 
 namespace Inimigos {
 	namespace Disparadores {
-		Merlin::Merlin(sf::Vector2f pos) :
-			id(72),
-			life(80),
-			size(sf::Vector2f(100.f,180.f))
+		Merlin::Merlin(sf::Vector2f pos)
 		{
-			body.setSize(size);
+			body.setSize(sf::Vector2f(100.f, 180.f));
 			body.setPosition(pos);
 		}
 
 		Merlin::~Merlin()
 		{
+		}
+
+		unsigned int Merlin::getId() const
+		{
+			return id;
 		}
 	}
 }

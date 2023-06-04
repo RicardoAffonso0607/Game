@@ -7,7 +7,9 @@ namespace Inimigos {
 		class Spartacus : public CorpoACorpo
 		{
 		private:
-			static const unsigned int id;
+			static const int life = 50;
+
+			static const unsigned int id = 62;
 
 		public:
 			Spartacus(sf::Vector2f pos);

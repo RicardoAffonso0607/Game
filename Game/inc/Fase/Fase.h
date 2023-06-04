@@ -20,21 +20,15 @@
 #include "Entidade/Obstaculo/Danoso/Cacto.h"
 #include "Entidade/Obstaculo/Retardante/AreiaMovedica.h"
 #include "Entidade/Obstaculo/Retardante/Lama.h"
-#include "Entidade/Plataforma/Areal.h"
-#include "Entidade/Plataforma/Gramado.h"
+#include "Entidade/Obstaculo/Inerte/Plataforma/Areal.h"
+#include "Entidade/Obstaculo/Inerte/Plataforma/Gramado.h"
 #include "Entidade/Projetil/EsferaDeFogo.h"
 #include "Entidade/Projetil/EsferaDeGelo.h"
 #include "Entidade/Projetil/Flecha.h"
+#include "Entidade/Arma/Arco.h"
+#include "Entidade/Arma/Faca.h"
+#include "Entidade/Arma/Espada.h"
 
-/* old */
-//#include "Entidade/Personagem/Jogador/Jogador.h"
-//#include "Entidade/Personagem/Inimigo/Chefao/Chefao.h"
-//#include "Entidade/Personagem/Inimigo/CorpoACorpo/CorpoACorpo.h"
-//#include "Entidade/Personagem/Inimigo/Disparador/Disparador.h"
-//#include "Entidade/Obstaculo/Inerte/Inerte.h"
-//#include "Entidade/Obstaculo/Danoso/Danoso.h"
-//#include "Entidade/Obstaculo/Retardante/Retardante.h"
-//#include "Entidade/Plataforma/Plataforma.h"
 #include "Entidade/Entidade.h"
 
 class Fase 

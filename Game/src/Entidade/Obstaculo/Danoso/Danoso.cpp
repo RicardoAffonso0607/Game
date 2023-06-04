@@ -2,9 +2,7 @@
 #include "Entidade/Obstaculo/Danoso/Danoso.h"
 
 namespace Obstaculos {
-	Danoso::Danoso() :
-		attacker(true),
-		retardant(false)
+	Danoso::Danoso()
 	{
 	}
 
@@ -12,12 +10,12 @@ namespace Obstaculos {
 	{
 	}
 
-	bool Retardante::getAttacker() const
+	bool Danoso::getAttacker() const
 	{
 		return attacker;
 	}
 
-	bool Retardante::getRetardant() const
+	bool Danoso::getRetardant() const
 	{
 		return retardant;
 	}

@@ -1,46 +1,40 @@
 #include "pch.h"
 #include "Entidade/Arma/Arma.h"
 
-namespace Armas {
-	Arma::Arma() :
-		attacker(false),
-		damageable(false),
-		ghost(true),
-		movable(true),
-		retardant(false)
-	{
-	}
+Arma::Arma()
+{
+}
 
-	Arma::~Arma()
-	{
-	}
+Arma::~Arma()
+{
+}
 
-	bool getAttacker()
-	{
-		return attacker;
-	}
+bool Arma::getAttacker()
+{
+	return attacker;
+}
 
-	bool setAttacker()
-	{
-		attacker = !attacker;
-	}
+void Arma::setAttacker()
+{
+	attacker = !attacker;
+}
 
-	bool getDamageable() const
-	{
-		return damageable;
-	}
+bool Arma::getDamageable() const
+{
+	return damageable;
+}
 
-	bool getGhost() const
-	{
-		return ghost;
-	}
-	bool getMovable() const
-	{
-		return movable;
-	}
+bool Arma::getGhost() const
+{
+	return ghost;
+}
 
-	bool getRetardant() const
-	{
-		return retardant;
-	}
+bool Arma::getMovable() const
+{
+	return NULL;//movable;
+}
+
+bool Arma::getRetardant() const
+{
+	return retardant;
 }

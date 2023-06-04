@@ -4,8 +4,7 @@
 namespace Obstaculos {
 	namespace Inertes {
 		namespace Plataformas {
-			Areal::Areal(sf::Vector2f pos, sf::Vector2f size) :
-				id(41)
+			Areal::Areal(sf::Vector2f pos, sf::Vector2f size)
 			{
 				body.setSize(size);
 				body.setPosition(pos);

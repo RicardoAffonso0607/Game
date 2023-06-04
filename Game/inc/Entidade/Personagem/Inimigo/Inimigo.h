@@ -6,7 +6,9 @@
 class Inimigo : public Personagem
 {
 protected:
-	Jogador* pPlayer;
+	Jogador* pPlayer = nullptr;
+
+	bool attacker = false;
 
 public:
 	Inimigo();

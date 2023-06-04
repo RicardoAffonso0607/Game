@@ -6,8 +6,8 @@
 namespace Inimigos {
 	class Chefao : public Inimigo
 	{
-	private:
-		Projetil* pProjetil;
+	protected:
+		Projetil* pProjetil = nullptr;
 
 	public:
 		Chefao();

@@ -3,17 +3,19 @@
 
 namespace Inimigos {
 	namespace CorpoACorpos {
-		Spartacus::Spartacus(sf::Vector2f pos) :
-			id(62),
-			life(50),
-			size(sf::Vector2f(80.f, 150.f))
+		Spartacus::Spartacus(sf::Vector2f pos)
 		{
-			body.setSize(size);
+			body.setSize(sf::Vector2f(80.f, 150.f));
 			body.setPosition(pos);
 		}
 
 		Spartacus::~Spartacus()
 		{
+		}
+
+		unsigned int Spartacus::getId() const
+		{
+			return id;
 		}
 	}
 }

@@ -7,7 +7,9 @@ namespace Inimigos {
 		class Nidogue : public Chefao
 		{
 		private:
-			static const unsigned int id;
+			static const int life = 200;
+
+			static const unsigned int id = 52;
 
 		public:
 			Nidogue(sf::Vector2f pos);

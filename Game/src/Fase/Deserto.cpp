@@ -9,7 +9,7 @@ namespace Fases {
 		criarJogador();
 		criarInimigos();
 		colisor = new Gerenciador::Colisao(list, ger_grafico);
-		background_texture.loadFromFile("Game/assets/img/teste2.jpg");
+		background_texture.loadFromFile(string(IMG) + "teste2.jpg");
 		background.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
 	}
@@ -29,27 +29,27 @@ namespace Fases {
 
 	void Deserto::criarJogador()
 	{
-		j1 = new Jogadores::Ninja(sf::Vector2f(300.f, 300.f), 1, 50);
+		j1 = new Jogadores::Ninja(sf::Vector2f(300.f, 300.f), 50);
 		ger_eventos->setJogador(j1);
 		j1->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*>(j1));
+		list->push(j1);
 	}
 
 	void Deserto::criarInimigos()
 	{
-		inimigo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(100.f, 300.f), 8);
+		inimigo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(100.f, 300.f));
 		//inimigo->setPlayer(j1);
 		inimigo->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*>(inimigo));
+		list->push(inimigo);
 	}
 
 	void Deserto::criarObstaculos()
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			plataforma = new Plataformas::Areal(sf::Vector2f((i * 630.f), 400.f), 9);
+			plataforma = new Obstaculos::Inertes::Plataformas::Areal(sf::Vector2f((i * 630.f), 400.f), sf::Vector2f(600.f, 20.f));
 			plataforma->setGerGraf(ger_grafico);
-			list->push(static_cast<Entidade*>(plataforma));
+			list->push(plataforma);
 		}
 	}
 }

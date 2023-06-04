@@ -6,8 +6,8 @@
 namespace Inimigos {
 	class Disparador : public Inimigo
 	{
-	private:
-		Projetil* pProjetil;
+	protected:
+		Projetil* pProjetil = nullptr;
 
 	public:
 		Disparador();

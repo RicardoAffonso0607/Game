@@ -7,17 +7,17 @@ namespace Projeteis {
 	class EsferaDeGelo : public Projetil
 	{
 	private:
-		Inimigos::Disparador* pEnemyCaster;
+		Inimigos::Disparador* pEnemyCaster = nullptr;
 
-		static const int damage;
+		static const int damage = 7;
 
-		static const unsigned int id;
+		static const unsigned int id = 82;
 
 	public:
 		EsferaDeGelo(sf::Vector2f pos);
 		~EsferaDeGelo();
 
-		Inimigos::Disparador getEnemyCaster();
+		Inimigos::Disparador* getEnemyCaster();
 
 		int getDamage() const;
 

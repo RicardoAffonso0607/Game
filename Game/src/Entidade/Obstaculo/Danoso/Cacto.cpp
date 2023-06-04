@@ -3,11 +3,9 @@
 
 namespace Obstaculos {
 	namespace Danosos {
-		Cacto::Cacto(sf::Vector2f pos) :
-			damage(1),
-			id(10),
-			size(Vector2f(50.f, 100.f))
+		Cacto::Cacto(sf::Vector2f pos)
 		{
+			body.setSize(sf::Vector2f(50.f, 100.f));
 			body.setPosition(pos);
 		}
 

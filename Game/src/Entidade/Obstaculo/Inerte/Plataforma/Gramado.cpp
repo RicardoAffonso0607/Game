@@ -4,8 +4,7 @@
 namespace Obstaculos {
 	namespace Inertes {
 		namespace Plataformas {
-			Gramado::Gramado(sf::Vector2f pos, sf::Vector2f size) :
-				id(42)
+			Gramado::Gramado(sf::Vector2f pos, sf::Vector2f size)
 			{
 				body.setSize(size);
 				body.setPosition(pos);
