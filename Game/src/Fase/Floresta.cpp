@@ -28,7 +28,11 @@ namespace Fase {
 		colisor->executar();
 		ger_grafico->desenhaElemento(background);
 		ger_grafico->desenhaElemento(background_auxiliar);
-		ger_grafico->getCamera()->setCenter(j1->getPosition().x, ger_grafico->getWindowSize().y / 2);
+
+		if (j1->getPosition().x > ger_grafico->getWindowSize().x / 2)
+			ger_grafico->getCamera()->setCenter(j1->getPosition().x, ger_grafico->getWindowSize().y / 2);
+		else
+			ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2, ger_grafico->getWindowSize().y / 2);
 
 		if (ger_grafico->getCamera()->getCenter().x >= 3 * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2)
 			background.setPosition(2 * ger_grafico->getWindowSize().x, 0.f);
