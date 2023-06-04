@@ -13,7 +13,7 @@ namespace Armas {
 		const sf::Time delay = sf::milliseconds(500);
 
 	public:
-		Espada();
+		Espada(sf::Vector2f pos, Personagem* pPer);
 		~Espada();
 
 		int getDamage() const /*override*/;

@@ -13,7 +13,7 @@ namespace Armas {
 		const sf::Time delay = sf::milliseconds(400);
 
 	public:
-		Faca();
+		Faca(sf::Vector2f pos, Personagem* pPer);
 		~Faca();
 
 		int getDamage() const /*override*/;

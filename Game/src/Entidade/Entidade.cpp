@@ -165,6 +165,26 @@ int Entidade::getLife() const
 	}
 }
 
+void Entidade::setFacingLeft()
+{
+	string erro = "Tentou mudar a direção de entidade imóvel para a esquerda.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+void Entidade::unsetFacingLeft()
+{
+	string erro = "Tentou mudar a direção de entidade imóvel para a direita.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}

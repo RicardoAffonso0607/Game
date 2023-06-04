@@ -42,6 +42,8 @@ public:
 	void applyDamage(int ent_damage) override;
 	void applySlowness(float ent_slowness) override;
 	void setAtacou() override;
+	void setFacingLeft() override;
+	void unsetFacingLeft() override;
 
 	int getLife() const override;
 

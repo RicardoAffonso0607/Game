@@ -9,7 +9,7 @@ Arma::~Arma()
 {
 }
 
-bool Arma::getAttacker()
+bool Arma::getAttacker() const
 {
 	return attacker;
 }
@@ -31,10 +31,20 @@ bool Arma::getGhost() const
 
 bool Arma::getMovable() const
 {
-	return NULL;//movable;
+	return movable;
 }
 
 bool Arma::getRetardant() const
 {
 	return retardant;
+}
+
+void Arma::setFacingLeft()
+{
+	facing_left = true;
+}
+
+void Arma::unsetFacingLeft()
+{
+	facing_left = false;
 }

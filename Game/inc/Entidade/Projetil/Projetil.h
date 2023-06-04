@@ -9,8 +9,13 @@ protected:
 	static const bool movable = true;
 	static const bool damageable = false;
 	static const bool ghost = false;
+
+	bool facing_left;
 	
 public:
 	Projetil();
 	virtual ~Projetil();
+
+	void setFacingLeft() override;
+	void unsetFacingLeft() override;
 };

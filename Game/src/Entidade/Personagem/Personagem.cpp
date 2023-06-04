@@ -9,7 +9,7 @@ const bool Personagem::ghost = false;
 Personagem::Personagem() :
 	atacou(false),
 	attacker(false),
-	facing_left(true),
+	facing_left(false),
 	vel(sf::Vector2f(NULL, NULL)),
 	attack_instant(sf::Time::Zero),
 	life(NULL)
@@ -59,7 +59,7 @@ void Personagem::applySlowness(float ent_slowness)
 
 bool Personagem::getFacingLeft() const
 { 
-	return facingLeft; 
+	return facing_left;
 }
 
 void Personagem::setAtacou()
@@ -75,6 +75,16 @@ int Personagem::getLife() const
 bool Personagem::getGhost() const
 {
 	return ghost;
+}
+
+void Personagem::setFacingLeft()
+{
+	facing_left = true;
+}
+
+void Personagem::unsetFacingLeft()
+{
+	facing_left = false;
 }
 
 //void Personagem::getGunType()

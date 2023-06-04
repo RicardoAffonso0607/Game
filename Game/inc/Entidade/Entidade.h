@@ -17,12 +17,6 @@ protected:
 	sf::Vector2f vel = vel_max;
 	sf::Vector2f size_max = sf::Vector2f(200.f, 200.f);
 
-	bool facingLeft;
-	bool projected;
-
-	float mass = 1.f;
-	float life = 0;
-
 public:
 	Entidade();
 	virtual ~Entidade();
@@ -58,9 +52,8 @@ public:
 	virtual void applyDamage(int ent_damage);
 	virtual void applySlowness(float ent_slowness);
 	virtual void setAtacou();
-
-
-
+	virtual void setFacingLeft();
+	virtual void unsetFacingLeft();
 
 	float jumped_height = 0.f;
 	bool colidiu_baixo = false;

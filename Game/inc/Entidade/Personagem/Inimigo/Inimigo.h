@@ -8,8 +8,6 @@ class Inimigo : public Personagem
 protected:
 	Jogador* pPlayer = nullptr;
 
-	bool attacker = false;
-
 public:
 	Inimigo();
 	virtual ~Inimigo();

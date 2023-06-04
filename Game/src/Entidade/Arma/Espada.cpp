@@ -2,8 +2,10 @@
 #include "Entidade/Arma/Espada.h"
 
 namespace Armas {
-	Espada::Espada()
+	Espada::Espada(sf::Vector2f pos, Personagem* pPer)
 	{
+		pPersonagem = pPer;
+		body.setPosition(pos + sf::Vector2f(pPersonagem->getEntSize().x, .3f * pPersonagem->getEntSize().y));
 		body.setSize(sf::Vector2f(20.f, 3.f));
 	}
 
