@@ -12,6 +12,9 @@ namespace Fase {
 		background_texture.loadFromFile("Game/assets/teste2.jpg");
 		background.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
+		background_auxiliar.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
+		background_auxiliar.setTexture(&background_texture);
+		background_auxiliar.setPosition(ger_grafico->getWindowSize().x, 0.f);
 	}
 
 	Deserto::~Deserto()

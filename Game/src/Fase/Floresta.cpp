@@ -11,7 +11,10 @@ namespace Fase {
 		colisor = new Gerenciador::Colisao(list, ger_grafico);
 		background_texture.loadFromFile("Game/assets/teste2.jpg");
 		background.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
+		background_auxiliar.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
+		background_auxiliar.setTexture(&background_texture);
+		background_auxiliar.setPosition(ger_grafico->getWindowSize().x, 0.f);
 	}
 
 	Floresta::~Floresta()
@@ -24,6 +27,16 @@ namespace Fase {
 		move();
 		colisor->executar();
 		ger_grafico->desenhaElemento(background);
+		ger_grafico->desenhaElemento(background_auxiliar);
+
+		if (j1->getPosition().x > ger_grafico->getWindowSize().x / 2)
+			ger_grafico->getCamera()->setCenter(j1->getPosition().x, ger_grafico->getWindowSize().y / 2);
+		else
+			ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2, ger_grafico->getWindowSize().y / 2);
+
+		if (ger_grafico->getCamera()->getCenter().x >= 3 * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2)
+			background.setPosition(2 * ger_grafico->getWindowSize().x, 0.f);
+
 		draw();
 	}
 
@@ -60,33 +73,16 @@ namespace Fase {
 	void Floresta::criarObstaculos()
 	{
 		Plataforma::Plataforma* plat = nullptr, * plataforma1 = nullptr, * plataforma2 = nullptr, * plataforma3 = nullptr, * plataforma4 = nullptr;
+		Obstaculo::Danoso::Danoso* cacto = nullptr;
 		Obstaculo::Inerte::Inerte* inerte1 = nullptr;
 
-		//for (int i = 0; i < 4; i++)
-		//{
-		//	plat = new Plataforma(sf::Vector2f((i * 630.f), 400.f), 9);
-		//	plat->setGerGraf(ger_grafico);
-		//	list->push(static_cast<Entidade*>(plat));
-		//}
+		for (int i = 0; i < 9; i++)
+		{
+			plat = new Plataforma::Plataforma(sf::Vector2f((i * 600.f), ger_grafico->getWindowSize().y - 20), 9);
+			plat->setGerGraf(ger_grafico);
+			list->push(static_cast<Entidade*>(plat));
+		}
 
-		inerte1 = new Obstaculo::Inerte::Inerte(sf::Vector2f(500.f, 200.f), 100);
-		inerte1->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (inerte1));
-
-		plataforma1 = new Plataforma::Plataforma(sf::Vector2f(450.f, 500.f), 1000);
-		plataforma1->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plataforma1));
-
-		plataforma2 = new Plataforma::Plataforma(sf::Vector2f(800.f, 300.f), 2000);
-		plataforma2->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plataforma2));
-
-		plataforma3 = new Plataforma::Plataforma(sf::Vector2f(0.f, 300.f), 3000);
-		plataforma3->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plataforma3));
-
-		plataforma4 = new Plataforma::Plataforma(sf::Vector2f(770.f, 500.f), 3000);
-		plataforma4->setGerGraf(ger_grafico);
-		list->push(static_cast<Entidade*> (plataforma4));
+		cacto = new Obstaculo::Danoso::Danoso(sf::Vector2f(ger_grafico->getWindowSize().x, ger_grafico->getWindowSize().y - 20), 4);
 	}
 }

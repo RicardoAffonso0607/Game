@@ -40,6 +40,7 @@ void Jogo::executar()
 		fase1->executar();
 		//fase2->executar();
 
+		ger_grafico->setCamera();
 		ger_grafico->mostraElementos();
 	}
 }

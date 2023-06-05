@@ -46,6 +46,7 @@ namespace Fase {
 		static Gerenciador::Eventos* ger_eventos;
 		sf::Texture background_texture;
 		sf::RectangleShape background;
+		sf::RectangleShape background_auxiliar;
 
 	public:
 		Fase();
