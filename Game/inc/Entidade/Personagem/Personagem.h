@@ -19,7 +19,7 @@ protected:
 	static const bool damageable;// é danificável?
 	static const bool ghost;// é atravessável por objetos?
 	
-	bool jumped;// pulou?
+
 	bool facing_left;// olhando pra esquerda?
 	bool attacker;// pode atacar?
 	bool atacou;// atacou recentemente?
@@ -45,12 +45,6 @@ public:
 	void setDireita() override;// olhar pra direita
 	void setEsquerda() override;// olhar pra esquerda
 
-	bool allow_jump;
-	bool colidiu_baixo;
-	bool colidiu_cima;
-	bool flying;
-
-	float jumped_height;
 
 	//void events() /*override*/;
 };

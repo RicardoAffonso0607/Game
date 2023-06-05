@@ -28,7 +28,7 @@ namespace Gerenciador{
                         collide(list_ent->getEntity(i), list_ent->getEntity(j));
                        //cout<< list_ent->getEntity(i)->getId()<<list_ent->getEntity(j)->getId()<<endl;
                     }
-                if (list_ent->getEntity(i)->flying) {
+                if (list_ent->getEntity(i)->getFlying()) {
                     //printf("acionou gravidade\n");
                     gravity(list_ent->getEntity(i));
                     list_ent->getEntity(i)->unsetAllowJump();
@@ -77,7 +77,7 @@ namespace Gerenciador{
             //ent1->unsetFlying();
         }
         /* se apoiado em cima de outro */
-        if (sobre.x > 0 && sobre.y <= ent1->getMass() * ACEL_GRAV && sobre.y >= -1.f) {
+        if (sobre.x > 0 && sobre.y <= ent1->getMass() * ACEL_GRAV && sobre.y >= 0) {
             ent1->unsetFlying();
             //cout << "acionou flying false" << endl;
         }

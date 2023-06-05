@@ -13,6 +13,15 @@ protected:
 
 	sf::Texture textura;// textura do corpo
 
+	float jump_strength = false;
+	float jumped_height = false;
+	bool colidiu_baixo = false;
+	bool colidiu_cima = false;
+	bool allow_jump = false;
+	bool jumped = false;
+	bool flying = false;
+	bool colidiu = false;
+
 public:
 	Entidade();
 	virtual ~Entidade();
@@ -59,15 +68,6 @@ public:
 	virtual void setEntColidiu(Entidade* pauxColidiu);
 	virtual void setColidiu();
 
-	float jump_strength = false;
-	float jumped_height = false;
-	bool colidiu_baixo = false;
-	bool colidiu_cima = false;
-	bool allow_jump = false;
-	bool jumped = false;
-	bool flying = false;
-	bool colidiu = false;
-
 	void setJumpedHeight(float height) { jumped_height = height; }
 	void setColidiuBaixo() { colidiu_baixo = true; }
 	void unsetColidiuBaixo() { colidiu_baixo = false; }
@@ -81,4 +81,5 @@ public:
 	float getJumpedHeight() { return jumped_height; }
 	bool getColidiuBaixo() { return colidiu_baixo; }
 	bool getColidiuCima() { return colidiu_cima; }
+	bool getFlying() { return flying; }
 };

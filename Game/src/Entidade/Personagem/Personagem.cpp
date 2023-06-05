@@ -8,13 +8,7 @@ const bool Personagem::ghost = false;// não é atravessável por objetos
 Personagem::Personagem() :
 	atacou(false),
 	attacker(false),
-	allow_jump(true),
-	colidiu_baixo(false),
-	colidiu_cima(false),
-	flying(false),
 	facing_left(false),
-	jumped(false),
-	jumped_height(0.f),
 	vel(sf::Vector2f(0.f, 0.f)),
 	attack_instant(sf::Time::Zero),
 	life(0)
