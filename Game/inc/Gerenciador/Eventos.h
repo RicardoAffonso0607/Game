@@ -4,6 +4,7 @@
 
 #include "Grafico.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
+//#include "Lista/ListaEntidades.h"
 
 namespace Gerenciador
 {
@@ -14,6 +15,7 @@ namespace Gerenciador
 		static Eventos* pEventos;
 		Grafico* pGrafico;
 		Entidade* pJogador;
+		//ListaEntidades* list_ent;
 		Eventos();
 
 	public:

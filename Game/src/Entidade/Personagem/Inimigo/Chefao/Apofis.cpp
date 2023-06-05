@@ -3,7 +3,7 @@
 
 namespace Inimigos {
 	namespace Chefoes {
-		const float Apofis::mass = 3.f;
+		const float Apofis::mass = 1.5f;
 
 		const unsigned int Apofis::id = 51;
 

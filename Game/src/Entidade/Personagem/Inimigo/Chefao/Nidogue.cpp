@@ -3,7 +3,7 @@
 
 namespace Inimigos {
 	namespace Chefoes {
-		const float Nidogue::mass = 3.f;
+		const float Nidogue::mass = 1.5f;
 
 		const unsigned int Nidogue::id = 52;
 

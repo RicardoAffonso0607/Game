@@ -221,6 +221,16 @@ void Entidade::setGun(Entidade* gun)
 	}
 }
 
+void Entidade::setEntColidiu(Entidade* pauxColidiu)
+{
+	string erro = "Não encontrou o ponteiro pColidiu.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}

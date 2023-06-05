@@ -16,6 +16,9 @@ void ListaEntidades::moveAll()
 	{
 		if(Lista.getItem(i)->getMovable())
 			Lista.getItem(i)->move();
+		if (Lista.getItem(i)->getDamageable() && Lista.getItem(i)->getLife() <= 0) {
+			delete Lista.getItem(i);
+		}
 	}
 }
 

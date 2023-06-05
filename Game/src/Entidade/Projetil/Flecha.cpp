@@ -31,13 +31,24 @@ namespace Projeteis {
 		return id;
 	}
 
+	void Flecha::move()
+	{
+		if (facing_left)
+			body.move(sf::Vector2f(-vel.x, 0.f));
+		else
+			body.move(sf::Vector2f(vel.x, 0.f));
+		if (colidiu) {
+			cout << "perfurou" << endl;
+			attack();
+			pColidiu = nullptr;
+		}
+	}
+
 	void Flecha::attack()
 	{
-		if (colidiu)
-		{
-			if (pColidiu->getDamageable())
-				pColidiu->applyDamage(damage);
-			delete this;
-		}
+		if (pColidiu->getDamageable())
+			pColidiu->applyDamage(damage);
+		cout << "perfurou" << endl;
+		delete this;
 	}
 }

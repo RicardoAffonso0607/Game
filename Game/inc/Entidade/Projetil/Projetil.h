@@ -32,4 +32,6 @@ public:
 	void move() override;// se move
 	void setDireita() override;// vai pra direita
 	void setEsquerda() override;// vai pra esquerda
+
+	void setEntColidiu(Entidade* pauxColidiu) override;
 };

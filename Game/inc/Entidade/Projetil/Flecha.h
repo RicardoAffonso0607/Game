@@ -21,5 +21,6 @@ namespace Projeteis {
 		unsigned int getId() const override;// id?
 
 		void attack() override;// aplica efeito do ataque
+		void move() override;
 	};
 }

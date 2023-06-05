@@ -58,3 +58,8 @@ void Projetil::move()
 	else
 		body.move(sf::Vector2f(vel.x, 0.f));
 }
+
+void Projetil::setEntColidiu(Entidade* pauxColidiu)
+{
+	pColidiu = pauxColidiu;
+}
