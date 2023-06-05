@@ -11,6 +11,8 @@ protected:
 
 	bool facing_left;
 	float mass = .1f;
+	Entidade* pColidiu = nullptr;
+	bool colidiu = false;
 
 public:
 	Arma();
@@ -28,4 +30,8 @@ public:
 	void move() override;
 
 	float getMass() const override { return mass; }
+
+	void setEntColidiu(Entidade* pauxColidiu) override;
+
+	void setColidiu() override;
 };

@@ -67,4 +67,18 @@ public:
 	bool jumped = false;
 	bool flying = false;
 	bool colidiu = false;
+
+	void setJumpedHeight(float height) { jumped_height = height; }
+	void setColidiuBaixo() { colidiu_baixo = true; }
+	void unsetColidiuBaixo() { colidiu_baixo = false; }
+	void setColidiuCima() { colidiu_baixo = true; }
+	void unsetColidiuCima() { colidiu_baixo = false; }
+	void unsetJumped() { jumped = false; }
+	void setFlying() { flying = true; }
+	void unsetFlying() { flying = false; }
+	void setAllowJump() { allow_jump = true; }
+	void unsetAllowJump() { allow_jump = false; }
+	float getJumpedHeight() { return jumped_height; }
+	bool getColidiuBaixo() { return colidiu_baixo; }
+	bool getColidiuCima() { return colidiu_cima; }
 };
