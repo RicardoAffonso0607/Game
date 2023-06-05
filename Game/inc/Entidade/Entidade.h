@@ -13,6 +13,8 @@ protected:
 
 	sf::Texture textura;// textura do corpo
 
+	sf::Sound sfx;// sound effects
+
 	float jump_strength = false;
 	float jumped_height = false;
 	bool colidiu_baixo = false;

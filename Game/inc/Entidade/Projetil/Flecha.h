@@ -12,6 +12,8 @@ namespace Projeteis {
 		bool colidiu;// colidiu com alguma coisa?
 		Entidade* pColidiu;// ponteiro para o que colidiu
 
+		sf::SoundBuffer arrow_hit;
+
 	public:
 		Flecha(sf::Vector2f pos);
 		~Flecha();

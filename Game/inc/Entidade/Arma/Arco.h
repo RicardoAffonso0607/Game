@@ -16,6 +16,8 @@ namespace Armas {
 		
 		ListaEntidades* list_ent;
 
+		sf::SoundBuffer bow_release;
+
 	public:
 		Arco(sf::Vector2f pos, ListaEntidades* list);
 		~Arco();
