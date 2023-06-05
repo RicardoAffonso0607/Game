@@ -14,10 +14,10 @@ void ListaEntidades::moveAll()
 	int i;
 	for (i = 0; i < Lista.getTamanho(); i++)
 	{
-		if(Lista.getItem(i)->getMovable())
+		if(Lista.getItem(i) && Lista.getItem(i)->getMovable())
 			Lista.getItem(i)->move();
-		if (Lista.getItem(i)->getDamageable() && Lista.getItem(i)->getLife() <= 0) {
-			delete Lista.getItem(i);
+		if (Lista.getItem(i) && Lista.getItem(i)->getDamageable() && Lista.getItem(i)->getLife() <= 0) {
+			pop(Lista.getItem(i));
 		}
 	}
 }

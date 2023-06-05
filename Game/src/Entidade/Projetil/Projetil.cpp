@@ -3,7 +3,7 @@
 
 const bool Projetil::attacker = true;// causa dano?
 const bool Projetil::movable = true;// é móvel?
-const bool Projetil::damageable = false;// é danificável?
+const bool Projetil::damageable = true;// é danificável?
 const bool Projetil::ghost = true;// atravessa objetos?
 
 const sf::Vector2f Projetil::vel = sf::Vector2f(60.f, 0.f);// velocidade
@@ -11,8 +11,8 @@ const sf::Vector2f Projetil::vel = sf::Vector2f(60.f, 0.f);// velocidade
 const float Projetil::mass = .3f;// massa
 
 Projetil::Projetil():
-	colidiu(false),
-	pColidiu(nullptr),
+	//colidiu(false),
+	//pColidiu(nullptr),
 	facing_left(false)
 {
 }
@@ -59,7 +59,17 @@ void Projetil::move()
 		body.move(sf::Vector2f(vel.x, 0.f));
 }
 
-void Projetil::setEntColidiu(Entidade* pauxColidiu)
+//void Projetil::setEntColidiu(Entidade* pauxColidiu)
+//{
+//	pColidiu = pauxColidiu;
+//}
+
+int Projetil::getLife() const
 {
-	pColidiu = pauxColidiu;
+	return life;
+}
+
+void Projetil::applyDamage(int ent_damage)
+{
+
 }

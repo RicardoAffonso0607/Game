@@ -33,11 +33,11 @@ namespace Projeteis {
 
 	void EsferaDeFogo::attack()
 	{
-		if (colidiu)
-		{
-			if (pColidiu->getDamageable())
-				pColidiu->applyDamage(damage);
-			delete this;
-		}
+		//if (colidiu)
+		//{
+		//	if (pColidiu->getDamageable())
+		//		pColidiu->applyDamage(damage);
+		//	delete this;
+		//}
 	}
 }

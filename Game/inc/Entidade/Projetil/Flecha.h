@@ -9,6 +9,8 @@ namespace Projeteis {
 		static const int damage;// dano que causa
 
 		static const unsigned int id;
+		bool colidiu;// colidiu com alguma coisa?
+		Entidade* pColidiu;// ponteiro para o que colidiu
 
 	public:
 		Flecha(sf::Vector2f pos);
@@ -22,5 +24,11 @@ namespace Projeteis {
 
 		void attack() override;// aplica efeito do ataque
 		void move() override;
+
+		void setEntColidiu(Entidade* pauxColidiu) override;
+
+		void setColidiu() override;
+
+
 	};
 }

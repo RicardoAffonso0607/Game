@@ -37,18 +37,29 @@ namespace Projeteis {
 			body.move(sf::Vector2f(-vel.x, 0.f));
 		else
 			body.move(sf::Vector2f(vel.x, 0.f));
-		if (colidiu) {
+		cout << (this->colidiu ? 1 : 0) << endl;
+		if (this->colidiu) {
 			cout << "perfurou" << endl;
-			attack();
-			pColidiu = nullptr;
+			this->attack();
+			this->pColidiu = nullptr;
 		}
 	}
 
 	void Flecha::attack()
 	{
-		if (pColidiu->getDamageable())
-			pColidiu->applyDamage(damage);
+		if (this->pColidiu->getDamageable())
+			this->pColidiu->applyDamage(this->damage);
 		cout << "perfurou" << endl;
-		delete this;
+		this->life = 0;
+	}
+
+	void Flecha::setEntColidiu(Entidade* pauxColidiu)
+{
+	pColidiu = pauxColidiu;
+}
+
+	void Flecha::setColidiu()
+	{
+		this->colidiu = true;
 	}
 }

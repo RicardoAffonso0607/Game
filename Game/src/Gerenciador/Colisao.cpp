@@ -64,13 +64,15 @@ namespace Gerenciador{
                 ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
             else if (ent1->getGhost()) {
                 cout << "mudou colidiu pra true" << endl;
-                ent1->colidiu = true;
+                ent1->setColidiu();
                 ent1->setEntColidiu(ent2);
+                //cout << (ent1->colidiu ? 1 : 0) << endl;
             }
             else {
                 cout << "mudou colidiu2 pra true" << endl;
-                ent2->colidiu = true;
+                ent2->setColidiu();
                 ent2->setEntColidiu(ent1);
+                //cout << (ent2->colidiu ? 1 : 0) << endl;
             }
             //ent1->flying = false;
         }

@@ -231,6 +231,16 @@ void Entidade::setEntColidiu(Entidade* pauxColidiu)
 	}
 }
 
+void Entidade::setColidiu()
+{
+	string erro = "Não encontrou setColidiu.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}

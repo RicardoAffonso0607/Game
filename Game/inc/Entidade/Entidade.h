@@ -57,6 +57,7 @@ public:
 	virtual void setEsquerda();// faz olhar para a esquerda
 	virtual void setGun(Entidade* gun);// pega uma arma
 	virtual void setEntColidiu(Entidade* pauxColidiu);
+	virtual void setColidiu();
 
 	float jump_strength = false;
 	float jumped_height = false;
