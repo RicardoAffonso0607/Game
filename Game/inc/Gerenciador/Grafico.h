@@ -13,6 +13,7 @@ namespace Gerenciador
 
 		Grafico();
 	public:
+
 		~Grafico();
 		static Grafico* getGrafico();
 		sf::RenderWindow* getWindow() { return window; }

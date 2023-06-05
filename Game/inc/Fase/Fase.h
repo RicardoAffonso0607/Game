@@ -31,18 +31,17 @@
 
 #include "Entidade/Entidade.h"
 
-class Fase 
-{
-protected:
-	ListaEntidades* list;
-	static Gerenciador::Grafico* ger_grafico;
-	static Gerenciador::Eventos* ger_eventos;
-	Gerenciador::Colisao* colisor;
-	sf::Texture background_texture;
-	sf::RectangleShape background;
-	sf::RectangleShape background_auxiliar;
-	Jogador* j1;
-	Arma* arma;
+namespace Fase {
+	class Fase 
+	{
+	protected:
+		ListaEntidades* list;
+		static Gerenciador::Grafico* ger_grafico;
+		Gerenciador::Colisao* colisor;
+		static Gerenciador::Eventos* ger_eventos;
+		sf::Texture background_texture;
+		sf::RectangleShape background;
+		sf::RectangleShape background_auxiliar;
 
 public:
 	Fase();
