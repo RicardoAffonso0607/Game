@@ -26,6 +26,11 @@ void Entidade::changePos(sf::Vector2f dif_pos)
 	body.move(dif_pos);
 }
 
+void Entidade::setEntPos(sf::Vector2f pos)
+{
+	body.setPosition(pos);
+}
+
 sf::Vector2f Entidade::getPos() const
 {
 	return body.getPosition();
@@ -206,7 +211,7 @@ void Entidade::attack()
 	}
 }
 
-void Entidade::setGun(Entidade* pArma)
+void Entidade::setGun(Entidade* gun)
 {
 	string erro = "Tentou dar arma a entidade que não usa armas.";
 	try { throw std::runtime_error(erro); }

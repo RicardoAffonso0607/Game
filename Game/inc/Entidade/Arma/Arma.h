@@ -10,6 +10,7 @@ protected:
 	static const bool movable;// é móvel?
 
 	bool facing_left;
+	float mass = .1f;
 
 public:
 	Arma();
@@ -23,4 +24,8 @@ public:
 	//void rotacionar() override;// rotaciona o corpo
 	void setDireita() override;// mira pra direita
 	void setEsquerda() override;// mira pra esquerda
+
+	void move() override;
+
+	float getMass() const override { return mass; }
 };

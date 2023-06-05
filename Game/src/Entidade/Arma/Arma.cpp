@@ -4,7 +4,7 @@
 
 const bool Arma::damageable = false;// danificável?
 const bool Arma::ghost = true;// atravessa objetos?
-const bool Arma::movable = true;// é móvel?
+const bool Arma::movable = false;// é móvel?
 
 Arma::Arma() :
 	facing_left(false)
@@ -38,4 +38,9 @@ void Arma::setEsquerda()
 void Arma::setDireita()
 {
 	facing_left = false;
+}
+
+void Arma::move()
+{
+
 }

@@ -31,8 +31,11 @@ namespace Fases {
 	{
 		j1 = new Jogadores::Lutadora(sf::Vector2f(300.f, 10.f), 50);
 		ger_eventos->setJogador(j1);
+		j1->setGun(arma = new Armas::Arco(sf::Vector2f(300.f, 10.f)));
 		j1->setGerGraf(ger_grafico);
 		list->push(j1);
+		arma->setGerGraf(ger_grafico);
+		list->push(arma);
 	}
 
 	void Floresta::criarInimigos()

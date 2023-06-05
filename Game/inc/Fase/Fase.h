@@ -44,6 +44,7 @@ protected:
 	Inimigo* inimigo;
 	Obstaculo* obstaculo;
 	Obstaculos::Inertes::Plataforma* plataforma;
+	Arma* arma;
 
 public:
 	Fase();

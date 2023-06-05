@@ -20,7 +20,8 @@ public:
 	sf::Vector2f getPos() const;// posição do vértice superior esquerdo do objeto na tela
 	sf::Vector2f getEntSize() const;// tamanho do objeto na tela
 
-	void changePos(sf::Vector2f dif_pos);// move o objeto
+	void setEntPos(sf::Vector2f pos);// define posição do objeto x e y
+	void changePos(sf::Vector2f dif_pos);// move o objeto dx e dy
 	void draw();// desenha na tela
 
 	/* estáticos */
@@ -54,7 +55,7 @@ public:
 	virtual void setAtacou();// informa que atacou alguém
 	virtual void setDireita();// faz olhar para a direita
 	virtual void setEsquerda();// faz olhar para a esquerda
-	virtual void setGun(Entidade* pArma);// pega uma arma
+	virtual void setGun(Entidade* gun);// pega uma arma
 
 	float jump_strength = false;
 	float jumped_height = false;

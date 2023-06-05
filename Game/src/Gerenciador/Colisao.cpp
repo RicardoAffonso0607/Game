@@ -15,33 +15,30 @@ namespace Gerenciador{
 
     /* Verifica se a colisão entre as entidades é possível */
     void Colisao::executar() {
-        Entidade* ent;
         int i, j;//ent1=móvel ent2=fixo ou móvel
         for (i = 0; i < list_ent->getSize(); i++) {
-            ent = list_ent->getEntity(i);
-            ent->flying = true;
-            if (ent->getMovable()) {
+            if (list_ent->getEntity(i)->getMovable() && !list_ent->getEntity(i)->getGhost()) {
                 for (j = 0; j < list_ent->getSize(); j++)
-                    if (j != i) {
-                        collide(ent, list_ent->getEntity(j));
-                        printf("%u %u\n", ent->getId(), list_ent->getEntity(j)->getId());
+                    if (j != i && !list_ent->getEntity(j)->getGhost()){
+                        collide(list_ent->getEntity(i), list_ent->getEntity(j));
+                        printf("%u %u\n", list_ent->getEntity(i)->getId(), list_ent->getEntity(j)->getId());
                     }
-                if (ent->flying) {
+                //if (list_ent->getEntity(i)->flying) {
                     //printf("acionou gravidade\n");
-                    gravity(ent);
-                    ent->allow_jump = false;
-                }
-                else {
-                    ent->colidiu_baixo = true;
-                    ent->jumped = false;
-                    ent->allow_jump = true;
-                }
-                if (ent->getJumped())
+                    gravity(list_ent->getEntity(i));
+                    list_ent->getEntity(i)->allow_jump = false;
+                //}
+                //else {
+                //    list_ent->getEntity(i)->colidiu_baixo = true;
+                //    list_ent->getEntity(i)->jumped = false;
+                //    list_ent->getEntity(i)->allow_jump = true;
+                //}
+                if (list_ent->getEntity(i)->getJumped())
                 {
-                    jump(ent);
+                    jump(list_ent->getEntity(i));
                 }
-                //ent->colidiu_cima = false;
-                //ent->colidiu_baixo = false;
+                //list_ent->getEntity(i)->colidiu_cima = false;
+                //list_ent->getEntity(i)->colidiu_baixo = false;
             }
         }
     }

@@ -6,10 +6,11 @@ namespace Armas {
 
 	const unsigned int Arco::id = 91;
 
-	Arco::Arco(sf::Vector2f pos)
+	Arco::Arco(sf::Vector2f pos) :
+		flecha(nullptr)
 	{
 		body.setPosition(pos);
-		body.setSize(sf::Vector2f(8.f, 20.f));
+		body.setSize(sf::Vector2f(20.f, 50.f));
 	}
 
 	Arco::~Arco()
@@ -18,7 +19,6 @@ namespace Armas {
 
 	void move()
 	{
-
 	}
 
 	unsigned int Arco::getId() const
@@ -28,13 +28,19 @@ namespace Armas {
 
 	void Arco::attack()
 	{
+		flecha = new Projeteis::Flecha(body.getPosition());
 		if (facing_left) {
-			flecha = new Projeteis::Flecha(body.getPosition());
 			flecha->setEsquerda();
+			flecha->changePos(sf::Vector2f(-flecha->getEntSize().x, .5f*body.getSize().y - flecha->getEntSize().y));
 		}
 		else {
-			flecha = new Projeteis::Flecha(body.getPosition());
 			flecha->setDireita();
+			flecha->changePos(sf::Vector2f(flecha->getEntSize().x, .5f*body.getSize().y - flecha->getEntSize().y));
 		}
+	}
+
+	bool Arco::getAttacker() const
+	{
+		return attacker;
 	}
 }

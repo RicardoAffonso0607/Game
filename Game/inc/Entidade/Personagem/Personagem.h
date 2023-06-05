@@ -5,7 +5,6 @@
 class Personagem : public Entidade
 {
 protected:
-
 	sf::Vector2f vel;// velocidade atual
 
 	sf::Time attack_instant;// instante que ocorreu ataque

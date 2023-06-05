@@ -2,6 +2,7 @@
 
 #include "Entidade/Arma/Arma.h"
 #include "Entidade/Projetil/Flecha.h"
+#include "Lista/ListaEntidades.h"
 
 namespace Armas {
 	class Arco : public Arma
@@ -19,6 +20,8 @@ namespace Armas {
 
 		unsigned int getId() const override;// id?
 
-		void attack() override;// é atacante?
+		void attack() override;// atacar
+
+		bool getAttacker() const override;// é atacante?
 	};
 }

@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
-#include "Gerenciador/Colisao.h"
 
 const bool Jogador::retardable = true;
 
 const float Jogador::jump_strength = 150.f;
+const float Jogador::gun_pos = .3f;
 
 Jogador::Jogador() :
 	attacker(false),
@@ -44,11 +44,19 @@ bool Jogador::getRetardable() const
 	return retardable;
 }
 
-void Jogador::setGun(Entidade* gun_load) {
+void Jogador::setGun(Entidade* gun)
+{
 	if (pArma)
 		delete pArma;
-	pArma = gun_load;
-	//attack_delay = pArma->attack_delay;
+	pArma = dynamic_cast<Arma*>(gun);
+	//if (facing_left) {
+	//	pArma->setEsquerda();
+		//pArma->changePos(sf::Vector2f(-pArma->getEntSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+	//}
+	//else {
+	//	pArma->setDireita();
+		//pArma->changePos(sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+	//}
 }
 
 void Jogador::move()
@@ -87,6 +95,14 @@ void Jogador::move()
 		attack_delay = sf::Time::Zero;
 		atacou = false;
 	}
+	if (facing_left) {
+		pArma->setEsquerda();
+		pArma->setEntPos(body.getPosition()+sf::Vector2f(- pArma->getEntSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+	}
+	else {
+		pArma->setDireita();
+		pArma->setEntPos(body.getPosition() + sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+	}
 }
 
 void Jogador::attack()
@@ -94,11 +110,13 @@ void Jogador::attack()
 	if (attack_delay <= sf::Time::Zero) {
 		if (sf::Mouse::Left) {
 			attacker = true;
+			pArma->attack();
 			//damage = 10;
 			//attack_delay = sf::Time::asMilliseconds(100);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backslash)) {
 			attacker = true;
+			pArma->attack();
 			//damage = 20;
 			//attack_delay = sf::Time::asMilliseconds(100);
 		}

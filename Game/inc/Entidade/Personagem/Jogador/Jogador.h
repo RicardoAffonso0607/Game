@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entidade/Personagem/Personagem.h"
+#include "Entidade/Arma/Arma.h"
 
 class Jogador : public Personagem
 {
@@ -15,7 +16,9 @@ protected:
 
 	int pontuacao;// pontuação do jogador
 
-	Entidade* pArma;// arma que está segurando
+	static const float gun_pos;// posição de empunhamento da arma
+
+	Arma* pArma;// arma equipada
 
 public:
 	Jogador();
@@ -31,5 +34,5 @@ public:
 	void attack() override;// ações de ataque
 	void setAttacker(int i) /*override*/;
 	void events() /*override*/;
-	void setGun(Entidade* pArma) override;// pega uma arma
+	void setGun(Entidade* gun) override;// equipa uma arma
 };
