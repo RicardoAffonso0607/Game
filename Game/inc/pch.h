@@ -18,5 +18,5 @@ using namespace std;
 #define SFX "Game/assets/sfx/"
 
 //macros
-#define ATQ_LONGO 1;
-#define ATQ_CURTO 2;
+#define ATQ_LONGO 1
+#define ATQ_CURTO 2
