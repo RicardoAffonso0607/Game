@@ -21,9 +21,24 @@ Projetil::~Projetil()
 {
 }
 
+bool Projetil::getAttacker() const
+{
+	return attacker;
+}
+
+bool Projetil::getDamageable() const
+{
+	return damageable;
+}
+
 bool Projetil::getGhost() const
 {
 	return ghost;
+}
+
+bool Projetil::getMovable() const
+{
+	return movable;
 }
 
 void Projetil::setEsquerda()

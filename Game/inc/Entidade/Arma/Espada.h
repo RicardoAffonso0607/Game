@@ -12,6 +12,8 @@ namespace Armas {
 
 		bool attacker;
 
+		Entidade* pColidiu;
+
 	public:
 		Espada(sf::Vector2f pos);
 		~Espada();
@@ -22,7 +24,7 @@ namespace Armas {
 
 		unsigned int getId() const override;// id?
 
-		//void attack() override;// ataca
+		void attack() override;// ataca
 		void setAttacker()/* override*/;// atacar
 	};
 }

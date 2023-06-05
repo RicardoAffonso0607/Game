@@ -23,6 +23,9 @@ public:
 	Projetil();
 	virtual ~Projetil();
 
+	bool getAttacker() const override;// causa dano?
+	bool getMovable() const override;// é móvel?
+	bool getDamageable() const override;// é danificável?
 	bool getGhost() const override;// atravessa objetos?
 
 	void move() override;// se move

@@ -7,7 +7,8 @@ namespace Armas {
 	const unsigned int Espada::id = 93;
 
 	Espada::Espada(sf::Vector2f pos) :
-		attacker(false)
+		attacker(false),
+		pColidiu(nullptr)
 	{
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(20.f, 3.f));
@@ -35,5 +36,16 @@ namespace Armas {
 	unsigned int Espada::getId() const
 	{
 		return id;
+	}
+
+	void Espada::attack()
+	{
+		if (colidiu && attacker)
+		{
+			if (pColidiu->getDamageable()) {
+				pColidiu->applyDamage(damage);
+				attacker = false;
+			}
+		}
 	}
 }

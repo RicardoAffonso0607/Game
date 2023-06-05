@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Entidade/Projetil/Projetil.h"
-#include "Entidade/Arma/Arco.h"
 
 namespace Projeteis {
 	class Flecha : public Projetil

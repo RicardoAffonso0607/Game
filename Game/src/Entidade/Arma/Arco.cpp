@@ -25,4 +25,16 @@ namespace Armas {
 	{
 		return id;
 	}
+
+	void Arco::attack()
+	{
+		if (facing_left) {
+			flecha = new Projeteis::Flecha(body.getPosition());
+			flecha->setEsquerda();
+		}
+		else {
+			flecha = new Projeteis::Flecha(body.getPosition());
+			flecha->setDireita();
+		}
+	}
 }

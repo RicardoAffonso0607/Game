@@ -7,7 +7,8 @@ namespace Armas {
 	const unsigned int Faca::id = 92;
 
 	Faca::Faca(sf::Vector2f pos) :
-		attacker(false)
+		attacker(false),
+		pColidiu(nullptr)
 	{
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(10.f, 3.f));
@@ -35,5 +36,16 @@ namespace Armas {
 	unsigned int Faca::getId() const
 	{
 		return id;
+	}
+
+	void Faca::attack()
+	{
+		if (colidiu && attacker)
+		{
+			if (pColidiu->getDamageable()) {
+				pColidiu->applyDamage(damage);
+				attacker = false;
+			}
+		}
 	}
 }
