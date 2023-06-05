@@ -4,7 +4,7 @@
 const bool Jogador::retardable = true;
 
 const float Jogador::jump_strength = 150.f;
-const float Jogador::gun_pos = .3f;
+const float Jogador::gun_pos = .4f;
 
 Jogador::Jogador() :
 	attacker(false),
