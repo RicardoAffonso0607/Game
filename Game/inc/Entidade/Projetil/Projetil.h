@@ -27,6 +27,7 @@ public:
 	bool getMovable() const override;// é móvel?
 	bool getDamageable() const override;// é danificável?
 	bool getGhost() const override;// atravessa objetos?
+	bool getJumped() const override { return false; }
 
 	void move() override;// se move
 	void setDireita() override;// vai pra direita

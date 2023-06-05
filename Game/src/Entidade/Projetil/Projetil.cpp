@@ -2,13 +2,13 @@
 #include "Entidade/Projetil/Projetil.h"
 
 const bool Projetil::attacker = true;// causa dano?
-const bool Projetil::movable = false;// é móvel?
+const bool Projetil::movable = true;// é móvel?
 const bool Projetil::damageable = false;// é danificável?
 const bool Projetil::ghost = true;// atravessa objetos?
 
-const sf::Vector2f Projetil::vel = sf::Vector2f(100.f, 0.f);// velocidade
+const sf::Vector2f Projetil::vel = sf::Vector2f(60.f, 0.f);// velocidade
 
-const float Projetil::mass = .01f;// massa
+const float Projetil::mass = .3f;// massa
 
 Projetil::Projetil():
 	colidiu(false),
