@@ -6,8 +6,9 @@ namespace Armas {
 
 	const unsigned int Arco::id = 91;
 
-	Arco::Arco(sf::Vector2f pos) :
-		flecha(nullptr)
+	Arco::Arco(sf::Vector2f pos, ListaEntidades* list) :
+		flecha(nullptr),
+		list_ent(list)
 	{
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(20.f, 50.f));
@@ -29,6 +30,8 @@ namespace Armas {
 	void Arco::attack()
 	{
 		flecha = new Projeteis::Flecha(body.getPosition());
+		flecha->setGerGraf(pGerGraf);
+		list_ent->push(flecha);
 		if (facing_left) {
 			flecha->setEsquerda();
 			flecha->changePos(sf::Vector2f(-flecha->getEntSize().x, .5f*body.getSize().y - flecha->getEntSize().y));

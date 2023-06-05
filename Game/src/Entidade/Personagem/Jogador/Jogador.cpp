@@ -103,26 +103,27 @@ void Jogador::move()
 		pArma->setDireita();
 		pArma->setEntPos(body.getPosition() + sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
 	}
+	attack();
 }
 
 void Jogador::attack()
 {
-	if (attack_delay <= sf::Time::Zero) {
-		if (sf::Mouse::Left) {
+	//if (attack_delay <= sf::Time::Zero) {
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			attacker = true;
 			pArma->attack();
 			//damage = 10;
 			//attack_delay = sf::Time::asMilliseconds(100);
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backslash)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			attacker = true;
 			pArma->attack();
 			//damage = 20;
 			//attack_delay = sf::Time::asMilliseconds(100);
 		}
-	}
-	else
-		attacker = false;
+	//}
+	//else
+		//attacker = false;
 }
 
 float Jogador::getJumpStrength() const

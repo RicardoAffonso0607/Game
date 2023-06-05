@@ -2,7 +2,7 @@
 #include "Entidade/Projetil/Projetil.h"
 
 const bool Projetil::attacker = true;// causa dano?
-const bool Projetil::movable = true;// é móvel?
+const bool Projetil::movable = false;// é móvel?
 const bool Projetil::damageable = false;// é danificável?
 const bool Projetil::ghost = true;// atravessa objetos?
 

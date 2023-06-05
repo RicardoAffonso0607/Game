@@ -57,5 +57,4 @@ public:
 
 	void draw() { list->drawAll(); }
 	void move() { list->moveAll(); }
-
 };

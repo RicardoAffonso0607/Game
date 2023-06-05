@@ -13,9 +13,11 @@ namespace Armas {
 		static const unsigned int id;
 
 		Projeteis::Flecha* flecha;
+		
+		ListaEntidades* list_ent;
 
 	public:
-		Arco(sf::Vector2f pos);
+		Arco(sf::Vector2f pos, ListaEntidades* list);
 		~Arco();
 
 		unsigned int getId() const override;// id?

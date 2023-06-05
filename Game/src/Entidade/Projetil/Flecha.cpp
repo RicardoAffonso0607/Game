@@ -8,7 +8,7 @@ namespace Projeteis {
 
 	Flecha::Flecha(sf::Vector2f pos)
 	{
-		body.setSize(sf::Vector2f(30.f, 10.f));
+		body.setSize(sf::Vector2f(40.f, 15.f));
 		body.setPosition(pos);
 	}
 
