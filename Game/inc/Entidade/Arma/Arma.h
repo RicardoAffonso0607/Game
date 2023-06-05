@@ -30,6 +30,6 @@ public:
 	bool getDamageable() const override;
 	bool getGhost() const override;
 
-	void setFacingLeft() override;
-	void unsetFacingLeft() override;
+	void setEsquerda() override;
+	void setDireita() override;
 };

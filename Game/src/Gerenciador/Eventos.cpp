@@ -45,15 +45,15 @@ namespace Gerenciador {
 	{
 		if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::Left)
 		{
-			//pJogador->changePosition(sf::Vector2f(-pJogador->getVel().x, 0.f));
+			//pJogador->changePos(sf::Vector2f(-pJogador->getVel().x, 0.f));
 		}
 		if (tecla == sf::Keyboard::D || tecla == sf::Keyboard::Right)
 		{
-			//pJogador->changePosition(sf::Vector2f(pJogador->getVel().x, 0.f));
+			//pJogador->changePos(sf::Vector2f(pJogador->getVel().x, 0.f));
 		}
 
-		if (tecla == sf::Keyboard::Space)
-			pJogador->jumped = true;//pulou
+		//if (tecla == sf::Keyboard::Space)
+		//	pJogador->jumped = true;//pulou
 
 		//if (tecla == sf::Keyboard::Backslash)
 			//pJogador->setAttacker(pJogador->getGunType(), ATQ_LONGO);//ataque tipo 1

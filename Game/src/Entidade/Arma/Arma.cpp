@@ -1,3 +1,4 @@
+
 #include "pch.h"
 #include "Entidade/Arma/Arma.h"
 
@@ -39,12 +40,12 @@ bool Arma::getRetardant() const
 	return retardant;
 }
 
-void Arma::setFacingLeft()
+void Arma::setEsquerda()
 {
 	facing_left = true;
 }
 
-void Arma::unsetFacingLeft()
+void Arma::setDireita()
 {
 	facing_left = false;
 }

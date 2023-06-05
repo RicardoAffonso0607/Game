@@ -40,7 +40,10 @@ protected:
 	Gerenciador::Colisao* colisor;
 	sf::Texture background_texture;
 	sf::RectangleShape background;
-	Entidade *j1, *inimigo, *obstaculo, *plataforma;
+	Jogador* j1;
+	Inimigo* inimigo;
+	Obstaculo* obstaculo;
+	Obstaculos::Inertes::Plataforma* plataforma;
 
 public:
 	Fase();

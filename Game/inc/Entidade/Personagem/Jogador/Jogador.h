@@ -1,33 +1,35 @@
 #pragma once
 
 #include "Entidade/Personagem/Personagem.h"
-#include "Entidade/Arma/Arma.h"
 
 class Jogador : public Personagem
 {
 protected:
-	sf::String player_nickname = sf::String::String();
+	sf::String player_nickname;// apelido do jogador
 
-	static const bool retardable;
+	static const bool retardable;// sua velocidade pode ser reduzida?
 
-	bool attacker = false;
-	bool allow_jump = true;
-	bool jumped = false;
+	static const float jump_strength;// altura máxima de pulo
 
-	float pontuacao = NULL;
-	float jump_strength = NULL;
+	bool attacker;// está apto a atacar?
 
-	Arma* pArma = nullptr;
+	int pontuacao;// pontuação do jogador
+
+	Entidade* pArma;// arma que está segurando
 
 public:
 	Jogador();
 	virtual ~Jogador();
 
-	bool getJumped() /*override*/;
+	bool getJumped() const override;// está pulando?
 
+	bool getRetardable() const override;// sua velocidade pode ser reduzida?
+
+	float getJumpStrength() const override;// altura máxima de pulo?
+
+	void move() override;// ações de movimento
+	void attack() override;// ações de ataque
 	void setAttacker(int i) /*override*/;
 	void events() /*override*/;
-	void setGun(Arma* pArma) /*override*/;
-
-	bool getRetardable() const override;
+	void setGun(Entidade* pArma) override;// pega uma arma
 };

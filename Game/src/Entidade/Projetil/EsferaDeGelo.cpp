@@ -2,6 +2,10 @@
 #include "Entidade/Projetil/EsferaDeGelo.h"
 
 namespace Projeteis {
+	const int EsferaDeGelo::damage = 7;
+
+	const unsigned int EsferaDeGelo::id = 82;
+
 	EsferaDeGelo::EsferaDeGelo(sf::Vector2f pos)
 	{
 		body.setSize(sf::Vector2f(20.f, 20.f));
@@ -11,19 +15,29 @@ namespace Projeteis {
 	EsferaDeGelo::~EsferaDeGelo()
 	{
 	}
+
+	float EsferaDeGelo::getMass() const
+	{
+		return mass;
+	}
 	
 	int EsferaDeGelo::getDamage() const
 	{
 		return damage;
 	}
 
-	Inimigos::Disparador* EsferaDeGelo::getEnemyCaster()
+	unsigned int EsferaDeGelo::getId() const
 	{
-		return pEnemyCaster;
+		return id;
 	}
 
-	void EsferaDeGelo::setEnemyCaster(Inimigos::Disparador* caster)
+	void EsferaDeGelo::attack()
 	{
-		pEnemyCaster = caster;
+		if (colidiu)
+		{
+			if (pColidiu->getDamageable())
+				pColidiu->applyDamage(damage);
+			delete this;
+		}
 	}
 }

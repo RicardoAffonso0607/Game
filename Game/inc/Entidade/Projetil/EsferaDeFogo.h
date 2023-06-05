@@ -1,26 +1,25 @@
 #pragma once
 
 #include "Entidade/Projetil/Projetil.h"
-#include "Entidade/Personagem/Inimigo/Disparador/Disparador.h"
 
 namespace Projeteis {
 	class EsferaDeFogo : public Projetil
 	{
 	private:
-		Inimigos::Disparador* pEnemyCaster = nullptr;
+		static const int damage;// dano que causa
 
-		static const int damage = 4;
-
-		static const unsigned int id = 81;
+		static const unsigned int id;
 
 	public:
 		EsferaDeFogo(sf::Vector2f pos);
 		~EsferaDeFogo();
-		
-		Inimigos::Disparador* getEnemyCaster();
 
-		int getDamage() const;
+		float getMass() const override;// massa?
 
-		void setEnemyCaster(Inimigos::Disparador* caster);
+		int getDamage() const override;// dano que causa?
+
+		unsigned int getId() const override;// id?
+
+		void attack() override;// aplica efeito do ataque
 	};
 }

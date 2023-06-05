@@ -20,7 +20,7 @@ namespace Gerenciador
 		~Eventos();
 
 		static Eventos* getEventos();
-		void setJogador(Entidade* pJogador) { this->pJogador = pJogador; }
+		void setJogador(Jogador* pJogador) { this->pJogador = pJogador; }
 
 		void executar();
 		void verificaTeclaPressionada(sf::Keyboard::Key tecla);

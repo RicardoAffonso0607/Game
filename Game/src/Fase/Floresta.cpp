@@ -43,17 +43,17 @@ namespace Fases {
 
 		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(560.f, 0.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);
-		//corpo_a_corpo->setPlayer(j1);
+		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
 		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f));
 		chefao->setGerGraf(ger_grafico);
-		//chefao->setPlayer(j1);
+		chefao->setPlayer(j1);
 		list->push(chefao);
 
 		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(70.f, 90.f));
 		disparador->setGerGraf(ger_grafico);
-		//disparador->setPlayer(j1);
+		disparador->setPlayer(j1);
 		list->push(disparador);
 	}
 

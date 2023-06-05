@@ -7,20 +7,20 @@ namespace Projeteis {
 	class Flecha : public Projetil
 	{
 	private:
-		Arma* pGun = nullptr;
+		static const int damage;// dano que causa
 
-		static const int damage = 10;
-
-		static const unsigned int id = 83;
+		static const unsigned int id;
 
 	public:
 		Flecha(sf::Vector2f pos);
 		~Flecha();
-		
-		Arma* getGun();
 
-		int getDamage() const;
+		float getMass() const override;// massa?
 
-		void setGun(Arma* gun);
+		int getDamage() const override;// dano que causa?
+
+		unsigned int getId() const override;// id?
+
+		void attack() override;// aplica efeito do ataque
 	};
 }

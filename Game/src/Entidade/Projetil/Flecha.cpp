@@ -2,6 +2,10 @@
 #include "Entidade/Projetil/Flecha.h"
 
 namespace Projeteis {
+	const int Flecha::damage = 10;
+
+	const unsigned int Flecha::id = 83;
+
 	Flecha::Flecha(sf::Vector2f pos)
 	{
 		body.setSize(sf::Vector2f(30.f, 10.f));
@@ -11,19 +15,29 @@ namespace Projeteis {
 	Flecha::~Flecha()
 	{
 	}
+
+	float Flecha::getMass() const
+	{
+		return mass;
+	}
 	
 	int Flecha::getDamage() const
 	{
 		return damage;
 	}
 
-	Arma* Flecha::getGun()
+	unsigned int Flecha::getId() const
 	{
-		return pGun;
+		return id;
 	}
 
-	void Flecha::setGun(Arma* gun)
+	void Flecha::attack()
 	{
-		pGun = gun;
+		if (colidiu)
+		{
+			if (pColidiu->getDamageable())
+				pColidiu->applyDamage(damage);
+			delete this;
+		}
 	}
 }

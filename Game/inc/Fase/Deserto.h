@@ -6,7 +6,7 @@ namespace Fases {
 	class Deserto : public Fase
 	{
 	private:
-		Entidade* j1;
+		Jogador* j1;
 	public:
 		Deserto();
 		~Deserto();

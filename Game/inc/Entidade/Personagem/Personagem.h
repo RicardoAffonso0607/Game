@@ -6,58 +6,52 @@ class Personagem : public Entidade
 {
 protected:
 
-	sf::Vector2f vel;
+	sf::Vector2f vel;// velocidade atual
 
-	sf::Time attack_instant;
-	sf::Time attack_delay;
-	sf::Time retarder_delay;
-	sf::Time retarder_timer;
+	sf::Time attack_instant;// instante que ocorreu ataque
 
-	sf::Clock clock;
+	sf::Clock clock;// tempo de jogo
 
-	int life;
+	sf::Time attack_delay;// cooldown entre ataques
 
-	static const bool movable;
-	static const bool damageable;
-	static const bool retardant;
-	static const bool ghost;
+	int life;// vida atual
+
+	static const bool movable;// se move?
+	static const bool damageable;// é danificável?
+	static const bool ghost;// é atravessável por objetos?
 	
-	bool jumped;
-	bool facing_left;
-	bool attacker;
-	bool atacou;
+	bool jumped;// pulou?
+	bool facing_left;// olhando pra esquerda?
+	bool attacker;// pode atacar?
+	bool atacou;// atacou recentemente?
 
 public:
 	Personagem();
 	virtual ~Personagem();
 
-	bool getMovable() const override;
-	bool getAttacker() const override;
-	bool getRetardant() const override;
-	bool getDamageable() const override;
-	bool getFacingLeft() const override;
-	bool getGhost() const override;
-	bool getJumped() const override;
+	bool getMovable() const override;// se move?
+	bool getAttacker() const override;// está apto a atacar?
+	bool getDamageable() const override;// é danificável?
+	bool getFacingLeft() const override;// está olhando pra esquerda?
+	bool getGhost() const override;// pode ser atravessado por objetos?
+	bool getJumped() const override;// pulou?
 
-	sf::Vector2f getVel() const override;
+	int getLife() const override;// qual a vida atual?
 
-	void applyDamage(int ent_damage) override;
-	void applySlowness(float ent_slowness) override;
-	void setAtacou() override;
-	void setFacingLeft() override;
-	void unsetFacingLeft() override;
+	sf::Vector2f getVel() const override;// qual a velocidade atual?
 
-	int getLife() const override;
+	void applyDamage(int ent_damage) override;// aplicar dano na vida
+	void applySlowness(float ent_slowness) override;// aplicar retardo na velocidade
+	void setAtacou() override;// informa que atacou recentemente
+	void setDireita() override;// olhar pra direita
+	void setEsquerda() override;// olhar pra esquerda
 
-	float jumped_height = NULL;
-	bool colidiu_baixo = false;
-	bool colidiu_cima = false;
-	bool flying = false;
+	bool allow_jump;
+	bool colidiu_baixo;
+	bool colidiu_cima;
+	bool flying;
 
-
-	
-
-
+	float jumped_height;
 
 	//void events() /*override*/;
 };

@@ -15,19 +15,19 @@ namespace Inimigos {
 
 	void Disparador::move()
 	{
-		if (pPlayer->getPosition().y > body.getPosition().y - 3 * body.getSize().y && pPlayer->getPosition().y < body.getPosition().y + 4 * body.getSize().y)
-		{
-			if (pPlayer->getPosition().x < body.getPosition().x) {
-				facing_left = true;
-				pProjetil->setFacingLeft();
-				body.move(sf::Vector2f(-vel.x, 0.f));
-			}
-			else if (pPlayer->getPosition().x > body.getPosition().x) {
-				facing_left = false;
-				pProjetil->unsetFacingLeft();
-				body.move(sf::Vector2f(vel.x, 0.f));
-			}
-		}
+		//if (pPlayer->getPos().y > body.getPosition().y - 3 * body.getSize().y && pPlayer->getPos().y < body.getPosition().y + 4 * body.getSize().y)
+		//{
+		//	if (pPlayer->getPos().x + pPlayer->getPos().x < body.getPosition().x) {
+		//		facing_left = true;
+		//		//pProjetil->setEsquerda();
+		//		body.move(sf::Vector2f(-vel.x, 0.f));
+		//	}
+		//	else if (pPlayer->getPos().x + pPlayer->getEntSize().x > body.getPosition().x) {
+		//		facing_left = false;
+		//		//pProjetil->setDireita();
+		//		body.move(sf::Vector2f(vel.x, 0.f));
+		//	}
+		//}
 	}
 
 	void Disparador::attack()

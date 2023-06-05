@@ -1,9 +1,16 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
+#include "Gerenciador/Colisao.h"
 
 const bool Jogador::retardable = true;
 
-Jogador::Jogador()
+const float Jogador::jump_strength = 150.f;
+
+Jogador::Jogador() :
+	attacker(false),
+	pontuacao(0),
+	player_nickname(" "),
+	pArma(nullptr)
 {
 }
 
@@ -27,12 +34,7 @@ Jogador::~Jogador()
 //	}
 //}
 
-//float Jogador::getJumpStrength()
-//{
-//	return jump_strength;
-//}
-
-bool Jogador::getJumped()
+bool Jogador::getJumped() const
 { 
 	return jumped;
 }
@@ -42,8 +44,70 @@ bool Jogador::getRetardable() const
 	return retardable;
 }
 
-void setGun(Arma* gun_load) {
-	//if (pArma)
-	//	delete pArma;
-	//pArma = gun_load;
+void Jogador::setGun(Entidade* gun_load) {
+	if (pArma)
+		delete pArma;
+	pArma = gun_load;
+	//attack_delay = pArma->attack_delay;
+}
+
+void Jogador::move()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {//Direita
+		body.move(sf::Vector2f(vel.x, 0.f));
+		facing_left = false;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {//Esquerda
+		body.move(sf::Vector2f(-vel.x, 0.f));
+		facing_left = true;
+	}
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
+		//body.move(sf::Vector2f(0.f, -this->vel.y));
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
+		//body.move(sf::Vector2f(0.f, this->vel.y));
+	printf("%f %f %d %d %d %d %d\n",jumped_height, jump_strength, colidiu_baixo ? 1 : 0, colidiu_cima ? 1 : 0, allow_jump ? 1 : 0, jumped ? 1 : 0, flying ? 1 : 0);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !jumped && allow_jump) {
+		colidiu_cima = false;
+		colidiu_baixo = false;
+		jumped = true;
+	}
+	//if (jumped && !colidiu_cima && jumped_height < jump_strength)
+	//{
+	//	body.move(sf::Vector2f(0.f, -vel.y));
+	//	jumped_height += vel.y - getMass()*ACEL_GRAV;
+	//}
+	//if (jumped && !flying)
+	//{
+	//	jumped = false;
+	//	jumped_height = 0.f;
+	//}
+	if (atacou)
+		attacker = false;
+	if (clock.getElapsedTime() - attack_delay > attack_instant) {
+		attack_delay = sf::Time::Zero;
+		atacou = false;
+	}
+}
+
+void Jogador::attack()
+{
+	if (attack_delay <= sf::Time::Zero) {
+		if (sf::Mouse::Left) {
+			attacker = true;
+			//damage = 10;
+			//attack_delay = sf::Time::asMilliseconds(100);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Backslash)) {
+			attacker = true;
+			//damage = 20;
+			//attack_delay = sf::Time::asMilliseconds(100);
+		}
+	}
+	else
+		attacker = false;
+}
+
+float Jogador::getJumpStrength() const
+{
+	return jump_strength;
 }

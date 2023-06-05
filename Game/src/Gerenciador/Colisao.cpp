@@ -20,7 +20,6 @@ namespace Gerenciador{
         for (i = 0; i < list_ent->getSize(); i++) {
             ent = list_ent->getEntity(i);
             ent->flying = true;
-            ent->allow_jump = true;
             if (ent->getMovable()) {
                 for (j = 0; j < list_ent->getSize(); j++)
                     if (j != i) {
@@ -28,13 +27,21 @@ namespace Gerenciador{
                         printf("%u %u\n", ent->getId(), list_ent->getEntity(j)->getId());
                     }
                 if (ent->flying) {
+                    //printf("acionou gravidade\n");
                     gravity(ent);
                     ent->allow_jump = false;
                 }
+                else {
+                    ent->colidiu_baixo = true;
+                    ent->jumped = false;
+                    ent->allow_jump = true;
+                }
                 if (ent->getJumped())
+                {
                     jump(ent);
-                ent->colidiu_cima = false;
-                ent->colidiu_baixo = false;
+                }
+                //ent->colidiu_cima = false;
+                //ent->colidiu_baixo = false;
             }
         }
     }
@@ -43,19 +50,21 @@ namespace Gerenciador{
        larguras/2 e a distância y é menor que soma das alturas/2 */
     void Colisao::collide(Entidade* ent1, Entidade* ent2) {
         sf::Vector2f cg1, cg2, centerDistance, centerSum, sobre;
-        cg1 = ent1->getPosition() + .5f * ent1->getEntSize();
-        cg2 = ent2->getPosition() + .5f * ent2->getEntSize();
+        cg1 = ent1->getPos() + .5f * ent1->getEntSize();
+        cg2 = ent2->getPos() + .5f * ent2->getEntSize();
         centerDistance = sf::Vector2f(fabs(cg2.x - cg1.x), fabs(cg2.y - cg1.y));
         centerSum = .5f * (ent2->getEntSize() + ent1->getEntSize());
         sobre = centerSum - centerDistance;
         /* se colidiu */
         if ((sobre.x > 0 && sobre.y > 0) || (sobre.x > 0 && !centerDistance.y) || (sobre.y > 0 && !centerDistance.x)) {
-            effects(ent1, ent2);//aplica dano e lentidão
+            //effects(ent1, ent2);//aplica dano e lentidão
             ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
         }
         /* se apoiado em cima de outro */
-        if (ent1->getPosition().y + ent1->getEntSize().y >= ent2->getPosition().y && ent1->getPosition().y + ent1->getEntSize().y <= ent2->getPosition().y+ent2->getEntSize().y && ent1->getPosition().x>ent2->getPosition().x - ent1->getEntSize().x && ent1->getPosition().x < ent2->getPosition().x + ent2->getEntSize().x)
+        if (sobre.x > 0 && centerDistance.y <= centerSum.y + ent1->getMass() * ACEL_GRAV && centerDistance.y >= centerSum.y-1) {
             ent1->flying = false;
+            //cout << "acionou flying false" << endl;
+        }
     }
     
     /* Vértices do retângulo */
@@ -65,117 +74,141 @@ namespace Gerenciador{
 
     /* Encontra os vértices do retângulo */
     void Colisao::vertexMath(vertex *rect, Entidade *ent){
-        rect->ul = ent->getPosition();//up left
+        rect->ul = ent->getPos();//up left
         rect->ur = rect->ul + sf::Vector2f(ent->getEntSize().x, 0.f);//up right
         rect->bl = rect->ul + sf::Vector2f(0.f,ent->getEntSize().y);//bottom left
         rect->br = rect->bl + sf::Vector2f(ent->getEntSize().x, 0.f);//bottom right
     }
 
     /* Ao andar e sobrepor um fixo, volta à posição só encostado, e se for um móvel, empurra */
-    void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre) {
+    void Colisao::ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre) {//onde de ent2 foi colidido com ent1
         vertex e1, e2;
         vertexMath(&e1, ent1);
         vertexMath(&e2, ent2);
         if (!ent2->getMovable()) {//1 móvel e 2 fixo
             if (e1.ul.x < e2.ur.x && e1.ur.x > e2.ur.x) {
-                if (e1.ul.y <= e2.ur.y && e1.bl.y >= e2.br.y)//direita entre vértices
-                    ent1->changePosition(sf::Vector2f(sobre.x, 0.f));
+                if (e1.ul.y <= e2.ur.y && e1.bl.y >= e2.br.y) {//direita entre vértices
+                    ent1->changePos(sf::Vector2f(sobre.x, 0.f));
+                    cout << "direita entre vértices" << endl;
+                }
                 else if (sobre.x >= sobre.y && e1.ul.y < e2.ur.y) {//cima canto direito
-                    ent1->changePosition(sf::Vector2f(0.f, -sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, -sobre.y));
                     ent1->colidiu_baixo = true;
                     ent2->colidiu_cima = true;
+                    cout << "cima canto direito" << endl;
                 }
                 else if (sobre.x >= sobre.y && e1.bl.y > e2.br.y) {//baixo canto direito
-                    ent1->changePosition(sf::Vector2f(0.f, sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, sobre.y));
                     ent1->colidiu_cima = true;
                     ent2->colidiu_baixo = true;
+                    cout << "baixo canto direito" << endl;
                 }
-                else//direita cantos superior e inferior
-                    ent1->changePosition(sf::Vector2f(sobre.x, 0.f));
+                else {//direita cantos superior e inferior
+                    ent1->changePos(sf::Vector2f(sobre.x, 0.f));
+                    cout << "direita cantos superior e inferior" << endl;
+                }
             }
             else if (e1.ur.x > e2.ul.x && e1.ul.x < e2.ul.x) {
-                if (e1.ur.y <= e2.ul.y && e1.br.y >= e2.bl.y)//esquerda entre vértices
-                    ent1->changePosition(sf::Vector2f(-sobre.x, 0.f));
+                if (e1.ur.y <= e2.ul.y && e1.br.y >= e2.bl.y) {//esquerda entre vértices
+                    ent1->changePos(sf::Vector2f(-sobre.x, 0.f));
+                    cout << "esquerda entre vértices" << endl;
+                }
                 else if (sobre.x >= sobre.y && e1.ur.y < e2.ul.y) {//cima canto esquerdo
-                    ent1->changePosition(sf::Vector2f(0.f, -sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, -sobre.y));
                     ent1->colidiu_baixo = true;
                     ent2->colidiu_cima = true;
+                    cout << "cima canto esquerdo" << endl;
                 }
                 else if (sobre.x >= sobre.y && e1.br.y > e2.bl.y) {//baixo canto esquerdo
-                    ent1->changePosition(sf::Vector2f(0.f, sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, sobre.y));
                     ent1->colidiu_cima = true;
                     ent2->colidiu_baixo = true;
+                    cout << "baixo canto esquerdo" << endl;
                 }
-                else//esquerda cantos superior e inferior
-                    ent1->changePosition(sf::Vector2f(-sobre.x, 0.f));
+                else {//esquerda cantos superior e inferior
+                    ent1->changePos(sf::Vector2f(-sobre.x, 0.f));
+                    cout << "esquerda cantos superior e inferior" << endl;
+                }
             }
             else if (e1.bl.y > e2.ul.y && e1.ul.y < e2.ul.y && e1.bl.x >= e2.ul.x && e1.br.x <= e2.ur.x){//cima entre vértices
-                ent1->changePosition(sf::Vector2f(0.f, -sobre.y));
+                ent1->changePos(sf::Vector2f(0.f, -sobre.y));
                 ent1->colidiu_baixo = true;
                 ent2->colidiu_cima = true;
+                cout << "cima entre vértices" << endl;
             }
             else {//baixo entre vértices
-                ent1->changePosition(sf::Vector2f(0.f, sobre.y));
+                ent1->changePos(sf::Vector2f(0.f, sobre.y));
                 ent1->colidiu_cima = true;
                 ent2->colidiu_baixo = true;
+                cout << "baixo entre vértices" << endl;
             }
         }
         else {//ambos móveis
             if (e1.ul.x < e2.ur.x && e1.ur.x > e2.ur.x) {
-                if (e1.ul.y <= e2.ur.y && e1.bl.y >= e2.br.y){//direita ent1 entre vértices
-                    ent1->changePosition(sf::Vector2f(.5f*sobre.x, 0.f));
-                    ent2->changePosition(sf::Vector2f(-.5f*sobre.x, 0.f));
+                if (e1.ul.y <= e2.ur.y && e1.bl.y >= e2.br.y){//direita entre vértices
+                    ent1->changePos(sf::Vector2f(.5f*sobre.x, 0.f));
+                    ent2->changePos(sf::Vector2f(-.5f*sobre.x, 0.f));
+                    cout << "direita entre vértices" << endl;
                 }
                 else if (sobre.x >= sobre.y && e1.ul.y < e2.ur.y){//cima canto direito
-                    ent1->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
-                    ent2->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, -.5f*sobre.y));
+                    ent2->changePos(sf::Vector2f(0.f, .5f*sobre.y));
                     ent1->colidiu_baixo = true;
                     ent2->colidiu_cima = true;
+                    cout << "cima canto direito" << endl;
                 }
                 else if (sobre.x >= sobre.y && e1.bl.y > e2.br.y){//baixo canto direito
-                    ent1->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
-                    ent2->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, .5f*sobre.y));
+                    ent2->changePos(sf::Vector2f(0.f, -.5f*sobre.y));
                     ent1->colidiu_cima = true;
                     ent2->colidiu_baixo = true;
+                    cout << "baixo canto direito" << endl;
                 }
-                else{//direita ent1 cantos superior e inferior
-                    ent1->changePosition(sf::Vector2f(.5f*sobre.x, 0.f));
-                    ent2->changePosition(sf::Vector2f(-.5f*sobre.x, 0.f));
+                else{//direita cantos superior e inferior
+                    ent1->changePos(sf::Vector2f(.5f*sobre.x, 0.f));
+                    ent2->changePos(sf::Vector2f(-.5f*sobre.x, 0.f));
+                    cout << "direita cantos superior e inferior" << endl;
                 }
             }
             else if (e1.ur.x > e2.ul.x && e1.ul.x < e2.ul.x){
                 if (e1.ur.y <= e2.ul.y && e1.br.y >= e2.bl.y){//esquerda entre vértices
-                    ent1->changePosition(sf::Vector2f(-.5f*sobre.x, 0.f));
-                    ent2->changePosition(sf::Vector2f(.5f*sobre.x, 0.f));
+                    ent1->changePos(sf::Vector2f(-.5f*sobre.x, 0.f));
+                    ent2->changePos(sf::Vector2f(.5f*sobre.x, 0.f));
+                    cout << "esquerda entre vértices" << endl;
                 }
                 else if (sobre.x >= sobre.y && e1.ur.y < e2.ul.y){//cima canto esquerdo
-                    ent1->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
-                    ent2->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, -.5f*sobre.y));
+                    ent2->changePos(sf::Vector2f(0.f, .5f*sobre.y));
                     ent1->colidiu_baixo = true;
                     ent2->colidiu_cima = true;
+                    cout << "cima canto esquerdo" << endl;
                 }
                 else if (sobre.x >= sobre.y && e1.br.y > e2.bl.y){//baixo canto esquerdo
-                    ent1->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
-                    ent2->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
+                    ent1->changePos(sf::Vector2f(0.f, .5f*sobre.y));
+                    ent2->changePos(sf::Vector2f(0.f, -.5f*sobre.y));
                     ent1->colidiu_cima = true;
                     ent2->colidiu_baixo = true;
+                    cout << "baixo canto esquerdo" << endl;
                 }
                 else{//esquerda cantos superior e inferior
-                    ent1->changePosition(sf::Vector2f(-.5f*sobre.x, 0.f));
-                    ent2->changePosition(sf::Vector2f(.5f*sobre.x, 0.f));
+                    ent1->changePos(sf::Vector2f(-.5f*sobre.x, 0.f));
+                    ent2->changePos(sf::Vector2f(.5f*sobre.x, 0.f));
+                    cout << "esquerda cantos superior e inferior" << endl;
                 }
             }
             else if(e1.bl.y > e2.ul.y && e1.ul.y < e2.ul.y && e1.bl.x >= e2.ul.x && e1.br.x <= e2.ur.x){//cima entre vértices
-                ent1->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
-                ent2->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
+                ent1->changePos(sf::Vector2f(0.f, -.5f*sobre.y));
+                ent2->changePos(sf::Vector2f(0.f, .5f*sobre.y));
                 ent1->colidiu_baixo = true;
                 ent2->colidiu_cima = true;
+                cout << "cima entre vértices" << endl;
             }
             else{//baixo entre vértices
-                ent1->changePosition(sf::Vector2f(0.f, .5f*sobre.y));
-                ent2->changePosition(sf::Vector2f(0.f, -.5f*sobre.y));
+                ent1->changePos(sf::Vector2f(0.f, .5f*sobre.y));
+                ent2->changePos(sf::Vector2f(0.f, -.5f*sobre.y));
                 ent1->colidiu_cima = true;
                 ent2->colidiu_baixo = true;
+                cout << "baixo entre vértices" << endl;
             }
         }
     }
@@ -190,29 +223,30 @@ namespace Gerenciador{
             ent2->applyDamage(ent1->getDamage());
             ent1->setAtacou();
         }
-        if (ent1->getMovable() && ent2->getRetardant())
+        if (ent1->getRetardable() && !ent2->getMovable() && ent2->getRetardant())
             ent1->applySlowness(ent2->getSlowness());
-        if (ent1->getRetardant() && ent2->getMovable())
-            ent2->applySlowness(ent1->getSlowness());
     }
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
-        if(ent->getPosition().y < 1.5f*ger_graf->getWindowSize().y)
-            ent->changePosition(sf::Vector2f(0.f, ent->getMass()*ACEL_GRAV));
+        if(ent->getPos().y < 1.5f*ger_graf->getWindowSize().y)
+            ent->changePos(sf::Vector2f(0.f, ent->getMass()*ACEL_GRAV));
     }
 
     /* Pulo */
     void Colisao::jump(Entidade* ent){
-        if (!ent->colidiu_cima && ent->jumped_height < ent->getJumpStrength() && ent->getVel().y > ent->getMass()*ACEL_GRAV) {
-            ent->changePosition(sf::Vector2f(0.f, -ent->getVel().y));
+        if (!ent->colidiu_cima && ent->jumped_height < ent->getJumpStrength() && ent->getVel().y > ent->getMass() * ACEL_GRAV) {
+            ent->changePos(sf::Vector2f(0.f, -ent->getVel().y));
             ent->jumped_height += ent->getVel().y;
             ent->allow_jump = false;
         }
-        else if (ent->colidiu_baixo) {
+        else if (ent->colidiu_baixo)
+        {
             ent->jumped = false;
             ent->allow_jump = true;
             ent->jumped_height = 0.f;
+            ent->colidiu_baixo = false;
+            ent->colidiu_cima = false;
         }
     }
 }

@@ -16,16 +16,17 @@ void Entidade::setGerGraf(Gerenciador::Grafico* pauxGerGraf)
 	pGerGraf = pauxGerGraf;
 }
 
-void Entidade::draw() {
+void Entidade::draw()
+{
 	pGerGraf->desenhaElemento(body);
 }
 
-void Entidade::changePosition(sf::Vector2f dif_pos)
+void Entidade::changePos(sf::Vector2f dif_pos)
 {
 	body.move(dif_pos);
 }
 
-sf::Vector2f Entidade::getPosition() const
+sf::Vector2f Entidade::getPos() const
 {
 	return body.getPosition();
 }
@@ -45,9 +46,9 @@ sf::Vector2f Entidade::getVel() const
 	}
 }
 
-void Entidade::move()
+bool Entidade::getRetardant() const
 {
-	string erro = "Tentou mover entidade fixa.";
+	string erro = "Perguntou se é retardante para alguém que não é obstáculo.";
 	try { throw std::runtime_error(erro); }
 	catch (...) {
 		cerr << erro << endl;
@@ -55,9 +56,29 @@ void Entidade::move()
 	}
 }
 
-void Entidade::attack()
+bool Entidade::getRetardable() const
 {
-	string erro = "Tentou fazer entidade não atacante atacar.";
+	string erro = "Perguntou se uma entidade imóvel é retardável.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+bool Entidade::getJumped() const
+{
+	string erro = "Solicitou estado do pulo de entidade que não pula.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+bool Entidade::getFacingLeft() const
+{
+	string erro = "Solicitou direção da mira de entidade imóvel.";
 	try { throw std::runtime_error(erro); }
 	catch (...) {
 		cerr << erro << endl;
@@ -70,16 +91,6 @@ float Entidade::getMass() const
 	string erro = "Solicitou massa de entidade que não é afetada pela gravidade.";
 	try { throw std::runtime_error(erro); }
 	catch (...) { 
-		cerr << erro << endl;
-		exit(1);
-	}
-}
-
-int Entidade::getDamage() const
-{
-	string erro = "Solicitou dano de entidade não atacante.";
-	try { throw std::runtime_error(erro); }
-	catch (...) {
 		cerr << erro << endl;
 		exit(1);
 	}
@@ -105,9 +116,9 @@ float Entidade::getJumpStrength() const
 	}
 }
 
-bool Entidade::getJumped() const
+int Entidade::getDamage() const
 {
-	string erro = "Solicitou estado do pulo de entidade que não pula.";
+	string erro = "Solicitou dano de entidade não atacante.";
 	try { throw std::runtime_error(erro); }
 	catch (...) {
 		cerr << erro << endl;
@@ -115,9 +126,9 @@ bool Entidade::getJumped() const
 	}
 }
 
-bool Entidade::getFacingLeft() const
+int Entidade::getLife() const
 {
-	string erro = "Solicitou direção da mira de entidade imóvel.";
+	string erro = "Solicitou vida de entidade não danificável.";
 	try { throw std::runtime_error(erro); }
 	catch (...) {
 		cerr << erro << endl;
@@ -155,27 +166,7 @@ void Entidade::setAtacou()
 	}
 }
 
-int Entidade::getLife() const
-{
-	string erro = "Solicitou vida de entidade não danificável.";
-	try { throw std::runtime_error(erro); }
-	catch (...) {
-		cerr << erro << endl;
-		exit(1);
-	}
-}
-
-void Entidade::setFacingLeft()
-{
-	string erro = "Tentou mudar a direção de entidade imóvel para a esquerda.";
-	try { throw std::runtime_error(erro); }
-	catch (...) {
-		cerr << erro << endl;
-		exit(1);
-	}
-}
-
-void Entidade::unsetFacingLeft()
+void Entidade::setDireita()
 {
 	string erro = "Tentou mudar a direção de entidade imóvel para a direita.";
 	try { throw std::runtime_error(erro); }
@@ -185,9 +176,39 @@ void Entidade::unsetFacingLeft()
 	}
 }
 
-bool Entidade::getRetardable() const
+void Entidade::setEsquerda()
 {
-	string erro = "Perguntou se uma entidade imóvel é retardável.";
+	string erro = "Tentou mudar a direção de entidade imóvel para a esquerda.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+void Entidade::move()
+{
+	string erro = "Tentou mover entidade fixa.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+void Entidade::attack()
+{
+	string erro = "Tentou fazer entidade não atacante atacar.";
+	try { throw std::runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+void Entidade::setGun(Entidade* pArma)
+{
+	string erro = "Tentou dar arma a entidade que não usa armas.";
 	try { throw std::runtime_error(erro); }
 	catch (...) {
 		cerr << erro << endl;

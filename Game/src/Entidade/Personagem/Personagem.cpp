@@ -1,19 +1,23 @@
 #include "pch.h"
 #include "Entidade/Personagem/Personagem.h"
 
-const bool Personagem::movable = true;
-const bool Personagem::damageable = true;
-const bool Personagem::retardant = false;
-const bool Personagem::ghost = false;
+const bool Personagem::movable = true;// móvel
+const bool Personagem::damageable = true;// danificável
+const bool Personagem::ghost = false;// não é atravessável por objetos
 
 Personagem::Personagem() :
 	atacou(false),
 	attacker(false),
+	allow_jump(true),
+	colidiu_baixo(false),
+	colidiu_cima(false),
+	flying(false),
 	facing_left(false),
 	jumped(false),
-	vel(sf::Vector2f(NULL, NULL)),
+	jumped_height(0.f),
+	vel(sf::Vector2f(0.f, 0.f)),
 	attack_instant(sf::Time::Zero),
-	life(NULL)
+	life(0)
 {
 	sf::Clock clock_ini;
 	clock = clock_ini;
@@ -31,11 +35,6 @@ bool Personagem::getMovable() const
 bool Personagem::getAttacker() const
 {
 	return attacker;
-}
-
-bool Personagem::getRetardant() const
-{
-	return retardant;
 }
 
 bool Personagem::getDamageable() const
@@ -65,7 +64,6 @@ bool Personagem::getFacingLeft() const
 
 void Personagem::setAtacou()
 {
-	atacou = !atacou;
 }
 
 int Personagem::getLife() const
@@ -78,32 +76,17 @@ bool Personagem::getGhost() const
 	return ghost;
 }
 
-void Personagem::setFacingLeft()
-{
-	facing_left = true;
-}
-
-void Personagem::unsetFacingLeft()
+void Personagem::setDireita()
 {
 	facing_left = false;
+}
+
+void Personagem::setEsquerda()
+{
+	facing_left = true;
 }
 
 bool Personagem::getJumped() const
 {
 	return jumped;
 }
-
-//void Personagem::getGunType()
-//{
-//	return gun_type;
-//}
-
-//void Personagem::events()
-//{
-//	if (atacou)
-//		attacker = false;
-//	if (clock.getElapsedTime() - attack_delay > attack_instant) {
-//		attack_delay = sf::Time::Zero;
-//		atacou = false;
-//	}
-//}
