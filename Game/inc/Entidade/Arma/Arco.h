@@ -6,20 +6,16 @@ namespace Armas {
 	class Arco : public Arma
 	{
 	private:
-		const int damage = 1;
+		static const bool attacker;// ataca?
 
-		static const int id = 91;
-
-		const sf::Time delay = sf::milliseconds(400);
+		static const unsigned int id;
 
 	public:
-		Arco(sf::Vector2f pos, Personagem* pPer);
+		Arco(sf::Vector2f pos);
 		~Arco();
 
-		int getDamage() const /*override*/;
+		unsigned int getId() const override;// id?
 
-		unsigned int getId() const override;
-
-		sf::Time getDelay() const /*override*/;
+		//void attack() override;// é atacante?
 	};
 }

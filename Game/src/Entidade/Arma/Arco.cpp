@@ -2,10 +2,13 @@
 #include "Entidade/Arma/Arco.h"
 
 namespace Armas {
-	Arco::Arco(sf::Vector2f pos, Personagem* pPers)
+	const bool Arco::attacker = false;// é atacante?
+
+	const unsigned int Arco::id = 91;
+
+	Arco::Arco(sf::Vector2f pos)
 	{
-		pPersonagem = pPers;
-		body.setPosition(pos + sf::Vector2f(pPersonagem->getEntSize().x, .3f * pPersonagem->getEntSize().y));
+		body.setPosition(pos);
 		body.setSize(sf::Vector2f(8.f, 20.f));
 	}
 
@@ -13,18 +16,13 @@ namespace Armas {
 	{
 	}
 
-	int Arco::getDamage() const
+	void move()
 	{
-		return damage;
+
 	}
 
 	unsigned int Arco::getId() const
 	{
 		return id;
-	}
-
-	sf::Time Arco::getDelay() const
-	{
-		return sf::Time::Zero;//delay;
 	}
 }

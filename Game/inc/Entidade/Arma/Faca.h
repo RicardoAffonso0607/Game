@@ -6,20 +6,23 @@ namespace Armas {
 	class Faca : public Arma
 	{
 	private:
-		const int damage = 2;
+		static const int damage;// dano que causa
 
-		static const int id = 92;
+		static const unsigned int id;
 
-		const sf::Time delay = sf::milliseconds(400);
+		bool attacker;
 
 	public:
-		Faca(sf::Vector2f pos, Personagem* pPer);
+		Faca(sf::Vector2f pos);
 		~Faca();
 
-		int getDamage() const /*override*/;
+		bool getAttacker() const override;// está atacando?
 
-		unsigned int getId() const override;
+		int getDamage() const override;// dano que causa?
 
-		sf::Time getDelay() const /*override*/;
+		unsigned int getId() const override;// id?
+
+		//void attack() override;// ataca
+		void setAttacker()/* override*/;// atacar
 	};
 }

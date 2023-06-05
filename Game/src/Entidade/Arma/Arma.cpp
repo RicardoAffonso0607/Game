@@ -2,22 +2,17 @@
 #include "pch.h"
 #include "Entidade/Arma/Arma.h"
 
-Arma::Arma()
+const bool Arma::damageable = false;// danificável?
+const bool Arma::ghost = true;// atravessa objetos?
+const bool Arma::movable = true;// é móvel?
+
+Arma::Arma() :
+	facing_left(false)
 {
 }
 
 Arma::~Arma()
 {
-}
-
-bool Arma::getAttacker() const
-{
-	return attacker;
-}
-
-void Arma::setAttacker()
-{
-	attacker = !attacker;
 }
 
 bool Arma::getDamageable() const
@@ -33,11 +28,6 @@ bool Arma::getGhost() const
 bool Arma::getMovable() const
 {
 	return movable;
-}
-
-bool Arma::getRetardant() const
-{
-	return retardant;
 }
 
 void Arma::setEsquerda()

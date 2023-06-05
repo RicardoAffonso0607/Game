@@ -15,7 +15,7 @@ namespace Inimigos {
 			vel = vel_max;
 			body.setSize(sf::Vector2f(80.f, 150.f));
 			body.setPosition(pos);
-			pArma = new Armas::Faca(pos, this);
+			pArma = new Armas::Faca(pos);
 		}
 
 		Medjai::~Medjai()

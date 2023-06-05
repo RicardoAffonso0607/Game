@@ -15,7 +15,7 @@ namespace Inimigos {
 			vel = vel_max;
 			body.setSize(sf::Vector2f(80.f, 150.f));
 			body.setPosition(pos);
-			pArma = new Armas::Espada(pos, this);
+			pArma = new Armas::Espada(pos);
 		}
 
 		Spartacus::~Spartacus()

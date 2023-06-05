@@ -2,15 +2,29 @@
 #include "Entidade/Arma/Faca.h"
 
 namespace Armas {
-	Faca::Faca(sf::Vector2f pos, Personagem* pPer)
+	const int Faca::damage = 2;// dano que causa
+
+	const unsigned int Faca::id = 92;
+
+	Faca::Faca(sf::Vector2f pos) :
+		attacker(false)
 	{
-		pPersonagem = pPer;
-		body.setPosition(pos + sf::Vector2f(pPersonagem->getEntSize().x, .3f*pPersonagem->getEntSize().y));
+		body.setPosition(pos);
 		body.setSize(sf::Vector2f(10.f, 3.f));
 	}
 
 	Faca::~Faca()
 	{
+	}
+
+	bool Faca::getAttacker() const
+	{
+		return attacker;
+	}
+
+	void Faca::setAttacker()
+	{
+		attacker = true;
 	}
 
 	int Faca::getDamage() const
@@ -21,10 +35,5 @@ namespace Armas {
 	unsigned int Faca::getId() const
 	{
 		return id;
-	}
-
-	sf::Time Faca::getDelay() const
-	{
-		return delay;
 	}
 }
