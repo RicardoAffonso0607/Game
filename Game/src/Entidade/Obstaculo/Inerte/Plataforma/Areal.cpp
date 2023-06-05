@@ -6,6 +6,8 @@ namespace Obstaculos {
 		namespace Plataformas {
 			Areal::Areal(sf::Vector2f pos, sf::Vector2f size)
 			{
+				textura.loadFromFile(string(IMG) + "Areal.png");
+				body.setTexture(&textura);
 				body.setSize(size);
 				body.setPosition(pos);
 			}

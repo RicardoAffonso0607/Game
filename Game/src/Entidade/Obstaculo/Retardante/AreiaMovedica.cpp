@@ -9,6 +9,8 @@ namespace Obstaculos {
 
 		AreiaMovedica::AreiaMovedica(sf::Vector2f pos, sf::Vector2f size)
 		{
+			textura.loadFromFile(string(IMG) + "AreiaMovedicaPA.png");
+			body.setTexture(&textura);
 			body.setPosition(pos);
 			body.setSize(size);
 		}
