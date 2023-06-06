@@ -9,7 +9,13 @@ Trabalho da disciplina Técnicas de Programação.
 * Ricardo Affonso
 * Lucas Yukio Fukuda Matsumoto
 
-## Configurações do projeto AgeOfWarriors.vcxproj no Visual Studio 2022
+## Requisitos
+
+* SO Windows 32 ou 64 bits
+* SFML 2.5.1
+* Visual Studio 2022
+
+## Configurações do Projeto AgeOfWarriors.vcxproj no Visual Studio 2022
 
 Selecionar
 
