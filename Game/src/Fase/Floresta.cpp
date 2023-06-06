@@ -82,6 +82,14 @@ namespace Fases {
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
+		if ((rand() % 10) >= 5) // Aleatório
+		{
+			corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(6300.f, 0.f));
+			corpo_a_corpo->setGerGraf(ger_grafico);
+			corpo_a_corpo->setPlayer(j1);
+			list->push(corpo_a_corpo);
+		}
+
 		/*---------------------------------------------------------------------------------*/ // Disparadores
 		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(2050.f, 200.f));
 		disparador->setGerGraf(ger_grafico);
@@ -98,6 +106,13 @@ namespace Fases {
 		disparador->setPlayer(j1);
 		list->push(disparador);
 
+		if ((rand() % 10) >= 5) // Aleatório
+		{
+			disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(2450.f, 0.f));
+			disparador->setGerGraf(ger_grafico);
+			disparador->setPlayer(j1);
+			list->push(disparador);
+		}
 		/*---------------------------------------------------------------------------------*/ // Chefão
 		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(6600.f, 90.f));
 		chefao->setGerGraf(ger_grafico);
@@ -132,7 +147,7 @@ namespace Fases {
 		plat->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(plat));
 
-		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(3400.f, ger_grafico->getWindowSize().y - 600.f), sf::Vector2f(600.f, 50.f));
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(3400.f, ger_grafico->getWindowSize().y - 650.f), sf::Vector2f(600.f, 50.f));
 		plat->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(plat));
 
@@ -160,6 +175,13 @@ namespace Fases {
 
 		/*---------------------------------------------------------------------------------*/ // Danosos
 
+		if ((rand() % 10) >= 5) // Aleatório
+		{
+			danoso = new Obstaculos::Danosos::ArmadilhaDeLancas(sf::Vector2f(600.f, ger_grafico->getWindowSize().y  - 350.f));
+			danoso->setGerGraf(ger_grafico);
+			list->push(static_cast<Entidade*>(danoso));
+		}
+
 		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3*(ger_grafico->getWindowSize().x)/2, ger_grafico->getWindowSize().y - 350.f));
 		danoso->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(danoso));
@@ -182,7 +204,7 @@ namespace Fases {
 		inerte->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*> (inerte));
 
-		if ((rand() % 2) == 1)
+		if ((rand() % 10) >= 5) // Aleatório
 		{
 			inerte = new Obstaculos::Inertes::ArbustoFlorido(sf::Vector2f(4000.f, ger_grafico->getWindowSize().y - 350.f));
 			inerte->setGerGraf(ger_grafico);
