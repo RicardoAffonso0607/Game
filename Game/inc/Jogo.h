@@ -8,8 +8,8 @@
 class Jogo
 {
 private:
-	Fases::Floresta* fase1;
-	Fases::Deserto* fase2;
+	Fases::Deserto* fase1;
+	Fases::Floresta* fase2;
 	Gerenciador::Grafico* ger_grafico;
 	Gerenciador::Eventos* ger_eventos;
 

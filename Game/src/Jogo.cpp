@@ -10,8 +10,8 @@ Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->
 
 void Jogo::inicializa()
 {
-	fase1 = new Fases::Floresta;
-	fase2 = new Fases::Deserto;
+	fase1 = new Fases::Deserto;
+	fase2 = new Fases::Floresta;
 
 	if (ger_grafico == nullptr)
 	{
@@ -37,8 +37,8 @@ void Jogo::executar()
 		ger_eventos->executar();
 		ger_grafico->limpaJanela();
 
-		fase1->executar();
-		//fase2->executar();
+		//fase1->executar();
+		fase2->executar();
 
 		ger_grafico->setCamera();
 		ger_grafico->mostraElementos();
