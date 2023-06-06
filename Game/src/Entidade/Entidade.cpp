@@ -241,6 +241,16 @@ void Entidade::setColidiu()
 	}
 }
 
+bool Entidade::getGodMode() const
+{
+	string erro = "Entidade não tem God Mode.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}

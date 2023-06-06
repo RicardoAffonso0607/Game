@@ -37,4 +37,5 @@ public:
 	void setAttacker(int i) /*override*/;
 	void events() /*override*/;
 	void setGun(Entidade* gun) override;// equipa uma arma
+	bool getGodMode() const override;
 };

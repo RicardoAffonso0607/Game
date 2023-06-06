@@ -132,3 +132,8 @@ float Jogador::getJumpStrength() const
 {
 	return jump_strength;
 }
+
+bool Jogador::getGodMode() const
+{
+	return god_mode;
+}

@@ -15,22 +15,22 @@ namespace Inimigos {
 
 	void Disparador::move()
 	{
-		//if (pPlayer->getPos().y > body.getPosition().y - action_radius && pPlayer->getPos().y < body.getPosition().y + action_radius)
-		//{
-		//	if (pPlayer->getPos().x < body.getPosition().x) {
-		//		facing_left = true;
-		//		pProjetil->setEsquerda();
-		//		if(pPlayer->getPos().x + pPlayer->getEntSize().x < body.getPosition().x -action_radius)
-		//			body.move(sf::Vector2f(-vel.x, 0.f));
-		//	}
-		//	else if (pPlayer->getPos().x > body.getPosition().x) {
-		//		facing_left = false;
-		//		pProjetil->setDireita();
-		//		if (pPlayer->getPos().x + pPlayer->getEntSize().x > body.getPosition().x +action_radius) {
-		//			body.move(sf::Vector2f(vel.x, 0.f));
-		//		}
-		//	}
-		//}
+		if (!pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - action_radius && pPlayer->getPos().y < body.getPosition().y + action_radius)
+		{
+			if (pPlayer->getPos().x < body.getPosition().x) {
+				facing_left = true;
+				pProjetil->setEsquerda();
+				if(pPlayer->getPos().x + pPlayer->getEntSize().x < body.getPosition().x -action_radius)
+					body.move(sf::Vector2f(-vel.x, 0.f));
+			}
+			else if (pPlayer->getPos().x > body.getPosition().x) {
+				facing_left = false;
+				pProjetil->setDireita();
+				if (pPlayer->getPos().x + pPlayer->getEntSize().x > body.getPosition().x +action_radius) {
+					body.move(sf::Vector2f(vel.x, 0.f));
+				}
+			}
+		}
 	}
 
 	void Disparador::attack()

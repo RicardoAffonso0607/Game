@@ -84,4 +84,5 @@ public:
 	bool getColidiuBaixo() { return colidiu_baixo; }
 	bool getColidiuCima() { return colidiu_cima; }
 	bool getFlying() { return flying; }
+	virtual bool getGodMode() const;
 };
