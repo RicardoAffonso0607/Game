@@ -10,8 +10,10 @@ namespace Projeteis {
 	{
 		textura.loadFromFile(string(IMG) + "BolaDeFogo.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(20.f, 20.f));
+		body.setSize(sf::Vector2f(80.f, 40.f));
 		body.setPosition(pos);
+		hit.loadFromFile(string(SFX) + "fire-hit.wav");
+		sfx.setBuffer(hit);
 	}
 
 	EsferaDeFogo::~EsferaDeFogo()
@@ -35,11 +37,7 @@ namespace Projeteis {
 
 	void EsferaDeFogo::attack()
 	{
-		//if (colidiu)
-		//{
-		//	if (pColidiu->getDamageable())
-		//		pColidiu->applyDamage(damage);
-		//	delete this;
-		//}
+		if (pColidiu->getDamageable() && pColidiu->getId() >= 1 && pColidiu->getId() <= 9)
+			pColidiu->applyDamage(damage);
 	}
 }

@@ -4,7 +4,7 @@
 const bool Jogador::retardable = true;
 
 const float Jogador::jump_strength = 450.f;
-const float Jogador::gun_pos = .4f;
+const float Jogador::gun_pos = .8f;
 
 Jogador::Jogador() :
 	attacker(false),
@@ -12,6 +12,7 @@ Jogador::Jogador() :
 	player_nickname(" "),
 	pArma(nullptr)
 {
+
 }
 
 Jogador::~Jogador()
@@ -36,7 +37,10 @@ Jogador::~Jogador()
 
 bool Jogador::getJumped() const
 { 
-	return jumped;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		return true;
+	else
+		return false;
 }
 
 bool Jogador::getRetardable() const
@@ -46,34 +50,42 @@ bool Jogador::getRetardable() const
 
 void Jogador::setGun(Entidade* gun)
 {
-	if (pArma)
-		delete pArma;
+	//if (pArma)
+	//	delete pArma;
 	pArma = dynamic_cast<Arma*>(gun);
+}
+
+Entidade* Jogador::getArma() const
+{
+	return pArma;
 }
 
 void Jogador::move()
 {
+	sf::Listener::setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {//Direita
-		body.move(sf::Vector2f(vel.x, 0.f));
+		body.move(vel.x, 0.f);
 		facing_left = false;
+		sf::Listener::setDirection(1.f, 0.f, 0.f);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {//Esquerda
-		body.move(sf::Vector2f(-vel.x, 0.f));
+		body.move(-vel.x, 0.f);
 		facing_left = true;
+		sf::Listener::setDirection(1.f, 0.f, 0.f);
 	}
 	if (god_mode) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
-			body.move(sf::Vector2f(0.f, -this->vel.y));
+			body.move(0.f, -this->vel.y);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
-			body.move(sf::Vector2f(0.f, this->vel.y));
+			body.move(0.f, this->vel.y);
 		
 	}
-	printf("%f %f %d %d %d %d %d\n",jumped_height, jump_strength, colidiu_baixo ? 1 : 0, colidiu_cima ? 1 : 0, allow_jump ? 1 : 0, jumped ? 1 : 0, flying ? 1 : 0);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !jumped && allow_jump) {
-		colidiu_cima = false;
-		colidiu_baixo = false;
-		jumped = true;
-	}
+	//printf("%f %f %d %d %d %d %d\n",jumped_height, jump_strength, colidiu_baixo ? 1 : 0, colidiu_cima ? 1 : 0, allow_jump ? 1 : 0, jumped ? 1 : 0, flying ? 1 : 0);
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !jumped && allow_jump) {
+	//	colidiu_cima = false;
+	//	colidiu_baixo = false;
+	//	jumped = true;
+	//}
 	//if (jumped && !colidiu_cima && jumped_height < jump_strength)
 	//{
 	//	body.move(sf::Vector2f(0.f, -vel.y));
@@ -108,13 +120,13 @@ void Jogador::attack()
 			attacker = true;
 			pArma->attack();
 			attack_instant = clock.getElapsedTime();
-			attack_delay = sf::milliseconds(500);
+			attack_delay = normal_delay;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			attacker = true;
 			attack_instant = clock.getElapsedTime();
-			attack_delay = sf::milliseconds(55);
-			int i=0, cadence = 3;
+			attack_delay = cadence_delay;
+			int i=0;
 			do{
 				if (clock.getElapsedTime() - attack_instant > attack_delay){
 					pArma->attack();
@@ -123,7 +135,7 @@ void Jogador::attack()
 				}
 			} while (i <= cadence);
 			attack_instant = clock.getElapsedTime();
-			attack_delay = sf::milliseconds(1500);
+			attack_delay = burst_delay;
 		}
 	}
 }

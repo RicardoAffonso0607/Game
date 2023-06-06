@@ -15,10 +15,14 @@ protected:
 	static const float mass;// massa
 
 	bool facing_left;// mirando pra esquerda?]
-	//bool colidiu;// colidiu com alguma coisa?
-	int life = 1;
 
-	//Entidade* pColidiu;// ponteiro para o que colidiu
+	bool colidiu;// colidiu com alguma coisa?
+
+	int life;
+
+	Entidade* pColidiu;// ponteiro para o que colidiu
+
+	sf::SoundBuffer hit;// som da colisão
 	
 public:
 	Projetil();
@@ -33,9 +37,9 @@ public:
 	void move() override;// se move
 	void setDireita() override;// vai pra direita
 	void setEsquerda() override;// vai pra esquerda
-
-	//void setEntColidiu(Entidade* pauxColidiu) override;
-	int getLife() const override;
-
+	void setEntColidiu(Entidade* pauxColidiu) override;// ponteiro para onde colidiu
+	void setColidiu() override;// informa que colidiu
 	void applyDamage(int ent_damage) override;
+
+	int getLife() const override;
 };

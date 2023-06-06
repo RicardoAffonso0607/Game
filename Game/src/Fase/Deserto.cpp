@@ -9,7 +9,7 @@ namespace Fases {
 		criarJogador();
 		criarInimigos();
 		colisor = new Gerenciador::Colisao(list, ger_grafico);
-		background_texture.loadFromFile(string(IMG) + "DesertoPA.jpg");
+		background_texture.loadFromFile(string(IMG) + "DesertoPA.png");
 		background.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
 		background_auxiliar.setSize(sf::Vector2f(ger_grafico->getWindowSize()));

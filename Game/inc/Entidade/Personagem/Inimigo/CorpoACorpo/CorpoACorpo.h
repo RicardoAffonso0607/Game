@@ -7,7 +7,7 @@ namespace Inimigos {
 	class CorpoACorpo : public Inimigo
 	{
 	protected:
-		Arma* pArma = nullptr;
+		Arma* pArma;
 
 		static const bool retardable;
 
@@ -20,5 +20,7 @@ namespace Inimigos {
 		void attack() override;
 
 		bool getRetardable() const override;
+
+		Entidade* getArma() const override;
 	};
 }

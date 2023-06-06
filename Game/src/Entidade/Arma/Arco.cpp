@@ -6,22 +6,21 @@ namespace Armas {
 
 	const unsigned int Arco::id = 91;
 
+	const float Arco::cast_height = .5f;// altura do disparo
+
 	Arco::Arco(sf::Vector2f pos, ListaEntidades* list) :
 		flecha(nullptr),
 		list_ent(list)
 	{
-		list_ent->clear();
-
+		textura.loadFromFile(string(IMG) + "bow.png");
+		body.setTexture(&textura);
 		body.setPosition(pos);
-		body.setSize(sf::Vector2f(20.f, 50.f));
+		body.setSize(sf::Vector2f(60.f, 200.f));
 		bow_release.loadFromFile(string(SFX) + "bow-release.wav");
+		sfx.setBuffer(bow_release);
 	}
 
 	Arco::~Arco()
-	{
-	}
-
-	void move()
 	{
 	}
 
@@ -37,13 +36,13 @@ namespace Armas {
 		list_ent->push(flecha);
 		if (facing_left) {
 			flecha->setEsquerda();
-			flecha->changePos(sf::Vector2f(-flecha->getEntSize().x, .5f*body.getSize().y - flecha->getEntSize().y));
+			flecha->changePos(sf::Vector2f(-flecha->getEntSize().x, cast_height*body.getSize().y - flecha->getEntSize().y));
 		}
 		else {
 			flecha->setDireita();
-			flecha->changePos(sf::Vector2f(flecha->getEntSize().x, .5f*body.getSize().y - flecha->getEntSize().y));
+			flecha->changePos(sf::Vector2f(flecha->getEntSize().x, cast_height*body.getSize().y - flecha->getEntSize().y));
 		}
-		sfx.setBuffer(bow_release);
+		sfx.setPosition(sf::Vector3f(flecha->getPos().x, 0.f, flecha->getPos().y));
 		sfx.play();
 	}
 

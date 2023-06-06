@@ -10,8 +10,10 @@ namespace Projeteis {
 	{
 		textura.loadFromFile(string(IMG) + "BolaDeGelo.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(20.f, 20.f));
+		body.setSize(sf::Vector2f(80.f, 40.f));
 		body.setPosition(pos);
+		hit.loadFromFile(string(SFX) + "ice-hit.wav");
+		sfx.setBuffer(hit);
 	}
 
 	EsferaDeGelo::~EsferaDeGelo()
@@ -35,11 +37,7 @@ namespace Projeteis {
 
 	void EsferaDeGelo::attack()
 	{
-		//if (colidiu)
-		//{
-		//	if (pColidiu->getDamageable())
-		//		pColidiu->applyDamage(damage);
-		//	delete this;
-		//}
+		if (pColidiu->getDamageable() && pColidiu->getId()>=1 && pColidiu->getId() <= 9)
+			pColidiu->applyDamage(damage);
 	}
 }

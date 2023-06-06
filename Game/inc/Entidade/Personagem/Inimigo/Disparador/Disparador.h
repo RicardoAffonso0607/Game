@@ -7,20 +7,21 @@ namespace Inimigos {
 	class Disparador : public Inimigo
 	{
 	protected:
-		Projetil* pProjetil;
+		Projetil* pProjetil;// ponteiro do projétil
 
-		static const bool retardable;
+		static const bool retardable;// é retardável?
 
-		float action_radius = 400.f;
+		static const float action_radius;// raio de ação
+		static const float cast_height;// altura do disparo
+
+		static const sf::Time attack_delay;// tempo entre disparos
 
 	public:
 		Disparador();
 		virtual ~Disparador();
 
-		void move() override;
+		bool getRetardable() const override;// é retardável?
 
-		void attack() override;
-
-		bool getRetardable() const override;
+		void move() override;// move-se
 	};
 }

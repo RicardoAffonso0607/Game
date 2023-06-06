@@ -42,8 +42,6 @@ namespace Gerenciador{
                 {
                     jump(list_ent->getEntity(i));
                 }
-                //list_ent->getEntity(i)->unsetColidiuCima();
-                //list_ent->getEntity(i)->unsetColidiuBaixo();
             }
         }
     }
@@ -59,27 +57,20 @@ namespace Gerenciador{
         sobre = centerSum - centerDistance;
         /* se colidiu */
         if ((sobre.x > 0 && sobre.y > 0) || (sobre.x > 0 && !centerDistance.y) || (sobre.y > 0 && !centerDistance.x)) {
-            //effects(ent1, ent2);//aplica dano e lentidão
             if (!ent1->getGhost() && !ent2->getGhost())
                 ricochet(ent1, ent2, sobre);//volta a posição sem sobreposição
             else if (ent1->getGhost()) {
-                cout << "mudou colidiu pra true" << endl;
                 ent1->setColidiu();
                 ent1->setEntColidiu(ent2);
-                //cout << (ent1->colidiu ? 1 : 0) << endl;
             }
             else {
-                cout << "mudou colidiu2 pra true" << endl;
                 ent2->setColidiu();
                 ent2->setEntColidiu(ent1);
-                //cout << (ent2->colidiu ? 1 : 0) << endl;
             }
-            //ent1->unsetFlying();
         }
         /* se apoiado em cima de outro */
         if (sobre.x > 0 && sobre.y <= ent1->getMass() * ACEL_GRAV && sobre.y >= 0) {
             ent1->unsetFlying();
-            //cout << "acionou flying false" << endl;
         }
     }
     
