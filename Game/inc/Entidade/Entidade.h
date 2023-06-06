@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "Ente.h"
@@ -49,6 +48,9 @@ public:
 	virtual bool getRetardable() const;// é retardável?
 	virtual bool getJumped() const;// pulou?
 	virtual bool getFacingLeft() const;// está olhando pra esquerda?
+	virtual bool getGodMode() const;// usando cheater?
+
+	virtual Entidade* getArma() const;// ponteiro da arma que está equipada?
 
 	virtual float getMass() const;// qual a massa?
 	virtual float getSlowness() const;// porcentagem que diminui a velocidade ao retardar?
@@ -67,8 +69,8 @@ public:
 	virtual void setDireita();// faz olhar para a direita
 	virtual void setEsquerda();// faz olhar para a esquerda
 	virtual void setGun(Entidade* gun);// pega uma arma
-	virtual void setEntColidiu(Entidade* pauxColidiu);
-	virtual void setColidiu();
+	virtual void setEntColidiu(Entidade* pauxColidiu);// passa o ponteiro de no que colidiu
+	virtual void setColidiu();// informa que colidiu com algo
 
 	void setJumpedHeight(float height) { jumped_height = height; }
 	void setColidiuBaixo() { colidiu_baixo = true; }
@@ -84,5 +86,4 @@ public:
 	bool getColidiuBaixo() { return colidiu_baixo; }
 	bool getColidiuCima() { return colidiu_cima; }
 	bool getFlying() { return flying; }
-	virtual bool getGodMode() const;
 };

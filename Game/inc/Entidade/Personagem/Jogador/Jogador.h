@@ -20,7 +20,13 @@ protected:
 
 	Arma* pArma;// arma equipada
 
-	bool god_mode = false;
+	bool god_mode = false;// cheat imune a ataques e gravidade
+
+	int cadence = 3;// cadência do ataque múltiplo
+
+	sf::Time cadence_delay = sf::milliseconds(55);// espera entre tiros múltiplos
+	sf::Time burst_delay = sf::milliseconds(1500);// espera entre rajadas
+	sf::Time normal_delay = sf::milliseconds(500);// espera normal entre disparos
 
 public:
 	Jogador();
@@ -38,4 +44,5 @@ public:
 	void events() /*override*/;
 	void setGun(Entidade* gun) override;// equipa uma arma
 	bool getGodMode() const override;
+	Entidade* getArma() const override;
 };

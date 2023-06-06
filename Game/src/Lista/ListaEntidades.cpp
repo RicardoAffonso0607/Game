@@ -17,6 +17,8 @@ void ListaEntidades::moveAll()
 		if(Lista.getItem(i) && Lista.getItem(i)->getMovable())
 			Lista.getItem(i)->move();
 		if (Lista.getItem(i) && Lista.getItem(i)->getDamageable() && Lista.getItem(i)->getLife() <= 0) {
+			//if (((Lista.getItem(i)->getId() >= 1 && Lista.getItem(i)->getId()<=9)||(Lista.getItem(i)->getId() >= 61 && Lista.getItem(i)->getId()<=69)) && Lista.getItem(i)->getArma())
+			//	pop(Lista.getItem(i)->getArma());
 			pop(Lista.getItem(i));
 		}
 	}

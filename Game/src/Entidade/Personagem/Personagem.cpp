@@ -9,8 +9,6 @@ Personagem::Personagem() :
 	atacou(false),
 	attacker(false),
 	facing_left(false),
-
-
 	vel(sf::Vector2f(0.f, 0.f)),
 	attack_instant(sf::Time::Zero),
 	life(0)

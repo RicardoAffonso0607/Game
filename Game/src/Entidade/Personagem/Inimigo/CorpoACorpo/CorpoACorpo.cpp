@@ -4,7 +4,8 @@
 namespace Inimigos {
 	const bool CorpoACorpo::retardable = true;
 
-	CorpoACorpo::CorpoACorpo()
+	CorpoACorpo::CorpoACorpo() :
+		pArma(nullptr)
 	{
 	}
 
@@ -14,8 +15,7 @@ namespace Inimigos {
 
 	void CorpoACorpo::move()
 	{
-		/*
-		if (!pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - 3 * body.getSize().y && pPlayer->getPos().y < body.getPosition().y + 4 * body.getSize().y)
+		if (pPlayer && !pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - 3 * body.getSize().y && pPlayer->getPos().y < body.getPosition().y + 4 * body.getSize().y)
 		{
 			if (pPlayer->getPos().x < body.getPosition().x) {
 				facing_left = true;
@@ -28,7 +28,6 @@ namespace Inimigos {
 				body.move(sf::Vector2f(vel.x, 0.f));
 			}
 		}
-		*/
 	}
 
 	void CorpoACorpo::attack()
@@ -38,5 +37,10 @@ namespace Inimigos {
 	bool CorpoACorpo::getRetardable() const
 	{
 		return retardable;
+	}
+
+	Entidade* CorpoACorpo::getArma() const
+	{
+		return pArma;
 	}
 }

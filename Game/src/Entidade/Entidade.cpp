@@ -5,6 +5,10 @@ Gerenciador::Grafico* Entidade::pGerGraf(nullptr);
 
 Entidade::Entidade()
 {
+	sfx.setRelativeToListener(false);
+	sfx.setMinDistance(70.f);
+	sfx.setAttenuation(2.f);
+	sf::Listener::setUpVector(0.f, 0.f, 1.f);
 }
 
 Entidade::~Entidade()
@@ -244,6 +248,16 @@ void Entidade::setColidiu()
 bool Entidade::getGodMode() const
 {
 	string erro = "Entidade não tem God Mode.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+Entidade* Entidade::getArma() const
+{
+	string erro = "Solicitou arma de entidade sem arma.";
 	try { throw runtime_error(erro); }
 	catch (...) {
 		cerr << erro << endl;

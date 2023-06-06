@@ -10,9 +10,10 @@ namespace Projeteis {
 	{
 		textura.loadFromFile(string(IMG) + "Flecha.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(40.f, 15.f));
+		body.setSize(sf::Vector2f(70.f, 30.f));
 		body.setPosition(pos);
-		arrow_hit.loadFromFile(string(SFX) + "arrow-hit.wav");
+		hit.loadFromFile(string(SFX) + "arrow-hit.wav");
+		sfx.setBuffer(hit);
 	}
 
 	Flecha::~Flecha()
@@ -34,37 +35,9 @@ namespace Projeteis {
 		return id;
 	}
 
-	void Flecha::move()
-	{
-		if (facing_left)
-			body.move(sf::Vector2f(-vel.x, 0.f));
-		else
-			body.move(sf::Vector2f(vel.x, 0.f));
-		cout << (this->colidiu ? 1 : 0) << endl;
-		if (this->colidiu) {
-			cout << "perfurou" << endl;
-			this->attack();
-			this->pColidiu = nullptr;
-			sfx.setBuffer(arrow_hit);
-			sfx.play();
-		}
-	}
-
 	void Flecha::attack()
 	{
-		if (this->pColidiu->getDamageable())
-			this->pColidiu->applyDamage(this->damage);
-		cout << "perfurou" << endl;
-		this->life = 0;
-	}
-
-	void Flecha::setEntColidiu(Entidade* pauxColidiu)
-{
-	pColidiu = pauxColidiu;
-}
-
-	void Flecha::setColidiu()
-	{
-		this->colidiu = true;
+		if (pColidiu->getDamageable())
+			pColidiu->applyDamage(damage);
 	}
 }

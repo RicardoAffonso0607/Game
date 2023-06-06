@@ -14,7 +14,7 @@ namespace Fases {
 		background_auxiliar.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
 		background_auxiliar.setTexture(&background_texture);
-		background_auxiliar.setPosition(ger_grafico->getWindowSize().x, 0.f);
+		background_auxiliar.setPosition((float) ger_grafico->getWindowSize().x, 0.f);
 	}
 
 	Floresta::~Floresta()
@@ -29,22 +29,26 @@ namespace Fases {
 		ger_grafico->desenhaElemento(background);
 		ger_grafico->desenhaElemento(background_auxiliar);
 
+		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2.f)
+			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2.f);
 		//Câmera no inicio
-		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2)
-			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2);
+		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2.f)
+			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2.f);
 		else
-			ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2, ger_grafico->getWindowSize().y / 2);
+			ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2.f, ger_grafico->getWindowSize().y / 2.f);
 
+		if (ger_grafico->getCamera()->getCenter().x >= 3.f * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2.f)
+			background.setPosition(2.f * ger_grafico->getWindowSize().x, 0.f);
 		//Atualizar os planos de fundo
-		if (ger_grafico->getCamera()->getCenter().x >= 3 * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2)
-			background.setPosition(2 * ger_grafico->getWindowSize().x, 0.f);
+		if (ger_grafico->getCamera()->getCenter().x >= 3.f * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2.f)
+			background.setPosition(2.f * ger_grafico->getWindowSize().x, 0.f);
 
-		if (ger_grafico->getCamera()->getCenter().x >= 2.5 * (background_auxiliar.getPosition().x))
-			background_auxiliar.setPosition(3 * ger_grafico->getWindowSize().x, 0.f);
+		if (ger_grafico->getCamera()->getCenter().x >= 2.5f * (background_auxiliar.getPosition().x))
+			background_auxiliar.setPosition(3.f * ger_grafico->getWindowSize().x, 0.f);
 
 		//Câmera no final
-		if (j1->getPos().x > (7*ger_grafico->getWindowSize().x / 2) - 150.f)
-			ger_grafico->getCamera()->setCenter((7*ger_grafico->getWindowSize().x / 2) - 150.f, (ger_grafico->getWindowSize().y / 2));
+		if (j1->getPos().x > (7.f *ger_grafico->getWindowSize().x / 2.f) - 150.f)
+			ger_grafico->getCamera()->setCenter((7.f *ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
 
 		draw();
 	}
@@ -91,30 +95,30 @@ namespace Fases {
 		}
 
 		/*---------------------------------------------------------------------------------*/ // Disparadores
-		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(2050.f, 200.f));
+		disparador = new Inimigos::Disparadores::Merlin (sf::Vector2f(2050.f, 200.f), list);
 		disparador->setGerGraf(ger_grafico);
 		disparador->setPlayer(j1);
 		list->push(disparador);
 
-		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(4950.f, 200.f));
+		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(4950.f, 200.f), list);
 		disparador->setGerGraf(ger_grafico);
 		disparador->setPlayer(j1);
 		list->push(disparador);
 
-		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(5100.f, 200.f));
+		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(5100.f, 200.f), list);
 		disparador->setGerGraf(ger_grafico);
 		disparador->setPlayer(j1);
 		list->push(disparador);
 
 		if ((rand() % 10) >= 5) // Aleatório
 		{
-			disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(2450.f, 0.f));
+			disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(2450.f, 0.f), list);
 			disparador->setGerGraf(ger_grafico);
 			disparador->setPlayer(j1);
 			list->push(disparador);
 		}
 		/*---------------------------------------------------------------------------------*/ // Chefão
-		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(6600.f, 90.f));
+		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(6600.f, 90.f), list);
 		chefao->setGerGraf(ger_grafico);
 		chefao->setPlayer(j1);
 		list->push(chefao);
@@ -165,6 +169,7 @@ namespace Fases {
 		retardante->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(retardante));
 
+		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3.f *(ger_grafico->getWindowSize().x)/2.f, ger_grafico->getWindowSize().y - 50.f));
 		retardante = new Obstaculos::Retardantes::Lama(sf::Vector2f(3400.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
 		retardante->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(retardante));
@@ -182,15 +187,15 @@ namespace Fases {
 			list->push(static_cast<Entidade*>(danoso));
 		}
 
-		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3*(ger_grafico->getWindowSize().x)/2, ger_grafico->getWindowSize().y - 350.f));
+		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3*(ger_grafico->getWindowSize().x)/2.f, ger_grafico->getWindowSize().y - 350.f));
 		danoso->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(danoso));
 
-		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f((5*(ger_grafico->getWindowSize().x)/2) - 150, ger_grafico->getWindowSize().y - 350.f));
+		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f((5*(ger_grafico->getWindowSize().x)/2.f) - 150.f, ger_grafico->getWindowSize().y - 350.f));
 		danoso->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(danoso));
 
-		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(6600.f, ger_grafico->getWindowSize().y - 350));
+		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(6600.f, ger_grafico->getWindowSize().y - 350.f));
 		danoso->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(danoso));
 

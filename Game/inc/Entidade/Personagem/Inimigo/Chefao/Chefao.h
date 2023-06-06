@@ -7,18 +7,24 @@ namespace Inimigos {
 	class Chefao : public Inimigo
 	{
 	protected:
-		Projetil* pProjetil;
+		Projetil* pProjetil;// ponteiro do projétil
 
-		static const bool retardable;
+		static const bool retardable;// é retardável?
+
+		static const float action_radius;// raio de ação
+		static const float cast_height;// altura do disparo
+
+		static const int cadence;// cadência do ataque múltiplo
+
+		static const sf::Time cadence_delay;// espera entre tiros múltiplos
+		static const sf::Time burst_delay;// espera entre rajadas
 
 	public:
 		Chefao();
 		virtual ~Chefao();
 
-		void move() override;
+		bool getRetardable() const override;// é retardável?
 
-		void attack() override;
-
-		bool getRetardable() const override;
+		void move() override;// move-se
 	};
 }
