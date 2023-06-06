@@ -37,19 +37,11 @@ namespace Fases {
 
 	void Deserto::criarInimigos()
 	{
-		inimigo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(100.f, 300.f));
-		inimigo->setPlayer(j1);
-		inimigo->setGerGraf(ger_grafico);
-		list->push(inimigo);
+		
 	}
 
 	void Deserto::criarObstaculos()
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			plataforma = new Obstaculos::Inertes::Plataformas::Areal(sf::Vector2f((i * 630.f), 400.f), sf::Vector2f(600.f, 20.f));
-			plataforma->setGerGraf(ger_grafico);
-			list->push(plataforma);
-		}
+		
 	}
 }

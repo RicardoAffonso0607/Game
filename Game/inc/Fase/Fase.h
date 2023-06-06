@@ -40,10 +40,8 @@ protected:
 	Gerenciador::Colisao* colisor;
 	sf::Texture background_texture;
 	sf::RectangleShape background;
+	sf::RectangleShape background_auxiliar;
 	Jogador* j1;
-	Inimigo* inimigo;
-	Obstaculo* obstaculo;
-	Obstaculos::Inertes::Plataforma* plataforma;
 	Arma* arma;
 
 public:
