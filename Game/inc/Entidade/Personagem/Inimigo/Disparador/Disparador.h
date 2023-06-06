@@ -11,6 +11,8 @@ namespace Inimigos {
 
 		static const bool retardable;
 
+		float action_radius = 400.f;
+
 	public:
 		Disparador();
 		virtual ~Disparador();

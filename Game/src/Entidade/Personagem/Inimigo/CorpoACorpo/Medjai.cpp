@@ -7,7 +7,7 @@ namespace Inimigos {
 
 		const unsigned int Medjai::id = 61;
 
-		const sf::Vector2f Medjai::vel_max = sf::Vector2f(20.f, 15.f);
+		const sf::Vector2f Medjai::vel_max = sf::Vector2f(2.f, 15.f);
 
 		Medjai::Medjai(sf::Vector2f pos)
 		{

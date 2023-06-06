@@ -20,6 +20,8 @@ protected:
 
 	Arma* pArma;// arma equipada
 
+	bool god_mode = true;
+
 public:
 	Jogador();
 	virtual ~Jogador();

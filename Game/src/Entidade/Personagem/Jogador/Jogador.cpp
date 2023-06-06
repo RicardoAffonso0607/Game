@@ -49,14 +49,6 @@ void Jogador::setGun(Entidade* gun)
 	if (pArma)
 		delete pArma;
 	pArma = dynamic_cast<Arma*>(gun);
-	//if (facing_left) {
-	//	pArma->setEsquerda();
-		//pArma->changePos(sf::Vector2f(-pArma->getEntSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
-	//}
-	//else {
-	//	pArma->setDireita();
-		//pArma->changePos(sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
-	//}
 }
 
 void Jogador::move()
@@ -69,10 +61,13 @@ void Jogador::move()
 		body.move(sf::Vector2f(-vel.x, 0.f));
 		facing_left = true;
 	}
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
-		//body.move(sf::Vector2f(0.f, -this->vel.y));
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
-		//body.move(sf::Vector2f(0.f, this->vel.y));
+	if (god_mode) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
+			body.move(sf::Vector2f(0.f, -this->vel.y));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
+			body.move(sf::Vector2f(0.f, this->vel.y));
+		
+	}
 	printf("%f %f %d %d %d %d %d\n",jumped_height, jump_strength, colidiu_baixo ? 1 : 0, colidiu_cima ? 1 : 0, allow_jump ? 1 : 0, jumped ? 1 : 0, flying ? 1 : 0);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !jumped && allow_jump) {
 		colidiu_cima = false;
@@ -112,7 +107,6 @@ void Jogador::attack()
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			attacker = true;
 			pArma->attack();
-			//damage = 10;
 			attack_instant = clock.getElapsedTime();
 			attack_delay = sf::milliseconds(500);
 		}
@@ -128,13 +122,10 @@ void Jogador::attack()
 					attack_instant = clock.getElapsedTime();
 				}
 			} while (i <= cadence);
-			//damage = 20;
 			attack_instant = clock.getElapsedTime();
 			attack_delay = sf::milliseconds(1500);
 		}
 	}
-	//else
-		//attacker = false;
 }
 
 float Jogador::getJumpStrength() const

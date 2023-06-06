@@ -7,7 +7,7 @@ namespace Inimigos {
 
 		const unsigned int Spartacus::id = 62;
 
-		const sf::Vector2f Spartacus::vel_max = sf::Vector2f(30.f, 15.f);
+		const sf::Vector2f Spartacus::vel_max = sf::Vector2f(5.f, 15.f);
 
 		Spartacus::Spartacus(sf::Vector2f pos)
 		{

@@ -7,7 +7,7 @@ namespace Inimigos {
 
 		const unsigned int Horus::id = 71;
 
-		const sf::Vector2f Horus::vel_max = sf::Vector2f(20.f, 15.f);
+		const sf::Vector2f Horus::vel_max = sf::Vector2f(1.f, 15.f);
 
 		Horus::Horus(sf::Vector2f pos)
 		{

@@ -8,7 +8,7 @@ namespace Jogadores {
 	private:
 		static const unsigned int id;
 
-		static const float mass;
+		static float mass;
 
 		static const sf::Vector2f vel_max;
 
