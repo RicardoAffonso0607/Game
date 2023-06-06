@@ -14,15 +14,6 @@ protected:
 
 	sf::Sound sfx;// sound effects
 
-	float jump_strength = false;
-	float jumped_height = false;
-	bool colidiu_baixo = false;
-	bool colidiu_cima = false;
-	bool allow_jump = false;
-	bool jumped = false;
-	bool flying = false;
-	bool colidiu = false;
-
 public:
 	Entidade();
 	virtual ~Entidade();
@@ -36,7 +27,7 @@ public:
 
 	/* estáticos */
 	static void setGerGraf(Gerenciador::Grafico* pauxGerGraf);
-	
+
 	/* virtuais puros */
 	virtual bool getMovable() const = 0;// é móvel?
 	virtual bool getAttacker() const = 0;// está causando dano?
@@ -72,18 +63,18 @@ public:
 	virtual void setEntColidiu(Entidade* pauxColidiu);// passa o ponteiro de no que colidiu
 	virtual void setColidiu();// informa que colidiu com algo
 
-	void setJumpedHeight(float height) { jumped_height = height; }
-	void setColidiuBaixo() { colidiu_baixo = true; }
-	void unsetColidiuBaixo() { colidiu_baixo = false; }
-	void setColidiuCima() { colidiu_baixo = true; }
-	void unsetColidiuCima() { colidiu_baixo = false; }
-	void unsetJumped() { jumped = false; }
-	void setFlying() { flying = true; }
-	void unsetFlying() { flying = false; }
-	void setAllowJump() { allow_jump = true; }
-	void unsetAllowJump() { allow_jump = false; }
-	float getJumpedHeight() { return jumped_height; }
-	bool getColidiuBaixo() { return colidiu_baixo; }
-	bool getColidiuCima() { return colidiu_cima; }
-	bool getFlying() { return flying; }
+	virtual void setJumpedHeight(float height);
+	virtual void setColidiuBaixo();
+	virtual void unsetColidiuBaixo();
+	virtual void setColidiuCima();
+	virtual void unsetColidiuCima();
+	virtual void unsetJumped();
+	virtual void setFlying();
+	virtual void unsetFlying();
+	virtual void setAllowJump();
+	virtual void unsetAllowJump();
+	virtual float getJumpedHeight();
+	virtual bool getColidiuBaixo();
+	virtual bool getColidiuCima();
+	virtual bool getFlying();
 };

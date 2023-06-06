@@ -14,7 +14,7 @@ namespace Gerenciador{
 
         void collide(Entidade *ent1, Entidade *ent2);
         void ricochet(Entidade* ent1, Entidade* ent2, sf::Vector2f sobre);
-        void effects(Entidade* ent1, Entidade* ent2);
+        //void effects(Entidade* ent1, Entidade* ent2);
         void gravity(Entidade* ent1, Entidade* ent2);
         void vertexMath(vertex *rect, Entidade* ent);
         void jump(Entidade* ent);

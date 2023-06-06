@@ -219,18 +219,18 @@ namespace Gerenciador{
     }
 
     /* Efeitos causados pela colisão */
-    void Colisao::effects(Entidade* ent1, Entidade* ent2){
-        if (ent1->getDamageable() && ent2->getAttacker()) {
-            ent1->applyDamage(ent2->getDamage());
-            ent2->setAtacou();
-        }
-        if (ent1->getAttacker() && ent2->getDamageable()) {
-            ent2->applyDamage(ent1->getDamage());
-            ent1->setAtacou();
-        }
-        if (ent1->getRetardable() && !ent2->getMovable() && ent2->getRetardant())
-            ent1->applySlowness(ent2->getSlowness());
-    }
+    //void Colisao::effects(Entidade* ent1, Entidade* ent2){
+    //    if (ent1->getDamageable() && ent2->getAttacker()) {
+    //        ent1->applyDamage(ent2->getDamage());
+    //        ent2->setAtacou();
+    //    }
+    //    if (ent1->getAttacker() && ent2->getDamageable()) {
+    //        ent2->applyDamage(ent1->getDamage());
+    //        ent1->setAtacou();
+    //    }
+    //    if (ent1->getRetardable() && !ent2->getMovable() && ent2->getRetardant())
+    //        ent1->applySlowness(ent2->getSlowness());
+    //}
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){

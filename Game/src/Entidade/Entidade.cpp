@@ -265,6 +265,146 @@ Entidade* Entidade::getArma() const
 	}
 }
 
+void Entidade::setJumpedHeight(float height)
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::setColidiuBaixo()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::unsetColidiuBaixo()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::setColidiuCima()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::unsetColidiuCima()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::unsetJumped()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::setFlying()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::unsetFlying()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::setAllowJump()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+void Entidade::unsetAllowJump()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+float Entidade::getJumpedHeight()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+bool Entidade::getColidiuBaixo()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+bool Entidade::getColidiuCima()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
+bool Entidade::getFlying()
+{
+	string erro = "erro.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		//cerr << erro << endl;
+		//exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}
