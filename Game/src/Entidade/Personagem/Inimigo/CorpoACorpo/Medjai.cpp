@@ -15,7 +15,7 @@ namespace Inimigos {
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "MedjaiPA.png");
 			body.setTexture(&textura);
-			body.setSize(sf::Vector2f(80.f, 150.f));
+			body.setSize(sf::Vector2f(150.f, 250.f));
 			body.setPosition(pos);
 			pArma = new Armas::Faca(pos);
 		}

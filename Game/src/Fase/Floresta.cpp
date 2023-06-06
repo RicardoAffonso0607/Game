@@ -11,8 +11,8 @@ namespace Fases {
 		colisor = new Gerenciador::Colisao(list, ger_grafico);
 		background_texture.loadFromFile(string(IMG) + "FlorestaPA.png");
 		background.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
-		background_auxiliar.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background.setTexture(&background_texture);
+		background_auxiliar.setSize(sf::Vector2f(ger_grafico->getWindowSize()));
 		background_auxiliar.setTexture(&background_texture);
 		background_auxiliar.setPosition((float) ger_grafico->getWindowSize().x, 0.f);
 	}
@@ -66,9 +66,9 @@ namespace Fases {
 
 	void Floresta::criarInimigos()
 	{
-		Inimigos::CorpoACorpo* corpo_a_corpo = nullptr;
-		Inimigos::Disparador* disparador = nullptr;
-		Inimigos::Chefao* chefao = nullptr;
+		Inimigos::CorpoACorpos::Spartacus* corpo_a_corpo = nullptr;
+		Inimigos::Disparadores::Merlin* disparador = nullptr;
+		Inimigos::Chefoes::Nidogue* chefao = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Corpo a Corpos
 		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(900.f, 200.f));
@@ -169,7 +169,6 @@ namespace Fases {
 		retardante->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(retardante));
 
-		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3.f *(ger_grafico->getWindowSize().x)/2.f, ger_grafico->getWindowSize().y - 50.f));
 		retardante = new Obstaculos::Retardantes::Lama(sf::Vector2f(3400.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
 		retardante->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(retardante));

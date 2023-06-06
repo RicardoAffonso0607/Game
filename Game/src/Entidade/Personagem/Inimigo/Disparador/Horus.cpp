@@ -17,7 +17,7 @@ namespace Inimigos {
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "MageDesertoPA.png");
 			body.setTexture(&textura);
-			body.setSize(sf::Vector2f(100.f, 180.f));
+			body.setSize(sf::Vector2f(170.f, 240.f));
 			body.setPosition(pos);
 			fire_cast.loadFromFile(string(SFX) + "fire-cast.wav");
 			attack_instant = clock.getElapsedTime();
