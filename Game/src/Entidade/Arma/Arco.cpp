@@ -10,6 +10,8 @@ namespace Armas {
 		flecha(nullptr),
 		list_ent(list)
 	{
+		list_ent->clear();
+
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(20.f, 50.f));
 		bow_release.loadFromFile(string(SFX) + "bow-release.wav");

@@ -14,7 +14,7 @@ namespace Jogadores {
 		vel = vel_max;
 		textura.loadFromFile(string(IMG) + "Lutadora1.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(100.f, 140.f));
+		body.setSize(sf::Vector2f(150.f, 230.f));
 		body.setPosition(pos);
 	}
 

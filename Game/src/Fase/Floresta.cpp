@@ -57,15 +57,20 @@ namespace Fases {
 		Inimigos::Disparador* disparador = nullptr;
 		Inimigos::Chefao* chefao = nullptr;
 
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(560.f, 0.f));
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1100.f, 0.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
-		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f));
-		chefao->setGerGraf(ger_grafico);
-		chefao->setPlayer(j1);
-		list->push(chefao);
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1900.f, 0.f));
+		corpo_a_corpo->setGerGraf(ger_grafico);
+		corpo_a_corpo->setPlayer(j1);
+		list->push(corpo_a_corpo);
+
+		//chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f));
+		//chefao->setGerGraf(ger_grafico);
+		//chefao->setPlayer(j1);
+		//list->push(chefao);
 
 		disparador = new Inimigos::Disparadores::Merlin(sf::Vector2f(70.f, 90.f));
 		disparador->setGerGraf(ger_grafico);
@@ -75,34 +80,28 @@ namespace Fases {
 
 	void Floresta::criarObstaculos()
 	{
-		Obstaculos::Inertes::Plataforma* plat = nullptr;
-		Obstaculos::Inerte* inerte = nullptr;
+		Obstaculos::Inertes::Plataformas::Gramado* plat = nullptr;
+		Obstaculos::Danosos::ArmadilhaDeLancas* danoso = nullptr;
+		Obstaculos::Inertes::ArbustoFlorido* inerte = nullptr;
+		Obstaculos::Retardantes::Lama* retardante = nullptr;
 
-		//for (int i = 0; i < 4; i++)
-		//{
-		//	plat = new Plataformas::Gramado(sf::Vector2f((i * 630.f), 400.f));
-		//	plat->setGerGraf(ger_grafico);
-		//	list->push(static_cast<Entidade*>(plat));
-		//}
+		for (int i = 0; i < 9; i++)
+		{
+			plat = new Obstaculos::Inertes::Plataformas::Gramado (sf::Vector2f(i*600.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
+			plat->setGerGraf(ger_grafico);
+			list->push(static_cast<Entidade*>(plat));
+		}
 
-		inerte = new Obstaculos::Inertes::ArbustoFlorido(sf::Vector2f(500.f, 200.f));
-		inerte->setGerGraf(ger_grafico);
-		list->push(inerte);
-
-		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(450.f, 500.f), sf::Vector2f(600.f, 20.f));
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(800.f, ger_grafico->getWindowSize().y - 400.f), sf::Vector2f(600.f, 50.f));
 		plat->setGerGraf(ger_grafico);
-		list->push(plat);
+		list->push(static_cast<Entidade*>(plat));
 
-		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(800.f, 300.f), sf::Vector2f(600.f, 20.f));
-		plat->setGerGraf(ger_grafico);
-		list->push(plat);
+		retardante = new Obstaculos::Retardantes::Lama (sf::Vector2f(800.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
+		retardante->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(retardante));
 
-		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(0.f, 300.f), sf::Vector2f(600.f, 20.f));
-		plat->setGerGraf(ger_grafico);
-		list->push(plat);
-
-		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(770.f, 500.f), sf::Vector2f(600.f, 20.f));
-		plat->setGerGraf(ger_grafico);
-		list->push(plat);
+		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3*(ger_grafico->getWindowSize().x)/2, ger_grafico->getWindowSize().y - 50.f));
+		danoso->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(danoso));
 	}
 }
