@@ -44,3 +44,13 @@ void Arma::move()
 {
 
 }
+
+void Arma::setEntColidiu(Entidade* pauxColidiu)
+{
+	pColidiu = pauxColidiu;
+}
+
+void Arma::setColidiu()
+{
+	colidiu = true;
+}

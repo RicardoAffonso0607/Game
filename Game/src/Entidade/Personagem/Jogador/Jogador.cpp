@@ -4,7 +4,7 @@
 const bool Jogador::retardable = true;
 
 const float Jogador::jump_strength = 450.f;
-const float Jogador::gun_pos = .3f;
+const float Jogador::gun_pos = .4f;
 
 Jogador::Jogador() :
 	attacker(false),
@@ -108,20 +108,31 @@ void Jogador::move()
 
 void Jogador::attack()
 {
-	//if (attack_delay <= sf::Time::Zero) {
+	if (attack_delay <= sf::Time::Zero) {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			attacker = true;
 			pArma->attack();
 			//damage = 10;
-			//attack_delay = sf::Time::asMilliseconds(100);
+			attack_instant = clock.getElapsedTime();
+			attack_delay = sf::milliseconds(500);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			attacker = true;
-			pArma->attack();
+			attack_instant = clock.getElapsedTime();
+			attack_delay = sf::milliseconds(55);
+			int i=0, cadence = 3;
+			do{
+				if (clock.getElapsedTime() - attack_instant > attack_delay){
+					pArma->attack();
+					i++;
+					attack_instant = clock.getElapsedTime();
+				}
+			} while (i <= cadence);
 			//damage = 20;
-			//attack_delay = sf::Time::asMilliseconds(100);
+			attack_instant = clock.getElapsedTime();
+			attack_delay = sf::milliseconds(1500);
 		}
-	//}
+	}
 	//else
 		//attacker = false;
 }

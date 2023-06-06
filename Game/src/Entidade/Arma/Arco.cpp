@@ -14,6 +14,7 @@ namespace Armas {
 
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(20.f, 50.f));
+		bow_release.loadFromFile(string(SFX) + "bow-release.wav");
 	}
 
 	Arco::~Arco()
@@ -42,6 +43,8 @@ namespace Armas {
 			flecha->setDireita();
 			flecha->changePos(sf::Vector2f(flecha->getEntSize().x, .5f*body.getSize().y - flecha->getEntSize().y));
 		}
+		sfx.setBuffer(bow_release);
+		sfx.play();
 	}
 
 	bool Arco::getAttacker() const

@@ -12,6 +12,7 @@ namespace Projeteis {
 		body.setTexture(&textura);
 		body.setSize(sf::Vector2f(40.f, 15.f));
 		body.setPosition(pos);
+		arrow_hit.loadFromFile(string(SFX) + "arrow-hit.wav");
 	}
 
 	Flecha::~Flecha()
@@ -44,6 +45,8 @@ namespace Projeteis {
 			cout << "perfurou" << endl;
 			this->attack();
 			this->pColidiu = nullptr;
+			sfx.setBuffer(arrow_hit);
+			sfx.play();
 		}
 	}
 

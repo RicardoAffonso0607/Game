@@ -31,13 +31,14 @@
 
 #include "Entidade/Entidade.h"
 
+
 class Fase 
 {
 protected:
 	ListaEntidades* list;
 	static Gerenciador::Grafico* ger_grafico;
-	static Gerenciador::Eventos* ger_eventos;
 	Gerenciador::Colisao* colisor;
+	static Gerenciador::Eventos* ger_eventos;
 	sf::Texture background_texture;
 	sf::RectangleShape background;
 	sf::RectangleShape background_auxiliar;
