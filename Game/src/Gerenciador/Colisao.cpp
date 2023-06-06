@@ -239,7 +239,7 @@ namespace Gerenciador{
         if (ent->getPos().y < ger_graf->getWindowSize().y)
             ent->changePos(sf::Vector2f(0.f, ent->getMass() * ACEL_GRAV));
         else
-            ent->applyDamage(1000.f);
+            ent->applyDamage(1000);
     }
 
     /* Pulo */
