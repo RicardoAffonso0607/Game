@@ -20,7 +20,7 @@ protected:
 
 	Arma* pArma;// arma equipada
 
-	bool god_mode = true;
+	bool god_mode = false;
 
 public:
 	Jogador();

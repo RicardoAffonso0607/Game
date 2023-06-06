@@ -19,13 +19,13 @@ namespace Inimigos {
 		{
 			if (pPlayer->getPos().x < body.getPosition().x) {
 				facing_left = true;
-				pProjetil->setEsquerda();
+				//pProjetil->setEsquerda();
 				if(pPlayer->getPos().x + pPlayer->getEntSize().x < body.getPosition().x -action_radius)
 					body.move(sf::Vector2f(-vel.x, 0.f));
 			}
 			else if (pPlayer->getPos().x > body.getPosition().x) {
 				facing_left = false;
-				pProjetil->setDireita();
+				//pProjetil->setDireita();
 				if (pPlayer->getPos().x + pPlayer->getEntSize().x > body.getPosition().x +action_radius) {
 					body.move(sf::Vector2f(vel.x, 0.f));
 				}
