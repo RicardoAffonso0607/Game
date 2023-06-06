@@ -12,7 +12,7 @@ namespace Jogadores {
 	{
 		life = pl_life;
 		vel = vel_max;
-		textura.loadFromFile(string(IMG) + "teste.png");
+		textura.loadFromFile(string(IMG) + "Lutadora1.png");
 		body.setTexture(&textura);
 		body.setSize(sf::Vector2f(100.f, 140.f));
 		body.setPosition(pos);

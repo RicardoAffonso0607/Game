@@ -9,6 +9,8 @@ namespace Obstaculos {
 
 		Lama::Lama(sf::Vector2f pos, sf::Vector2f size)
 		{
+			textura.loadFromFile(string(IMG) + "LamaPA.png");
+			body.setTexture(&textura);
 			body.setPosition(pos);
 			body.setSize(size);
 		}

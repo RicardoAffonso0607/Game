@@ -8,6 +8,8 @@ namespace Projeteis {
 
 	Flecha::Flecha(sf::Vector2f pos)
 	{
+		textura.loadFromFile(string(IMG) + "Flecha.png");
+		body.setTexture(&textura);
 		body.setSize(sf::Vector2f(40.f, 15.f));
 		body.setPosition(pos);
 	}

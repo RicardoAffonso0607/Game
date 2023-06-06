@@ -13,6 +13,8 @@ namespace Inimigos {
 		{
 			life = 100;
 			vel = vel_max;
+			textura.loadFromFile(string(IMG) + "DragaoDesertoPA.png");
+			body.setTexture(&textura);
 			body.setSize(sf::Vector2f(300.f, 180.f));
 			body.setPosition(pos);
 		}

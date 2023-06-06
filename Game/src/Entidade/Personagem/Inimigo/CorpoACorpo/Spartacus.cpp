@@ -13,6 +13,8 @@ namespace Inimigos {
 		{
 			life = 50;
 			vel = vel_max;
+			textura.loadFromFile(string(IMG) + "Spartacus.png");
+			body.setTexture(&textura);
 			body.setSize(sf::Vector2f(80.f, 150.f));
 			body.setPosition(pos);
 			pArma = new Armas::Espada(pos);

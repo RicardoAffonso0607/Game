@@ -9,6 +9,8 @@ namespace Obstaculos {
 
 		Cacto::Cacto(sf::Vector2f pos)
 		{
+			textura.loadFromFile(string(IMG) + "CactoPA.png");
+			body.setTexture(&textura);
 			body.setSize(sf::Vector2f(50.f, 100.f));
 			body.setPosition(pos);
 		}
