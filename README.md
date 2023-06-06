@@ -13,7 +13,7 @@ Trabalho da disciplina Técnicas de Programação.
 
 * SO Windows 32 ou 64 bits
 * SFML 2.5.1
-* Microsoft Visual Studio 2022 (v143)
+* Microsoft Visual Studio 2022 (v143) - Compilador
 * Ferramentas Microsoft Visual C++
 * Windows Driver Kit Windows 11 22H2
 * ISO C++ 20
