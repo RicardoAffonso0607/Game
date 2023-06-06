@@ -118,10 +118,19 @@ void Jogador::attack()
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			attacker = true;
-			pArma->attack();
+			attack_instant = clock.getElapsedTime();
+			attack_delay = sf::milliseconds(55);
+			int i=0, cadence = 3;
+			do{
+				if (clock.getElapsedTime() - attack_instant > attack_delay){
+					pArma->attack();
+					i++;
+					attack_instant = clock.getElapsedTime();
+				}
+			} while (i <= cadence);
 			//damage = 20;
 			attack_instant = clock.getElapsedTime();
-			attack_delay = sf::milliseconds(800);
+			attack_delay = sf::milliseconds(1500);
 		}
 	}
 	//else
