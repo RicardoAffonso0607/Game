@@ -10,8 +10,12 @@ namespace Armas {
 		attacker(false),
 		pColidiu(nullptr)
 	{
+		textura.loadFromFile(string(IMG) + "Faca.png");
+		body.setTexture(&textura);
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(10.f, 3.f));
+		hit.loadFromFile(string(SFX) + "knife-stab.wav");
+		sfx.setBuffer(hit);
 	}
 
 	Faca::~Faca()

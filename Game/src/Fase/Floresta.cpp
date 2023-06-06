@@ -71,20 +71,21 @@ namespace Fases {
 		Inimigos::Chefao* chefao = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Corpo a Corpos
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(900.f, 200.f));
-		corpo_a_corpo->setGerGraf(ger_grafico);
-		corpo_a_corpo->setPlayer(j1);
-		list->push(corpo_a_corpo);
+		//corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(900.f, 200.f));
+		//corpo_a_corpo->setGerGraf(ger_grafico);
+		//corpo_a_corpo->setPlayer(j1);
+		//list->push(corpo_a_corpo);
 
 		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1600.f, 500.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
-		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f), list);
-		chefao->setGerGraf(ger_grafico);
-		chefao->setPlayer(j1);
-		list->push(chefao);
+		//chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(850.f, 90.f), list);
+		//chefao->setGerGraf(ger_grafico);
+		//chefao->setPlayer(j1);
+		//list->push(chefao);
+
 		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(3750.f, 0.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);

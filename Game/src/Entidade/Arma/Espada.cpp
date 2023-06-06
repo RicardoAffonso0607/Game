@@ -10,8 +10,12 @@ namespace Armas {
 		attacker(false),
 		pColidiu(nullptr)
 	{
+		textura.loadFromFile(string(IMG) + "Espada.png");
+		body.setTexture(&textura);
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(20.f, 3.f));
+		hit.loadFromFile(string(SFX) + "sword-slash.wav");
+		sfx.setBuffer(hit);
 	}
 
 	Espada::~Espada()
