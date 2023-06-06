@@ -9,11 +9,15 @@ Trabalho da disciplina Técnicas de Programação.
 * Ricardo Affonso
 * Lucas Yukio Fukuda Matsumoto
 
-## Requisitos
+## Ferramentas e Requisitos
 
 * SO Windows 32 ou 64 bits
 * SFML 2.5.1
-* Visual Studio 2022
+* Microsoft Visual Studio 2022 (v143)
+* Ferramentas Microsoft Visual C++
+* Windows Driver Kit Windows 11 22H2
+* ISO C++ 20
+* ISO C 17 (2018)
 
 ### Configurações do Projeto AgeOfWarriors.vcxproj no Visual Studio 2022
 
