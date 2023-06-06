@@ -245,8 +245,10 @@ namespace Gerenciador{
 
     /* Aceleração da gravidade */
     void Colisao::gravity(Entidade* ent){
-        if(ent->getPos().y < 1.5f*ger_graf->getWindowSize().y)
-            ent->changePos(sf::Vector2f(0.f, ent->getMass()*ACEL_GRAV));
+        if (ent->getPos().y < ger_graf->getWindowSize().y)
+            ent->changePos(sf::Vector2f(0.f, ent->getMass() * ACEL_GRAV));
+        else
+            ent->applyDamage(1000.f);
     }
 
     /* Pulo */

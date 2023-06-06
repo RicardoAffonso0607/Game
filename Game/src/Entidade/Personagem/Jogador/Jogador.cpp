@@ -108,20 +108,22 @@ void Jogador::move()
 
 void Jogador::attack()
 {
-	//if (attack_delay <= sf::Time::Zero) {
+	if (attack_delay <= sf::Time::Zero) {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			attacker = true;
 			pArma->attack();
 			//damage = 10;
-			//attack_delay = sf::Time::asMilliseconds(100);
+			attack_instant = clock.getElapsedTime();
+			attack_delay = sf::milliseconds(500);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 			attacker = true;
 			pArma->attack();
 			//damage = 20;
-			//attack_delay = sf::Time::asMilliseconds(100);
+			attack_instant = clock.getElapsedTime();
+			attack_delay = sf::milliseconds(800);
 		}
-	//}
+	}
 	//else
 		//attacker = false;
 }
