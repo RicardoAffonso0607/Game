@@ -8,7 +8,7 @@ class Jogador : public Personagem
 protected:
 	sf::String player_nickname;// apelido do jogador
 
-	static const bool retardable;// sua velocidade pode ser reduzida?
+	bool retardable;// sua velocidade pode ser reduzida?
 
 	static const float jump_strength;// altura máxima de pulo
 
@@ -28,8 +28,10 @@ protected:
 	sf::Time burst_delay = sf::milliseconds(1500);// espera entre rajadas
 	sf::Time normal_delay = sf::milliseconds(500);// espera normal entre disparos
 
+	sf::Vector2f vel_max;
+
 public:
-	Jogador();
+	Jogador(sf::Vector2f aux_vel_max);
 	virtual ~Jogador();
 
 	bool getJumped() const override;// está pulando?

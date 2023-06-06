@@ -1,16 +1,16 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
-const bool Jogador::retardable = true;
-
 const float Jogador::jump_strength = 450.f;
 const float Jogador::gun_pos = .8f;
 
-Jogador::Jogador() :
+Jogador::Jogador(sf::Vector2f aux_vel_max) :
 	attacker(false),
 	pontuacao(0),
 	player_nickname(" "),
-	pArma(nullptr)
+	pArma(nullptr),
+	retardable(true),
+	vel_max(aux_vel_max)
 {
 
 }
@@ -37,7 +37,7 @@ Jogador::~Jogador()
 
 bool Jogador::getJumped() const
 { 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) /*&& !flying*/)
 		return true;
 	else
 		return false;
@@ -62,6 +62,23 @@ Entidade* Jogador::getArma() const
 
 void Jogador::move()
 {
+	flying = true;
+	if (colidiu && pColidiu && !pColidiu->getMovable())
+	{
+		if (retardable && pColidiu->getRetardant()) {
+			
+			vel = vel_max - sf::Vector2f(pColidiu->getSlowness()*vel_max.x, 0.f);
+			retardable = false;
+		}
+		if (pColidiu->getAttacker())
+			life -= pColidiu->getDamage();
+		pColidiu = nullptr;
+		colidiu = false;
+	}
+	else {
+		retardable = true;
+		vel = vel_max;
+	}
 	sf::Listener::setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {//Direita
 		body.move(vel.x, 0.f);
@@ -75,10 +92,9 @@ void Jogador::move()
 	}
 	if (god_mode) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
-			body.move(0.f, -this->vel.y);
+			body.move(0.f, -vel.y);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
-			body.move(0.f, this->vel.y);
-		
+			body.move(0.f, vel.y);
 	}
 	//printf("%f %f %d %d %d %d %d\n",jumped_height, jump_strength, colidiu_baixo ? 1 : 0, colidiu_cima ? 1 : 0, allow_jump ? 1 : 0, jumped ? 1 : 0, flying ? 1 : 0);
 	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !jumped && allow_jump) {

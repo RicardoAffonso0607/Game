@@ -11,7 +11,9 @@ Personagem::Personagem() :
 	facing_left(false),
 	vel(sf::Vector2f(0.f, 0.f)),
 	attack_instant(sf::Time::Zero),
-	life(0)
+	life(0),
+	pColidiu(nullptr),
+	colidiu(false)
 {
 	sf::Clock clock_ini;
 	clock = clock_ini;
@@ -83,4 +85,14 @@ void Personagem::setEsquerda()
 bool Personagem::getJumped() const
 {
 	return jumped;
+}
+
+void Personagem::setEntColidiu(Entidade* pauxColidiu)
+{
+	pColidiu = pauxColidiu;
+}
+
+void Personagem::setColidiu()
+{
+	colidiu = true;
 }

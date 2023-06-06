@@ -18,11 +18,13 @@ protected:
 	static const bool movable;// se move?
 	static const bool damageable;// é danificável?
 	static const bool ghost;// é atravessável por objetos?
-	
 
 	bool facing_left;// olhando pra esquerda?
 	bool attacker;// pode atacar?
 	bool atacou;// atacou recentemente?
+	bool colidiu;
+
+	Entidade* pColidiu;
 
 public:
 	Personagem();
@@ -44,7 +46,8 @@ public:
 	void setAtacou() override;// informa que atacou recentemente
 	void setDireita() override;// olhar pra direita
 	void setEsquerda() override;// olhar pra esquerda
-
+	void setEntColidiu(Entidade* pauxColidiu) override;// ponteiro se encostou em cima de algo não inerte
+	void setColidiu() override;// encostou em cima de algo não inerte
 
 	//void events() /*override*/;
 };

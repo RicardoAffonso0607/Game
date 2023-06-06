@@ -71,10 +71,10 @@ namespace Fases {
 		Inimigos::Chefoes::Nidogue* chefao = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Corpo a Corpos
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(900.f, 200.f));
-		corpo_a_corpo->setGerGraf(ger_grafico);
-		corpo_a_corpo->setPlayer(j1);
-		list->push(corpo_a_corpo);
+		//corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(900.f, 200.f));
+		//corpo_a_corpo->setGerGraf(ger_grafico);
+		//corpo_a_corpo->setPlayer(j1);
+		//list->push(corpo_a_corpo);
 
 		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1600.f, 500.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);

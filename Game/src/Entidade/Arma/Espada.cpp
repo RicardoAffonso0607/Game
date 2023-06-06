@@ -10,8 +10,14 @@ namespace Armas {
 		attacker(false),
 		pColidiu(nullptr)
 	{
+		textura.loadFromFile(string(IMG) + "Espada.png");
+		body.setTexture(&textura);
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(20.f, 3.f));
+		swoosh.loadFromFile(string(SFX) + "sword-swoosh.wav");
+		sfx.setBuffer(swoosh);
+		hit.loadFromFile(string(SFX) + "sword-hit.wav");
+		sfx2.setBuffer(hit);
 	}
 
 	Espada::~Espada()
@@ -21,11 +27,6 @@ namespace Armas {
 	bool Espada::getAttacker() const
 	{
 		return attacker;
-	}
-
-	void Espada::setAttacker()
-	{
-		attacker = true;
 	}
 
 	int Espada::getDamage() const
@@ -40,12 +41,15 @@ namespace Armas {
 
 	void Espada::attack()
 	{
-		if (colidiu && attacker)
-		{
-			if (pColidiu->getDamageable()) {
-				pColidiu->applyDamage(damage);
-				attacker = false;
-			}
+		sfx.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
+		sfx2.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
+		if (colidiu && pColidiu && pColidiu->getDamageable()) {
+			pColidiu->applyDamage(damage);
+			sfx.play();
 		}
+		else
+			sfx2.play();
+		colidiu = false;
+		pColidiu = nullptr;
 	}
 }
