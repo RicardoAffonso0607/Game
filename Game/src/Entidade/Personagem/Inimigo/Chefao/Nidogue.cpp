@@ -15,7 +15,7 @@ namespace Inimigos {
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "DragaoFlorestaPA.png");
 			body.setTexture(&textura);
-			body.setSize(sf::Vector2f(300.f, 180.f));
+			body.setSize(sf::Vector2f(400.f, 500.f));
 			body.setPosition(pos);
 		}
 

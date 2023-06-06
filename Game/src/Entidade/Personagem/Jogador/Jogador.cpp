@@ -36,7 +36,10 @@ Jogador::~Jogador()
 
 bool Jogador::getJumped() const
 { 
-	return jumped;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		return true;
+	else
+		return false;
 }
 
 bool Jogador::getRetardable() const

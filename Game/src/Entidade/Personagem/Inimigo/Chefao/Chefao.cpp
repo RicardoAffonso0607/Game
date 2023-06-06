@@ -15,6 +15,7 @@ namespace Inimigos {
 
 	void Chefao::move()
 	{
+		/*
 		if (!pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - 3 * body.getSize().y && pPlayer->getPos().y < body.getPosition().y + 4 * body.getSize().y)
 		{
 			if (pPlayer->getPos().x < body.getPosition().x) {
@@ -28,6 +29,7 @@ namespace Inimigos {
 				body.move(sf::Vector2f(vel.x, 0.f));
 			}
 		}
+		*/
 	}
 
 	void Chefao::attack()
