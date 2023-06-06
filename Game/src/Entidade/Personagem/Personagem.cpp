@@ -14,7 +14,7 @@ Personagem::Personagem() :
 	flying(false),
 	facing_left(false),
 	jumped(false),
-	jumped_height(0.f),
+	jumped_height(10.f),
 	vel(sf::Vector2f(0.f, 0.f)),
 	attack_instant(sf::Time::Zero),
 	life(0)

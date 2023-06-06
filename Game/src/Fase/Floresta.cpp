@@ -57,7 +57,12 @@ namespace Fases {
 		Inimigos::Disparador* disparador = nullptr;
 		Inimigos::Chefao* chefao = nullptr;
 
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(560.f, 0.f));
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1100.f, 0.f));
+		corpo_a_corpo->setGerGraf(ger_grafico);
+		corpo_a_corpo->setPlayer(j1);
+		list->push(corpo_a_corpo);
+
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1900.f, 0.f));
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
@@ -77,7 +82,8 @@ namespace Fases {
 	{
 		Obstaculos::Inertes::Plataformas::Gramado* plat = nullptr;
 		Obstaculos::Danosos::ArmadilhaDeLancas* danoso = nullptr;
-		Obstaculos::Inertes::ArbustoFlorido* inerte1 = nullptr;
+		Obstaculos::Inertes::ArbustoFlorido* inerte = nullptr;
+		Obstaculos::Retardantes::Lama* retardante = nullptr;
 
 		for (int i = 0; i < 9; i++)
 		{
@@ -86,6 +92,16 @@ namespace Fases {
 			list->push(static_cast<Entidade*>(plat));
 		}
 
-		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(600.f, ger_grafico->getWindowSize().y - 50.f));
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(800.f, ger_grafico->getWindowSize().y - 400.f), sf::Vector2f(600.f, 50.f));
+		plat->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(plat));
+
+		retardante = new Obstaculos::Retardantes::Lama (sf::Vector2f(800.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
+		retardante->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(retardante));
+
+		danoso = new Obstaculos::Danosos::ArmadilhaDeLancas (sf::Vector2f(3*(ger_grafico->getWindowSize().x)/2, ger_grafico->getWindowSize().y - 50.f));
+		danoso->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(danoso));
 	}
 }

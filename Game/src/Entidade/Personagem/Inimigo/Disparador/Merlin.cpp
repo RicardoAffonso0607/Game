@@ -15,7 +15,7 @@ namespace Inimigos {
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "Mage.png");
 			body.setTexture(&textura);
-			body.setSize(sf::Vector2f(100.f, 180.f));
+			body.setSize(sf::Vector2f(170.f, 240.f));
 			body.setPosition(pos);
 		}
 
