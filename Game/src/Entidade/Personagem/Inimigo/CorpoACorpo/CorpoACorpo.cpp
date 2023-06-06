@@ -28,6 +28,7 @@ namespace Inimigos {
 				body.move(sf::Vector2f(vel.x, 0.f));
 			}
 		}
+		*/
 	}
 
 	void CorpoACorpo::attack()
