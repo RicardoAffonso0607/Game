@@ -5,6 +5,7 @@
 const bool Arma::damageable = false;// danificável?
 const bool Arma::ghost = true;// atravessa objetos?
 const bool Arma::movable = false;// é móvel?
+const bool Arma::retardant = false;// é retardante?
 
 Arma::Arma() :
 	facing_left(false)
@@ -53,4 +54,9 @@ void Arma::setEntColidiu(Entidade* pauxColidiu)
 void Arma::setColidiu()
 {
 	colidiu = true;
+}
+
+bool Arma::getRetardant() const
+{
+	return retardant;
 }

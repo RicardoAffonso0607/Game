@@ -8,7 +8,7 @@ namespace Jogadores {
 
 	const sf::Vector2f Ninja::vel_max = sf::Vector2f(12.f, 15.f);
 
-	Ninja::Ninja(sf::Vector2f pos, int pl_life)
+	Ninja::Ninja(sf::Vector2f pos, int pl_life) : Jogador(vel_max)
 	{
 		life = pl_life;
 		vel = vel_max;

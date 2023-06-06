@@ -8,7 +8,7 @@ namespace Jogadores {
 
 	const sf::Vector2f Lutadora::vel_max = sf::Vector2f(12.f, 15.f);
 
-	Lutadora::Lutadora(sf::Vector2f pos, int pl_life)
+	Lutadora::Lutadora(sf::Vector2f pos, int pl_life) : Jogador(vel_max)
 	{
 		life = pl_life;
 		vel = vel_max;

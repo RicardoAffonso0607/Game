@@ -8,6 +8,7 @@ protected:
 	static const bool damageable;// danificável?
 	static const bool ghost;// atravessa objetos?
 	static const bool movable;// é móvel?
+	static const bool retardant;// é retardante?
 
 	bool facing_left;
 	float mass = .1f;
@@ -34,4 +35,6 @@ public:
 	void setEntColidiu(Entidade* pauxColidiu) override;
 
 	void setColidiu() override;
+
+	bool getRetardant() const override;
 };
