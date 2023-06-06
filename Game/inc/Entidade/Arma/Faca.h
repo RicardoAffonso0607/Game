@@ -14,6 +14,12 @@ namespace Armas {
 
 		Entidade* pColidiu;
 
+		sf::SoundBuffer swoosh;
+
+		sf::SoundBuffer hit;
+
+		sf::Sound sfx2;
+
 	public:
 		Faca(sf::Vector2f pos);
 		~Faca();
@@ -25,6 +31,5 @@ namespace Armas {
 		unsigned int getId() const override;// id?
 
 		void attack() override;// ataca
-		void setAttacker()/* override*/;// atacar
 	};
 }

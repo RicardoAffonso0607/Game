@@ -18,18 +18,11 @@ namespace Gerenciador{
         int i, j;//ent1=móvel ent2=fixo ou móvel
         for (i = 0; i < list_ent->getSize(); i++) {
             if (list_ent->getEntity(i)->getMovable()) {
-                list_ent->getEntity(i)->setFlying();
                 for (j = 0; j < list_ent->getSize(); j++)
                     if (j != i){
-                        //if (list_ent->getEntity(i)->getGhost())
-                        //    list_ent->getEntity(i)->colidiu = false;
-                        //if(list_ent->getEntity(j)->getGhost())
-                        //    list_ent->getEntity(j)->colidiu = false;
                         collide(list_ent->getEntity(i), list_ent->getEntity(j));
-                       ////cout<< list_ent->getEntity(i)->getId()<<list_ent->getEntity(j)->getId()<<endl;
                     }
                 if (list_ent->getEntity(i)->getFlying()) {
-                    //printf("acionou gravidade\n");
                     gravity(list_ent->getEntity(i));
                     list_ent->getEntity(i)->unsetAllowJump();
                 }

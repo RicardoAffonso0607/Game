@@ -37,7 +37,7 @@ Jogador::~Jogador()
 
 bool Jogador::getJumped() const
 { 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) /*&& !flying*/)
 		return true;
 	else
 		return false;
@@ -62,10 +62,9 @@ Entidade* Jogador::getArma() const
 
 void Jogador::move()
 {
-	cout << vel.x << endl;
+	flying = true;
 	if (colidiu && pColidiu && !pColidiu->getMovable())
 	{
-		cout << "entrou" << endl;
 		if (retardable && pColidiu->getRetardant()) {
 			
 			vel = vel_max - sf::Vector2f(pColidiu->getSlowness()*vel_max.x, 0.f);

@@ -14,8 +14,10 @@ namespace Armas {
 		body.setTexture(&textura);
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(10.f, 3.f));
-		hit.loadFromFile(string(SFX) + "knife-stab.wav");
-		sfx.setBuffer(hit);
+		swoosh.loadFromFile(string(SFX) + "knife-swoosh.wav");
+		sfx.setBuffer(swoosh);
+		hit.loadFromFile(string(SFX) + "knife-hit.wav");
+		sfx2.setBuffer(hit);
 	}
 
 	Faca::~Faca()
@@ -25,11 +27,6 @@ namespace Armas {
 	bool Faca::getAttacker() const
 	{
 		return attacker;
-	}
-
-	void Faca::setAttacker()
-	{
-		attacker = true;
 	}
 
 	int Faca::getDamage() const
@@ -44,12 +41,15 @@ namespace Armas {
 
 	void Faca::attack()
 	{
-		if (colidiu && attacker)
-		{
-			if (pColidiu->getDamageable()) {
-				pColidiu->applyDamage(damage);
-				attacker = false;
-			}
+		sfx.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
+		sfx2.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
+		if (colidiu && pColidiu && pColidiu->getDamageable()) {
+			pColidiu->applyDamage(damage);
+			sfx.play();
 		}
+		else
+			sfx2.play();
+		colidiu = false;
+		pColidiu = nullptr;
 	}
 }
