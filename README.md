@@ -15,7 +15,7 @@ Trabalho da disciplina Técnicas de Programação.
 * SFML 2.5.1
 * Visual Studio 2022
 
-## Configurações do Projeto AgeOfWarriors.vcxproj no Visual Studio 2022
+### Configurações do Projeto AgeOfWarriors.vcxproj no Visual Studio 2022
 
 Selecionar
 
