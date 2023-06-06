@@ -11,7 +11,7 @@ namespace Obstaculos {
 		{
 			textura.loadFromFile(string(IMG) + "LancaPA.png");
 			body.setTexture(&textura);
-			body.setSize(sf::Vector2f(100.f, 100.f));
+			body.setSize(sf::Vector2f(250.f, 250.f));
 			body.setPosition(pos);
 		}
 

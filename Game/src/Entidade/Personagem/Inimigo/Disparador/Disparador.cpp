@@ -15,6 +15,7 @@ namespace Inimigos {
 
 	void Disparador::move()
 	{
+		/*
 		if (!pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - action_radius && pPlayer->getPos().y < body.getPosition().y + action_radius)
 		{
 			if (pPlayer->getPos().x < body.getPosition().x) {
@@ -31,6 +32,7 @@ namespace Inimigos {
 				}
 			}
 		}
+		*/
 	}
 
 	void Disparador::attack()
