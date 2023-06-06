@@ -18,6 +18,7 @@ namespace Gerenciador{
         int i, j;//ent1=móvel ent2=fixo ou móvel
         for (i = 0; i < list_ent->getSize(); i++) {
             if (list_ent->getEntity(i)->getMovable()) {
+                list_ent->getEntity(i)->setFlying();
                 for (j = 0; j < list_ent->getSize(); j++)
                     if (j != i){
                         collide(list_ent->getEntity(i), list_ent->getEntity(j));
