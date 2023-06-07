@@ -50,11 +50,15 @@ int Projetil::getLife() const
 void Projetil::setEsquerda()
 {
 	facing_left = true;
+	body.setOrigin(body.getSize().x, 0.f);
+	body.setScale(-1.f, 1.f);
 }
 
 void Projetil::setDireita()
 {
 	facing_left = false;
+	body.setOrigin(0.f, 0.f);
+	body.setScale(1.f, 1.f);
 }
 
 void Projetil::setEntColidiu(Entidade* pauxColidiu)

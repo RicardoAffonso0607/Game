@@ -40,11 +40,15 @@ namespace Jogadores {
 			body.move(vel.x, 0.f);
 			facing_left = false;
 			sf::Listener::setDirection(1.f, 0.f, 0.f);
+			body.setOrigin(0.f, 0.f);
+			body.setScale(1.f,1.f);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {//Esquerda
 			body.move(-vel.x, 0.f);
 			facing_left = true;
 			sf::Listener::setDirection(-1.f, 0.f, 0.f);
+			body.setOrigin(body.getSize().x, 0.f);
+			body.setScale(-1.f, 1.f);
 		}
 		if (god_mode) {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))//Cima

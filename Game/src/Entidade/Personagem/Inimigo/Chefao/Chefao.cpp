@@ -26,11 +26,15 @@ namespace Inimigos {
 		{
 			if (pPlayer->getPos().x < body.getPosition().x) {
 				facing_left = true;
+				body.setOrigin(body.getSize().x, 0.f);
+				body.setScale(-1.f, 1.f);
 				if (pPlayer->getPos().x + pPlayer->getEntSize().x < body.getPosition().x - action_radius)
 					body.move(sf::Vector2f(-vel.x, 0.f));
 			}
 			else if (pPlayer->getPos().x > body.getPosition().x) {
 				facing_left = false;
+				body.setOrigin(0.f, 0.f);
+				body.setScale(1.f, 1.f);
 				if (pPlayer->getPos().x + pPlayer->getEntSize().x > body.getPosition().x + action_radius)
 					body.move(sf::Vector2f(vel.x, 0.f));
 			}
