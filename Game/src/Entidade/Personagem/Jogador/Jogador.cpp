@@ -12,7 +12,6 @@ Jogador::Jogador(sf::Vector2f aux_vel_max) :
 	retardable(true),
 	vel_max(aux_vel_max)
 {
-
 }
 
 Jogador::~Jogador()
@@ -34,8 +33,6 @@ Jogador::~Jogador()
 //		}
 //	}
 //}
-
-
 
 bool Jogador::getRetardable() const
 {
