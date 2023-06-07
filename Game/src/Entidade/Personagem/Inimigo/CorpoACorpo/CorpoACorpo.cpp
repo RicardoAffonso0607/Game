@@ -36,7 +36,7 @@ namespace Inimigos {
 			pArma->setDireita();
 			pArma->setEntPos(body.getPosition() + sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
 		}
-		//pArma->resetRot();
+		pArma->resetRot();
 		if (fabs(pPlayer->getPos().x - body.getPosition().x-.5f*body.getSize().x) <= attack_radius && fabs(pPlayer->getPos().y - body.getPosition().y - .5f * body.getSize().y) <= attack_radius)
 			attack();
 	}
