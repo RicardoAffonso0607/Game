@@ -12,7 +12,7 @@ namespace Inimigos {
 		static const bool retardable;// é retardável?
 
 		static const float action_radius;// raio de ação
-		static const float cast_height;// altura do disparo
+		float cast_height = .8f;// altura do disparo
 
 		static const int cadence;// cadência do ataque múltiplo
 

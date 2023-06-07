@@ -128,6 +128,7 @@ void Jogador::attack_burst()
 			if (clock.getElapsedTime() - attack_instant > attack_delay) {
 				pArma->attack();
 				i++;
+				pArma->changePos(sf::Vector2f(0.f, -30.f));
 				attack_instant = clock.getElapsedTime();
 			}
 		} while (i <= cadence);

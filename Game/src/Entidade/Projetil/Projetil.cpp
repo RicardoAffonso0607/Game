@@ -8,7 +8,7 @@ const bool Projetil::ghost = true;// atravessa objetos?
 
 const sf::Vector2f Projetil::vel = sf::Vector2f(60.f, 0.f);// velocidade
 
-const float Projetil::mass = .3f;// massa
+const float Projetil::mass = .6f;// massa
 
 Projetil::Projetil() :
 	colidiu(false),

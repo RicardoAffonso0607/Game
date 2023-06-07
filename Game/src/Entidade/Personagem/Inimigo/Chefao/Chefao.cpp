@@ -5,7 +5,6 @@ namespace Inimigos {
 	const bool Chefao::retardable = false;
 
 	const float Chefao::action_radius = 2000.f;// raio de ação
-	const float Chefao::cast_height = .6f;// altura do disparo
 
 	const int Chefao::cadence = 2;// cadência do ataque múltiplo
 
@@ -45,8 +44,10 @@ namespace Inimigos {
 							attack();
 							i++;
 							attack_instant = clock.getElapsedTime();
+							cast_height -= .2f;
 						}
 					} while (i <= cadence);
+					cast_height = .8f;
 					attack_instant = clock.getElapsedTime();
 					attack_delay = burst_delay;
 				}
