@@ -8,7 +8,8 @@ const bool Arma::movable = false;// é móvel?
 const bool Arma::retardant = false;// é retardante?
 
 Arma::Arma() :
-	facing_left(false)
+	facing_left(false),
+	pColidiu(nullptr)
 {
 }
 
@@ -48,12 +49,12 @@ void Arma::move()
 
 void Arma::setEntColidiu(Entidade* pauxColidiu)
 {
-	pColidiu = pauxColidiu;
+	this->pColidiu = pauxColidiu;
 }
 
 void Arma::setColidiu()
 {
-	colidiu = true;
+	this->colidiu = true;
 }
 
 bool Arma::getRetardant() const

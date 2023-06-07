@@ -62,6 +62,7 @@ public:
 	virtual void setGun(Entidade* gun);// pega uma arma
 	virtual void setEntColidiu(Entidade* pauxColidiu);// passa o ponteiro de no que colidiu
 	virtual void setColidiu();// informa que colidiu com algo
+	virtual void resetRot();// reseta rotação da arma
 
 	virtual void setJumpedHeight(float height);
 	virtual void setColidiuBaixo();

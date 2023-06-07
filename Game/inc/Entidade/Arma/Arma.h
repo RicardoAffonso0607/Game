@@ -12,7 +12,8 @@ protected:
 
 	bool facing_left;
 	float mass = .1f;
-	Entidade* pColidiu = nullptr;
+	
+	Entidade* pColidiu;
 	bool colidiu = false;
 
 public:
@@ -23,8 +24,6 @@ public:
 	bool getGhost() const override;// atravessa objetos?
 	bool getMovable() const override;// é móvel?
 
-	//void move() override;// se move
-	//void rotacionar() override;// rotaciona o corpo
 	void setDireita() override;// mira pra direita
 	void setEsquerda() override;// mira pra esquerda
 
@@ -37,4 +36,6 @@ public:
 	void setColidiu() override;
 
 	bool getRetardant() const override;
+
+	
 };

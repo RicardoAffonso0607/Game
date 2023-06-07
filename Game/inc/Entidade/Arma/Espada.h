@@ -12,9 +12,7 @@ namespace Armas {
 
 		bool attacker;
 
-		Entidade* pColidiu;
-
-		sf::SoundBuffer swoosh;
+		sf::SoundBuffer slash;
 
 		sf::SoundBuffer hit;
 
@@ -33,5 +31,7 @@ namespace Armas {
 		unsigned int getId() const override;// id?
 
 		void attack() override;// ataca
+
+		void resetRot() override;
 	};
 }

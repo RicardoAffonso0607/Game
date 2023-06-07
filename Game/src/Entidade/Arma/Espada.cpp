@@ -2,20 +2,19 @@
 #include "Entidade/Arma/Espada.h"
 
 namespace Armas {
-	const int Espada::damage = 30;// dano que causa
+	const int Espada::damage = 5;// dano que causa
 	
 	const unsigned int Espada::id = 93;
 
 	Espada::Espada(sf::Vector2f pos) :
-		attacker(false),
-		pColidiu(nullptr)
+		attacker(false)
 	{
 		textura.loadFromFile(string(IMG) + "Espada.png");
 		body.setTexture(&textura);
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(40.f, 130.f));
-		swoosh.loadFromFile(string(SFX) + "sword-slash.wav");
-		sfx.setBuffer(swoosh);
+		slash.loadFromFile(string(SFX) + "sword-slash.wav");
+		sfx.setBuffer(slash);
 		hit.loadFromFile(string(SFX) + "sword-hit.wav");
 		sfx2.setBuffer(hit);
 		if (facing_left)
@@ -54,13 +53,22 @@ namespace Armas {
 			angle = 40.f;
 		sfx.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 		sfx2.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
-		if (colidiu && pColidiu && pColidiu->getDamageable()) {
-			pColidiu->applyDamage(damage);
-			sfx.play();
+		cout << (this->pColidiu ? 1 : 0) << endl;
+		if (this->colidiu && this->pColidiu && this->pColidiu->getDamageable()) {
+			this->pColidiu->applyDamage(damage);
+			sfx2.play();
+			this->colidiu = false;
+			this->pColidiu = nullptr;
 		}
 		else
-			sfx2.play();
-		colidiu = false;
-		pColidiu = nullptr;
+			sfx.play();
+	}
+
+	void Espada::resetRot()
+	{
+		if (facing_left)
+			body.setRotation(-angle);
+		else
+			body.setRotation(angle);
 	}
 }
