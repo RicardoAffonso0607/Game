@@ -62,6 +62,14 @@ namespace Fases {
 		list->push(j1);
 		arma->setGerGraf(ger_grafico);
 		list->push(arma);
+
+		j2 = new Jogadores::Ninja(sf::Vector2f(300.f, 600.f), 50);
+		//ger_eventos->setJogador(j1);
+		j2->setGun(arma = new Armas::Espada(sf::Vector2f(300.f, 10.f)));
+		j2->setGerGraf(ger_grafico);
+		list->push(j2);
+		arma->setGerGraf(ger_grafico);
+		list->push(arma);
 	}
 
 	void Floresta::criarInimigos()

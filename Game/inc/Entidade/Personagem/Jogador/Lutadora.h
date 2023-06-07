@@ -19,5 +19,10 @@ namespace Jogadores {
 		unsigned int getId() const override;
 
 		float getMass() const override;
+
+		void move() override;
+		void attack() override;
+
+		bool getJumped() const override;// está pulando?
 	};
 }

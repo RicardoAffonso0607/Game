@@ -50,4 +50,8 @@ namespace Armas {
 	{
 		return attacker;
 	}
+
+	void Arco::resetRot()
+	{
+	}
 }

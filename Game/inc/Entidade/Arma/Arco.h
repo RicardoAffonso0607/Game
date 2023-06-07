@@ -29,5 +29,7 @@ namespace Armas {
 		void attack() override;// atacar
 
 		bool getAttacker() const override;// é atacante?
+
+		void resetRot() override;
 	};
 }

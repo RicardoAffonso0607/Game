@@ -49,12 +49,12 @@ void Arma::move()
 
 void Arma::setEntColidiu(Entidade* pauxColidiu)
 {
-	this->pColidiu = pauxColidiu;
+	pColidiu = pauxColidiu;
 }
 
 void Arma::setColidiu()
 {
-	this->colidiu = true;
+	colidiu = true;
 }
 
 bool Arma::getRetardant() const

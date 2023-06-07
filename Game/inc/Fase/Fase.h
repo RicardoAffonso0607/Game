@@ -42,7 +42,7 @@ protected:
 	sf::Texture background_texture;
 	sf::RectangleShape background;
 	sf::RectangleShape background_auxiliar;
-	Jogador* j1;
+	Jogador* j1, *j2;
 	Arma* arma;
 
 public:

@@ -33,4 +33,41 @@ namespace Jogadores {
 			mass = 0.f;
 		return mass;
 	}
+
+	void Ninja::move()
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {//Direita
+			body.move(vel.x, 0.f);
+			facing_left = false;
+			sf::Listener::setDirection(1.f, 0.f, 0.f);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {//Esquerda
+			body.move(-vel.x, 0.f);
+			facing_left = true;
+			sf::Listener::setDirection(-1.f, 0.f, 0.f);
+		}
+		if (god_mode) {
+			if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima
+				body.move(0.f, -vel.y);
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))//Baixo
+				body.move(0.f, vel.y);
+		}
+		executar();
+	}
+
+	bool Ninja::getJumped() const
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) /*&& !flying*/)
+			return true;
+		else
+			return false;
+	}
+
+	void Ninja::attack()
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+			attack_single();
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+			attack_burst();
+	}
 }

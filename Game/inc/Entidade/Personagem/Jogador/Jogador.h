@@ -34,17 +34,16 @@ public:
 	Jogador(sf::Vector2f aux_vel_max);
 	virtual ~Jogador();
 
-	bool getJumped() const override;// está pulando?
-
 	bool getRetardable() const override;// sua velocidade pode ser reduzida?
 
 	float getJumpStrength() const override;// altura máxima de pulo?
 
-	void move() override;// ações de movimento
-	void attack() override;// ações de ataque
+	void executar();// ações
 	void setAttacker(int i) /*override*/;
 	void events() /*override*/;
 	void setGun(Entidade* gun) override;// equipa uma arma
 	bool getGodMode() const override;
 	Entidade* getArma() const override;
+	void attack_single();
+	void attack_burst();
 };

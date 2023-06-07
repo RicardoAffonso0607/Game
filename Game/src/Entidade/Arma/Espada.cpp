@@ -53,12 +53,11 @@ namespace Armas {
 			angle = 40.f;
 		sfx.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 		sfx2.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
-		cout << (this->pColidiu ? 1 : 0) << endl;
-		if (this->colidiu && this->pColidiu && this->pColidiu->getDamageable()) {
-			this->pColidiu->applyDamage(damage);
+		if (colidiu && pColidiu && pColidiu->getDamageable()) {
+			pColidiu->applyDamage(damage);
 			sfx2.play();
-			this->colidiu = false;
-			this->pColidiu = nullptr;
+			colidiu = false;
+			pColidiu = nullptr;
 		}
 		else
 			sfx.play();
