@@ -55,10 +55,10 @@ namespace Armas {
 		sfx2.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 		if (colidiu && pColidiu && pColidiu->getDamageable()) {
 			pColidiu->applyDamage(damage);
-			sfx.play();
+			sfx2.play();
 		}
 		else
-			sfx2.play();
+			sfx.play();
 		colidiu = false;
 		pColidiu = nullptr;
 	}
