@@ -11,7 +11,7 @@ namespace Inimigos {
 
 		static const bool retardable;// é retardável?
 
-		static const float action_radius;// raio de ação
+		static const float attack_radius;// raio de ação
 		static const float cast_height;// altura do disparo
 
 		static const sf::Time attack_delay;// tempo entre disparos

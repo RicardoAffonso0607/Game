@@ -9,7 +9,7 @@ namespace Inimigos {
 
 		const sf::Vector2f Medjai::vel_max = sf::Vector2f(2.f, 15.f);
 
-		Medjai::Medjai(sf::Vector2f pos)
+		Medjai::Medjai(sf::Vector2f pos, ListaEntidades* list_ent)
 		{
 			life = 20;
 			vel = vel_max;
@@ -18,6 +18,17 @@ namespace Inimigos {
 			body.setSize(sf::Vector2f(150.f, 250.f));
 			body.setPosition(pos);
 			pArma = new Armas::Faca(pos);
+			pArma->setGerGraf(pGerGraf);
+			list_ent->push(pArma);
+			if (facing_left) {
+				pArma->setEsquerda();
+				pArma->setEntPos(body.getPosition() + sf::Vector2f(-pArma->getEntSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+			}
+			else {
+				pArma->setDireita();
+				pArma->setEntPos(body.getPosition() + sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+			}
+			attack_radius = .5f * body.getSize().x + pArma->getEntSize().y + 100.f;
 		}
 
 		Medjai::~Medjai()

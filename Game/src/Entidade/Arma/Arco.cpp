@@ -12,7 +12,7 @@ namespace Armas {
 		flecha(nullptr),
 		list_ent(list)
 	{
-		textura.loadFromFile(string(IMG) + "bow.png");
+		textura.loadFromFile(string(IMG) + "Arco.png");
 		body.setTexture(&textura);
 		body.setPosition(pos);
 		body.setSize(sf::Vector2f(60.f, 200.f));

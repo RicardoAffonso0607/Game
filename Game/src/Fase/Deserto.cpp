@@ -71,24 +71,24 @@ namespace Fases {
 		Inimigos::Chefoes::Apofis* chefao = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Corpo a Corpos
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(900.f, 200.f));
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(900.f, 200.f), list);
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(1600.f, 500.f));
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(1600.f, 500.f), list);
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(3750.f, 0.f));
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(3750.f, 0.f), list);
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
 		if ((rand() % 10) >= 5) // Aleatório
 		{
-			corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(6300.f, 0.f));
+			corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(6300.f, 0.f), list);
 			corpo_a_corpo->setGerGraf(ger_grafico);
 			corpo_a_corpo->setPlayer(j1);
 			list->push(corpo_a_corpo);

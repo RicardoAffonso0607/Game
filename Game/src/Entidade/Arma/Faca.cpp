@@ -2,7 +2,7 @@
 #include "Entidade/Arma/Faca.h"
 
 namespace Armas {
-	const int Faca::damage = 2;// dano que causa
+	const int Faca::damage = 20;// dano que causa
 
 	const unsigned int Faca::id = 92;
 
@@ -13,11 +13,15 @@ namespace Armas {
 		textura.loadFromFile(string(IMG) + "Faca.png");
 		body.setTexture(&textura);
 		body.setPosition(pos);
-		body.setSize(sf::Vector2f(10.f, 3.f));
-		swoosh.loadFromFile(string(SFX) + "knife-swoosh.wav");
+		body.setSize(sf::Vector2f(60.f, 100.f));
+		swoosh.loadFromFile(string(SFX) + "knife-slash.wav");
 		sfx.setBuffer(swoosh);
 		hit.loadFromFile(string(SFX) + "knife-hit.wav");
 		sfx2.setBuffer(hit);
+		if (facing_left)
+			body.setRotation(angle);
+		else
+			body.setRotation(-angle);
 	}
 
 	Faca::~Faca()
@@ -41,6 +45,13 @@ namespace Armas {
 
 	void Faca::attack()
 	{
+		if (facing_left)
+			body.setRotation(-angle);
+		else
+			body.setRotation(angle);
+		angle += 20.f;
+		if (angle > 60.f)
+			angle = 40.f;
 		sfx.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 		sfx2.setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
 		if (colidiu && pColidiu && pColidiu->getDamageable()) {

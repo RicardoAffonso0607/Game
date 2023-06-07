@@ -20,6 +20,8 @@ namespace Armas {
 
 		sf::Sound sfx2;
 
+		float angle = 40.f;
+
 	public:
 		Faca(sf::Vector2f pos);
 		~Faca();

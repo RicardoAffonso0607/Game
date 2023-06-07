@@ -20,6 +20,8 @@ namespace Armas {
 
 		sf::Sound sfx2;
 
+		float angle = 40.f;
+
 	public:
 		Espada(sf::Vector2f pos);
 		~Espada();

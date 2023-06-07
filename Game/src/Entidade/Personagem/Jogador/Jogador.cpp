@@ -88,7 +88,7 @@ void Jogador::move()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {//Esquerda
 		body.move(-vel.x, 0.f);
 		facing_left = true;
-		sf::Listener::setDirection(1.f, 0.f, 0.f);
+		sf::Listener::setDirection(-1.f, 0.f, 0.f);
 	}
 	if (god_mode) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))//Cima

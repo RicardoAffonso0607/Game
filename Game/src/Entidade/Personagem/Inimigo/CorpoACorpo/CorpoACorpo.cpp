@@ -5,8 +5,10 @@ namespace Inimigos {
 	const bool CorpoACorpo::retardable = true;
 
 	CorpoACorpo::CorpoACorpo() :
-		pArma(nullptr)
+		pArma(nullptr),
+		attack_radius(0)
 	{
+		
 	}
 
 	CorpoACorpo::~CorpoACorpo()
@@ -15,23 +17,35 @@ namespace Inimigos {
 
 	void CorpoACorpo::move()
 	{
-		if (pPlayer && !pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - 3 * body.getSize().y && pPlayer->getPos().y < body.getPosition().y + 4 * body.getSize().y)
+		if (pPlayer && !pPlayer->getGodMode() && pPlayer->getPos().y > body.getPosition().y - sensor_radius && pPlayer->getPos().y < body.getPosition().y + body.getSize().y + sensor_radius)
 		{
 			if (pPlayer->getPos().x < body.getPosition().x) {
 				facing_left = true;
-				pArma->setEsquerda();
 				body.move(sf::Vector2f(-vel.x, 0.f));
 			}
 			else if (pPlayer->getPos().x > body.getPosition().x) {
 				facing_left = false;
-				pArma->setDireita();
 				body.move(sf::Vector2f(vel.x, 0.f));
 			}
 		}
+		if (facing_left) {
+			pArma->setEsquerda();
+			pArma->setEntPos(body.getPosition() + sf::Vector2f(-pArma->getEntSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+		}
+		else {
+			pArma->setDireita();
+			pArma->setEntPos(body.getPosition() + sf::Vector2f(body.getSize().x, gun_pos * body.getSize().y - pArma->getEntSize().y));
+		}
+		if (fabs(pPlayer->getPos().x - body.getPosition().x-.5f*body.getSize().x) <= attack_radius && fabs(pPlayer->getPos().y - body.getPosition().y - .5f * body.getSize().y) <= attack_radius)
+			attack();
 	}
 
 	void CorpoACorpo::attack()
 	{
+		if (clock.getElapsedTime() - attack_delay > attack_instant) {
+			pArma->attack();
+			attack_instant = clock.getElapsedTime();
+		}
 	}
 
 	bool CorpoACorpo::getRetardable() const
