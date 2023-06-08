@@ -3,14 +3,16 @@
 
 namespace Gerenciador{
 	class Salvamento{
-	private:
-ListaEntidades* list_ent;
-multimap<unsigned int, vector> dados;
+private:
+  ListaEntidades* list_ent;
+  multimap<unsigned int, vector> dados;
 
 public:
-Salvamento();
+  Salvamento();
 		~Salvamento();
-static void save();
+  static void carregar();
+  static void salvar();
+  static void limpar();
+  static void setGerSalva();
 	};
 }
-
