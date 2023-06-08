@@ -1,8 +1,11 @@
 #include <iostream>
+#include <iterator>
 #include <list>
 #include <locale>
+#include <map>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 //SFML
 #include <SFML/Audio.hpp>
