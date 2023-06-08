@@ -9,4 +9,20 @@ namespace Gerenciador{
 	Salvamento::~Salvamento(){
 
 	}
+
+  void Salvamento::carregar()
+  {
+  }
+
+  void Salvamento::salvar()
+  {
+  }
+
+  void Salvamento::limpar()
+  {
+  }
+
+  void Salvamento::setGerSalva()
+  {
+  }
 }
