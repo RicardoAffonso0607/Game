@@ -2,7 +2,8 @@
 
 namespace Gerenciador{
 	class Salvamento{
-	protected:
+	private:
+multimap<unsigned int, vector> dados;
 
 	public:
 		Salvamento();
