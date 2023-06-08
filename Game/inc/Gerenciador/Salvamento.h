@@ -4,6 +4,7 @@
 namespace Gerenciador{
 	class Salvamento{
 private:
+  static Salvamento* pSalva;
   ListaEntidades* list_ent;
   multimap<unsigned int, vector> dados;
 
