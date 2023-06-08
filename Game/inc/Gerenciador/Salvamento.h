@@ -13,6 +13,6 @@ public:
   static void carregar();
   static void salvar();
   static void limpar();
-  static void setGerSalva();
+  static Salvamento* getSalvamento();
 	};
 }
