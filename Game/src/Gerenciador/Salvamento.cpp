@@ -22,7 +22,11 @@ namespace Gerenciador{
   {
   }
 
-  void Salvamento::setGerSalva()
-  {
-  }
+Salvamento* Salvamento::getSalvamento()
+	{
+		if (pSalva == nullptr)
+			pSalva = new Salvamento();
+
+		return pSalva;
+	}
 }
