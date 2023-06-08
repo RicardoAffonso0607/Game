@@ -21,6 +21,7 @@ namespace Gerenciador
 		sf::View* getCamera() { return camera; }
 		void limpaJanela() { window->clear(); }
 		void desenhaElemento(sf::RectangleShape body) { window->draw(body); }
+		void desenhaElemento(sf::Text texto) { window->draw(texto); }
 		void desenhaSprite(sf::Sprite sprite) { window->draw(sprite); }
 		void mostraElementos() { window->display(); }
 		void fecharJanela() { window->close(); }

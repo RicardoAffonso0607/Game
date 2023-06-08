@@ -4,6 +4,7 @@
 #include "Fase/Floresta.h"
 #include "Gerenciador/Grafico.h"
 #include "Gerenciador/Eventos.h"
+#include "Menu/Menu.h"
 
 class Jogo
 {
@@ -12,6 +13,8 @@ private:
 	Fases::Floresta* fase2;
 	Gerenciador::Grafico* ger_grafico;
 	Gerenciador::Eventos* ger_eventos;
+	Menu::Menu* menu;
+	int iniciar;
 
 public:
 	Jogo();
