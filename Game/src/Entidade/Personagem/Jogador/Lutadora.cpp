@@ -61,7 +61,7 @@ namespace Jogadores {
 
 	bool Lutadora::getJumped() const
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) /*&& !flying*/)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			return true;
 		else
 			return false;

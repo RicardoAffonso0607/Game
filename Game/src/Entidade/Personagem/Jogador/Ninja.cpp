@@ -61,7 +61,7 @@ namespace Jogadores {
 
 	bool Ninja::getJumped() const
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) /*&& !flying*/)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			return true;
 		else
 			return false;
@@ -69,9 +69,9 @@ namespace Jogadores {
 
 	void Ninja::attack()
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Period))
 			attack_single();
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Comma))
 			attack_burst();
 	}
 }
