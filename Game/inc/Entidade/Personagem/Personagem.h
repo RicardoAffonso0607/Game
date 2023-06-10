@@ -13,6 +13,8 @@ protected:
 
 	sf::Time attack_delay;// cooldown entre ataques
 
+	sf::Time relogio_zero;
+
 	int life;// vida atual
 
 	static const bool movable;// se move?
@@ -56,6 +58,7 @@ public:
 	void setEsquerda() override;// olhar pra esquerda
 	void setEntColidiu(Entidade* pauxColidiu) override;// ponteiro se encostou em cima de algo não inerte
 	void setColidiu() override;// encostou em cima de algo não inerte
+	void setClockZero(sf::Time aux_tempo) override;
 
 
 	void setJumpedHeight(float height) { jumped_height = height; }

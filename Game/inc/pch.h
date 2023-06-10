@@ -5,6 +5,7 @@
 #include <list>
 #include <locale>
 #include <map>
+#include <pair>
 #include <sstream>
 #include <stdexcept>
 #include <string>

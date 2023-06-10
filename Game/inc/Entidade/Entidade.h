@@ -63,6 +63,7 @@ public:
 	virtual void setEntColidiu(Entidade* pauxColidiu);// passa o ponteiro de no que colidiu
 	virtual void setColidiu();// informa que colidiu com algo
 	virtual void resetRot();// reseta rotação da arma
+	virtual void setClockZero(sf::Time aux_tempo);// restaura quando o relógio iniciou
 
 	virtual void setJumpedHeight(float height);
 	virtual void setColidiuBaixo();

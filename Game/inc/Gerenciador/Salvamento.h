@@ -6,18 +6,19 @@ namespace Gerenciador{
 	class Salvamento{
 	private:
 		static Salvamento* pSalvamento;
-		multimap<unsigned int, tuple<int, sf::Vector2f, sf::Time, int>> dados;
-		multimap<unsigned int, tuple<int, sf::Vector2f, sf::Time, int>>::iterator i;
+		multimap<unsigned int, tuple<int, sf::Vector2f, sf::Time>> dados;
+		multimap<unsigned int, tuple<int, sf::Vector2f, sf::Time>>::iterator i;
 		fstream progresso;
 
 	public:
 		Salvamento();
 		~Salvamento();
 		void carregarID(ListaEntidades* list_ent, unsigned int id);
-		void carregarTodos(ListaEntidades* list_ent);
+		void carregarPersonagens(ListaEntidades* list_ent);
 		void lerJogoSalvo();
 		void salvarJogo();
 		void limparJogoSalvo();
+		void restaurarProgresso(Entidade* ent, pair<unsigned int, tuple<int, sf::Vector2f, sf::Time>> dados_um);
 		static Salvamento* getSalvamento();
 	};
 }

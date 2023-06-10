@@ -27,7 +27,7 @@ namespace Gerenciador{
 				j++;
 			}
 			if (j < list_ent->getSize() - 1) {
-				//list_ent->getEntity(i)->setLife(get<0>(i.second));
+				restaurarProgresso(list_ent->getEntity(j), make_pair(i->first, i->second));
 				dados.erase(i);
 				j++;
 			}
@@ -36,10 +36,10 @@ namespace Gerenciador{
 		}
 	}
 
-	void Salvamento::carregarTodos(ListaEntidades* list_ent)
+	void Salvamento::carregarPersonagens(ListaEntidades* list_ent)
 	{
-		vector<unsigned int> id_list{1, 2, 11, 12, 21, 22, 31, 32, 41, 42, 51, 52, 61, 62, 71, 72, 91, 92, 93};
-		for_each(id_list.begin(), id_list.end(), [&](auto& k) {carregarID(list_ent, k);});
+		vector<unsigned int> id_list{1, 2, 51, 52, 61, 62, 71, 72, 91, 92, 93};
+		for_each(id_list.begin(), id_list.end(), [&](auto& id) {carregarID(list_ent, id);});
 	}
 
 	void Salvamento::lerJogoSalvo()
@@ -50,7 +50,6 @@ namespace Gerenciador{
 			int life_tmp;
 			sf::Vector2f pos_tmp;
 			sf::Time clock_tmp;
-			int pontuacao_tmp;
 			string linha, texto;
 			dados.clear();
 			while (getline(progresso, linha))
@@ -64,11 +63,9 @@ namespace Gerenciador{
 				pos_tmp.x = stof(texto);
 				getline(linestream, texto, ',');
 				pos_tmp.y = stof(texto);
-				getline(linestream, texto, ',');
-				clock_tmp = sf::milliseconds(stoi(texto));
 				getline(linestream, texto);
-				pontuacao_tmp = stoi(texto);
-				dados.emplace(id_tmp, make_tuple(life_tmp, pos_tmp, clock_tmp, pontuacao_tmp));
+				clock_tmp = sf::milliseconds(stoi(texto));
+				dados.emplace(id_tmp, make_tuple(life_tmp, pos_tmp, clock_tmp));
 				progresso.close();
 			}
 		}
@@ -89,7 +86,7 @@ namespace Gerenciador{
 		if (progresso.is_open()) {
 			for (auto i : dados) {
 				progresso << i.first << "," << get<0>(i.second) << "," << get<1>(i.second).x << "," << get<1>(i.second).y << ","
-					      << get<2>(i.second).asMilliseconds() << "," << get<3>(i.second) << endl;
+					      << get<2>(i.second).asMilliseconds() << endl;
 			}
 			progresso.close();
 			dados.clear();
@@ -118,6 +115,13 @@ namespace Gerenciador{
 				exit(1);
 			}
 		}
+	}
+
+	void Salvamento::restaurarProgresso(Entidade* ent, pair<unsigned int, tuple<int, sf::Vector2f, sf::Time>> dados_um)
+	{
+		ent->applyDamage(ent->getLife() - get<0>(dados_um.second));
+		ent->setEntPos(get<1>(dados_um.second));
+		ent->setClockZero(get<2>(dados_um.second));
 	}
 
 	Salvamento* Salvamento::getSalvamento()

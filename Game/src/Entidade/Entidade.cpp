@@ -415,6 +415,16 @@ void Entidade::resetRot()
 	}
 }
 
+void Entidade::setClockZero(sf::Time aux_tempo)
+{
+	string erro = "Tento mudar tempo de entidade que não tem relógio.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
 //void Entidade::gunType() {}
 //void Entidade::setAttacker() {}
 //void Entidade::getGun() {}
