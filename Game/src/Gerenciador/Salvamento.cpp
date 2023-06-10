@@ -27,7 +27,7 @@ namespace Gerenciador{
 				j++;
 			}
 			if (j < list_ent->getSize() - 1) {
-				restaurarProgresso(list_ent->getEntity(j), make_pair(i->first, i->second));
+				restaurarProgresso(list_ent->getEntity(j), i->second));
 				dados.erase(i);
 				j++;
 			}
@@ -117,7 +117,7 @@ namespace Gerenciador{
 		}
 	}
 
-	void Salvamento::restaurarProgresso(Entidade* ent, pair<unsigned int, tuple<int, sf::Vector2f, sf::Time>> dados_um)
+	void Salvamento::restaurarProgresso(Entidade* ent, tuple<int, sf::Vector2f, sf::Time> dados_um)
 	{
 		ent->applyDamage(ent->getLife() - get<0>(dados_um.second));
 		ent->setEntPos(get<1>(dados_um.second));
