@@ -65,7 +65,6 @@ namespace Gerenciador {
 			//pSalvamento->salvarJogo(list_ent);
 			delete pSalvamento;
 		}
-
 	}
 
 	void Eventos::verificaMouseClicado()
