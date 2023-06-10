@@ -13,6 +13,7 @@ namespace Menu{
 		sf::Text AgeOfWarriors;
 		sf::Text Fase1;
 		sf::Text Fase2;
+		sf::Text Sair;
 		sf::Text Ranking;
 		Gerenciador::Grafico* ger_grafico;
 		Gerenciador::Eventos* ger_eventos;

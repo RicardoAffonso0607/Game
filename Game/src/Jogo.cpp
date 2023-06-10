@@ -44,18 +44,9 @@ void Jogo::executar()
 			fase1->executar();
 		else if (iniciar == 2)
 			fase2->executar();
-		//switch (iniciar)
-		//{
-		//case(0):
-			//iniciar = menu->executar();
-		//case(1):
-			//fase1->executar();
-		//case(2):
-			//fase2->executar();
-		//}
+		else if (iniciar == 3)
+			//ranking->executar
 
-		//fase1->executar();
-		//fase2->executar();
 
 		ger_grafico->setCamera();
 		ger_grafico->mostraElementos();

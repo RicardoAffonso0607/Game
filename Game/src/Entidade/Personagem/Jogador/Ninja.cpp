@@ -14,7 +14,7 @@ namespace Jogadores {
 		vel = vel_max;
 		textura.loadFromFile(string(IMG) + "Ninja1.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(110.f, 180.f));
+		body.setSize(sf::Vector2f(130.f, 200.f));
 		body.setPosition(pos);
 	}
 

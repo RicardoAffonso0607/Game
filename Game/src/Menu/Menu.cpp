@@ -21,13 +21,23 @@ namespace Menu{
 
 		Fase1.setFont(fonte);
 		Fase1.setString("Fase 1 - Deserto");
-		Fase1.setPosition(240.f, 350.f);
+		Fase1.setPosition(240.f, 280.f);
 		Fase1.setCharacterSize(45);
 
 		Fase2.setFont(fonte);
-		Fase2.setString("Fase 1 - Floresta");
-		Fase2.setPosition(240.f, 500.f);
+		Fase2.setString("Fase 2 - Floresta");
+		Fase2.setPosition(240.f, 400.f);
 		Fase2.setCharacterSize(45);
+
+		Ranking.setFont(fonte);
+		Ranking.setString("Ranking");
+		Ranking.setPosition(240.f, 520.f);
+		Ranking.setCharacterSize(45);
+
+		Sair.setFont(fonte);
+		Sair.setString("Sair");
+		Sair.setPosition(240.f, 640.f);
+		Sair.setCharacterSize(45);
 
 	}
 
@@ -44,16 +54,26 @@ namespace Menu{
 		ger_grafico->desenhaElemento(AgeOfWarriors);
 		ger_grafico->desenhaElemento(Fase1);
 		ger_grafico->desenhaElemento(Fase2);
+		ger_grafico->desenhaElemento(Ranking);
+		ger_grafico->desenhaElemento(Sair);
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			if (sf::Mouse::getPosition().x > Fase1.getGlobalBounds().left - 240 && sf::Mouse::getPosition().x < Fase1.getGlobalBounds().left + Fase1.getGlobalBounds().width -240 &&
-				sf::Mouse::getPosition().y > Fase1.getGlobalBounds().top  - 350 && sf::Mouse::getPosition().y < Fase1.getGlobalBounds().top + Fase1.getGlobalBounds().height - 350)
+			if (sf::Mouse::getPosition().x > 480 && sf::Mouse::getPosition().x < 1100 &&
+				sf::Mouse::getPosition().y > 300 && sf::Mouse::getPosition().y < 400 )
 				return 1;
 
-			if (sf::Mouse::getPosition().x > (int)Fase2.getGlobalBounds().left && sf::Mouse::getPosition().x < (int)Fase2.getGlobalBounds().left + Fase2.getGlobalBounds().width &&
-				sf::Mouse::getPosition().y > (int)Fase2.getGlobalBounds().top && sf::Mouse::getPosition().y < (int)Fase2.getGlobalBounds().top + Fase2.getGlobalBounds().height)
+			if (sf::Mouse::getPosition().x > 480 && sf::Mouse::getPosition().x < 1100 &&
+				sf::Mouse::getPosition().y > 420 && sf::Mouse::getPosition().y < 520)
 				return 2;
+
+			if (sf::Mouse::getPosition().x > 480 && sf::Mouse::getPosition().x < 1100 &&
+				sf::Mouse::getPosition().y > 540 && sf::Mouse::getPosition().y < 640)
+				return 3;
+
+			if (sf::Mouse::getPosition().x > 480 && sf::Mouse::getPosition().x < 1100 &&
+				sf::Mouse::getPosition().y > 660 && sf::Mouse::getPosition().y < 760)
+				exit(1);
 		}
 		return 0;
 
