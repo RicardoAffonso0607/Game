@@ -65,7 +65,7 @@ namespace Fases {
 		arma->setGerGraf(ger_grafico);
 		list->push(arma);
 
-		j2 = new Jogadores::Ninja(sf::Vector2f(300.f, 600.f), 50);
+		j2 = new Jogadores::Ninja(sf::Vector2f(300.f, 200.f), 50);
 		//ger_eventos->setJogador(j1);
 		j2->setGun(arma = new Armas::Faca(sf::Vector2f(300.f, 10.f)));
 		j2->setGerGraf(ger_grafico);

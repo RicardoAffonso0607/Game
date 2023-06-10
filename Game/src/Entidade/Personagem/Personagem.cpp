@@ -11,6 +11,7 @@ Personagem::Personagem() :
 	facing_left(false),
 	vel(sf::Vector2f(0.f, 0.f)),
 	attack_instant(sf::Time::Zero),
+	relogio_zero(sf::Time::Zero),
 	life(0),
 	pColidiu(nullptr),
 	colidiu(false)
@@ -95,4 +96,14 @@ void Personagem::setEntColidiu(Entidade* pauxColidiu)
 void Personagem::setColidiu()
 {
 	colidiu = true;
+}
+
+void Personagem::setClockZero(sf::Time aux_tempo)
+{
+	relogio_zero = aux_tempo;
+}
+
+sf::Time Personagem::getClock()
+{
+	return clock.getElapsedTime();
 }

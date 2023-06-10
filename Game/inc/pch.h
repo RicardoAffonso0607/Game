@@ -1,8 +1,16 @@
+#include <algorithm>
+#include <fstream>
 #include <iostream>
+#include <iterator>
 #include <list>
 #include <locale>
+#include <map>
+#include <sstream>
 #include <stdexcept>
 #include <string>
+#include <tuple>
+#include <utility>
+#include <vector>
 
 //SFML
 #include <SFML/Audio.hpp>
