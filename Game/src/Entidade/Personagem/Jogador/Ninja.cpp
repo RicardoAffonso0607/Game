@@ -4,7 +4,7 @@
 namespace Jogadores {
 	const unsigned int Ninja::id = 1;
 
-	float Ninja::mass = .9f;
+	float Ninja::mass = .7f;
 
 	const sf::Vector2f Ninja::vel_max = sf::Vector2f(12.f, 15.f);
 

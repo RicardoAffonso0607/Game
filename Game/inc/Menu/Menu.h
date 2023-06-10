@@ -7,16 +7,19 @@
 
 namespace Menu{
 	class Menu {
-	private:
+
+	protected:
 		sf::RectangleShape fundo;
 		sf::Font fonte;
+		Gerenciador::Grafico* ger_grafico;
+		Gerenciador::Eventos* ger_eventos;
+
+	private:
 		sf::Text AgeOfWarriors;
 		sf::Text Fase1;
 		sf::Text Fase2;
 		sf::Text Sair;
 		sf::Text Ranking;
-		Gerenciador::Grafico* ger_grafico;
-		Gerenciador::Eventos* ger_eventos;
 		Fases::Deserto* fase1;
 		Fases::Floresta* fase2;
 

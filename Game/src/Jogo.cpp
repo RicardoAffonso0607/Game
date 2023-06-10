@@ -13,6 +13,7 @@ void Jogo::inicializa()
 	fase1 = new Fases::Deserto;
 	fase2 = new Fases::Floresta;
 	menu = new Menu::Menu;
+	morte = new Menu::Morte;
 
 	if (ger_grafico == nullptr)
 	{
@@ -41,11 +42,13 @@ void Jogo::executar()
 		if (iniciar == 0)
 			iniciar = menu->executar();
 		else if (iniciar == 1)
-			fase1->executar();
+			iniciar = fase1->executar();
 		else if (iniciar == 2)
-			fase2->executar();
-		else if (iniciar == 3)
-			//ranking->executar
+			iniciar = fase2->executar();
+		else if (iniciar == 3);
+		//iniciar = ranking->executar
+		else if (iniciar == 4)
+			iniciar = morte->executar();
 
 
 		ger_grafico->setCamera();

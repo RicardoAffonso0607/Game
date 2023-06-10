@@ -10,7 +10,7 @@ namespace Fases {
 		Deserto();
 		~Deserto();
 
-		void executar();
+		int executar();
 		void criarJogador();
 		void criarInimigos();
 		void criarObstaculos();

@@ -22,7 +22,7 @@ namespace Fases {
 		list->clear();
 	}
 
-	void Deserto::executar()
+	int Deserto::executar()
 	{
 		move();
 		colisor->executar();
@@ -51,6 +51,7 @@ namespace Fases {
 			ger_grafico->getCamera()->setCenter((7.f * ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
 
 		draw();
+		return 1;
 	}
 
 	void Deserto::criarJogador()

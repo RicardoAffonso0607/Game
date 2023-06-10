@@ -4,7 +4,7 @@
 namespace Jogadores {
 	const unsigned int Lutadora::id = 2;
 
-	float Lutadora::mass = .6f;
+	float Lutadora::mass = .7f;
 
 	const sf::Vector2f Lutadora::vel_max = sf::Vector2f(12.f, 15.f);
 

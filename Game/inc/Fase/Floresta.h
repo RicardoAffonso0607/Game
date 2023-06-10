@@ -12,7 +12,7 @@ namespace Fases
 		Floresta();
 		~Floresta();
 
-		void executar();
+		int executar();
 		void criarJogador();
 		void criarInimigos();
 		void criarObstaculos();

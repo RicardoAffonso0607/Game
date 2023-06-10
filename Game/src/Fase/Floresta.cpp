@@ -22,7 +22,7 @@ namespace Fases {
 		list->clear();
 	}
 
-	void Floresta::executar()
+	int Floresta::executar()
 	{
 		move();
 		colisor->executar();
@@ -52,7 +52,11 @@ namespace Fases {
 		if (j1->getPos().x > (11.f *ger_grafico->getWindowSize().x / 2.f) - 150.f)
 			ger_grafico->getCamera()->setCenter((7.f *ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
 
+		if (j1->getLife() <= 0 )//&& j2->getLife() <= 0 )
+			return 4;
+
 		draw();
+		return 2;
 	}
 
 	void Floresta::criarJogador()
