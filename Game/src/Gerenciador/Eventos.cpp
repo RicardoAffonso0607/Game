@@ -62,6 +62,7 @@ namespace Gerenciador {
 		{
 			pGrafico->fecharJanela();
 		}
+
 	}
 
 	void Eventos::verificaMouseClicado()

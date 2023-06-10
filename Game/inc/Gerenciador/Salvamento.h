@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Lista/ListaEntidades.h"
-#include "Gerenciador/Grafico.h"
 
 namespace Gerenciador{
 	class Salvamento{

@@ -29,16 +29,12 @@ namespace Fases {
 		ger_grafico->desenhaElemento(background);
 		ger_grafico->desenhaElemento(background_auxiliar);
 
-		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2.f)
-			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2.f);
 		//Câmera no inicio
 		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2.f)
 			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2.f);
 		else
 			ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2.f, ger_grafico->getWindowSize().y / 2.f);
 
-		if (ger_grafico->getCamera()->getCenter().x >= 3.f * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2.f)
-			background.setPosition(2.f * ger_grafico->getWindowSize().x, 0.f);
 		//Atualizar os planos de fundo
 		if (ger_grafico->getCamera()->getCenter().x >= 3.f * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2.f)
 			background.setPosition(2.f * ger_grafico->getWindowSize().x, 0.f);
@@ -46,8 +42,14 @@ namespace Fases {
 		if (ger_grafico->getCamera()->getCenter().x >= 2.5f * (background_auxiliar.getPosition().x))
 			background_auxiliar.setPosition(3.f * ger_grafico->getWindowSize().x, 0.f);
 
+		if (ger_grafico->getCamera()->getCenter().x >= 3.5f * (ger_grafico->getWindowSize().x))
+			background.setPosition(4.f * ger_grafico->getWindowSize().x, 0.f);
+
+		if (ger_grafico->getCamera()->getCenter().x >= 4.5f * (ger_grafico->getWindowSize().x))
+			background_auxiliar.setPosition(5.f * ger_grafico->getWindowSize().x, 0.f);
+
 		//Câmera no final
-		if (j1->getPos().x > (7.f *ger_grafico->getWindowSize().x / 2.f) - 150.f)
+		if (j1->getPos().x > (11.f *ger_grafico->getWindowSize().x / 2.f) - 150.f)
 			ger_grafico->getCamera()->setCenter((7.f *ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
 
 		draw();
@@ -140,7 +142,7 @@ namespace Fases {
 		Obstaculos::Retardantes::Lama* retardante = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Plataformas
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 18; i++)
 		{
 			plat = new Obstaculos::Inertes::Plataformas::Gramado (sf::Vector2f(i*600.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
 			plat->setGerGraf(ger_grafico);
