@@ -61,6 +61,8 @@ namespace Gerenciador {
 		if (tecla == sf::Keyboard::Escape)
 		{
 			pGrafico->fecharJanela();
+			Gerenciador::Salvamento* pSalvamento = new Gerenciador::Salvamento;
+			//pSalvamento->salvarJogo(list_ent);
 		}
 
 	}

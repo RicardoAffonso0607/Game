@@ -27,7 +27,7 @@ namespace Gerenciador{
 				j++;
 			}
 			if (j < list_ent->getSize() - 1) {
-				restaurarProgresso(list_ent->getEntity(j), i->second));
+				restaurarProgresso(list_ent->getEntity(j), i->second);
 				dados.erase(i);
 				j++;
 			}
@@ -38,11 +38,10 @@ namespace Gerenciador{
 
 	void Salvamento::carregarPersonagens(ListaEntidades* list_ent)
 	{
-		vector<unsigned int> id_list{1, 2, 51, 52, 61, 62, 71, 72, 91, 92, 93};
 		for_each(id_list.begin(), id_list.end(), [&](auto& id) {carregarID(list_ent, id);});
 	}
 
-	void Salvamento::lerJogoSalvo()
+	void Salvamento::carregarJogoSalvo(ListaEntidades* list_ent)
 	{
 		ifstream progresso("jogo_salvo.csv");
 		if (progresso.is_open()) {
@@ -77,10 +76,40 @@ namespace Gerenciador{
 				exit(1);
 			}
 		}
+		carregarPersonagens(list_ent);
 	}
 
-	void Salvamento::salvarJogo()
+	void Salvamento::limparJogoSalvo()
 	{
+		ofstream progresso("jogo_salvo.txt");
+		progresso.clear();
+		progresso.close();
+		if (!remove("jogo_salvo.txt"))
+		{
+			string erro = "Não foi possível excluir o progresso do jogo.";
+			try { throw runtime_error(erro); }
+			catch (...) {
+				cerr << erro << endl;
+				exit(1);
+			}
+		}
+	}
+
+	void Salvamento::prepararSalvarJogo(ListaEntidades* list_ent)
+	{
+		for (int k = 0; k < list_ent->getSize(); k++)
+		{
+			if (binary_search(id_list.begin(), id_list.end(), list_ent->getEntity(k)->getId()))
+			{
+				dados.clear();
+				dados.insert(make_pair(list_ent->getEntity(k)->getId(), make_tuple(list_ent->getEntity(k)->getLife(), list_ent->getEntity(k)->getPos(), list_ent->getEntity(k)->getClock())));
+			}
+		}
+	}
+
+	void Salvamento::salvarJogo(ListaEntidades* list_ent)
+	{
+		prepararSalvarJogo(list_ent);
 		ofstream progresso("jogo_salvo.txt");
 		progresso.clear();
 		if (progresso.is_open()) {
@@ -101,27 +130,11 @@ namespace Gerenciador{
 		}
 	}
 
-	void Salvamento::limparJogoSalvo()
-	{
-		ofstream progresso("jogo_salvo.txt");
-		progresso.clear();
-		progresso.close();
-		if (!remove("jogo_salvo.txt"))
-		{
-			string erro = "Não foi possível excluir o progresso do jogo.";
-			try { throw runtime_error(erro); }
-			catch (...) {
-				cerr << erro << endl;
-				exit(1);
-			}
-		}
-	}
-
 	void Salvamento::restaurarProgresso(Entidade* ent, tuple<int, sf::Vector2f, sf::Time> dados_um)
 	{
-		ent->applyDamage(ent->getLife() - get<0>(dados_um.second));
-		ent->setEntPos(get<1>(dados_um.second));
-		ent->setClockZero(get<2>(dados_um.second));
+		ent->applyDamage(ent->getLife() - get<0>(dados_um));
+		ent->setEntPos(get<1>(dados_um));
+		ent->setClockZero(get<2>(dados_um));
 	}
 
 	Salvamento* Salvamento::getSalvamento()

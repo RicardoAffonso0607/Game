@@ -102,3 +102,8 @@ void Personagem::setClockZero(sf::Time aux_tempo)
 {
 	relogio_zero = aux_tempo;
 }
+
+sf::Time Personagem::getClock()
+{
+	return clock.getElapsedTime();
+}

@@ -2,7 +2,8 @@
 
 /* Código inspirado no vídeo do monitor Giovane Limas Salvi 2022.2 */
 
-#include "Grafico.h"
+#include "Gerenciador/Grafico.h"
+#include "Gerenciador/Salvamento.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 //#include "Lista/ListaEntidades.h"
 

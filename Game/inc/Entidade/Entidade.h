@@ -79,4 +79,6 @@ public:
 	virtual bool getColidiuBaixo();
 	virtual bool getColidiuCima();
 	virtual bool getFlying();
+
+	virtual sf::Time getClock();
 };
