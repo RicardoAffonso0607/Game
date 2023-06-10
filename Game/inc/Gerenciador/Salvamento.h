@@ -18,7 +18,7 @@ namespace Gerenciador{
 		void lerJogoSalvo();
 		void salvarJogo();
 		void limparJogoSalvo();
-		void restaurarProgresso(Entidade* ent, pair<unsigned int, tuple<int, sf::Vector2f, sf::Time>> dados_um);
+		void restaurarProgresso(Entidade* ent, tuple<int, sf::Vector2f, sf::Time> dados_um);
 		static Salvamento* getSalvamento();
 	};
 }
