@@ -38,7 +38,7 @@ namespace Menu
 	int Morte::executar()
 	{
 		ger_grafico->getWindow()->setMouseCursorVisible(true);
-		ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2, ger_grafico->getWindowSize().y / 2);
+		ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2.f, ger_grafico->getWindowSize().y / 2.f);
 
 		ger_grafico->desenhaElemento(fundo);
 		ger_grafico->desenhaElemento(Mensagem);

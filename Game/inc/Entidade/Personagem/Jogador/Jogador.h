@@ -6,7 +6,7 @@
 class Jogador : public Personagem
 {
 protected:
-	sf::String apelido;// apelido do jogador
+	string apelido;// apelido do jogador
 
 	bool retardable;// sua velocidade pode ser reduzida?
 
@@ -48,4 +48,6 @@ public:
 	void attack_burst();
 	string getApelido() const override;
 	int getPontuacao() const override;
+	void setApelido(string apelido_tmp);
+	void setPontuacao(int pontuacao_tmp);
 };

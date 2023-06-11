@@ -33,11 +33,10 @@ namespace Gerenciador {
 		{
 			if (evento.type == sf::Event::KeyPressed)
 				verificaTeclaPressionada(evento.key.code);
-			if (evento.type == sf::Event::MouseButtonPressed)
+			else if (evento.type == sf::Event::MouseButtonPressed)
 				verificaMouseClicado();
-			if (evento.type == sf::Event::Closed)
+			else if (evento.type == sf::Event::Closed)
 				pGrafico->fecharJanela();
-
 		}
 	}
 

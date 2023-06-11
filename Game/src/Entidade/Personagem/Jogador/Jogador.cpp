@@ -153,3 +153,13 @@ int Jogador::getPontuacao() const
 {
 	return pontuacao;
 }
+
+void Jogador::setApelido(string apelido_tmp)
+{
+	apelido = apelido_tmp;
+}
+
+void Jogador::setPontuacao(int pontuacao_tmp)
+{
+	pontuacao = pontuacao_tmp;
+}

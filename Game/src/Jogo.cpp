@@ -1,7 +1,11 @@
 #include "pch.h"
 #include "Jogo.h"
 
-Jogo::Jogo() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->getEventos()), iniciar(0)
+Jogo::Jogo() :
+	ger_grafico(ger_grafico->getGrafico()),
+	ger_eventos(ger_eventos->getEventos()),
+	ger_salvamento(ger_salvamento->getSalvamento()),
+	iniciar(0)
 {
 	inicializa();
 	executar();
@@ -17,14 +21,33 @@ void Jogo::inicializa()
 
 	if (ger_grafico == nullptr)
 	{
-		cout << "Gerenciador gráfico nulo" << endl;
-		exit(1);
+		string erro = "Gerenciador gráfico nulo.";
+		try { throw runtime_error(erro); }
+		catch (...) {
+			cerr << erro << endl;
+			exit(1);
+		}
 	}
 
 	if (ger_eventos == nullptr)
 	{
-		cout << "Gerenciador de eventos nulo" << endl;
-		exit(1);
+		string erro = "Gerenciador de eventos nulo.";
+		try { throw runtime_error(erro); }
+		catch (...) {
+			cerr << erro << endl;
+			exit(1);
+		}
+	}
+
+
+	if (ger_salvamento == nullptr)
+	{
+		string erro = "Gerenciador de salvamento nulo.";
+		try { throw runtime_error(erro); }
+		catch (...) {
+			cerr << erro << endl;
+			exit(1);
+		}
 	}
 }
 

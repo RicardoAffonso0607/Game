@@ -13,6 +13,7 @@ private:
 	Fases::Floresta* fase2;
 	Gerenciador::Grafico* ger_grafico;
 	Gerenciador::Eventos* ger_eventos;
+	Gerenciador::Salvamento* ger_salvamento;
 	Menu::Menu* menu;
 	Menu::Morte* morte;
 	int iniciar;
