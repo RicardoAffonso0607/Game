@@ -49,7 +49,7 @@ public:
 	Fase();
 	~Fase();
 
-	virtual void executar() = 0;
+	virtual int executar() = 0;
 	virtual void criarJogador() = 0;
 	virtual void criarInimigos() = 0;
 	virtual void criarObstaculos() = 0;

@@ -4,7 +4,7 @@
 namespace Jogadores {
 	const unsigned int Ninja::id = 1;
 
-	float Ninja::mass = .9f;
+	float Ninja::mass = .7f;
 
 	const sf::Vector2f Ninja::vel_max = sf::Vector2f(12.f, 15.f);
 
@@ -14,7 +14,7 @@ namespace Jogadores {
 		vel = vel_max;
 		textura.loadFromFile(string(IMG) + "Ninja1.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(110.f, 180.f));
+		body.setSize(sf::Vector2f(130.f, 200.f));
 		body.setPosition(pos);
 	}
 

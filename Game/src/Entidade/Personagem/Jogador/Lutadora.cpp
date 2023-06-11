@@ -4,7 +4,7 @@
 namespace Jogadores {
 	const unsigned int Lutadora::id = 2;
 
-	float Lutadora::mass = .6f;
+	float Lutadora::mass = .7f;
 
 	const sf::Vector2f Lutadora::vel_max = sf::Vector2f(12.f, 15.f);
 
@@ -14,7 +14,7 @@ namespace Jogadores {
 		vel = vel_max;
 		textura.loadFromFile(string(IMG) + "Lutadora1.png");
 		body.setTexture(&textura);
-		body.setSize(sf::Vector2f(150.f, 230.f));
+		body.setSize(sf::Vector2f(130.f, 200.f));
 		body.setPosition(pos);
 	}
 
