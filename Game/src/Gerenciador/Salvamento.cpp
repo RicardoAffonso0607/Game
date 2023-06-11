@@ -16,6 +16,10 @@ namespace Gerenciador{
 		pSalvamento = nullptr;
 	}
 
+	bool compareSecond(const std::pair<int, int>& lhs, const std::pair<int, int>& rhs) {
+		return lhs.second < rhs.second;
+	}
+
 	void Salvamento::carregarID(ListaEntidades* list_ent, unsigned int id)
 	{
 		int j;
@@ -38,32 +42,31 @@ namespace Gerenciador{
 
 	void Salvamento::carregarPersonagens(ListaEntidades* list_ent)
 	{
-		for_each(id_list.begin(), id_list.end(), [&](auto& id) {carregarID(list_ent, id);});
+		for_each(id_list.begin(), id_list.end(), [&](auto& id){carregarID(list_ent, id);});
 	}
 
 	void Salvamento::carregarJogoSalvo(ListaEntidades* list_ent)
 	{
-		ifstream progresso("jogo_salvo.csv");
+		progresso.open("jogo_salvo.csv", trunc);
 		if (progresso.is_open()) {
 			unsigned int id_tmp;
 			int life_tmp;
 			sf::Vector2f pos_tmp;
 			sf::Time clock_tmp;
-			string linha, texto;
-			dados.clear();
-			while (getline(progresso, linha))
+			string buffer_linha, buffer_texto;
+			while (getline(progresso, buffer_linha))
 			{                                                                                    
-				istringstream linestream(linha);
-				getline(linestream, texto, ',');
-				id_tmp = stoul(texto);
-				getline(linestream, texto, ',');
-				life_tmp = stoi(texto);
-				getline(linestream, texto, ',');
-				pos_tmp.x = stof(texto);
-				getline(linestream, texto, ',');
-				pos_tmp.y = stof(texto);
-				getline(linestream, texto);
-				clock_tmp = sf::milliseconds(stoi(texto));
+				istringstream linestream(buffer_linha);
+				getline(linestream, buffer_texto, ',');
+				id_tmp = stoul(buffer_texto);
+				getline(linestream, buffer_texto, ',');
+				life_tmp = stoi(buffer_texto);
+				getline(linestream, buffer_texto, ',');
+				pos_tmp.x = stof(buffer_texto);
+				getline(linestream, buffer_texto, ',');
+				pos_tmp.y = stof(buffer_texto);
+				getline(linestream, buffer_texto);
+				clock_tmp = sf::milliseconds(stoi(buffer_texto));
 				dados.emplace(id_tmp, make_tuple(life_tmp, pos_tmp, clock_tmp));
 				progresso.close();
 			}
@@ -81,9 +84,11 @@ namespace Gerenciador{
 
 	void Salvamento::limparJogoSalvo()
 	{
-		ofstream progresso("jogo_salvo.txt");
-		progresso.clear();
-		progresso.close();
+		dados.clear();
+		progresso.open("jogo_salvo.csv", ios::trunc);
+		if (progresso.is_open()) {
+			progresso.close();
+		}
 		if (!remove("jogo_salvo.txt"))
 		{
 			string erro = "Não foi possível excluir o progresso do jogo.";
@@ -95,14 +100,42 @@ namespace Gerenciador{
 		}
 	}
 
+	void Salvamento::limparRankingSalvo()
+	{
+		ofstream progresso("ranking_salvo.csv");
+		progresso.clear();
+		progresso.close();
+		ranking.clear();
+		if (!remove("ranking_salvo.csv"))
+		{
+			string erro = "Não foi possível excluir o ranking.";
+			try { throw runtime_error(erro); }
+			catch (...) {
+				cerr << erro << endl;
+				exit(1);
+			}
+		}
+	}
+
+	void Salvamento::prepararSalvarRanking(ListaEntidades* list_ent)
+	{
+		pair<string, int> tmp;
+		for (int k = 0; k < list_ent->getSize(); k++)
+		{
+			if (binary_search(jogadores.begin(),jogadores.end(),list_ent->getEntity(k)->getId()))
+			{
+				jogadores.push_back(make_pair(list_ent->getEntity(k)->getPontuacao(), list_ent->getEntity(k)->getApelido()));
+			}
+		}
+	}
+
 	void Salvamento::prepararSalvarJogo(ListaEntidades* list_ent)
 	{
 		for (int k = 0; k < list_ent->getSize(); k++)
 		{
 			if (binary_search(id_list.begin(), id_list.end(), list_ent->getEntity(k)->getId()))
 			{
-				dados.clear();
-				dados.insert(make_pair(list_ent->getEntity(k)->getId(), make_tuple(list_ent->getEntity(k)->getLife(), list_ent->getEntity(k)->getPos(), list_ent->getEntity(k)->getClock())));
+				dados.emplace(list_ent->getEntity(k)->getId(), make_tuple(list_ent->getEntity(k)->getLife(), list_ent->getEntity(k)->getPos(), list_ent->getEntity(k)->getClock()));
 			}
 		}
 	}
@@ -110,7 +143,7 @@ namespace Gerenciador{
 	void Salvamento::salvarJogo(ListaEntidades* list_ent)
 	{
 		prepararSalvarJogo(list_ent);
-		ofstream progresso("jogo_salvo.txt");
+		progresso.open("jogo_salvo.txt", ios::trunc);
 		progresso.clear();
 		if (progresso.is_open()) {
 			for (auto i : dados) {
@@ -122,6 +155,27 @@ namespace Gerenciador{
 		}
 		else {
 			string erro = "Não foi possível salvar o progresso do jogo.";
+			try { throw runtime_error(erro); }
+			catch (...) {
+				cerr << erro << endl;
+				exit(1);
+			}
+		}
+	}
+
+	void Salvamento::salvarRanking(ListaEntidades* list_ent)
+	{
+		prepararSalvarRanking(list_ent);
+		ranking.open("ranking_salvo.txt", ios::app);
+		if (ranking.is_open()) {
+			for (auto p : jogadores) {
+				ranking << p.first << "," << p.second << endl;
+			}
+			ranking.close();
+			jogadores.clear();
+		}
+		else {
+			string erro = "Não foi possível salvar o ranking do jogo.";
 			try { throw runtime_error(erro); }
 			catch (...) {
 				cerr << erro << endl;
