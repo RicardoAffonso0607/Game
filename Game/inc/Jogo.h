@@ -5,6 +5,7 @@
 #include "Gerenciador/Grafico.h"
 #include "Gerenciador/Eventos.h"
 #include "Menu/Morte.h"
+#include "Menu/Ranking.h"
 
 class Jogo
 {
@@ -16,6 +17,7 @@ private:
 	Gerenciador::Salvamento* ger_salvamento;
 	Menu::Menu* menu;
 	Menu::Morte* morte;
+	Menu::Ranking* ranking;
 	int iniciar;
 
 public:

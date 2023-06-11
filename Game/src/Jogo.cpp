@@ -18,6 +18,7 @@ void Jogo::inicializa()
 	fase2 = new Fases::Floresta;
 	menu = new Menu::Menu;
 	morte = new Menu::Morte;
+	ranking = new Menu::Ranking;
 
 	if (ger_grafico == nullptr)
 	{
@@ -68,8 +69,8 @@ void Jogo::executar()
 			iniciar = fase1->executar();
 		else if (iniciar == 2)
 			iniciar = fase2->executar();
-		else if (iniciar == 3);
-		//iniciar = ranking->executar
+		else if (iniciar == 3)
+			iniciar = ranking->executar();
 		else if (iniciar == 4)
 			iniciar = morte->executar();
 

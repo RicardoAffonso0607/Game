@@ -13,6 +13,7 @@ namespace Menu{
 		sf::Font fonte;
 		Gerenciador::Grafico* ger_grafico;
 		Gerenciador::Eventos* ger_eventos;
+		Gerenciador::Salvamento* ger_salvamento;
 
 	private:
 		sf::Text AgeOfWarriors;

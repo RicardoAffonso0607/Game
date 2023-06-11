@@ -1,8 +1,13 @@
 #include "pch.h"
 #include "Menu/Menu.h"
 
-namespace Menu{
-	Menu::Menu() : ger_grafico(ger_grafico->getGrafico()), ger_eventos(ger_eventos->getEventos()), fase1(new Fases::Deserto), 
+namespace Menu
+{
+	Menu::Menu() :
+		ger_grafico(ger_grafico->getGrafico()),
+		ger_eventos(ger_eventos->getEventos()),
+		ger_salvamento(ger_salvamento->getSalvamento()),
+		fase1(new Fases::Deserto), 
 		fase2 (new Fases::Floresta)
 	{
 		ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2.f, ger_grafico->getWindowSize().y / 2.f);
@@ -76,7 +81,7 @@ namespace Menu{
 
 			if (sf::Mouse::getPosition().x > 700 && sf::Mouse::getPosition().x < 1100 &&
 				sf::Mouse::getPosition().y > 640 && sf::Mouse::getPosition().y < 760)
-				exit(1);
+				exit(2);
 		}
 		return 0;
 
