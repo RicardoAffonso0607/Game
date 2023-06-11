@@ -47,7 +47,7 @@ namespace Gerenciador{
 
 	void Salvamento::carregarJogoSalvo(ListaEntidades* list_ent)
 	{
-		progresso.open("jogo_salvo.csv", trunc);
+		progresso.open("jogo_salvo.csv", ios::trunc);
 		if (progresso.is_open()) {
 			unsigned int id_tmp;
 			int life_tmp;
@@ -119,14 +119,14 @@ namespace Gerenciador{
 
 	void Salvamento::prepararSalvarRanking(ListaEntidades* list_ent)
 	{
-		pair<string, int> tmp;
-		for (int k = 0; k < list_ent->getSize(); k++)
-		{
-			if (binary_search(jogadores.begin(),jogadores.end(),list_ent->getEntity(k)->getId()))
-			{
-				jogadores.push_back(make_pair(list_ent->getEntity(k)->getPontuacao(), list_ent->getEntity(k)->getApelido()));
-			}
-		}
+		//pair<string, int> tmp;
+		//for (int k = 0; k < list_ent->getSize(); k++)
+		//{
+		//	if (binary_search(jogadores.begin(),jogadores.end(),list_ent->getEntity(k)->getId()))
+		//	{
+		//		jogadores.push_back(make_pair(list_ent->getEntity(k)->getApelido(), list_ent->getEntity(k)->getPontuacao()));
+		//	}
+		//}
 	}
 
 	void Salvamento::prepararSalvarJogo(ListaEntidades* list_ent)

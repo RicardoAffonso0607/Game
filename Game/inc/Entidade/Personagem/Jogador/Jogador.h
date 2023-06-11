@@ -6,7 +6,7 @@
 class Jogador : public Personagem
 {
 protected:
-	sf::String player_nickname;// apelido do jogador
+	sf::String apelido;// apelido do jogador
 
 	bool retardable;// sua velocidade pode ser reduzida?
 
@@ -46,4 +46,6 @@ public:
 	Entidade* getArma() const override;
 	void attack_single();
 	void attack_burst();
+	string getApelido() const override;
+	int getPontuacao() const override;
 };

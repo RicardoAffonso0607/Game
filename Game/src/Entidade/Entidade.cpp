@@ -435,9 +435,22 @@ sf::Time Entidade::getClock()
 	}
 }
 
-//void Entidade::gunType() {}
-//void Entidade::setAttacker() {}
-//void Entidade::getGun() {}
-//void Entidade::events() {}
-//void Entidade::setCaster() {}
-//void Entidade::setPlayer() {}
+string Entidade::getApelido() const
+{
+	string erro = "Solicitou apelido de não jogador.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}
+
+int Entidade::getPontuacao() const
+{
+	string erro = "Solicitou pontuação de não jogador.";
+	try { throw runtime_error(erro); }
+	catch (...) {
+		cerr << erro << endl;
+		exit(1);
+	}
+}

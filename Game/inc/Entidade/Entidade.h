@@ -12,7 +12,7 @@ protected:
 
 	sf::Texture textura;// textura do corpo
 
-	sf::Sound sfx;// sound effects
+	sf::Sound sfx;// efeitos de som
 
 public:
 	Entidade();
@@ -20,6 +20,8 @@ public:
 
 	sf::Vector2f getPos() const;// posição do vértice superior esquerdo do objeto na tela
 	sf::Vector2f getEntSize() const;// tamanho do objeto na tela
+
+	virtual string getApelido() const;// apelido do jogador
 
 	void setEntPos(sf::Vector2f pos);// define posição do objeto x e y
 	void changePos(sf::Vector2f dif_pos);// move o objeto dx e dy
@@ -49,6 +51,7 @@ public:
 
 	virtual int getDamage() const;// dano que causa?
 	virtual int getLife() const;// vida restante atual?
+	virtual int getPontuacao() const;// pontuação atual?
 
 	virtual sf::Vector2f getVel() const;// velocidade atual?
 

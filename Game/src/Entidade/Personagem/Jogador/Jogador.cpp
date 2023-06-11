@@ -7,7 +7,7 @@ const float Jogador::gun_pos = .8f;
 Jogador::Jogador(sf::Vector2f aux_vel_max) :
 	attacker(false),
 	pontuacao(0),
-	player_nickname(" "),
+	apelido(" "),
 	pArma(nullptr),
 	retardable(true),
 	vel_max(aux_vel_max)
@@ -142,4 +142,14 @@ float Jogador::getJumpStrength() const
 bool Jogador::getGodMode() const
 {
 	return god_mode;
+}
+
+string Jogador::getApelido() const
+{
+	return apelido;
+}
+
+int Jogador::getPontuacao() const
+{
+	return pontuacao;
 }
