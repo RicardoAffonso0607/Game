@@ -42,22 +42,18 @@ namespace Gerenciador {
 
 	void Eventos::verificaTeclaPressionada(sf::Keyboard::Key tecla)
 	{
-		if (tecla == sf::Keyboard::A || tecla == sf::Keyboard::Left)
+		if (tecla == sf::Keyboard::P)
 		{
-			//pJogador->changePos(sf::Vector2f(-pJogador->getVel().x, 0.f));
+			sf::Event resume;
+			pGrafico->getWindow()->setTitle("Jogo pausado!");
+			while (1) {
+				pGrafico->getWindow()->waitEvent(resume);
+				if (resume.type == sf::Event::MouseButtonPressed)
+					break;
+			}
+			pGrafico->getWindow()->setTitle("Age of Wars++");
 		}
-		if (tecla == sf::Keyboard::D || tecla == sf::Keyboard::Right)
-		{
-			//pJogador->changePos(sf::Vector2f(pJogador->getVel().x, 0.f));
-		}
-
-		//if (tecla == sf::Keyboard::Space)
-		//	pJogador->jumped = true;//pulou
-
-		//if (tecla == sf::Keyboard::Backslash)
-			//pJogador->setAttacker(pJogador->getGunType(), ATQ_LONGO);//ataque tipo 1
-
-		if (tecla == sf::Keyboard::Escape)
+		else if (tecla == sf::Keyboard::Escape)
 		{
 			pGrafico->fecharJanela();
 			Gerenciador::Salvamento* pSalvamento = new Gerenciador::Salvamento;
