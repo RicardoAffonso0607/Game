@@ -2,7 +2,7 @@
 #include "Entidade/Projetil/Flecha.h"
 
 namespace Projeteis {
-	const int Flecha::damage = 10;
+	const int Flecha::damage = 20;
 
 	const unsigned int Flecha::id = 83;
 

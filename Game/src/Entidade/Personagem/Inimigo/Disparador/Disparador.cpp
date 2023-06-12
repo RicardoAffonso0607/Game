@@ -4,7 +4,7 @@
 namespace Inimigos {
 	const bool Disparador::retardable = false;// é retardável?
 
-	const float Disparador::attack_radius = 1000.f;// raio de ação
+	const float Disparador::attack_radius = 500.f;// raio de ação
 	const float Disparador::cast_height = .4f;// altura do disparo
 
 	const sf::Time Disparador::attack_delay = sf::milliseconds(2000);// cooldown entre ataques

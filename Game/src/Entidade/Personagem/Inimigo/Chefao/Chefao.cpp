@@ -4,7 +4,7 @@
 namespace Inimigos {
 	const bool Chefao::retardable = false;
 
-	const float Chefao::action_radius = 2000.f;// raio de ação
+	const float Chefao::action_radius = 500.f;// raio de ação
 
 	const int Chefao::cadence = 2;// cadência do ataque múltiplo
 

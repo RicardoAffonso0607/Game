@@ -13,7 +13,7 @@ namespace Inimigos {
 			gelo(nullptr),
 			list_ent(list)
 		{
-			life = 80;
+			life = 40;
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "Mage.png");
 			body.setTexture(&textura);

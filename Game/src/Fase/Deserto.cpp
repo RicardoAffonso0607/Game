@@ -29,16 +29,12 @@ namespace Fases {
 		ger_grafico->desenhaElemento(background);
 		ger_grafico->desenhaElemento(background_auxiliar);
 
-		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2.f)
-			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2.f);
 		//Câmera no inicio
 		if (j1->getPos().x > ger_grafico->getWindowSize().x / 2.f)
 			ger_grafico->getCamera()->setCenter(j1->getPos().x, ger_grafico->getWindowSize().y / 2.f);
 		else
 			ger_grafico->getCamera()->setCenter(ger_grafico->getWindowSize().x / 2.f, ger_grafico->getWindowSize().y / 2.f);
 
-		if (ger_grafico->getCamera()->getCenter().x >= 3.f * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2.f)
-			background.setPosition(2.f * ger_grafico->getWindowSize().x, 0.f);
 		//Atualizar os planos de fundo
 		if (ger_grafico->getCamera()->getCenter().x >= 3.f * (background.getPosition().x + ger_grafico->getWindowSize().x) / 2.f)
 			background.setPosition(2.f * ger_grafico->getWindowSize().x, 0.f);
@@ -46,9 +42,22 @@ namespace Fases {
 		if (ger_grafico->getCamera()->getCenter().x >= 2.5f * (background_auxiliar.getPosition().x))
 			background_auxiliar.setPosition(3.f * ger_grafico->getWindowSize().x, 0.f);
 
+		if (ger_grafico->getCamera()->getCenter().x >= 3.5f * (ger_grafico->getWindowSize().x))
+			background.setPosition(4.f * ger_grafico->getWindowSize().x, 0.f);
+
+		if (ger_grafico->getCamera()->getCenter().x >= 4.5f * (ger_grafico->getWindowSize().x))
+			background_auxiliar.setPosition(5.f * ger_grafico->getWindowSize().x, 0.f);
+
 		//Câmera no final
-		if (j1->getPos().x > (7.f * ger_grafico->getWindowSize().x / 2.f) - 150.f)
-			ger_grafico->getCamera()->setCenter((7.f * ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
+		if (j1->getPos().x > (11.f * ger_grafico->getWindowSize().x / 2.f) - 150.f)
+			ger_grafico->getCamera()->setCenter((11.f * ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
+
+		//Começar a próxima fase
+		if (j1->getPos().x > (11.f * ger_grafico->getWindowSize().x / 2.f) + 150.f)
+			return 2;
+
+		if (j1->getLife() <= 0)//&& j2->getLife() <= 0 )
+			return 4;
 
 		draw();
 		return 1;
@@ -56,11 +65,19 @@ namespace Fases {
 
 	void Deserto::criarJogador()
 	{
-		j1 = new Jogadores::Lutadora(sf::Vector2f(300.f, 10.f), 50);
+		j1 = new Jogadores::Lutadora(sf::Vector2f(200.f, 10.f), 50);
 		ger_eventos->setJogador(j1);
 		j1->setGun(arma = new Armas::Arco(sf::Vector2f(300.f, 10.f), list));
 		j1->setGerGraf(ger_grafico);
 		list->push(j1);
+		arma->setGerGraf(ger_grafico);
+		list->push(arma);
+
+		j2 = new Jogadores::Ninja(sf::Vector2f(400.f, 200.f), 50);
+		//ger_eventos->setJogador(j1);
+		j2->setGun(arma = new Armas::Faca(sf::Vector2f(300.f, 10.f)));
+		j2->setGerGraf(ger_grafico);
+		list->push(j2);
 		arma->setGerGraf(ger_grafico);
 		list->push(arma);
 	}
@@ -72,7 +89,7 @@ namespace Fases {
 		Inimigos::Chefoes::Apofis* chefao = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Corpo a Corpos
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(900.f, 200.f), list);
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(1000.f, 200.f), list);
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
@@ -89,7 +106,7 @@ namespace Fases {
 
 		if ((rand() % 10) >= 5) // Aleatório
 		{
-			corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(6300.f, 0.f), list);
+			corpo_a_corpo = new Inimigos::CorpoACorpos::Medjai(sf::Vector2f(11000.f, 0.f), list);
 			corpo_a_corpo->setGerGraf(ger_grafico);
 			corpo_a_corpo->setPlayer(j1);
 			list->push(corpo_a_corpo);
@@ -123,6 +140,16 @@ namespace Fases {
 		chefao->setGerGraf(ger_grafico);
 		chefao->setPlayer(j1);
 		list->push(chefao);
+
+		chefao = new Inimigos::Chefoes::Apofis(sf::Vector2f(8000.f, 90.f), list);
+		chefao->setGerGraf(ger_grafico);
+		chefao->setPlayer(j1);
+		list->push(chefao);
+
+		chefao = new Inimigos::Chefoes::Apofis(sf::Vector2f(9800.f, 90.f), list);
+		chefao->setGerGraf(ger_grafico);
+		chefao->setPlayer(j1);
+		list->push(chefao);
 	}
 
 	void Deserto::criarObstaculos()
@@ -133,7 +160,7 @@ namespace Fases {
 		Obstaculos::Retardantes::AreiaMovedica* retardante = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Plataformas
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 18; i++)
 		{
 			plat = new Obstaculos::Inertes::Plataformas::Areal(sf::Vector2f(i * 600.f, ger_grafico->getWindowSize().y - 100.f), sf::Vector2f(600.f, 100.f));
 			plat->setGerGraf(ger_grafico);
@@ -161,6 +188,10 @@ namespace Fases {
 		list->push(static_cast<Entidade*>(plat));
 
 		plat = new Obstaculos::Inertes::Plataformas::Areal(sf::Vector2f(6600.f, ger_grafico->getWindowSize().y - 400.f), sf::Vector2f(600.f, 50.f));
+		plat->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(plat));
+
+		plat = new Obstaculos::Inertes::Plataformas::Areal(sf::Vector2f(7000.f, ger_grafico->getWindowSize().y - 700.f), sf::Vector2f(600.f, 50.f));
 		plat->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(plat));
 

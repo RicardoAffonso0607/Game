@@ -11,7 +11,7 @@ namespace Inimigos {
 
 		Medjai::Medjai(sf::Vector2f pos, ListaEntidades* list_ent)
 		{
-			life = 20;
+			life = 10;
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "MedjaiPA.png");
 			body.setTexture(&textura);

@@ -13,7 +13,7 @@ namespace Inimigos {
 			gelo(nullptr),
 			list_ent(list)
 		{
-			life = 200;
+			life = 100;
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "DragaoFlorestaPA.png");
 			body.setTexture(&textura);

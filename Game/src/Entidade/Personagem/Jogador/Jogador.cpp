@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Entidade/Personagem/Jogador/Jogador.h"
 
-const float Jogador::jump_strength = 450.f;
+const float Jogador::jump_strength = 500.f;
 const float Jogador::gun_pos = .8f;
 
 Jogador::Jogador(sf::Vector2f aux_vel_max) :

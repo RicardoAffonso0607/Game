@@ -50,7 +50,11 @@ namespace Fases {
 
 		//Câmera no final
 		if (j1->getPos().x > (11.f *ger_grafico->getWindowSize().x / 2.f) - 150.f)
-			ger_grafico->getCamera()->setCenter((7.f *ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
+			ger_grafico->getCamera()->setCenter((11.f *ger_grafico->getWindowSize().x / 2.f) - 150.f, (ger_grafico->getWindowSize().y / 2.f));
+
+		//Começar a próxima fase
+		if (j1->getPos().x > (11.f * ger_grafico->getWindowSize().x / 2.f) + 150.f)
+			return 0;
 
 		if (j1->getLife() <= 0 )//&& j2->getLife() <= 0 )
 			return 4;
@@ -61,7 +65,7 @@ namespace Fases {
 
 	void Floresta::criarJogador()
 	{
-		j1 = new Jogadores::Lutadora(sf::Vector2f(300.f, 10.f), 50);
+		j1 = new Jogadores::Lutadora(sf::Vector2f(200.f, 10.f), 50);
 		ger_eventos->setJogador(j1);
 		j1->setGun(arma = new Armas::Arco(sf::Vector2f(300.f, 10.f), list));
 		j1->setGerGraf(ger_grafico);
@@ -69,7 +73,7 @@ namespace Fases {
 		arma->setGerGraf(ger_grafico);
 		list->push(arma);
 
-		j2 = new Jogadores::Ninja(sf::Vector2f(300.f, 200.f), 50);
+		j2 = new Jogadores::Ninja(sf::Vector2f(400.f, 200.f), 50);
 		//ger_eventos->setJogador(j1);
 		j2->setGun(arma = new Armas::Faca(sf::Vector2f(300.f, 10.f)));
 		j2->setGerGraf(ger_grafico);
@@ -85,7 +89,7 @@ namespace Fases {
 		Inimigos::Chefoes::Nidogue* chefao = nullptr;
 
 		/*---------------------------------------------------------------------------------*/ // Corpo a Corpos
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(900.f, 200.f), list);
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(1000.f, 200.f), list);
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
@@ -95,14 +99,14 @@ namespace Fases {
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
-		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(3750.f, 0.f), list);
+		corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(3750.f, 600.f), list);
 		corpo_a_corpo->setGerGraf(ger_grafico);
 		corpo_a_corpo->setPlayer(j1);
 		list->push(corpo_a_corpo);
 
-		if ((rand() % 10) >= 5) // Aleatório
+		if ((rand() % 10) >= 6) // Aleatório
 		{
-			corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(6300.f, 0.f), list);
+			corpo_a_corpo = new Inimigos::CorpoACorpos::Spartacus(sf::Vector2f(11000.f, 600.f), list);
 			corpo_a_corpo->setGerGraf(ger_grafico);
 			corpo_a_corpo->setPlayer(j1);
 			list->push(corpo_a_corpo);
@@ -133,6 +137,16 @@ namespace Fases {
 		}
 		/*---------------------------------------------------------------------------------*/ // Chefão
 		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(6600.f, 90.f), list);
+		chefao->setGerGraf(ger_grafico);
+		chefao->setPlayer(j1);
+		list->push(chefao);
+
+		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(8000.f, 90.f), list);
+		chefao->setGerGraf(ger_grafico);
+		chefao->setPlayer(j1);
+		list->push(chefao);
+
+		chefao = new Inimigos::Chefoes::Nidogue(sf::Vector2f(9800.f, 90.f), list);
 		chefao->setGerGraf(ger_grafico);
 		chefao->setPlayer(j1);
 		list->push(chefao);
@@ -174,6 +188,10 @@ namespace Fases {
 		list->push(static_cast<Entidade*>(plat));
 
 		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(6600.f, ger_grafico->getWindowSize().y - 400.f), sf::Vector2f(600.f, 50.f));
+		plat->setGerGraf(ger_grafico);
+		list->push(static_cast<Entidade*>(plat));
+
+		plat = new Obstaculos::Inertes::Plataformas::Gramado(sf::Vector2f(7000.f, ger_grafico->getWindowSize().y - 700.f), sf::Vector2f(600.f, 50.f));
 		plat->setGerGraf(ger_grafico);
 		list->push(static_cast<Entidade*>(plat));
 

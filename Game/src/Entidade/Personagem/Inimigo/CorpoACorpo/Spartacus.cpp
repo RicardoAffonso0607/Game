@@ -11,7 +11,7 @@ namespace Inimigos {
 
 		Spartacus::Spartacus(sf::Vector2f pos, ListaEntidades* list_ent)
 		{
-			life = 50;
+			life = 25;
 			vel = vel_max;
 			textura.loadFromFile(string(IMG) + "Spartacus.png");
 			body.setTexture(&textura);
