@@ -18,22 +18,6 @@ Jogador::~Jogador()
 {
 }
 
-//void Jogador::setAttacker(int gun_type, int attack_type)
-//{
-//	if (!attack_delay) {
-//		if (attack_type == ATQ_LONGO) {
-//			attacker = true;
-//			attack_delay = gun->getDelay();
-//			attack_instant = clock.getElapsedTime();
-//		}
-//		else if (attack_type == ATQ_CURTO) {
-//			attacker = true;
-//			attack_delay = 2*gun->getDelay();
-//			attack_instant = clock.getElapsedTime();
-//		}
-//	}
-//}
-
 bool Jogador::getRetardable() const
 {
 	return retardable;
@@ -41,8 +25,6 @@ bool Jogador::getRetardable() const
 
 void Jogador::setGun(Entidade* gun)
 {
-	//if (pArma)
-	//	delete pArma;
 	pArma = dynamic_cast<Arma*>(gun);
 }
 
@@ -71,21 +53,6 @@ void Jogador::executar()
 		vel = vel_max;
 	}
 	sf::Listener::setPosition(sf::Vector3f(body.getPosition().x, 0.f, body.getPosition().y));
-	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !jumped && allow_jump) {
-	//	colidiu_cima = false;
-	//	colidiu_baixo = false;
-	//	jumped = true;
-	//}
-	//if (jumped && !colidiu_cima && jumped_height < jump_strength)
-	//{
-	//	body.move(sf::Vector2f(0.f, -vel.y));
-	//	jumped_height += vel.y - getMass()*ACEL_GRAV;
-	//}
-	//if (jumped && !flying)
-	//{
-	//	jumped = false;
-	//	jumped_height = 0.f;
-	//}
 	if (atacou)
 		attacker = false;
 	if (clock.getElapsedTime() - attack_delay > attack_instant) {

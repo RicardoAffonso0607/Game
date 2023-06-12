@@ -64,7 +64,5 @@ namespace Gerenciador {
 
 	void Eventos::verificaMouseClicado()
 	{
-		//if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			//pJogador->setAttacker(pJogador->getGunType(), ATQ_CURTO);//ataque tipo 2
 	}
 }

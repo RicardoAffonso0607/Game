@@ -75,7 +75,6 @@ public:
 	bool getColidiuBaixo() { return colidiu_baixo; }
 	bool getColidiuCima() { return colidiu_cima; }
 	bool getFlying() { return flying; }
-	//void events() /*override*/;
 
 	sf::Time getClock() override;
 };
