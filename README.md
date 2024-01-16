@@ -9,7 +9,7 @@ This 2D plataform game was based in a Software Engineering's project, therefore 
 ## Authors
 
 * Ricardo Affonso
-* Lucas Yukio Fukuda Matsumoto
+* Lucas Yukio Fukuda Matsumoto, github: https://github.com/iLukSbr
 
 ## Screenshots
 
